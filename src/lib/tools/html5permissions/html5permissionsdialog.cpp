@@ -42,8 +42,8 @@ HTML5PermissionsDialog::HTML5PermissionsDialog(QWidget* parent)
 
 /* Hide unsupported HTML5 permissions */
 #if QTWEBENGINEWIDGETS_VERSION < QT_VERSION_CHECK(5, 10, 0)
-    qobject_cast<QListView *>(ui->feature->view())->setRowHidden(6, true);
-    qobject_cast<QListView *>(ui->feature->view())->setRowHidden(7, true);
+    ui->feature->removeItem(7);
+    ui->feature->removeItem(6);
 #endif
 
     showFeaturePermissions(currentFeature());
