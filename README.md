@@ -2,11 +2,10 @@
 
 Thallium is a KDE web browser. It uses QtWebEngine rendering engine.
 
-![image](https://www.falkon.org/images/screenshot.png)
 
 ## Downloads
 
-Thallium downloads are available from [homepage](https://www.falkon.org/download/).
+Thallium downloads are available from [homepage](https://www.thallium.org/download/).
 
 ## Building
 
@@ -22,11 +21,11 @@ When installing Thallium to custom prefix, you may need to adjust `XDG_DATA_DIRS
 
 ```sh
 # Build
-cmake -DCMAKE_INSTALL_PREFIX=$HOME/falkon
+cmake -DCMAKE_INSTALL_PREFIX=$HOME/thallium
 
 # Run
-export XDG_DATA_DIRS="$HOME/falkon/share:$XDG_DATA_DIRS"
-$HOME/falkon/bin/falkon
+export XDG_DATA_DIRS="$HOME/thallium/share:$XDG_DATA_DIRS"
+$HOME/thallium/bin/thallium
 ```
 
 ## Contributing
@@ -43,4 +42,4 @@ You can report any bugs or feature request in KDE [bugzilla](https://bugs.kde.or
 
 #### Contact
 
-You can get in contact with developers using [mailing list](https://mail.kde.org/mailman/listinfo/falkon) or __IRC__ `#falkon` at `irc.libera.chat`.
+You can get in contact with developers using [mailing list](https://mail.kde.org/mailman/listinfo/thallium) or __IRC__ `#thallium` at `irc.libera.chat`.
