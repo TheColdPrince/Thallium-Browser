@@ -87,7 +87,7 @@ _____________________________________________________________________________
                          Macros
 _____________________________________________________________________________
 
- Change log window verbosity (default: 3=no script)
+ Change log window verbosity (default: 5=no script)
 
  Example:
  !include "AllAssociation.nsh"
