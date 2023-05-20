@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-02-27 18:52+0400\n"
+"PO-Revision-Date: 2023-05-11 09:58+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -2665,7 +2665,7 @@ msgstr "بناء التنقيح"
 #: lib/network/schemehandlers/falkonschemehandler.cpp:353
 msgctxt "FalkonSchemeReply|"
 msgid "Windows 7 API"
-msgstr "واجهة برمجة تطبيقات ويندوز ٧"
+msgstr "واجهة برمجة تطبيقات ويندوز 7"
 
 #: lib/network/schemehandlers/falkonschemehandler.cpp:355
 msgctxt "FalkonSchemeReply|"
@@ -3644,7 +3644,7 @@ msgstr "اجعله المبدئي"
 #, qt-format
 msgctxt "Preferences|"
 msgid "%1%"
-msgstr ""
+msgstr "%1٪"
 
 #: lib/preferences/preferences.cpp:551
 msgctxt "Preferences|"
@@ -4890,12 +4890,12 @@ msgstr "جلسة جديدة (%1)"
 #: lib/session/sessionmanager.cpp:243
 msgctxt "SessionManager|"
 msgid "Backup 1"
-msgstr "النسخة الاحتياطيّة ١"
+msgstr "النسخة الاحتياطيّة 1"
 
 #: lib/session/sessionmanager.cpp:250
 msgctxt "SessionManager|"
 msgid "Backup 2"
-msgstr "النسخة الاحتياطيّة ٢"
+msgstr "النسخة الاحتياطيّة 2"
 
 #: lib/session/sessionmanager.cpp:290
 msgctxt "SessionManager|"
