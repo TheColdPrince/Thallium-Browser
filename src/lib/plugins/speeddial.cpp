@@ -62,6 +62,12 @@ void SpeedDial::loadSettings()
     m_sdcentered = settings.value("sdcenter", false).toBool();
     settings.endGroup();
 
+    if (allPages.isEmpty()) {
+        allPages = "url:\"https://www.falkon.org\"|title:\"Falkon\";"
+                   "url:\"https://store.falkon.org\"|title:\"Falkon Store\";"
+                   "url:\"https://www.kde.org\"|title:\"KDE Planet\";"
+                   "url:\"https://planet.kde.org\"|title:\"KDE Community\";";
+    }
     changed(allPages);
 
     m_thumbnailsDir = DataPaths::currentProfilePath() + "/thumbnails/";
