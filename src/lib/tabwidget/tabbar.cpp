@@ -422,7 +422,7 @@ void TabBar::currentTabChanged(int index)
     }
 
     // Don't hide close buttons when dragging tabs
-    if (m_dragStartPosition.isNull()) {
+    if (m_dragStartPosition.isNull() && !m_isRestoring) {
         showCloseButton(index);
         if (m_lastTab) {
             hideCloseButton(m_lastTab->tabIndex());
@@ -436,6 +436,10 @@ void TabBar::currentTabChanged(int index)
 
 void TabBar::setTabText(int index, const QString &text)
 {
+    if (m_isRestoring) {
+        return;
+    }
+
     QString tabText = text;
 
     // Avoid Alt+letter shortcuts
@@ -728,6 +732,16 @@ void TabBar::dropEvent(QDropEvent* event)
             }
         }
     }
+}
+
+void TabBar::setIsRestoring(bool restoring)
+{
+    m_isRestoring = restoring;
+}
+
+bool TabBar::isRestoring()
+{
+    return m_isRestoring;
 }
 
 #include "tabbar.moc"

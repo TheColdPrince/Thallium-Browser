@@ -507,16 +507,18 @@ void TabWidget::currentTabChanged(int index)
     m_lastBackgroundTab = nullptr;
     m_currentTabFresh = false;
 
-    WebTab* webTab = weTab(index);
-    webTab->tabActivated();
+    if (!m_tabBar->isRestoring()) {
+        WebTab* webTab = weTab(index);
+        webTab->tabActivated();
 
-    LocationBar* locBar = webTab->locationBar();
+        LocationBar* locBar = webTab->locationBar();
 
-    if (locBar && m_locationBars->indexOf(locBar) != -1) {
-        m_locationBars->setCurrentWidget(locBar);
+        if (locBar && m_locationBars->indexOf(locBar) != -1) {
+            m_locationBars->setCurrentWidget(locBar);
+        }
+
+        m_window->currentTabChanged();
     }
-
-    m_window->currentTabChanged();
 
     Q_EMIT changed();
 }
@@ -849,6 +851,8 @@ bool TabWidget::restoreState(const QVector<WebTab::SavedTab> &tabs, int currentT
         return false;
     }
 
+    m_tabBar->setIsRestoring(true);
+
     QVector<QPair<WebTab*, QVector<int>>> childTabs;
 
     for (int i = 0; i < tabs.size(); ++i) {
@@ -868,6 +872,13 @@ bool TabWidget::restoreState(const QVector<WebTab::SavedTab> &tabs, int currentT
                 p.first->addChildTab(t);
             }
         }
+    }
+
+    m_tabBar->setIsRestoring(false);
+
+    auto const l_allTabs = allTabs();
+    for (const WebTab* tab : l_allTabs) {
+        m_tabBar->setTabText(tab->tabIndex(), tab->title());
     }
 
     setCurrentIndex(currentTab);

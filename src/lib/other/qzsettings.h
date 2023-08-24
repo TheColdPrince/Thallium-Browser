@@ -39,6 +39,8 @@ public:
     bool showSwitchTab;
     bool alwaysShowGoIcon;
     bool useInlineCompletion;
+    bool showZoomLabel;
+    bool completionPopupExpandToWindow;
 
     // SearchEngines
     bool searchOnEngineChange;
@@ -53,6 +55,9 @@ public:
 
     QStringList autoOpenProtocols;
     QStringList blockedProtocols;
+
+    QStringList allowedSchemes;
+    QStringList blockedSchemes;
 
     // Browser-Tabs-Settings
     Qz::NewTabPositionFlags newTabPosition;

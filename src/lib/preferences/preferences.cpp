@@ -44,9 +44,11 @@
 #include "registerqappassociation.h"
 #include "profilemanager.h"
 #include "html5permissions/html5permissionsdialog.h"
+#include "certificatemanager.h"
 #include "searchenginesdialog.h"
 #include "webscrollbarmanager.h"
 #include "protocolhandlerdialog.h"
+#include "schememanager.h"
 #include "../config.h"
 
 #include <QSettings>
@@ -248,8 +250,10 @@ Preferences::Preferences(BrowserWindow* window)
     ui->useInlineCompletion->setChecked(settings.value("useInlineCompletion", true).toBool());
     ui->completionShowSwitchTab->setChecked(settings.value("showSwitchTab", true).toBool());
     ui->alwaysShowGoIcon->setChecked(settings.value("alwaysShowGoIcon", false).toBool());
+    ui->showZoomLabel->setChecked(settings.value("showZoomLabel", true).toBool());
     ui->selectAllOnFocus->setChecked(settings.value("SelectAllTextOnDoubleClick", true).toBool());
     ui->selectAllOnClick->setChecked(settings.value("SelectAllTextOnClick", false).toBool());
+    ui->completionPopupExpandToWindow->setChecked(settings.value("CompletionPopupExpandToWindow", false).toBool());
     bool showPBinAB = settings.value("ShowLoadingProgress", false).toBool();
     ui->showLoadingInAddressBar->setChecked(showPBinAB);
     ui->adressProgressSettings->setEnabled(showPBinAB);
@@ -517,7 +521,9 @@ Preferences::Preferences(BrowserWindow* window)
     connect(ui->uaManager, &QAbstractButton::clicked, this, &Preferences::openUserAgentManager);
     connect(ui->jsOptionsButton, &QAbstractButton::clicked, this, &Preferences::openJsOptions);
     connect(ui->searchEngines, &QAbstractButton::clicked, this, &Preferences::openSearchEnginesManager);
+    connect(ui->certificateManager, &QAbstractButton::clicked, this, &Preferences::openCertificateManager);
     connect(ui->protocolHandlers, &QAbstractButton::clicked, this, &Preferences::openProtocolHandlersManager);
+    connect(ui->customSchemes, &QAbstractButton::clicked, this, &Preferences::openSchemesManager);
 
     connect(ui->listWidget, &QListWidget::currentItemChanged, this, &Preferences::showStackedPage);
     ui->listWidget->itemAt(5, 5)->setSelected(true);
@@ -738,9 +744,21 @@ void Preferences::openSearchEnginesManager()
     dialog->open();
 }
 
+void Preferences::openCertificateManager()
+{
+    auto *dialog = new CertificateManager(this);
+    dialog->open();
+}
+
 void Preferences::openProtocolHandlersManager()
 {
     auto *dialog = new ProtocolHandlerDialog(this);
+    dialog->open();
+}
+
+void Preferences::openSchemesManager()
+{
+    auto *dialog = new SchemeManager(this);
     dialog->open();
 }
 
@@ -1019,9 +1037,11 @@ void Preferences::saveSettings()
     settings.setValue("showSuggestions", ui->addressbarCompletion->currentIndex());
     settings.setValue("useInlineCompletion", ui->useInlineCompletion->isChecked());
     settings.setValue("alwaysShowGoIcon", ui->alwaysShowGoIcon->isChecked());
+    settings.setValue("showZoomLabel", ui->showZoomLabel->isChecked());
     settings.setValue("showSwitchTab", ui->completionShowSwitchTab->isChecked());
     settings.setValue("SelectAllTextOnDoubleClick", ui->selectAllOnFocus->isChecked());
     settings.setValue("SelectAllTextOnClick", ui->selectAllOnClick->isChecked());
+    settings.setValue("CompletionPopupExpandToWindow", ui->completionPopupExpandToWindow->isChecked());
     settings.setValue("ShowLoadingProgress", ui->showLoadingInAddressBar->isChecked());
     settings.setValue("ProgressStyle", ui->progressStyleSelector->currentIndex());
     settings.setValue("UseCustomProgressColor", ui->checkBoxCustomProgressColor->isChecked());

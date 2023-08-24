@@ -8,8 +8,8 @@
 # Iñigo Salvador Azurmendi <xalba@ni.eus>, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"PO-Revision-Date: 2023-02-25 23:37+0100\n"
+"Project-Id-Version: falkon\n"
+"PO-Revision-Date: 2023-08-17 14:27+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Language: eu_ES\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: lib/3rdparty/lineedit.cpp:102
 msgctxt "LineEdit|"
@@ -216,7 +216,7 @@ msgstr "Ezinezkoa harpidetza gertatzea!"
 #: lib/adblock/adblocksubscription.cpp:286
 msgctxt "AdBlockCustomList|"
 msgid "Custom Rules"
-msgstr "Norbere Arauak"
+msgstr "Neurrira eginiko arauak"
 
 #: lib/adblock/adblocktreewidget.cpp:80
 msgctxt "AdBlockTreeWidget|"
@@ -231,7 +231,7 @@ msgstr "Kendu Araua"
 #: lib/adblock/adblocktreewidget.cpp:141
 msgctxt "AdBlockTreeWidget|"
 msgid "Add Custom Rule"
-msgstr "Gehitu Norbere Araua"
+msgstr "Gehitu neurrira eginiko araua"
 
 #: lib/adblock/adblocktreewidget.cpp:141
 msgctxt "AdBlockTreeWidget|"
@@ -358,7 +358,7 @@ msgctxt "BrowserWindow|"
 msgid "There are still open tabs"
 msgstr "Oraindik irekitako fitxak daude"
 
-#: lib/app/mainapplication.cpp:1085
+#: lib/app/mainapplication.cpp:1087
 msgctxt "MainApplication|"
 msgid ""
 "Falkon is not currently your default browser. Would you like to make it your "
@@ -367,32 +367,32 @@ msgstr ""
 "Falkon ez da une honetan zure nabigatzailea lehenetsia. Zure nabigatzaile "
 "lehenetsia egin nahi duzu?"
 
-#: lib/app/mainapplication.cpp:1086
+#: lib/app/mainapplication.cpp:1088
 msgctxt "MainApplication|"
 msgid "Always perform this check when starting Falkon."
 msgstr "Egin beti egiaztapen hau Falkon abiatzean."
 
-#: lib/app/mainapplication.cpp:1088
+#: lib/app/mainapplication.cpp:1090
 msgctxt "MainApplication|"
 msgid "Default Browser"
 msgstr "Berezko Nabigatzailea"
 
-#: lib/app/mainapplication.cpp:1209
+#: lib/app/mainapplication.cpp:1224
 msgctxt "MainApplication|"
 msgid "Open new tab"
 msgstr "Ireki fitxa berria"
 
-#: lib/app/mainapplication.cpp:1210
+#: lib/app/mainapplication.cpp:1225
 msgctxt "MainApplication|"
 msgid "Open new window"
 msgstr "Ireki leiho berria"
 
-#: lib/app/mainapplication.cpp:1211
+#: lib/app/mainapplication.cpp:1226
 msgctxt "MainApplication|"
 msgid "Open new private window"
 msgstr "Ireki leiho pribatu berria"
 
-#: lib/app/mainapplication.cpp:1226
+#: lib/app/mainapplication.cpp:1241
 msgctxt "MainApplication|"
 msgid ""
 "Falkon is a new and very fast Qt web browser. Falkon is licensed under GPL "
@@ -1703,7 +1703,7 @@ msgstr ""
 #: lib/downloads/downloadmanager.ui:20
 msgctxt "DownloadManager|"
 msgid "Download Manager"
-msgstr "Jeisketa Kudeatzailea"
+msgstr "Zama-jaitsiera kudeatzailea"
 
 #: lib/downloads/downloadmanager.cpp:230
 #, qt-format
@@ -2006,37 +2006,37 @@ msgctxt "HistoryMenu|"
 msgid "Closed Windows"
 msgstr "Itxitako Leihoak"
 
-#: lib/history/historymodel.cpp:56
+#: lib/history/historymodel.cpp:57
 msgctxt "HistoryModel|"
 msgid "Title"
 msgstr "Izenburua"
 
-#: lib/history/historymodel.cpp:58
+#: lib/history/historymodel.cpp:59
 msgctxt "HistoryModel|"
 msgid "Address"
 msgstr "Helbidea"
 
-#: lib/history/historymodel.cpp:60
+#: lib/history/historymodel.cpp:61
 msgctxt "HistoryModel|"
 msgid "Visit Date"
 msgstr "Ikusaldi Eguna"
 
-#: lib/history/historymodel.cpp:62
+#: lib/history/historymodel.cpp:63
 msgctxt "HistoryModel|"
 msgid "Visit Count"
 msgstr "Ikusaldi Zenbatekoa"
 
-#: lib/history/historymodel.cpp:340 lib/history/historymodel.cpp:471
+#: lib/history/historymodel.cpp:341 lib/history/historymodel.cpp:472
 msgctxt "HistoryModel|"
 msgid "Today"
 msgstr "Gaur"
 
-#: lib/history/historymodel.cpp:476
+#: lib/history/historymodel.cpp:477
 msgctxt "HistoryModel|"
 msgid "This Week"
 msgstr "Aste Honetan"
 
-#: lib/history/historymodel.cpp:481
+#: lib/history/historymodel.cpp:482
 msgctxt "HistoryModel|"
 msgid "This Month"
 msgstr "Hilabete Honetan"
@@ -2067,18 +2067,18 @@ msgctxt "LocationCompleterView|"
 msgid "Search with:"
 msgstr "Bilatu honekin:"
 
-#: lib/navigation/locationbar.cpp:92
+#: lib/navigation/locationbar.cpp:95
 msgctxt "LocationBar|"
 msgid "Paste And &Go"
 msgstr "Itsatsi Eta &Joan"
 
-#: lib/navigation/locationbar.cpp:159
+#: lib/navigation/locationbar.cpp:163
 #, qt-format
 msgctxt "LocationBar|"
 msgid "Enter address or search with %1"
 msgstr "Sartu URL helbidea edo bilatu honekin: %1"
 
-#: lib/navigation/locationbar.cpp:161
+#: lib/navigation/locationbar.cpp:165
 msgctxt "LocationBar|"
 msgid "Enter address"
 msgstr "Sartu helbidea"
@@ -2239,12 +2239,23 @@ msgctxt "WebSearchBar|"
 msgid "Search when engine changed"
 msgstr "Bilatu gailua aldatutakoan"
 
-#: lib/network/networkmanager.cpp:84
+#: lib/navigation/zoomlabel.cpp:35
+msgctxt "ZoomLabel|"
+msgid "Reset zoom level"
+msgstr "Berrezarri zoom maila"
+
+#: lib/navigation/zoomlabel.cpp:60
+#, qt-format
+msgctxt "ZoomLabel|"
+msgid "%1%"
+msgstr "%%1"
+
+#: lib/network/networkmanager.cpp:86
 msgctxt "NetworkManager|"
 msgid "SSL Certificate Error!"
 msgstr "SSL Egiaztapen Akatsa!"
 
-#: lib/network/networkmanager.cpp:85
+#: lib/network/networkmanager.cpp:87
 msgctxt "NetworkManager|"
 msgid ""
 "The page you are trying to access has the following errors in the SSL "
@@ -2253,32 +2264,32 @@ msgstr ""
 "Sartzen saiatzen ari zaren orrialdeak hurrengo akatsak ditu SSL "
 "egiaztagirian:"
 
-#: lib/network/networkmanager.cpp:86
+#: lib/network/networkmanager.cpp:88
 msgctxt "NetworkManager|"
 msgid "Would you like to make an exception for this certificate?"
 msgstr "Nahi duzu salbuespen bat egitea egiaztagiri honentzat?"
 
-#: lib/network/networkmanager.cpp:113
+#: lib/network/networkmanager.cpp:118
 msgctxt "NetworkManager|"
 msgid "Authorization required"
 msgstr "Baimen-ematea beharrezkoa da"
 
-#: lib/network/networkmanager.cpp:120 lib/network/networkmanager.cpp:206
+#: lib/network/networkmanager.cpp:125 lib/network/networkmanager.cpp:211
 msgctxt "NetworkManager|"
 msgid "Username: "
 msgstr "Erabiltzaile-izena: "
 
-#: lib/network/networkmanager.cpp:121 lib/network/networkmanager.cpp:207
+#: lib/network/networkmanager.cpp:126 lib/network/networkmanager.cpp:212
 msgctxt "NetworkManager|"
 msgid "Password: "
 msgstr "Sarhitza: "
 
-#: lib/network/networkmanager.cpp:127
+#: lib/network/networkmanager.cpp:132
 msgctxt "NetworkManager|"
 msgid "Save username and password for this site"
 msgstr "Gorde erabiltzaile-izena eta sarhitza gune honetan"
 
-#: lib/network/networkmanager.cpp:135
+#: lib/network/networkmanager.cpp:140
 #, qt-format
 msgctxt "NetworkManager|"
 msgid ""
@@ -2286,12 +2297,12 @@ msgid ""
 msgstr ""
 "%1-k erabiltzaile-izena eta sarhitza eskatzen ditu. Guneak hau dio: \"%2\""
 
-#: lib/network/networkmanager.cpp:199
+#: lib/network/networkmanager.cpp:204
 msgctxt "NetworkManager|"
 msgid "Proxy authorization required"
 msgstr "Proxy-aren baimen-ematea beharrezkoa da"
 
-#: lib/network/networkmanager.cpp:219
+#: lib/network/networkmanager.cpp:224
 #, qt-format
 msgctxt "NetworkManager|"
 msgid "A username and password are being requested by proxy %1. "
@@ -2454,7 +2465,7 @@ msgstr "Doitu altuera"
 #: lib/network/schemehandlers/falkonschemehandler.cpp:232
 msgctxt "FalkonSchemeReply|"
 msgid "Use custom wallpaper"
-msgstr "Erabili norberak finkatutako horma-papera"
+msgstr "Erabili neurrira eginiko horma-papera"
 
 #: lib/network/schemehandlers/falkonschemehandler.cpp:233
 msgctxt "FalkonSchemeReply|"
@@ -2676,6 +2687,11 @@ msgctxt "FalkonSchemeReply|"
 msgid "No available extensions."
 msgstr "Ez dago hedapen eskuragarririk."
 
+#: lib/network/sslerrordialog.cpp:31
+msgctxt "SslErrorDialog|"
+msgid "Only for this session"
+msgstr "Saio honetarako bakarrik"
+
 #: lib/network/sslerrordialog.ui:14
 msgctxt "SslErrorDialog|"
 msgid "SSL Certificate Error!"
@@ -2886,17 +2902,17 @@ msgctxt "BrowsingLibrary|"
 msgid "Search..."
 msgstr "Bilatu..."
 
-#: lib/other/clearprivatedata.cpp:154
+#: lib/other/clearprivatedata.cpp:155
 msgctxt "ClearPrivateData|"
 msgid "Done"
 msgstr "Eginda"
 
-#: lib/other/clearprivatedata.cpp:172
+#: lib/other/clearprivatedata.cpp:173
 msgctxt "ClearPrivateData|"
 msgid "Database Optimized"
 msgstr "Datubasea Hoberenduta"
 
-#: lib/other/clearprivatedata.cpp:172
+#: lib/other/clearprivatedata.cpp:173
 #, qt-format
 msgctxt "ClearPrivateData|"
 msgid ""
@@ -3557,6 +3573,47 @@ msgctxt "AutoFillManager|"
 msgid "Exceptions"
 msgstr "Salbuespenak"
 
+#: lib/preferences/certificatemanager.cpp:61
+msgctxt "CertificateManager|"
+msgid "Host: "
+msgstr "Ostalaria: "
+
+#: lib/preferences/certificatemanager.cpp:65
+msgctxt "CertificateManager|"
+msgid "Add certificate exception"
+msgstr "Gehitu ziurtagiriaren salbuespena"
+
+#: lib/preferences/certificatemanager.cpp:74
+#, qt-format
+msgctxt "CertificateManager|"
+msgid "Host %1 already in the list"
+msgstr "%1 ostalaria dagoeneko zerrendan dago"
+
+#: lib/preferences/certificatemanager.cpp:83
+msgctxt "CertificateManager|"
+msgid "Empty host"
+msgstr "Ostalaria hutsik"
+
+#: lib/preferences/certificatemanager.ui:14
+msgctxt "CertificateManager|"
+msgid "Certificate exception manager"
+msgstr "Ziurtagiri salbuespen kudeatzailea"
+
+#: lib/preferences/certificatemanager.ui:22
+msgctxt "CertificateManager|"
+msgid "Add"
+msgstr "Gehitu"
+
+#: lib/preferences/certificatemanager.ui:29
+msgctxt "CertificateManager|"
+msgid "Remove"
+msgstr "Kendu"
+
+#: lib/preferences/certificatemanager.ui:69
+msgctxt "CertificateManager|"
+msgid "Removing an entry requires a restart"
+msgstr "Sarrera bat kentzeko, berrabiarazi egin behar da"
+
 #: lib/preferences/jsoptions.ui:14
 msgctxt "JsOptions|"
 msgid "JavaScript Options"
@@ -3631,88 +3688,88 @@ msgctxt "PluginsManager|"
 msgid "Are you sure you want to remove '%1'?"
 msgstr "Ziur zaude «%1» kendu nahi duzula?"
 
-#: lib/preferences/preferences.cpp:151 lib/preferences/preferences.cpp:608
+#: lib/preferences/preferences.cpp:153 lib/preferences/preferences.cpp:614
 msgctxt "Preferences|"
 msgid "Default"
 msgstr "Berezkoa"
 
-#: lib/preferences/preferences.cpp:155
+#: lib/preferences/preferences.cpp:157
 msgctxt "Preferences|"
 msgid "Set as default"
 msgstr "Ezarri berezko bezala"
 
-#: lib/preferences/preferences.cpp:298
+#: lib/preferences/preferences.cpp:302
 #, qt-format
 msgctxt "Preferences|"
 msgid "%1%"
-msgstr ""
+msgstr "%%1"
 
-#: lib/preferences/preferences.cpp:551
+#: lib/preferences/preferences.cpp:557
 msgctxt "Preferences|"
 msgid "Choose executable location..."
 msgstr "Hautatu exekutagarri kokalekua..."
 
-#: lib/preferences/preferences.cpp:594
+#: lib/preferences/preferences.cpp:600
 msgctxt "Preferences|"
 msgid "OSD Notification"
 msgstr "IGE Jakinarazpena"
 
-#: lib/preferences/preferences.cpp:595
+#: lib/preferences/preferences.cpp:601
 msgctxt "Preferences|"
 msgid "Drag it on the screen to place it where you want."
 msgstr "Arrastatu ikusleihoan nahi duzun tokian jartzeko."
 
-#: lib/preferences/preferences.cpp:644
+#: lib/preferences/preferences.cpp:650
 msgctxt "Preferences|"
 msgid "Choose download location..."
 msgstr "Hautatu jeisketa kokalekua..."
 
-#: lib/preferences/preferences.cpp:658
+#: lib/preferences/preferences.cpp:664
 msgctxt "Preferences|"
 msgid "Choose stylesheet location..."
 msgstr "Hautatu estilo-orriaren kokalekua..."
 
-#: lib/preferences/preferences.cpp:669
+#: lib/preferences/preferences.cpp:675
 msgctxt "Preferences|"
 msgid "Deleted"
 msgstr "Ezabatuta"
 
-#: lib/preferences/preferences.cpp:765
+#: lib/preferences/preferences.cpp:783
 msgctxt "Preferences|"
 msgid "Choose cache path..."
 msgstr "Hautatu cachearen bide-izena..."
 
-#: lib/preferences/preferences.cpp:796
+#: lib/preferences/preferences.cpp:814
 msgctxt "Preferences|"
 msgid "New Profile"
 msgstr "Profil Berria"
 
-#: lib/preferences/preferences.cpp:796
+#: lib/preferences/preferences.cpp:814
 msgctxt "Preferences|"
 msgid "Enter the new profile's name:"
 msgstr "Sartu profil berriaren izena:"
 
-#: lib/preferences/preferences.cpp:806 lib/preferences/preferences.cpp:811
+#: lib/preferences/preferences.cpp:824 lib/preferences/preferences.cpp:829
 msgctxt "Preferences|"
 msgid "Error!"
 msgstr "Akatsa!"
 
-#: lib/preferences/preferences.cpp:806
+#: lib/preferences/preferences.cpp:824
 msgctxt "Preferences|"
 msgid "This profile already exists!"
 msgstr "Profil hau jadanik badago!"
 
-#: lib/preferences/preferences.cpp:811
+#: lib/preferences/preferences.cpp:829
 msgctxt "Preferences|"
 msgid "Cannot create profile directory!"
 msgstr "Ezinezkoa profil zuzenbidea sortzea!"
 
-#: lib/preferences/preferences.cpp:822
+#: lib/preferences/preferences.cpp:840
 msgctxt "Preferences|"
 msgid "Confirmation"
 msgstr "Baieztapena"
 
-#: lib/preferences/preferences.cpp:823
+#: lib/preferences/preferences.cpp:841
 #, qt-format
 msgctxt "Preferences|"
 msgid ""
@@ -3722,12 +3779,12 @@ msgstr ""
 "Zihur zaude \"%1\" profila betirako ezabatzea nahi duzula? Ekintza hau ezin "
 "da desegin!"
 
-#: lib/preferences/preferences.cpp:838 lib/preferences/preferences.ui:227
+#: lib/preferences/preferences.cpp:856 lib/preferences/preferences.ui:227
 msgctxt "Preferences|"
 msgid "Note: You cannot delete active profile."
 msgstr "Oharra: Ezin duzu gaituriko profila ezabatu."
 
-#: lib/preferences/preferences.cpp:1095
+#: lib/preferences/preferences.cpp:1115
 msgctxt "Preferences|"
 msgid "Select Color"
 msgstr "Hautatu Margoa"
@@ -4071,339 +4128,349 @@ msgstr "Betik erakutsi joan ikurra"
 
 #: lib/preferences/preferences.ui:824
 msgctxt "Preferences|"
+msgid "Show zoom label"
+msgstr "Erakutsi zoomaren etiketa"
+
+#: lib/preferences/preferences.ui:831
+msgctxt "Preferences|"
 msgid "Select all text by double clicking in address bar"
 msgstr "Hautatu idazki dena helbide barran klik bikoitza eginez"
 
-#: lib/preferences/preferences.ui:831
+#: lib/preferences/preferences.ui:838
 msgctxt "Preferences|"
 msgid "Select all text by clicking in address bar"
 msgstr "Hautatu idazki dena helbide barran klik eginez"
 
-#: lib/preferences/preferences.ui:838
+#: lib/preferences/preferences.ui:845
 msgctxt "Preferences|"
 msgid "Enable automatic searching from the address bar"
 msgstr "Gaitu berezgaitasunezko bilaketa helbide barratik"
 
-#: lib/preferences/preferences.ui:845
+#: lib/preferences/preferences.ui:852
 msgctxt "Preferences|"
 msgid "Search with Default Engine"
 msgstr "Bilatu Berezko Gailuarekin"
 
-#: lib/preferences/preferences.ui:852
+#: lib/preferences/preferences.ui:859
 msgctxt "Preferences|"
 msgid "Show search suggestions"
 msgstr "Erakutsi bilaketa iradokizunak"
 
-#: lib/preferences/preferences.ui:875
+#: lib/preferences/preferences.ui:866
+msgctxt "Preferences|"
+msgid "Expand suggestion popup to window width"
+msgstr "Zabaldu iradokizun azaleratua leihoaren zabalerara"
+
+#: lib/preferences/preferences.ui:889
 msgctxt "Preferences|"
 msgid "Show loading progress in address bar"
 msgstr "Erakutsi gertaketa garapena helbide barran"
 
-#: lib/preferences/preferences.ui:908
+#: lib/preferences/preferences.ui:922
 msgctxt "Preferences|"
 msgid "Fill"
 msgstr "Bete"
 
-#: lib/preferences/preferences.ui:913
+#: lib/preferences/preferences.ui:927
 msgctxt "Preferences|"
 msgid "Bottom"
 msgstr "Beheren"
 
-#: lib/preferences/preferences.ui:918
+#: lib/preferences/preferences.ui:932
 msgctxt "Preferences|"
 msgid "Top"
 msgstr "Goien"
 
-#: lib/preferences/preferences.ui:926
+#: lib/preferences/preferences.ui:940
 msgctxt "Preferences|"
 msgid "Custom color:"
-msgstr "Norbere margoa:"
+msgstr "Neurrira ipinitako kolorea:"
 
-#: lib/preferences/preferences.ui:942
+#: lib/preferences/preferences.ui:956
 msgctxt "Preferences|"
 msgid "Select color"
 msgstr "Hautatu margoa"
 
-#: lib/preferences/preferences.ui:945 lib/preferences/preferences.ui:1265
-#: lib/preferences/preferences.ui:1799 lib/preferences/preferences.ui:1896
-#: lib/preferences/preferences.ui:2466
+#: lib/preferences/preferences.ui:959 lib/preferences/preferences.ui:1279
+#: lib/preferences/preferences.ui:1813 lib/preferences/preferences.ui:1910
+#: lib/preferences/preferences.ui:2749
 msgctxt "Preferences|"
 msgid "..."
 msgstr "..."
 
-#: lib/preferences/preferences.ui:952
+#: lib/preferences/preferences.ui:966
 msgctxt "Preferences|"
 msgid "Reset"
 msgstr "Berrezarri"
 
-#: lib/preferences/preferences.ui:1003
+#: lib/preferences/preferences.ui:1017
 msgctxt "Preferences|"
 msgid "Web Configuration"
 msgstr "Web Itxurapena"
 
-#: lib/preferences/preferences.ui:1011
+#: lib/preferences/preferences.ui:1025
 msgctxt "Preferences|"
 msgid "Enable Pepper plugin API (PPAPI)"
 msgstr "Gaitu Pepper pluginaren APIa (PPAPI)"
 
-#: lib/preferences/preferences.ui:1018
+#: lib/preferences/preferences.ui:1032
 msgctxt "Preferences|"
 msgid "Use built-in PDF viewer (requires PPAPI)"
 msgstr "Erabili PDF erakusle barneratua (PPAPI behar du)"
 
-#: lib/preferences/preferences.ui:1025
+#: lib/preferences/preferences.ui:1039
 msgctxt "Preferences|"
 msgid "Allow JavaScript"
 msgstr "Baimendu JavaScript"
 
-#: lib/preferences/preferences.ui:1032
+#: lib/preferences/preferences.ui:1046
 msgctxt "Preferences|"
 msgid "Include links in focus chain"
 msgstr "Barneratu loturak foku katean"
 
 #. try to detect possible XSS attacks when executing javascript
-#: lib/preferences/preferences.ui:1039
+#: lib/preferences/preferences.ui:1053
 msgctxt "Preferences|"
 msgid "Enable XSS Auditing"
 msgstr "Gaitu XSS Aditzea"
 
 #. when you are printing page (on printer), it determine whether to also print background (color, image) of html elements
-#: lib/preferences/preferences.ui:1046
+#: lib/preferences/preferences.ui:1060
 msgctxt "Preferences|"
 msgid "Print element background"
 msgstr "Irarkitu elementuaren barrena"
 
-#: lib/preferences/preferences.ui:1053
+#: lib/preferences/preferences.ui:1067
 msgctxt "Preferences|"
 msgid "Animated scrolling"
 msgstr "Irristatze animatua"
 
-#: lib/preferences/preferences.ui:1060
+#: lib/preferences/preferences.ui:1074
 msgctxt "Preferences|"
 msgid "Enable spatial navigation"
 msgstr "Gaitu nabigazio espaziala"
 
-#: lib/preferences/preferences.ui:1067
+#: lib/preferences/preferences.ui:1081
 msgctxt "Preferences|"
 msgid "Use native scrollbars"
 msgstr "Erabili beresko irristabarrak"
 
-#: lib/preferences/preferences.ui:1074
+#: lib/preferences/preferences.ui:1088
 msgctxt "Preferences|"
 msgid "Disable automatic playing of videos"
 msgstr "Desgaitu bideo-jotze automatikoa"
 
-#: lib/preferences/preferences.ui:1081
+#: lib/preferences/preferences.ui:1095
 msgctxt "Preferences|"
 msgid "Prevent WebRTC from leaking local IP address"
 msgstr "Saihestu WebRTC-ek tokiko IP helbidea iragaztea"
 
-#: lib/preferences/preferences.ui:1088
+#: lib/preferences/preferences.ui:1102
 msgctxt "Preferences|"
 msgid "Enable DNS prefetching"
 msgstr "Gaitu DNS aurrez eskuratzea"
 
-#: lib/preferences/preferences.ui:1095
+#: lib/preferences/preferences.ui:1109
 msgctxt "Preferences|"
 msgid "Enable screen capture"
 msgstr "Gaitu pantaila atzematea"
 
-#: lib/preferences/preferences.ui:1102
+#: lib/preferences/preferences.ui:1116
 msgctxt "Preferences|"
 msgid "Use hardware acceleration (requires restart)"
 msgstr "Erabili hardware bidezko azelerazioa (berrabiarazi beharra dago)"
 
-#: lib/preferences/preferences.ui:1119
+#: lib/preferences/preferences.ui:1133
 msgctxt "Preferences|"
 msgid "Mouse wheel scrolls"
 msgstr "Sagu gurpil irristatzeak"
 
-#: lib/preferences/preferences.ui:1139
+#: lib/preferences/preferences.ui:1153
 msgctxt "Preferences|"
 msgid "lines on page"
 msgstr "lerro orrialdean"
 
-#: lib/preferences/preferences.ui:1150
+#: lib/preferences/preferences.ui:1164
 msgctxt "Preferences|"
 msgid "Default zoom on pages: "
 msgstr "Berezko zooma orrialdetan: "
 
-#: lib/preferences/preferences.ui:1189
+#: lib/preferences/preferences.ui:1203
 msgctxt "Preferences|"
 msgid "Local Storage"
 msgstr "Tokiko Biltegia"
 
-#: lib/preferences/preferences.ui:1197
+#: lib/preferences/preferences.ui:1211
 msgctxt "Preferences|"
 msgid "Allow storing network cache on disk"
 msgstr "Utzi sareko cachea diskoan biltegiratzen"
 
-#: lib/preferences/preferences.ui:1220
+#: lib/preferences/preferences.ui:1234
 msgctxt "Preferences|"
 msgid "Delete cache on close"
 msgstr "Ezabatu cachea ixterakoan "
 
-#: lib/preferences/preferences.ui:1227
+#: lib/preferences/preferences.ui:1241
 msgctxt "Preferences|"
 msgid "Maximum:"
 msgstr "Gehienez:"
 
-#: lib/preferences/preferences.ui:1234
+#: lib/preferences/preferences.ui:1248
 msgctxt "Preferences|"
 msgid " MB"
 msgstr "MB"
 
-#: lib/preferences/preferences.ui:1250
+#: lib/preferences/preferences.ui:1264
 msgctxt "Preferences|"
 msgid "Store cache in:"
 msgstr "Biltegiratu cachea hemen:"
 
-#: lib/preferences/preferences.ui:1278
+#: lib/preferences/preferences.ui:1292
 msgctxt "Preferences|"
 msgid "Allow saving history"
 msgstr "Utzi historia gordetzen"
 
-#: lib/preferences/preferences.ui:1285
+#: lib/preferences/preferences.ui:1299
 msgctxt "Preferences|"
 msgid "Delete history on close"
 msgstr "Ezabatu historia isterakoan"
 
-#: lib/preferences/preferences.ui:1308
+#: lib/preferences/preferences.ui:1322
 msgctxt "Preferences|"
 msgid "Allow local storage of HTML5 web content"
 msgstr "Utzi HTML5 web edukia tokian biltegiratzen"
 
-#: lib/preferences/preferences.ui:1315
+#: lib/preferences/preferences.ui:1329
 msgctxt "Preferences|"
 msgid "Delete locally stored HTML5 web content on close"
 msgstr "Ezabatu tokian biltegiratutako HTML5 web edukiak isterakoan"
 
-#: lib/preferences/preferences.ui:1341
+#: lib/preferences/preferences.ui:1355
 msgctxt "Preferences|"
 msgid "Delete now"
 msgstr "Ezabatu orain"
 
-#: lib/preferences/preferences.ui:1380
+#: lib/preferences/preferences.ui:1394
 msgctxt "Preferences|"
 msgid "Proxy Configuration"
 msgstr "Proxy Itxurapena"
 
-#: lib/preferences/preferences.ui:1399
+#: lib/preferences/preferences.ui:1413
 msgctxt "Preferences|"
 msgid "System proxy configuration"
 msgstr "Sistemaren proxy itxurapena"
 
-#: lib/preferences/preferences.ui:1422
+#: lib/preferences/preferences.ui:1436
 msgctxt "Preferences|"
 msgid "Manual configuration"
 msgstr "Eskuzko itxurapena"
 
-#: lib/preferences/preferences.ui:1432
+#: lib/preferences/preferences.ui:1446
 msgctxt "Preferences|"
 msgid "HTTP"
 msgstr "HTTP"
 
-#: lib/preferences/preferences.ui:1437
+#: lib/preferences/preferences.ui:1451
 msgctxt "Preferences|"
 msgid "SOCKS5"
 msgstr "SOCKS5"
 
-#: lib/preferences/preferences.ui:1448
+#: lib/preferences/preferences.ui:1462
 msgctxt "Preferences|"
 msgid "Port:"
 msgstr "Ataka:"
 
-#: lib/preferences/preferences.ui:1469
+#: lib/preferences/preferences.ui:1483
 msgctxt "Preferences|"
 msgid "Username:"
 msgstr "Erabiltzaile-izena:"
 
-#: lib/preferences/preferences.ui:1479
+#: lib/preferences/preferences.ui:1493
 msgctxt "Preferences|"
 msgid "Password:"
 msgstr "Sarhitza:"
 
-#: lib/preferences/preferences.ui:1508
+#: lib/preferences/preferences.ui:1522
 msgctxt "Preferences|"
 msgid "No proxy"
 msgstr "Proxyrik ez"
 
-#: lib/preferences/preferences.ui:1523
+#: lib/preferences/preferences.ui:1537
 msgctxt "Preferences|"
 msgid "<b>Font Families</b>"
 msgstr "<b>Hizki Sendiak</b>"
 
-#: lib/preferences/preferences.ui:1536
+#: lib/preferences/preferences.ui:1550
 msgctxt "Preferences|"
 msgid "Standard"
 msgstr "Estandarra"
 
-#: lib/preferences/preferences.ui:1543
+#: lib/preferences/preferences.ui:1557
 msgctxt "Preferences|"
 msgid "Fixed"
 msgstr "Zuzenduta"
 
-#: lib/preferences/preferences.ui:1553
+#: lib/preferences/preferences.ui:1567
 msgctxt "Preferences|"
 msgid "Serif"
 msgstr "Serif"
 
-#: lib/preferences/preferences.ui:1563
+#: lib/preferences/preferences.ui:1577
 msgctxt "Preferences|"
 msgid "Sans Serif"
 msgstr "Sans Serif"
 
-#: lib/preferences/preferences.ui:1573
+#: lib/preferences/preferences.ui:1587
 msgctxt "Preferences|"
 msgid "Cursive"
 msgstr "Etzana"
 
-#: lib/preferences/preferences.ui:1625
+#: lib/preferences/preferences.ui:1639
 msgctxt "Preferences|"
 msgid "Fantasy"
 msgstr "Fantasia"
 
-#: lib/preferences/preferences.ui:1632
+#: lib/preferences/preferences.ui:1646
 msgctxt "Preferences|"
 msgid "<b>Font Sizes</b>"
 msgstr "<b>Hizki Neurriak</b>"
 
-#: lib/preferences/preferences.ui:1641
+#: lib/preferences/preferences.ui:1655
 msgctxt "Preferences|"
 msgid "Fixed Font Size"
 msgstr "Zuzendutako Hizki Neurria"
 
-#: lib/preferences/preferences.ui:1648
+#: lib/preferences/preferences.ui:1662
 msgctxt "Preferences|"
 msgid "Default Font Size"
 msgstr "Berezko Hizki Neurria"
 
-#: lib/preferences/preferences.ui:1675
+#: lib/preferences/preferences.ui:1689
 msgctxt "Preferences|"
 msgid "Minimum Font Size"
 msgstr "Gutxienezko Hizki Neurria"
 
-#: lib/preferences/preferences.ui:1682
+#: lib/preferences/preferences.ui:1696
 msgctxt "Preferences|"
 msgid "Minimum Logical Font Size"
 msgstr "Gutxienezko Hizki Neurri Logikoa"
 
-#: lib/preferences/preferences.ui:1715
+#: lib/preferences/preferences.ui:1729
 msgctxt "Preferences|"
 msgid "<b>Shortcuts</b>"
 msgstr "<b>Lasterteklak</b>"
 
-#: lib/preferences/preferences.ui:1722
+#: lib/preferences/preferences.ui:1736
 msgctxt "Preferences|"
 msgid "Switch to tabs with Alt + number of tab"
 msgstr "Aldatu fitxa Alt + fitxa-zenbakia erabiliz"
 
-#: lib/preferences/preferences.ui:1729
+#: lib/preferences/preferences.ui:1743
 msgctxt "Preferences|"
 msgid "Load speed dials with Ctrl + number of speed dial"
 msgstr "Gertatu abiarazte azkarrak Ktrl + abiarazte azkar zenbakiarekin"
 
-#: lib/preferences/preferences.ui:1736
+#: lib/preferences/preferences.ui:1750
 msgctxt "Preferences|"
 msgid ""
 "Existing shortcuts:<br/><b>1</b> - previous tab<br/><b>2</b> - next tab<br/"
@@ -4412,12 +4479,12 @@ msgstr ""
 "Dauden lasterbideak:<br/><b>1</b> - aurreko fitxa<br/><b>2</b> - hurrengo "
 "fitxa<br/><b>/</b> - bilatu orrian"
 
-#: lib/preferences/preferences.ui:1739
+#: lib/preferences/preferences.ui:1753
 msgctxt "Preferences|"
 msgid "Use single key shortcuts"
 msgstr "Erabili tekla bakarreko lasterteklak"
 
-#: lib/preferences/preferences.ui:1746
+#: lib/preferences/preferences.ui:1760
 msgctxt "Preferences|"
 msgid ""
 "If unchecked, prevents accidental exit from the application if the Ctrl-W "
@@ -4426,162 +4493,162 @@ msgstr ""
 "Ez dago hautaturik, aplikaziotik istripuz irtetzea saihesten du Ktrl-W "
 "lastertekla bazen helburua."
 
-#: lib/preferences/preferences.ui:1749
+#: lib/preferences/preferences.ui:1763
 msgctxt "Preferences|"
 msgid "Close application with Ctrl-Q"
 msgstr "Itxi aplikazioa Ktrl-Q -rekin"
 
-#: lib/preferences/preferences.ui:1773
+#: lib/preferences/preferences.ui:1787
 msgctxt "Preferences|"
 msgid "<b>Download Location</b>"
 msgstr "<b>Jeisketa Kokalekua</b>"
 
-#: lib/preferences/preferences.ui:1780
+#: lib/preferences/preferences.ui:1794
 msgctxt "Preferences|"
 msgid "Ask everytime for download location"
 msgstr "Galdetu betik jeisketa kokalekua"
 
-#: lib/preferences/preferences.ui:1787
+#: lib/preferences/preferences.ui:1801
 msgctxt "Preferences|"
 msgid "Use defined location: "
 msgstr "Erabili zehaztutako kokalekua:  "
 
-#: lib/preferences/preferences.ui:1837
+#: lib/preferences/preferences.ui:1851
 msgctxt "Preferences|"
 msgid "<b>Download Options</b>"
 msgstr "<b>Jeisketa Aukerak</b>"
 
-#: lib/preferences/preferences.ui:1844
+#: lib/preferences/preferences.ui:1858
 msgctxt "Preferences|"
 msgid "Close download manager when downloading finishes"
 msgstr "Itxi jeisketa kudeatzailea jeisketak amaitutakoan"
 
-#: lib/preferences/preferences.ui:1851
+#: lib/preferences/preferences.ui:1865
 msgctxt "Preferences|"
 msgid "<b>External download manager</b>"
 msgstr "<b>Kanpoko jeisketa kudeatzailea</b>"
 
-#: lib/preferences/preferences.ui:1858
+#: lib/preferences/preferences.ui:1872
 msgctxt "Preferences|"
 msgid "Use external download manager"
 msgstr "Erabili kanpoko jeisketa kudeatzailea"
 
-#: lib/preferences/preferences.ui:1870
+#: lib/preferences/preferences.ui:1884
 msgctxt "Preferences|"
 msgid "Executable:"
 msgstr "Exekutagarria:"
 
-#: lib/preferences/preferences.ui:1877
+#: lib/preferences/preferences.ui:1891
 msgctxt "Preferences|"
 msgid "Arguments:"
 msgstr "Argumentoak:"
 
-#: lib/preferences/preferences.ui:1884
+#: lib/preferences/preferences.ui:1898
 msgctxt "Preferences|"
 msgid "Leave blank if unsure"
 msgstr "Utzi hutsik ez bazaude zihur"
 
-#: lib/preferences/preferences.ui:1905
+#: lib/preferences/preferences.ui:1919
 msgctxt "Preferences|"
 msgid "<b>%d</b> will be replaced with URL to be downloaded"
 msgstr "<b>%d</b> URL-arekin ordeztuko da jeisteko"
 
-#: lib/preferences/preferences.ui:1931
+#: lib/preferences/preferences.ui:1945
 msgctxt "Preferences|"
 msgid "<b>AutoFill options</b>"
 msgstr "<b>Berez-Betetze aukerak</b>"
 
-#: lib/preferences/preferences.ui:1938
+#: lib/preferences/preferences.ui:1952
 msgctxt "Preferences|"
 msgid "Allow saving passwords from sites"
 msgstr "Utzi guneetako pasahitzak gordetzen"
 
-#: lib/preferences/preferences.ui:1989
+#: lib/preferences/preferences.ui:2003
 msgctxt "Preferences|"
 msgid "Automatically complete passwords on sites"
 msgstr "Berezgaitasunez osatu sarhitzak guneetan"
 
-#: lib/preferences/preferences.ui:2000
+#: lib/preferences/preferences.ui:2014
 msgctxt "Preferences|"
 msgid "<b>Cookies</b>"
 msgstr "<b>Cookiak</b>"
 
-#: lib/preferences/preferences.ui:2007
+#: lib/preferences/preferences.ui:2021
 msgctxt "Preferences|"
 msgid "<b>Other</b>"
 msgstr "<b>Besterik</b>"
 
-#: lib/preferences/preferences.ui:2033
+#: lib/preferences/preferences.ui:2047
 msgctxt "Preferences|"
 msgid "JavaScript options"
 msgstr "JavaScript aukerak"
 
-#: lib/preferences/preferences.ui:2043
+#: lib/preferences/preferences.ui:2057
 msgctxt "Preferences|"
 msgid "<b>JavaScript</b>"
 msgstr "<b>JavaScript</b>"
 
-#: lib/preferences/preferences.ui:2056
+#: lib/preferences/preferences.ui:2070
 msgctxt "Preferences|"
 msgid "Cookies Manager"
 msgstr "Cookie Kudeatzailea"
 
-#: lib/preferences/preferences.ui:2066
+#: lib/preferences/preferences.ui:2080
 msgctxt "Preferences|"
 msgid "Manage JavaScript privacy options"
 msgstr "Kudeatu JavaScript pribatutasun aukerak"
 
-#: lib/preferences/preferences.ui:2089
+#: lib/preferences/preferences.ui:2103
 msgctxt "Preferences|"
 msgid "Manage HTML5 permissions"
 msgstr "Kudeatu HTML5 baimenak"
 
-#: lib/preferences/preferences.ui:2096
+#: lib/preferences/preferences.ui:2110
 msgctxt "Preferences|"
 msgid "Manage Cookies"
 msgstr "Kudeatu Cookieak"
 
-#: lib/preferences/preferences.ui:2116
+#: lib/preferences/preferences.ui:2130
 msgctxt "Preferences|"
 msgid "<b>HTML5 Permissions</b>"
 msgstr "<b>HTML5 Baimenak</b>"
 
-#: lib/preferences/preferences.ui:2129
+#: lib/preferences/preferences.ui:2143
 msgctxt "Preferences|"
 msgid "HTML5 Permissions"
 msgstr "HTML5 Baimenak"
 
-#: lib/preferences/preferences.ui:2136
+#: lib/preferences/preferences.ui:2150
 msgctxt "Preferences|"
 msgid "Send Do Not Track header to servers"
 msgstr "Bidali Ez Aztarnatu idazburuak zerbitzariei"
 
-#: lib/preferences/preferences.ui:2162
+#: lib/preferences/preferences.ui:2176
 msgctxt "Preferences|"
 msgid "Expiration timeout:"
 msgstr "Epemuga:"
 
-#: lib/preferences/preferences.ui:2175
+#: lib/preferences/preferences.ui:2189
 msgctxt "Preferences|"
 msgid " seconds"
 msgstr " segundu"
 
-#: lib/preferences/preferences.ui:2197
+#: lib/preferences/preferences.ui:2211
 msgctxt "Preferences|"
 msgid "<b>Notifications</b>"
 msgstr "<b>Jakinarazpenak</b>"
 
-#: lib/preferences/preferences.ui:2220
+#: lib/preferences/preferences.ui:2234
 msgctxt "Preferences|"
 msgid "Use Native System Notifications (Linux only)"
 msgstr "Erabili Jatorrizko Sistema Jakinarazpenak (Linux bakarrik)"
 
-#: lib/preferences/preferences.ui:2227
+#: lib/preferences/preferences.ui:2241
 msgctxt "Preferences|"
 msgid "Do not use Notifications"
 msgstr "Ez erabili Jakinarazpenik"
 
-#: lib/preferences/preferences.ui:2250
+#: lib/preferences/preferences.ui:2264
 msgctxt "Preferences|"
 msgid ""
 "<b>Note: </b>You can change position of OSD Notification by dragging it on "
@@ -4590,17 +4657,17 @@ msgstr ""
 "<b>Oharra: </b>IGE Jakinarazpenaren kokapena aldatu dezakezu ikusleihoan "
 "arrastatuz."
 
-#: lib/preferences/preferences.ui:2276
+#: lib/preferences/preferences.ui:2290
 msgctxt "Preferences|"
 msgid "Use OSD Notifications"
 msgstr "Erabili IGE Jakinarazpenak"
 
-#: lib/preferences/preferences.ui:2283
+#: lib/preferences/preferences.ui:2297
 msgctxt "Preferences|"
 msgid "Preview"
 msgstr "Aurreikuspena"
 
-#: lib/preferences/preferences.ui:2348
+#: lib/preferences/preferences.ui:2362
 msgctxt "Preferences|"
 msgid ""
 "For more information about Spell Check, please see <a href=\"https://"
@@ -4609,75 +4676,150 @@ msgstr ""
 "Ortografia-egiaztatzeari buruzko informazio zabalagoa hemen, <a href="
 "\"https://userbase.kde.org/Falkon#Spell_Check\">wiki</a>."
 
-#: lib/preferences/preferences.ui:2390
+#: lib/preferences/preferences.ui:2404
 msgctxt "Preferences|"
 msgid "<b>Spell Check options</b>"
 msgstr "<b>Idaz Egiaztapen aukerak</b>"
 
-#: lib/preferences/preferences.ui:2397
+#: lib/preferences/preferences.ui:2411
 msgctxt "Preferences|"
 msgid "Enable Spell Check"
 msgstr "Gaitu Idaz Egiaztapena"
 
-#: lib/preferences/preferences.ui:2404
+#: lib/preferences/preferences.ui:2418
 msgctxt "Preferences|"
 msgid "<b>Dictionary directories</b>"
 msgstr "<b>Hiztegi zuzenbideak</b>"
 
-#: lib/preferences/preferences.ui:2455
+#: lib/preferences/preferences.ui:2469
 msgctxt "Preferences|"
 msgid "No languages found"
 msgstr "Ez da hizkuntzarik aurkitu"
 
-#: lib/preferences/preferences.ui:2473
-msgctxt "Preferences|"
-msgid "<b>Manage search engines</b>"
-msgstr "<b>Kudeatu bilaketa gailuak</b>"
-
-#: lib/preferences/preferences.ui:2480
-msgctxt "Preferences|"
-msgid "<b>User Style Sheet</b>"
-msgstr "<b>Erabiltzaile Estilo Orria</b>"
-
-#: lib/preferences/preferences.ui:2505
-msgctxt "Preferences|"
-msgid "Languages"
-msgstr "Hizkuntzak"
-
-#: lib/preferences/preferences.ui:2527
-msgctxt "Preferences|"
-msgid "<b>Change browser identification</b>"
-msgstr "<b>Aldatu nabigatzaile ezagutarazlea</b>"
-
-#: lib/preferences/preferences.ui:2552
+#: lib/preferences/preferences.ui:2498
 msgctxt "Preferences|"
 msgid "Protocol Handlers Manager"
 msgstr "Protokolo maneiatzaileen kudeatzailea"
 
-#: lib/preferences/preferences.ui:2592
+#: lib/preferences/preferences.ui:2538
 msgctxt "Preferences|"
 msgid "Search Engines Manager"
 msgstr "Bilaketa Gailu Kudeatzailea"
 
-#: lib/preferences/preferences.ui:2640
+#: lib/preferences/preferences.ui:2560
 msgctxt "Preferences|"
-msgid "Style Sheet automatically loaded with all websites: "
-msgstr "Estilo Orria berezgaitasunez gertatuta webgune guztiekin:"
+msgid "<b>User Style Sheet</b>"
+msgstr "<b>Erabiltzaile Estilo Orria</b>"
 
-#: lib/preferences/preferences.ui:2650
+#: lib/preferences/preferences.ui:2567
+msgctxt "Preferences|"
+msgid "<b>Manage search engines</b>"
+msgstr "<b>Kudeatu bilaketa gailuak</b>"
+
+#: lib/preferences/preferences.ui:2580
+msgctxt "Preferences|"
+msgid "Manage custom schemes"
+msgstr "Kudeatu neurrira eginiko antolaerak"
+
+#: lib/preferences/preferences.ui:2605
+msgctxt "Preferences|"
+msgid "Languages"
+msgstr "Hizkuntzak"
+
+#: lib/preferences/preferences.ui:2627
 msgctxt "Preferences|"
 msgid "<b>Preferred language for web sites</b>"
 msgstr "<b>Web gunetarako hizkuntza hobetsia</b>"
 
-#: lib/preferences/preferences.ui:2675
+#: lib/preferences/preferences.ui:2652
+msgctxt "Preferences|"
+msgid "Certificate Exception Manager"
+msgstr "Ziurtagiri salbuespen kudeatzailea"
+
+#: lib/preferences/preferences.ui:2674
+msgctxt "Preferences|"
+msgid "<b>Change browser identification</b>"
+msgstr "<b>Aldatu nabigatzaile ezagutarazlea</b>"
+
+#: lib/preferences/preferences.ui:2699
 msgctxt "Preferences|"
 msgid "User Agent Manager"
 msgstr "Erabiltzaile Ordezkari Kudeatzailea"
 
-#: lib/preferences/preferences.ui:2697
+#: lib/preferences/preferences.ui:2721
+msgctxt "Preferences|"
+msgid "Style Sheet automatically loaded with all websites: "
+msgstr "Estilo Orria berezgaitasunez gertatuta webgune guztiekin:"
+
+#: lib/preferences/preferences.ui:2758
 msgctxt "Preferences|"
 msgid "<b>Manage protocol handlers</b>"
 msgstr "<b>Kudeatu protokolo maneiatzaileak</b>"
+
+#: lib/preferences/preferences.ui:2765
+msgctxt "Preferences|"
+msgid "<b>Certificate manager</b>"
+msgstr "<b>Ziurtagiri kudeatzailea</b>"
+
+#: lib/preferences/preferences.ui:2816
+msgctxt "Preferences|"
+msgid "Custom Scheme Manager"
+msgstr "Neurrira eginiko antolaera kudeatzailea"
+
+#: lib/preferences/schememanager.cpp:84
+msgctxt "SchemeManager|"
+msgid "Add allowed scheme"
+msgstr "Gehitu baimendutako antolaera"
+
+#: lib/preferences/schememanager.cpp:84 lib/preferences/schememanager.cpp:119
+msgctxt "SchemeManager|"
+msgid "Scheme:"
+msgstr "Antolaera:"
+
+#: lib/preferences/schememanager.cpp:119
+msgctxt "SchemeManager|"
+msgid "Add blocked scheme"
+msgstr "Gehitu oztopatutako antolaera"
+
+#: lib/preferences/schememanager.ui:14
+msgctxt "SchemeManager|"
+msgid "Custom scheme manager"
+msgstr "Neurrira eginiko antolaera kudeatzailea"
+
+#: lib/preferences/schememanager.ui:26
+msgctxt "SchemeManager|"
+msgid "Allowed schemes"
+msgstr "Baimendutako antolaerak"
+
+#: lib/preferences/schememanager.ui:33
+msgctxt "SchemeManager|"
+msgid "**Note:** Allowed schemes can be added by extensions."
+msgstr "**Oharra:** Baimendutako antolaerak luzapenen arabera gehi daitezke."
+
+#: lib/preferences/schememanager.ui:54 lib/preferences/schememanager.ui:116
+msgctxt "SchemeManager|"
+msgid "Add"
+msgstr "Gehitu"
+
+#: lib/preferences/schememanager.ui:61 lib/preferences/schememanager.ui:123
+msgctxt "SchemeManager|"
+msgid "Remove"
+msgstr "Kendu"
+
+#: lib/preferences/schememanager.ui:68
+msgctxt "SchemeManager|"
+msgid "Block"
+msgstr "Oztopatu"
+
+#: lib/preferences/schememanager.ui:98
+msgctxt "SchemeManager|"
+msgid "Blocked schemes"
+msgstr "Oztopatutako antolaerak"
+
+#: lib/preferences/schememanager.ui:147
+msgctxt "SchemeManager|"
+msgid "Changes will take effect after Falkon restart."
+msgstr "Aldaketak Falkon berrabiarazi ondoren indarrean izango dira."
 
 #: lib/preferences/thememanager.cpp:100
 msgctxt "ThemeManager|"

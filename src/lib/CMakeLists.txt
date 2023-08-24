@@ -127,6 +127,7 @@ set(SRCS ${SRCS}
     navigation/reloadstopbutton.cpp
     navigation/siteicon.cpp
     navigation/websearchbar.cpp
+    navigation/zoomlabel.cpp
     network/networkmanager.cpp
     network/networkurlinterceptor.cpp
     network/schemehandlers/extensionschemehandler.cpp
@@ -201,10 +202,12 @@ set(SRCS ${SRCS}
     popupwindow/popupwindow.cpp
     preferences/acceptlanguage.cpp
     preferences/autofillmanager.cpp
+    preferences/certificatemanager.cpp
     preferences/jsoptions.cpp
     preferences/pluginlistdelegate.cpp
     preferences/pluginsmanager.cpp
     preferences/preferences.cpp
+    preferences/schememanager.cpp
     preferences/thememanager.cpp
     preferences/useragentdialog.cpp
     session/recoveryjsobject.cpp
@@ -354,6 +357,7 @@ set(SRCS ${SRCS}
     navigation/reloadstopbutton.h
     navigation/siteicon.h
     navigation/websearchbar.h
+    navigation/zoomlabel.h
     network/networkmanager.h
     network/networkurlinterceptor.h
     network/schemehandlers/extensionschemehandler.h
@@ -428,10 +432,12 @@ set(SRCS ${SRCS}
     popupwindow/popupwindow.h
     preferences/acceptlanguage.h
     preferences/autofillmanager.h
+    preferences/certificatemanager.h
     preferences/jsoptions.h
     preferences/pluginlistdelegate.h
     preferences/pluginsmanager.h
     preferences/preferences.h
+    preferences/schememanager.h
     preferences/thememanager.h
     preferences/useragentdialog.h
     session/recoveryjsobject.h
@@ -541,9 +547,11 @@ qt_wrap_ui(SRCS
     preferences/acceptlanguage.ui
     preferences/addacceptlanguage.ui
     preferences/autofillmanager.ui
+    preferences/certificatemanager.ui
     preferences/jsoptions.ui
     preferences/pluginslist.ui
     preferences/preferences.ui
+    preferences/schememanager.ui
     preferences/thememanager.ui
     preferences/useragentdialog.ui
     session/sessionmanagerdialog.ui

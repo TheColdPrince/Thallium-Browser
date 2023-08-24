@@ -34,6 +34,8 @@ void QzSettings::loadSettings()
     showSwitchTab = settings.value("showSwitchTab", true).toBool();
     alwaysShowGoIcon = settings.value("alwaysShowGoIcon", false).toBool();
     useInlineCompletion = settings.value("useInlineCompletion", true).toBool();
+    showZoomLabel = settings.value("showZoomLabel", true).toBool();
+    completionPopupExpandToWindow = settings.value("CompletionPopupExpandToWindow", false).toBool();
     settings.endGroup();
 
     settings.beginGroup("SearchEngines");
@@ -49,6 +51,8 @@ void QzSettings::loadSettings()
     loadTabsOnActivation = settings.value("LoadTabsOnActivation", true).toBool();
     autoOpenProtocols = settings.value("AutomaticallyOpenProtocols", QStringList()).toStringList();
     blockedProtocols = settings.value("BlockOpeningProtocols", QStringList()).toStringList();
+    allowedSchemes = settings.value("AllowedSchemes", QStringList()).toStringList();
+    blockedSchemes = settings.value("BlockedSchemes", QStringList()).toStringList();
     settings.endGroup();
 
     settings.beginGroup("Browser-Tabs-Settings");

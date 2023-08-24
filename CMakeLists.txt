@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.18)
 
 # KDE Gear Version, managed by release script
 set(RELEASE_SERVICE_VERSION_MAJOR "23")
-set(RELEASE_SERVICE_VERSION_MINOR "07")
+set(RELEASE_SERVICE_VERSION_MINOR "11")
 set(RELEASE_SERVICE_VERSION_MICRO "70")
 set(RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_VERSION_MINOR}.${RELEASE_SERVICE_VERSION_MICRO}")
 
@@ -132,14 +132,17 @@ if (KF5Wallet_FOUND AND KF5KIO_FOUND AND KF5Crash_FOUND AND KF5CoreAddons_FOUND 
 endif()
 
 # Optional: PySide2
-find_package(PySide2 "2.0.0")
-find_package(Shiboken2 "2.0.0")
-find_package(Python3 COMPONENTS Development)
-set_package_properties(PySide2 PROPERTIES DESCRIPTION "Python plugins" TYPE OPTIONAL)
-set_package_properties(Shiboken2 PROPERTIES DESCRIPTION "Python plugins" TYPE OPTIONAL)
-set_package_properties(Python3 PROPERTIES DESCRIPTION "Python plugins" TYPE OPTIONAL)
-if (PySide2_FOUND AND Shiboken2_FOUND AND Python3_FOUND)
-    set(ENABLE_PYTHON_PLUGINS TRUE)
+option(BUILD_PYTHON_SUPPORT "Support for Python plugins" ON)
+if (BUILD_PYTHON_SUPPORT)
+    find_package(PySide2 "2.0.0")
+    find_package(Shiboken2 "2.0.0")
+    find_package(Python3 COMPONENTS Development)
+    set_package_properties(PySide2 PROPERTIES DESCRIPTION "Python plugins" TYPE OPTIONAL)
+    set_package_properties(Shiboken2 PROPERTIES DESCRIPTION "Python plugins" TYPE OPTIONAL)
+    set_package_properties(Python3 PROPERTIES DESCRIPTION "Python plugins" TYPE OPTIONAL)
+    if (PySide2_FOUND AND Shiboken2_FOUND AND Python3_FOUND)
+        set(ENABLE_PYTHON_PLUGINS TRUE)
+    endif()
 endif()
 
 find_package(Intl)

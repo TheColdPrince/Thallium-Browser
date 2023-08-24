@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-06-05 11:11+0200\n"
+"PO-Revision-Date: 2023-06-23 12:38+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Language: cs_CZ\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.04.2\n"
 
 #: lib/3rdparty/lineedit.cpp:102
 msgctxt "LineEdit|"
@@ -358,7 +358,7 @@ msgctxt "BrowserWindow|"
 msgid "There are still open tabs"
 msgstr "Stále jsou otevřeny karty"
 
-#: lib/app/mainapplication.cpp:1085
+#: lib/app/mainapplication.cpp:1087
 msgctxt "MainApplication|"
 msgid ""
 "Falkon is not currently your default browser. Would you like to make it your "
@@ -366,32 +366,32 @@ msgid ""
 msgstr ""
 "Falkon není výchozím prohlížečem. Chcete jej nastavit jako výchozí prohlížeč?"
 
-#: lib/app/mainapplication.cpp:1086
+#: lib/app/mainapplication.cpp:1088
 msgctxt "MainApplication|"
 msgid "Always perform this check when starting Falkon."
 msgstr "Kontrolovat při každém startu aplikace."
 
-#: lib/app/mainapplication.cpp:1088
+#: lib/app/mainapplication.cpp:1090
 msgctxt "MainApplication|"
 msgid "Default Browser"
 msgstr "Výchozí prohlížeč"
 
-#: lib/app/mainapplication.cpp:1209
+#: lib/app/mainapplication.cpp:1224
 msgctxt "MainApplication|"
 msgid "Open new tab"
 msgstr "Otevřít novou kartu"
 
-#: lib/app/mainapplication.cpp:1210
+#: lib/app/mainapplication.cpp:1225
 msgctxt "MainApplication|"
 msgid "Open new window"
 msgstr "Otevřít nové okno"
 
-#: lib/app/mainapplication.cpp:1211
+#: lib/app/mainapplication.cpp:1226
 msgctxt "MainApplication|"
 msgid "Open new private window"
 msgstr "Otevřít nové soukromé okno"
 
-#: lib/app/mainapplication.cpp:1226
+#: lib/app/mainapplication.cpp:1241
 msgctxt "MainApplication|"
 msgid ""
 "Falkon is a new and very fast Qt web browser. Falkon is licensed under GPL "
@@ -2002,37 +2002,37 @@ msgctxt "HistoryMenu|"
 msgid "Closed Windows"
 msgstr "Zavřená okna"
 
-#: lib/history/historymodel.cpp:56
+#: lib/history/historymodel.cpp:57
 msgctxt "HistoryModel|"
 msgid "Title"
 msgstr "Titulek"
 
-#: lib/history/historymodel.cpp:58
+#: lib/history/historymodel.cpp:59
 msgctxt "HistoryModel|"
 msgid "Address"
 msgstr "Adresa"
 
-#: lib/history/historymodel.cpp:60
+#: lib/history/historymodel.cpp:61
 msgctxt "HistoryModel|"
 msgid "Visit Date"
 msgstr "Datum návštěvy"
 
-#: lib/history/historymodel.cpp:62
+#: lib/history/historymodel.cpp:63
 msgctxt "HistoryModel|"
 msgid "Visit Count"
 msgstr "Počet návštěv"
 
-#: lib/history/historymodel.cpp:340 lib/history/historymodel.cpp:471
+#: lib/history/historymodel.cpp:341 lib/history/historymodel.cpp:472
 msgctxt "HistoryModel|"
 msgid "Today"
 msgstr "Dnes"
 
-#: lib/history/historymodel.cpp:476
+#: lib/history/historymodel.cpp:477
 msgctxt "HistoryModel|"
 msgid "This Week"
 msgstr "Tento týden"
 
-#: lib/history/historymodel.cpp:481
+#: lib/history/historymodel.cpp:482
 msgctxt "HistoryModel|"
 msgid "This Month"
 msgstr "Tento měsíc"
@@ -2063,18 +2063,18 @@ msgctxt "LocationCompleterView|"
 msgid "Search with:"
 msgstr "Vyhledat pomocí:"
 
-#: lib/navigation/locationbar.cpp:92
+#: lib/navigation/locationbar.cpp:95
 msgctxt "LocationBar|"
 msgid "Paste And &Go"
 msgstr "Vložit a přejít &na"
 
-#: lib/navigation/locationbar.cpp:159
+#: lib/navigation/locationbar.cpp:163
 #, qt-format
 msgctxt "LocationBar|"
 msgid "Enter address or search with %1"
 msgstr "Zadejte adresu nebo vyhledávejte s %1"
 
-#: lib/navigation/locationbar.cpp:161
+#: lib/navigation/locationbar.cpp:165
 msgctxt "LocationBar|"
 msgid "Enter address"
 msgstr "Zadejte adresu"
@@ -2223,7 +2223,7 @@ msgstr "Přidat %1 ..."
 #: lib/navigation/websearchbar.cpp:127
 msgctxt "WebSearchBar|"
 msgid "Manage Search Engines"
-msgstr "Spravovat vyhledáváče"
+msgstr "Spravovat vyhledávače"
 
 #: lib/navigation/websearchbar.cpp:257
 msgctxt "WebSearchBar|"
@@ -2235,12 +2235,23 @@ msgctxt "WebSearchBar|"
 msgid "Search when engine changed"
 msgstr "Vyhledávat při změně vyhledávače"
 
-#: lib/network/networkmanager.cpp:84
+#: lib/navigation/zoomlabel.cpp:35
+msgctxt "ZoomLabel|"
+msgid "Reset zoom level"
+msgstr ""
+
+#: lib/navigation/zoomlabel.cpp:60
+#, qt-format
+msgctxt "ZoomLabel|"
+msgid "%1%"
+msgstr ""
+
+#: lib/network/networkmanager.cpp:86
 msgctxt "NetworkManager|"
 msgid "SSL Certificate Error!"
 msgstr "Chyba zabezpečení."
 
-#: lib/network/networkmanager.cpp:85
+#: lib/network/networkmanager.cpp:87
 msgctxt "NetworkManager|"
 msgid ""
 "The page you are trying to access has the following errors in the SSL "
@@ -2248,44 +2259,44 @@ msgid ""
 msgstr ""
 "Stránka kterou se snažíte navštívit zaslala SSL Certifikát s těmito chybami:"
 
-#: lib/network/networkmanager.cpp:86
+#: lib/network/networkmanager.cpp:88
 msgctxt "NetworkManager|"
 msgid "Would you like to make an exception for this certificate?"
 msgstr "Chcete udělit výjimku tomuto certifikátu?"
 
-#: lib/network/networkmanager.cpp:113
+#: lib/network/networkmanager.cpp:118
 msgctxt "NetworkManager|"
 msgid "Authorization required"
 msgstr "Je vyžadováno udělení oprávnění"
 
-#: lib/network/networkmanager.cpp:120 lib/network/networkmanager.cpp:206
+#: lib/network/networkmanager.cpp:125 lib/network/networkmanager.cpp:211
 msgctxt "NetworkManager|"
 msgid "Username: "
 msgstr "Uživatelské jméno: "
 
-#: lib/network/networkmanager.cpp:121 lib/network/networkmanager.cpp:207
+#: lib/network/networkmanager.cpp:126 lib/network/networkmanager.cpp:212
 msgctxt "NetworkManager|"
 msgid "Password: "
 msgstr "Heslo: "
 
-#: lib/network/networkmanager.cpp:127
+#: lib/network/networkmanager.cpp:132
 msgctxt "NetworkManager|"
 msgid "Save username and password for this site"
 msgstr "Uložit jméno a heslo pro tuto stránku"
 
-#: lib/network/networkmanager.cpp:135
+#: lib/network/networkmanager.cpp:140
 #, qt-format
 msgctxt "NetworkManager|"
 msgid ""
 "A username and password are being requested by %1. The site says: \"%2\""
 msgstr "Server %1 požaduje vaše uživatelské jméno a heslo s komentářem: \"%2\""
 
-#: lib/network/networkmanager.cpp:199
+#: lib/network/networkmanager.cpp:204
 msgctxt "NetworkManager|"
 msgid "Proxy authorization required"
 msgstr "Vyžadováno udělení oprávnění proxy"
 
-#: lib/network/networkmanager.cpp:219
+#: lib/network/networkmanager.cpp:224
 #, qt-format
 msgctxt "NetworkManager|"
 msgid "A username and password are being requested by proxy %1. "
@@ -2668,6 +2679,11 @@ msgctxt "FalkonSchemeReply|"
 msgid "No available extensions."
 msgstr "Žádné dostupné doplňky."
 
+#: lib/network/sslerrordialog.cpp:31
+msgctxt "SslErrorDialog|"
+msgid "Only for this session"
+msgstr "Pouze pro toto sezení"
+
 #: lib/network/sslerrordialog.ui:14
 msgctxt "SslErrorDialog|"
 msgid "SSL Certificate Error!"
@@ -2754,7 +2770,7 @@ msgstr "Upravit vyhledávač"
 #: lib/opensearch/searchenginesdialog.ui:14
 msgctxt "SearchEnginesDialog|"
 msgid "Manage Search Engines"
-msgstr "Spravovat vyhledáváče"
+msgstr "Spravovat vyhledávače"
 
 #: lib/opensearch/searchenginesdialog.ui:22
 msgctxt "SearchEnginesDialog|"
@@ -2826,7 +2842,7 @@ msgstr "Chyba"
 #, qt-format
 msgctxt "SearchEnginesManager|"
 msgid "Error while adding Search Engine <br><b>Error Message: </b> %1"
-msgstr "Chyba při přidávání vyhledáváče <br><b>Chybová zpráva: </b> %1"
+msgstr "Chyba při přidávání vyhledávače <br><b>Chybová zpráva: </b> %1"
 
 #: lib/other/aboutdialog.cpp:51
 #, qt-format
@@ -2880,17 +2896,17 @@ msgctxt "BrowsingLibrary|"
 msgid "Search..."
 msgstr "Hledat..."
 
-#: lib/other/clearprivatedata.cpp:154
+#: lib/other/clearprivatedata.cpp:155
 msgctxt "ClearPrivateData|"
 msgid "Done"
 msgstr "Hotovo"
 
-#: lib/other/clearprivatedata.cpp:172
+#: lib/other/clearprivatedata.cpp:173
 msgctxt "ClearPrivateData|"
 msgid "Database Optimized"
 msgstr "Databáze byla optimalizována"
 
-#: lib/other/clearprivatedata.cpp:172
+#: lib/other/clearprivatedata.cpp:173
 #, qt-format
 msgctxt "ClearPrivateData|"
 msgid ""
@@ -3550,6 +3566,47 @@ msgctxt "AutoFillManager|"
 msgid "Exceptions"
 msgstr "Výjimky"
 
+#: lib/preferences/certificatemanager.cpp:61
+msgctxt "CertificateManager|"
+msgid "Host: "
+msgstr "Hostitel: "
+
+#: lib/preferences/certificatemanager.cpp:65
+msgctxt "CertificateManager|"
+msgid "Add certificate exception"
+msgstr "Přidat výjimku certifikátu"
+
+#: lib/preferences/certificatemanager.cpp:74
+#, qt-format
+msgctxt "CertificateManager|"
+msgid "Host %1 already in the list"
+msgstr "Hostitel %1 je již na seznamu"
+
+#: lib/preferences/certificatemanager.cpp:83
+msgctxt "CertificateManager|"
+msgid "Empty host"
+msgstr "Prázdný hostitel"
+
+#: lib/preferences/certificatemanager.ui:14
+msgctxt "CertificateManager|"
+msgid "Certificate exception manager"
+msgstr "Správce výjimek certifikátů"
+
+#: lib/preferences/certificatemanager.ui:22
+msgctxt "CertificateManager|"
+msgid "Add"
+msgstr "Přidat"
+
+#: lib/preferences/certificatemanager.ui:29
+msgctxt "CertificateManager|"
+msgid "Remove"
+msgstr "Odstranit"
+
+#: lib/preferences/certificatemanager.ui:69
+msgctxt "CertificateManager|"
+msgid "Removing an entry requires a restart"
+msgstr "Odebrání záznamu vyžaduje restart"
+
 #: lib/preferences/jsoptions.ui:14
 msgctxt "JsOptions|"
 msgid "JavaScript Options"
@@ -3624,88 +3681,88 @@ msgctxt "PluginsManager|"
 msgid "Are you sure you want to remove '%1'?"
 msgstr "Opravdu chcete odstranit '%1'?"
 
-#: lib/preferences/preferences.cpp:151 lib/preferences/preferences.cpp:608
+#: lib/preferences/preferences.cpp:153 lib/preferences/preferences.cpp:614
 msgctxt "Preferences|"
 msgid "Default"
 msgstr "Výchozí"
 
-#: lib/preferences/preferences.cpp:155
+#: lib/preferences/preferences.cpp:157
 msgctxt "Preferences|"
 msgid "Set as default"
 msgstr "Nastavit výchozí"
 
-#: lib/preferences/preferences.cpp:298
+#: lib/preferences/preferences.cpp:302
 #, qt-format
 msgctxt "Preferences|"
 msgid "%1%"
 msgstr "%1%"
 
-#: lib/preferences/preferences.cpp:551
+#: lib/preferences/preferences.cpp:557
 msgctxt "Preferences|"
 msgid "Choose executable location..."
 msgstr "Vyberte cestu k programu..."
 
-#: lib/preferences/preferences.cpp:594
+#: lib/preferences/preferences.cpp:600
 msgctxt "Preferences|"
 msgid "OSD Notification"
 msgstr "Upozornění OSD"
 
-#: lib/preferences/preferences.cpp:595
+#: lib/preferences/preferences.cpp:601
 msgctxt "Preferences|"
 msgid "Drag it on the screen to place it where you want."
 msgstr "Přetáhněte jej na obrazovce na místo, na kterém jej chcete mít."
 
-#: lib/preferences/preferences.cpp:644
+#: lib/preferences/preferences.cpp:650
 msgctxt "Preferences|"
 msgid "Choose download location..."
 msgstr "Vyberte složku pro stahování..."
 
-#: lib/preferences/preferences.cpp:658
+#: lib/preferences/preferences.cpp:664
 msgctxt "Preferences|"
 msgid "Choose stylesheet location..."
 msgstr "Vyberte umístění stylu..."
 
-#: lib/preferences/preferences.cpp:669
+#: lib/preferences/preferences.cpp:675
 msgctxt "Preferences|"
 msgid "Deleted"
 msgstr "Smazáno"
 
-#: lib/preferences/preferences.cpp:765
+#: lib/preferences/preferences.cpp:783
 msgctxt "Preferences|"
 msgid "Choose cache path..."
 msgstr "Zvolit cestu pro mezipaměť..."
 
-#: lib/preferences/preferences.cpp:796
+#: lib/preferences/preferences.cpp:814
 msgctxt "Preferences|"
 msgid "New Profile"
 msgstr "Nový profil"
 
-#: lib/preferences/preferences.cpp:796
+#: lib/preferences/preferences.cpp:814
 msgctxt "Preferences|"
 msgid "Enter the new profile's name:"
 msgstr "Zvolte jméno nového profilu:"
 
-#: lib/preferences/preferences.cpp:806 lib/preferences/preferences.cpp:811
+#: lib/preferences/preferences.cpp:824 lib/preferences/preferences.cpp:829
 msgctxt "Preferences|"
 msgid "Error!"
 msgstr "Chyba."
 
-#: lib/preferences/preferences.cpp:806
+#: lib/preferences/preferences.cpp:824
 msgctxt "Preferences|"
 msgid "This profile already exists!"
 msgstr "Tento profil již existuje."
 
-#: lib/preferences/preferences.cpp:811
+#: lib/preferences/preferences.cpp:829
 msgctxt "Preferences|"
 msgid "Cannot create profile directory!"
 msgstr "Nemohu vytvořit složku profilu."
 
-#: lib/preferences/preferences.cpp:822
+#: lib/preferences/preferences.cpp:840
 msgctxt "Preferences|"
 msgid "Confirmation"
 msgstr "Potvrzení"
 
-#: lib/preferences/preferences.cpp:823
+#: lib/preferences/preferences.cpp:841
 #, qt-format
 msgctxt "Preferences|"
 msgid ""
@@ -3715,12 +3772,12 @@ msgstr ""
 "Jste si jisti že chcete permanentně smazat profil \"%1\"? Tuto akci nelze "
 "vzít zpět."
 
-#: lib/preferences/preferences.cpp:838 lib/preferences/preferences.ui:227
+#: lib/preferences/preferences.cpp:856 lib/preferences/preferences.ui:227
 msgctxt "Preferences|"
 msgid "Note: You cannot delete active profile."
 msgstr "Poznámka: Nemůžete smazat aktivní profil."
 
-#: lib/preferences/preferences.cpp:1095
+#: lib/preferences/preferences.cpp:1115
 msgctxt "Preferences|"
 msgid "Select Color"
 msgstr "Zvolte barvu"
@@ -4064,339 +4121,349 @@ msgstr "Vždy zobrazovat ikonu Přejít"
 
 #: lib/preferences/preferences.ui:824
 msgctxt "Preferences|"
+msgid "Show zoom label"
+msgstr ""
+
+#: lib/preferences/preferences.ui:831
+msgctxt "Preferences|"
 msgid "Select all text by double clicking in address bar"
 msgstr "Označit vše při dvojitém kliknutí do adresního řádku"
 
-#: lib/preferences/preferences.ui:831
+#: lib/preferences/preferences.ui:838
 msgctxt "Preferences|"
 msgid "Select all text by clicking in address bar"
 msgstr "Označit vše při kliknutí do adresního řádku"
 
-#: lib/preferences/preferences.ui:838
+#: lib/preferences/preferences.ui:845
 msgctxt "Preferences|"
 msgid "Enable automatic searching from the address bar"
 msgstr "Povolit automatické hledání z adresního řádku"
 
-#: lib/preferences/preferences.ui:845
+#: lib/preferences/preferences.ui:852
 msgctxt "Preferences|"
 msgid "Search with Default Engine"
 msgstr "Vyhledávat pomocí výchozího vyhledávače"
 
-#: lib/preferences/preferences.ui:852
+#: lib/preferences/preferences.ui:859
 msgctxt "Preferences|"
 msgid "Show search suggestions"
 msgstr "Zobrazovat návrhy při vyhledávání"
 
-#: lib/preferences/preferences.ui:875
+#: lib/preferences/preferences.ui:866
+msgctxt "Preferences|"
+msgid "Expand suggestion popup to window width"
+msgstr ""
+
+#: lib/preferences/preferences.ui:889
 msgctxt "Preferences|"
 msgid "Show loading progress in address bar"
 msgstr "Zobrazit průběh načítání v adresním řádku"
 
-#: lib/preferences/preferences.ui:908
+#: lib/preferences/preferences.ui:922
 msgctxt "Preferences|"
 msgid "Fill"
 msgstr "Vyplnit"
 
-#: lib/preferences/preferences.ui:913
+#: lib/preferences/preferences.ui:927
 msgctxt "Preferences|"
 msgid "Bottom"
 msgstr "Dole"
 
-#: lib/preferences/preferences.ui:918
+#: lib/preferences/preferences.ui:932
 msgctxt "Preferences|"
 msgid "Top"
 msgstr "Nahoře"
 
-#: lib/preferences/preferences.ui:926
+#: lib/preferences/preferences.ui:940
 msgctxt "Preferences|"
 msgid "Custom color:"
 msgstr "Vlastní barva:"
 
-#: lib/preferences/preferences.ui:942
+#: lib/preferences/preferences.ui:956
 msgctxt "Preferences|"
 msgid "Select color"
 msgstr "Zvolte barvu"
 
-#: lib/preferences/preferences.ui:945 lib/preferences/preferences.ui:1265
-#: lib/preferences/preferences.ui:1799 lib/preferences/preferences.ui:1896
-#: lib/preferences/preferences.ui:2466
+#: lib/preferences/preferences.ui:959 lib/preferences/preferences.ui:1279
+#: lib/preferences/preferences.ui:1813 lib/preferences/preferences.ui:1910
+#: lib/preferences/preferences.ui:2749
 msgctxt "Preferences|"
 msgid "..."
 msgstr "..."
 
-#: lib/preferences/preferences.ui:952
+#: lib/preferences/preferences.ui:966
 msgctxt "Preferences|"
 msgid "Reset"
 msgstr "Původní"
 
-#: lib/preferences/preferences.ui:1003
+#: lib/preferences/preferences.ui:1017
 msgctxt "Preferences|"
 msgid "Web Configuration"
 msgstr "Nastavení webu"
 
-#: lib/preferences/preferences.ui:1011
+#: lib/preferences/preferences.ui:1025
 msgctxt "Preferences|"
 msgid "Enable Pepper plugin API (PPAPI)"
 msgstr "Povolit modul Pepper API (PPAPI)"
 
-#: lib/preferences/preferences.ui:1018
+#: lib/preferences/preferences.ui:1032
 msgctxt "Preferences|"
 msgid "Use built-in PDF viewer (requires PPAPI)"
 msgstr ""
 
-#: lib/preferences/preferences.ui:1025
+#: lib/preferences/preferences.ui:1039
 msgctxt "Preferences|"
 msgid "Allow JavaScript"
 msgstr "Povolit JavaScript"
 
-#: lib/preferences/preferences.ui:1032
+#: lib/preferences/preferences.ui:1046
 msgctxt "Preferences|"
 msgid "Include links in focus chain"
 msgstr "Označovat odkazy tabulátorem"
 
 #. try to detect possible XSS attacks when executing javascript
-#: lib/preferences/preferences.ui:1039
+#: lib/preferences/preferences.ui:1053
 msgctxt "Preferences|"
 msgid "Enable XSS Auditing"
 msgstr "Povolit kontrolu XSS"
 
 #. when you are printing page (on printer), it determine whether to also print background (color, image) of html elements
-#: lib/preferences/preferences.ui:1046
+#: lib/preferences/preferences.ui:1060
 msgctxt "Preferences|"
 msgid "Print element background"
 msgstr "Tisknout pozadí objektů"
 
-#: lib/preferences/preferences.ui:1053
+#: lib/preferences/preferences.ui:1067
 msgctxt "Preferences|"
 msgid "Animated scrolling"
 msgstr "Animované posouvání"
 
-#: lib/preferences/preferences.ui:1060
+#: lib/preferences/preferences.ui:1074
 msgctxt "Preferences|"
 msgid "Enable spatial navigation"
 msgstr "Povolit prostorovou navigaci"
 
-#: lib/preferences/preferences.ui:1067
+#: lib/preferences/preferences.ui:1081
 msgctxt "Preferences|"
 msgid "Use native scrollbars"
-msgstr "Použít vychozí posuvníky"
+msgstr "Použít výchozí posuvníky"
 
-#: lib/preferences/preferences.ui:1074
+#: lib/preferences/preferences.ui:1088
 msgctxt "Preferences|"
 msgid "Disable automatic playing of videos"
 msgstr "Zakázat automatické přehrávání videí"
 
-#: lib/preferences/preferences.ui:1081
+#: lib/preferences/preferences.ui:1095
 msgctxt "Preferences|"
 msgid "Prevent WebRTC from leaking local IP address"
 msgstr "Zabránit WebRTC v prozrazení lokální adresy IP"
 
-#: lib/preferences/preferences.ui:1088
+#: lib/preferences/preferences.ui:1102
 msgctxt "Preferences|"
 msgid "Enable DNS prefetching"
 msgstr "Povolit natažení DNS"
 
-#: lib/preferences/preferences.ui:1095
+#: lib/preferences/preferences.ui:1109
 msgctxt "Preferences|"
 msgid "Enable screen capture"
 msgstr "Povolit zachytávání obrazovky"
 
-#: lib/preferences/preferences.ui:1102
+#: lib/preferences/preferences.ui:1116
 msgctxt "Preferences|"
 msgid "Use hardware acceleration (requires restart)"
 msgstr "Použít hardwarovou akceleraci (vyžaduje restart)"
 
-#: lib/preferences/preferences.ui:1119
+#: lib/preferences/preferences.ui:1133
 msgctxt "Preferences|"
 msgid "Mouse wheel scrolls"
 msgstr "Kolečko myši posune"
 
-#: lib/preferences/preferences.ui:1139
+#: lib/preferences/preferences.ui:1153
 msgctxt "Preferences|"
 msgid "lines on page"
 msgstr "řádků na stránce"
 
-#: lib/preferences/preferences.ui:1150
+#: lib/preferences/preferences.ui:1164
 msgctxt "Preferences|"
 msgid "Default zoom on pages: "
 msgstr "Základní přiblížení stránek:"
 
-#: lib/preferences/preferences.ui:1189
+#: lib/preferences/preferences.ui:1203
 msgctxt "Preferences|"
 msgid "Local Storage"
 msgstr "Lokální úložiště"
 
-#: lib/preferences/preferences.ui:1197
+#: lib/preferences/preferences.ui:1211
 msgctxt "Preferences|"
 msgid "Allow storing network cache on disk"
 msgstr "Povolit ukládání mezipaměti na disk"
 
-#: lib/preferences/preferences.ui:1220
+#: lib/preferences/preferences.ui:1234
 msgctxt "Preferences|"
 msgid "Delete cache on close"
 msgstr "Po zavření smazat mezipaměť"
 
-#: lib/preferences/preferences.ui:1227
+#: lib/preferences/preferences.ui:1241
 msgctxt "Preferences|"
 msgid "Maximum:"
 msgstr "Maximum:"
 
-#: lib/preferences/preferences.ui:1234
+#: lib/preferences/preferences.ui:1248
 msgctxt "Preferences|"
 msgid " MB"
 msgstr "MB"
 
-#: lib/preferences/preferences.ui:1250
+#: lib/preferences/preferences.ui:1264
 msgctxt "Preferences|"
 msgid "Store cache in:"
 msgstr "Ukládat mezipaměť v:"
 
-#: lib/preferences/preferences.ui:1278
+#: lib/preferences/preferences.ui:1292
 msgctxt "Preferences|"
 msgid "Allow saving history"
 msgstr "Povolit ukládání historie"
 
-#: lib/preferences/preferences.ui:1285
+#: lib/preferences/preferences.ui:1299
 msgctxt "Preferences|"
 msgid "Delete history on close"
 msgstr "Vymazat historii při zavření prohlížeče"
 
-#: lib/preferences/preferences.ui:1308
+#: lib/preferences/preferences.ui:1322
 msgctxt "Preferences|"
 msgid "Allow local storage of HTML5 web content"
 msgstr "Povolit lokální úložiště HTML5"
 
-#: lib/preferences/preferences.ui:1315
+#: lib/preferences/preferences.ui:1329
 msgctxt "Preferences|"
 msgid "Delete locally stored HTML5 web content on close"
 msgstr "Smazat lokální úložiště HTML5 při zavření prohlížeče"
 
-#: lib/preferences/preferences.ui:1341
+#: lib/preferences/preferences.ui:1355
 msgctxt "Preferences|"
 msgid "Delete now"
 msgstr "Vymazat nyní"
 
-#: lib/preferences/preferences.ui:1380
+#: lib/preferences/preferences.ui:1394
 msgctxt "Preferences|"
 msgid "Proxy Configuration"
 msgstr "Nastavení Proxy"
 
-#: lib/preferences/preferences.ui:1399
+#: lib/preferences/preferences.ui:1413
 msgctxt "Preferences|"
 msgid "System proxy configuration"
 msgstr "Systémové nastavení proxy"
 
-#: lib/preferences/preferences.ui:1422
+#: lib/preferences/preferences.ui:1436
 msgctxt "Preferences|"
 msgid "Manual configuration"
 msgstr "Manuální nastavení"
 
-#: lib/preferences/preferences.ui:1432
+#: lib/preferences/preferences.ui:1446
 msgctxt "Preferences|"
 msgid "HTTP"
 msgstr "HTTP"
 
-#: lib/preferences/preferences.ui:1437
+#: lib/preferences/preferences.ui:1451
 msgctxt "Preferences|"
 msgid "SOCKS5"
 msgstr "SOCKS5"
 
-#: lib/preferences/preferences.ui:1448
+#: lib/preferences/preferences.ui:1462
 msgctxt "Preferences|"
 msgid "Port:"
 msgstr "Port:"
 
-#: lib/preferences/preferences.ui:1469
+#: lib/preferences/preferences.ui:1483
 msgctxt "Preferences|"
 msgid "Username:"
 msgstr "Jméno:"
 
-#: lib/preferences/preferences.ui:1479
+#: lib/preferences/preferences.ui:1493
 msgctxt "Preferences|"
 msgid "Password:"
 msgstr "Heslo:"
 
-#: lib/preferences/preferences.ui:1508
+#: lib/preferences/preferences.ui:1522
 msgctxt "Preferences|"
 msgid "No proxy"
 msgstr "Žádná proxy"
 
-#: lib/preferences/preferences.ui:1523
+#: lib/preferences/preferences.ui:1537
 msgctxt "Preferences|"
 msgid "<b>Font Families</b>"
 msgstr "<b>Typy písem</b>"
 
-#: lib/preferences/preferences.ui:1536
+#: lib/preferences/preferences.ui:1550
 msgctxt "Preferences|"
 msgid "Standard"
 msgstr "Standardní"
 
-#: lib/preferences/preferences.ui:1543
+#: lib/preferences/preferences.ui:1557
 msgctxt "Preferences|"
 msgid "Fixed"
 msgstr "Proporcionální"
 
-#: lib/preferences/preferences.ui:1553
+#: lib/preferences/preferences.ui:1567
 msgctxt "Preferences|"
 msgid "Serif"
 msgstr "Serif"
 
-#: lib/preferences/preferences.ui:1563
+#: lib/preferences/preferences.ui:1577
 msgctxt "Preferences|"
 msgid "Sans Serif"
 msgstr "Sans Serif"
 
-#: lib/preferences/preferences.ui:1573
+#: lib/preferences/preferences.ui:1587
 msgctxt "Preferences|"
 msgid "Cursive"
 msgstr "Kurzíva"
 
-#: lib/preferences/preferences.ui:1625
+#: lib/preferences/preferences.ui:1639
 msgctxt "Preferences|"
 msgid "Fantasy"
 msgstr "Fantasy"
 
-#: lib/preferences/preferences.ui:1632
+#: lib/preferences/preferences.ui:1646
 msgctxt "Preferences|"
 msgid "<b>Font Sizes</b>"
 msgstr "<b>Velikosti písem</b>"
 
-#: lib/preferences/preferences.ui:1641
+#: lib/preferences/preferences.ui:1655
 msgctxt "Preferences|"
 msgid "Fixed Font Size"
 msgstr "Proporcionální písmo"
 
-#: lib/preferences/preferences.ui:1648
+#: lib/preferences/preferences.ui:1662
 msgctxt "Preferences|"
 msgid "Default Font Size"
 msgstr "Základní písmo"
 
-#: lib/preferences/preferences.ui:1675
+#: lib/preferences/preferences.ui:1689
 msgctxt "Preferences|"
 msgid "Minimum Font Size"
 msgstr "Minimální velikost"
 
-#: lib/preferences/preferences.ui:1682
+#: lib/preferences/preferences.ui:1696
 msgctxt "Preferences|"
 msgid "Minimum Logical Font Size"
 msgstr "Minimální logická velikost"
 
-#: lib/preferences/preferences.ui:1715
+#: lib/preferences/preferences.ui:1729
 msgctxt "Preferences|"
 msgid "<b>Shortcuts</b>"
 msgstr "<b>Zkratky</b>"
 
-#: lib/preferences/preferences.ui:1722
+#: lib/preferences/preferences.ui:1736
 msgctxt "Preferences|"
 msgid "Switch to tabs with Alt + number of tab"
 msgstr "Přepínat na karty pomocí Alt + číslo karty"
 
-#: lib/preferences/preferences.ui:1729
+#: lib/preferences/preferences.ui:1743
 msgctxt "Preferences|"
 msgid "Load speed dials with Ctrl + number of speed dial"
 msgstr "Načítat stránky z rychlé volby pomocí Ctrl + pořadí volby"
 
-#: lib/preferences/preferences.ui:1736
+#: lib/preferences/preferences.ui:1750
 msgctxt "Preferences|"
 msgid ""
 "Existing shortcuts:<br/><b>1</b> - previous tab<br/><b>2</b> - next tab<br/"
@@ -4405,12 +4472,12 @@ msgstr ""
 "Existující zkratky:<br/><b>1</b> - předchozí karta<br/><b>2</b> - "
 "následující karta<br/><b>/</b> - hledat na stránce"
 
-#: lib/preferences/preferences.ui:1739
+#: lib/preferences/preferences.ui:1753
 msgctxt "Preferences|"
 msgid "Use single key shortcuts"
 msgstr "Používat zkratky s jedinou klávesou"
 
-#: lib/preferences/preferences.ui:1746
+#: lib/preferences/preferences.ui:1760
 msgctxt "Preferences|"
 msgid ""
 "If unchecked, prevents accidental exit from the application if the Ctrl-W "
@@ -4419,162 +4486,162 @@ msgstr ""
 "Pokud odškrtnuto, brání nechtěnému ukončení aplikace pokud byl zamýšlen Ctrl"
 "+W."
 
-#: lib/preferences/preferences.ui:1749
+#: lib/preferences/preferences.ui:1763
 msgctxt "Preferences|"
 msgid "Close application with Ctrl-Q"
 msgstr "Zavřít aplikaci pomocí Ctrl+Q"
 
-#: lib/preferences/preferences.ui:1773
+#: lib/preferences/preferences.ui:1787
 msgctxt "Preferences|"
 msgid "<b>Download Location</b>"
 msgstr "<b>Cíl stahování</b>"
 
-#: lib/preferences/preferences.ui:1780
+#: lib/preferences/preferences.ui:1794
 msgctxt "Preferences|"
 msgid "Ask everytime for download location"
 msgstr "U každého souboru se dotázat kam ho uložit"
 
-#: lib/preferences/preferences.ui:1787
+#: lib/preferences/preferences.ui:1801
 msgctxt "Preferences|"
 msgid "Use defined location: "
 msgstr "Uložit všechny soubory do:"
 
-#: lib/preferences/preferences.ui:1837
+#: lib/preferences/preferences.ui:1851
 msgctxt "Preferences|"
 msgid "<b>Download Options</b>"
 msgstr "<b>Možnosti stahování</b>"
 
-#: lib/preferences/preferences.ui:1844
+#: lib/preferences/preferences.ui:1858
 msgctxt "Preferences|"
 msgid "Close download manager when downloading finishes"
 msgstr "Zavřít správce stahování po skončení stahování"
 
-#: lib/preferences/preferences.ui:1851
+#: lib/preferences/preferences.ui:1865
 msgctxt "Preferences|"
 msgid "<b>External download manager</b>"
 msgstr "<b>Externí správce stahování</b>"
 
-#: lib/preferences/preferences.ui:1858
+#: lib/preferences/preferences.ui:1872
 msgctxt "Preferences|"
 msgid "Use external download manager"
 msgstr "Používat externí správce stahování"
 
-#: lib/preferences/preferences.ui:1870
+#: lib/preferences/preferences.ui:1884
 msgctxt "Preferences|"
 msgid "Executable:"
 msgstr "Program:"
 
-#: lib/preferences/preferences.ui:1877
+#: lib/preferences/preferences.ui:1891
 msgctxt "Preferences|"
 msgid "Arguments:"
 msgstr "Argumenty:"
 
-#: lib/preferences/preferences.ui:1884
+#: lib/preferences/preferences.ui:1898
 msgctxt "Preferences|"
 msgid "Leave blank if unsure"
 msgstr "Pokud si nejste jisti, nechte prázdné"
 
-#: lib/preferences/preferences.ui:1905
+#: lib/preferences/preferences.ui:1919
 msgctxt "Preferences|"
 msgid "<b>%d</b> will be replaced with URL to be downloaded"
 msgstr "<b>%d</b> bude nahrazeno s URL adresou ke stažení"
 
-#: lib/preferences/preferences.ui:1931
+#: lib/preferences/preferences.ui:1945
 msgctxt "Preferences|"
 msgid "<b>AutoFill options</b>"
 msgstr "<b>Možnosti doplňování</b>"
 
-#: lib/preferences/preferences.ui:1938
+#: lib/preferences/preferences.ui:1952
 msgctxt "Preferences|"
 msgid "Allow saving passwords from sites"
 msgstr "Povolit ukládání hesel ze stránek"
 
-#: lib/preferences/preferences.ui:1989
+#: lib/preferences/preferences.ui:2003
 msgctxt "Preferences|"
 msgid "Automatically complete passwords on sites"
 msgstr "Doplnit automaticky hesla na stránkách"
 
-#: lib/preferences/preferences.ui:2000
+#: lib/preferences/preferences.ui:2014
 msgctxt "Preferences|"
 msgid "<b>Cookies</b>"
 msgstr "<b>Cookies</b>"
 
-#: lib/preferences/preferences.ui:2007
+#: lib/preferences/preferences.ui:2021
 msgctxt "Preferences|"
 msgid "<b>Other</b>"
 msgstr "<b>Ostatní</b>"
 
-#: lib/preferences/preferences.ui:2033
+#: lib/preferences/preferences.ui:2047
 msgctxt "Preferences|"
 msgid "JavaScript options"
 msgstr "Nastavení JavaScriptu"
 
-#: lib/preferences/preferences.ui:2043
+#: lib/preferences/preferences.ui:2057
 msgctxt "Preferences|"
 msgid "<b>JavaScript</b>"
 msgstr "<b>JavaScript</b>"
 
-#: lib/preferences/preferences.ui:2056
+#: lib/preferences/preferences.ui:2070
 msgctxt "Preferences|"
 msgid "Cookies Manager"
 msgstr "Správce cookies"
 
-#: lib/preferences/preferences.ui:2066
+#: lib/preferences/preferences.ui:2080
 msgctxt "Preferences|"
 msgid "Manage JavaScript privacy options"
 msgstr "Spravovat nastavení soukromí JavaScriptu"
 
-#: lib/preferences/preferences.ui:2089
+#: lib/preferences/preferences.ui:2103
 msgctxt "Preferences|"
 msgid "Manage HTML5 permissions"
 msgstr "Spravovat oprávnění HTML5"
 
-#: lib/preferences/preferences.ui:2096
+#: lib/preferences/preferences.ui:2110
 msgctxt "Preferences|"
 msgid "Manage Cookies"
 msgstr "Spravovat cookies"
 
-#: lib/preferences/preferences.ui:2116
+#: lib/preferences/preferences.ui:2130
 msgctxt "Preferences|"
 msgid "<b>HTML5 Permissions</b>"
 msgstr "<b>Oprávnění HTML5</b>"
 
-#: lib/preferences/preferences.ui:2129
+#: lib/preferences/preferences.ui:2143
 msgctxt "Preferences|"
 msgid "HTML5 Permissions"
 msgstr "Oprávnění HTML5"
 
-#: lib/preferences/preferences.ui:2136
+#: lib/preferences/preferences.ui:2150
 msgctxt "Preferences|"
 msgid "Send Do Not Track header to servers"
 msgstr "Zasílat serverům Do Not Track hlavičku"
 
-#: lib/preferences/preferences.ui:2162
+#: lib/preferences/preferences.ui:2176
 msgctxt "Preferences|"
 msgid "Expiration timeout:"
 msgstr "Doba:"
 
-#: lib/preferences/preferences.ui:2175
+#: lib/preferences/preferences.ui:2189
 msgctxt "Preferences|"
 msgid " seconds"
 msgstr " sekund"
 
-#: lib/preferences/preferences.ui:2197
+#: lib/preferences/preferences.ui:2211
 msgctxt "Preferences|"
 msgid "<b>Notifications</b>"
 msgstr "<b>Upozornění</b>"
 
-#: lib/preferences/preferences.ui:2220
+#: lib/preferences/preferences.ui:2234
 msgctxt "Preferences|"
 msgid "Use Native System Notifications (Linux only)"
 msgstr "Používat vlastní systémové upozornění (pouze Linux)"
 
-#: lib/preferences/preferences.ui:2227
+#: lib/preferences/preferences.ui:2241
 msgctxt "Preferences|"
 msgid "Do not use Notifications"
 msgstr "Nepoužívat upozornění"
 
-#: lib/preferences/preferences.ui:2250
+#: lib/preferences/preferences.ui:2264
 msgctxt "Preferences|"
 msgid ""
 "<b>Note: </b>You can change position of OSD Notification by dragging it on "
@@ -4583,17 +4650,17 @@ msgstr ""
 "<b>Poznámka: </b> Můžete změnit pozici oznámení OSD na obrazovce jejím "
 "přetažením."
 
-#: lib/preferences/preferences.ui:2276
+#: lib/preferences/preferences.ui:2290
 msgctxt "Preferences|"
 msgid "Use OSD Notifications"
 msgstr "Používat upozornění OSD"
 
-#: lib/preferences/preferences.ui:2283
+#: lib/preferences/preferences.ui:2297
 msgctxt "Preferences|"
 msgid "Preview"
 msgstr "Náhled"
 
-#: lib/preferences/preferences.ui:2348
+#: lib/preferences/preferences.ui:2362
 msgctxt "Preferences|"
 msgid ""
 "For more information about Spell Check, please see <a href=\"https://"
@@ -4602,74 +4669,149 @@ msgstr ""
 "Pro více informací o kontrole pravopisu navštivte <a href=\"https://userbase."
 "kde.org/Falkon#Spell_Check\">wiki</a>."
 
-#: lib/preferences/preferences.ui:2390
+#: lib/preferences/preferences.ui:2404
 msgctxt "Preferences|"
 msgid "<b>Spell Check options</b>"
 msgstr "<b>Volby pro kontrolu pravopisu</b>"
 
-#: lib/preferences/preferences.ui:2397
+#: lib/preferences/preferences.ui:2411
 msgctxt "Preferences|"
 msgid "Enable Spell Check"
 msgstr "Povolit kontrolu pravopisu"
 
-#: lib/preferences/preferences.ui:2404
+#: lib/preferences/preferences.ui:2418
 msgctxt "Preferences|"
 msgid "<b>Dictionary directories</b>"
 msgstr "<b>Adresáře slovníku</b>"
 
-#: lib/preferences/preferences.ui:2455
+#: lib/preferences/preferences.ui:2469
 msgctxt "Preferences|"
 msgid "No languages found"
 msgstr "Nenalezen žádný jazyk"
 
-#: lib/preferences/preferences.ui:2473
-msgctxt "Preferences|"
-msgid "<b>Manage search engines</b>"
-msgstr "<b>Spravovat vyhledávače</b>"
-
-#: lib/preferences/preferences.ui:2480
-msgctxt "Preferences|"
-msgid "<b>User Style Sheet</b>"
-msgstr "<b>Uživatelský styl</b>"
-
-#: lib/preferences/preferences.ui:2505
-msgctxt "Preferences|"
-msgid "Languages"
-msgstr "Jazyky"
-
-#: lib/preferences/preferences.ui:2527
-msgctxt "Preferences|"
-msgid "<b>Change browser identification</b>"
-msgstr "<b>Změnit identifikaci prohlížeče</b>"
-
-#: lib/preferences/preferences.ui:2552
+#: lib/preferences/preferences.ui:2498
 msgctxt "Preferences|"
 msgid "Protocol Handlers Manager"
 msgstr ""
 
-#: lib/preferences/preferences.ui:2592
+#: lib/preferences/preferences.ui:2538
 msgctxt "Preferences|"
 msgid "Search Engines Manager"
 msgstr "Správce vyhledávačů"
 
-#: lib/preferences/preferences.ui:2640
+#: lib/preferences/preferences.ui:2560
 msgctxt "Preferences|"
-msgid "Style Sheet automatically loaded with all websites: "
-msgstr "Styl, automaticky načítán ke všem stránkám:"
+msgid "<b>User Style Sheet</b>"
+msgstr "<b>Uživatelský styl</b>"
 
-#: lib/preferences/preferences.ui:2650
+#: lib/preferences/preferences.ui:2567
+msgctxt "Preferences|"
+msgid "<b>Manage search engines</b>"
+msgstr "<b>Spravovat vyhledávače</b>"
+
+#: lib/preferences/preferences.ui:2580
+msgctxt "Preferences|"
+msgid "Manage custom schemes"
+msgstr ""
+
+#: lib/preferences/preferences.ui:2605
+msgctxt "Preferences|"
+msgid "Languages"
+msgstr "Jazyky"
+
+#: lib/preferences/preferences.ui:2627
 msgctxt "Preferences|"
 msgid "<b>Preferred language for web sites</b>"
 msgstr "<b>Preferované jazyky pro webové stránky</b>"
 
-#: lib/preferences/preferences.ui:2675
+#: lib/preferences/preferences.ui:2652
+msgctxt "Preferences|"
+msgid "Certificate Exception Manager"
+msgstr "Správce výjimek certifikátů"
+
+#: lib/preferences/preferences.ui:2674
+msgctxt "Preferences|"
+msgid "<b>Change browser identification</b>"
+msgstr "<b>Změnit identifikaci prohlížeče</b>"
+
+#: lib/preferences/preferences.ui:2699
 msgctxt "Preferences|"
 msgid "User Agent Manager"
 msgstr "Správce pro User Agent"
 
-#: lib/preferences/preferences.ui:2697
+#: lib/preferences/preferences.ui:2721
+msgctxt "Preferences|"
+msgid "Style Sheet automatically loaded with all websites: "
+msgstr "Styl, automaticky načítán ke všem stránkám:"
+
+#: lib/preferences/preferences.ui:2758
 msgctxt "Preferences|"
 msgid "<b>Manage protocol handlers</b>"
+msgstr ""
+
+#: lib/preferences/preferences.ui:2765
+msgctxt "Preferences|"
+msgid "<b>Certificate manager</b>"
+msgstr "<b>Správce certifikátů</b>"
+
+#: lib/preferences/preferences.ui:2816
+msgctxt "Preferences|"
+msgid "Custom Scheme Manager"
+msgstr ""
+
+#: lib/preferences/schememanager.cpp:84
+msgctxt "SchemeManager|"
+msgid "Add allowed scheme"
+msgstr ""
+
+#: lib/preferences/schememanager.cpp:84 lib/preferences/schememanager.cpp:119
+msgctxt "SchemeManager|"
+msgid "Scheme:"
+msgstr ""
+
+#: lib/preferences/schememanager.cpp:119
+msgctxt "SchemeManager|"
+msgid "Add blocked scheme"
+msgstr ""
+
+#: lib/preferences/schememanager.ui:14
+msgctxt "SchemeManager|"
+msgid "Custom scheme manager"
+msgstr ""
+
+#: lib/preferences/schememanager.ui:26
+msgctxt "SchemeManager|"
+msgid "Allowed schemes"
+msgstr ""
+
+#: lib/preferences/schememanager.ui:33
+msgctxt "SchemeManager|"
+msgid "**Note:** Allowed schemes can be added by extensions."
+msgstr ""
+
+#: lib/preferences/schememanager.ui:54 lib/preferences/schememanager.ui:116
+msgctxt "SchemeManager|"
+msgid "Add"
+msgstr ""
+
+#: lib/preferences/schememanager.ui:61 lib/preferences/schememanager.ui:123
+msgctxt "SchemeManager|"
+msgid "Remove"
+msgstr ""
+
+#: lib/preferences/schememanager.ui:68
+msgctxt "SchemeManager|"
+msgid "Block"
+msgstr ""
+
+#: lib/preferences/schememanager.ui:98
+msgctxt "SchemeManager|"
+msgid "Blocked schemes"
+msgstr ""
+
+#: lib/preferences/schememanager.ui:147
+msgctxt "SchemeManager|"
+msgid "Changes will take effect after Falkon restart."
 msgstr ""
 
 #: lib/preferences/thememanager.cpp:100
