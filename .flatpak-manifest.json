@@ -1,12 +1,12 @@
 {
-    "id": "org.kde.falkon",
+    "id": "org.kde.thallium",
     "runtime": "org.kde.Platform",
     "runtime-version": "5.15-22.08",
     "base": "io.qt.qtwebengine.BaseApp",
     "base-version": "5.15-22.08",
     "sdk": "org.kde.Sdk",
-    "command": "falkon",
-    "rename-icon": "falkon",
+    "command": "thallium",
+    "rename-icon": "thallium",
     "finish-args": [
         "--share=ipc",
         "--share=network",
@@ -17,12 +17,12 @@
         "--system-talk-name=org.freedesktop.GeoClue2",
         "--system-talk-name=org.freedesktop.UPower.*",
         "--talk-name=org.kde.kwalletd5",
-        "--own-name=org.mpris.MediaPlayer2.falkon.*"
+        "--own-name=org.mpris.MediaPlayer2.thallium.*"
     ],
     "modules": [
         {
             "buildsystem": "cmake-ninja",
-            "name": "falkon",
+            "name": "thallium",
             "config-opts": [
                 "-DENABLE_TESTING=OFF"
             ],
