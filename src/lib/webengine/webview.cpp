@@ -44,7 +44,11 @@
 #include <QWebEngineHistory>
 #include <QClipboard>
 #include <QMimeData>
+#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
 #include <QWebEngineContextMenuData>
+#else
+#include <QWebEngineContextMenuRequest>
+#endif
 #include <QStackedLayout>
 #include <QScrollBar>
 #include <QPrintDialog>
@@ -146,7 +150,9 @@ void WebView::setPage(WebPage *page)
             Q_EMIT m_page->loadFinished(true);
         }
         mApp->plugins()->emitWebPageDeleted(m_page);
+#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
         m_page->setView(nullptr);
+#endif
     }
 
     page->setParent(this);
@@ -403,10 +409,17 @@ void WebView::printPage()
             m_page->printToPdf(dialog->printer()->outputFileName(), dialog->printer()->pageLayout());
             delete dialog;
         } else {
+#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
             m_page->print(dialog->printer(), [=](bool success) {
                 Q_UNUSED(success);
                 delete dialog;
             });
+#else
+            connect(this, &QWebEngineView::printFinished, this, [&dialog](bool success) {
+                Q_UNUSED(success);
+                delete dialog;
+            });
+#endif
         }
     }
 }
@@ -670,7 +683,15 @@ void WebView::createContextMenu(QMenu *menu, WebHitTestResult &hitTest)
     // cppcheck-suppress variableScope
     int spellCheckActionCount = 0;
 
-    const QWebEngineContextMenuData &contextMenuData = page()->contextMenuData();
+#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
+    const Q_WEB_ENGINE_CONTEXT_MENU_DATA_CLASS &contextMenuData = page()->contextMenuData();
+#else
+    const Q_WEB_ENGINE_CONTEXT_MENU_DATA_CLASS *contextMenuDataPtr = lastContextMenuRequest();
+    if (contextMenuDataPtr == NULL)
+        return;
+    const Q_WEB_ENGINE_CONTEXT_MENU_DATA_CLASS &contextMenuData = *contextMenuDataPtr;
+#endif
+
     hitTest.updateWithContextMenuData(contextMenuData);
 
     if (!contextMenuData.misspelledWord().isEmpty()) {
@@ -1267,7 +1288,11 @@ bool WebView::eventFilter(QObject *obj, QEvent *event)
     if (obj == this && event->type() == QEvent::ChildAdded) {
         QPointer<QWidget> child = qobject_cast<QWidget*>(static_cast<QChildEvent*>(event)->child());
         QTimer::singleShot(0, this, [=]() {
+#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
             if (child && child->inherits("QtWebEngineCore::RenderWidgetHostViewQtDelegateWidget")) {
+#else
+            if (child) {
+#endif
                 m_rwhvqt = child;
                 m_rwhvqt->installEventFilter(this);
                 if (auto *w = qobject_cast<QQuickWidget*>(m_rwhvqt)) {

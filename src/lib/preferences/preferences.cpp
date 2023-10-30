@@ -57,7 +57,9 @@
 #include <QMessageBox>
 #include <QCloseEvent>
 #include <QColorDialog>
+#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
 #include <QDesktopWidget>
+#endif
 #include <QWebEngineProfile>
 #include <QWebEngineSettings>
 #include <QLibraryInfo>
@@ -308,7 +310,7 @@ Preferences::Preferences(BrowserWindow* window)
     ui->allowCache->setChecked(settings.value("AllowLocalCache", true).toBool());
     ui->removeCache->setChecked(settings.value("deleteCacheOnClose", false).toBool());
     ui->cacheMB->setValue(settings.value("LocalCacheSize", 50).toInt());
-    ui->cachePath->setText(settings.value("CachePath", QWebEngineProfile::defaultProfile()->cachePath()).toString());
+    ui->cachePath->setText(settings.value("CachePath", mApp->webProfile()->cachePath()).toString());
     connect(ui->allowCache, &QAbstractButton::clicked, this, &Preferences::allowCacheChanged);
     connect(ui->changeCachePath, &QAbstractButton::clicked, this, &Preferences::changeCachePathClicked);
     allowCacheChanged(ui->allowCache->isChecked());
@@ -530,13 +532,17 @@ Preferences::Preferences(BrowserWindow* window)
 
     ui->listWidget->setCurrentRow(currentSettingsPage);
 
-    QDesktopWidget* desktop = QApplication::desktop();
     QSize s = size();
-    if (desktop->availableGeometry(this).size().width() < s.width()) {
-        s.setWidth(desktop->availableGeometry(this).size().width() - 50);
+#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
+    const QRect &availableGeometryForScreen = QApplication::desktop()->availableGeometry(this);
+#else
+    const QRect &availableGeometryForScreen = screen()->availableGeometry();
+#endif
+    if (availableGeometryForScreen.size().width() < s.width()) {
+        s.setWidth(availableGeometryForScreen.size().width() - 50);
     }
-    if (desktop->availableGeometry(this).size().height() < s.height()) {
-        s.setHeight(desktop->availableGeometry(this).size().height() - 50);
+    if (availableGeometryForScreen.size().height() < s.height()) {
+        s.setHeight(availableGeometryForScreen.size().height() - 50);
     }
     resize(s);
 

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
-"PO-Revision-Date: 2023-09-02 02:56\n"
+"PO-Revision-Date: 2023-10-21 13:54\n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -41,12 +41,12 @@ msgctxt "KDEFrameworksIntegrationPlugin|"
 msgid "KWallet"
 msgstr "KWallet"
 
-#: kwalletpasswordbackend.cpp:186
+#: kwalletpasswordbackend.cpp:197
 msgctxt "KDEFrameworksIntegrationPlugin|"
 msgid "KWallet disabled"
 msgstr "KWallet 已禁用"
 
-#: kwalletpasswordbackend.cpp:186
+#: kwalletpasswordbackend.cpp:197
 msgctxt "KDEFrameworksIntegrationPlugin|"
 msgid "Please enable KWallet to save password."
 msgstr "请启用 KWallet 以保存密码。"

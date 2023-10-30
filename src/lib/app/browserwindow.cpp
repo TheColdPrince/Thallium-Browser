@@ -72,14 +72,19 @@
 #include <QWebEngineHistory>
 #include <QWebEngineSettings>
 #include <QMessageBox>
+#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
 #include <QDesktopWidget>
+#endif
 #include <QToolTip>
 #include <QScrollArea>
 #include <QCollator>
 #include <QTemporaryFile>
+#include <QActionGroup>
 
 #ifdef QZ_WS_X11
+#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
 #include <QX11Info>
+#endif
 #include <xcb/xcb.h>
 #include <xcb/xcb_atom.h>
 #endif
@@ -400,7 +405,11 @@ void BrowserWindow::setupUi()
     m_statusBar->addButton(downloadsButton);
     m_navigationToolbar->addToolButton(downloadsButton);
 
+#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
     QDesktopWidget* desktop = mApp->desktop();
+#else
+    auto desktop = QGuiApplication::primaryScreen();
+#endif
     int windowWidth = desktop->availableGeometry().width() / 1.3;
     int windowHeight = desktop->availableGeometry().height() / 1.3;
 
@@ -1341,7 +1350,7 @@ void BrowserWindow::keyPressEvent(QKeyEvent* event)
         break;
 
     case Qt::Key_Backtab:
-        if (event->modifiers() == (Qt::ControlModifier + Qt::ShiftModifier)) {
+        if (event->modifiers() == (Qt::ControlModifier | Qt::ShiftModifier)) {
             static_cast<QObject*>(m_tabWidget)->event(event);
         }
         break;
@@ -1562,9 +1571,25 @@ void BrowserWindow::closeTab()
 }
 
 #ifdef QZ_WS_X11
+static xcb_connection_t *getXcbConnection()
+{
+#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
+    return QX11Info::connection();
+#else
+    const QNativeInterface::QX11Application *x11App = qApp->nativeInterface<QNativeInterface::QX11Application>();
+    if (x11App == nullptr)
+        return 0;
+    return x11App->connection();
+#endif
+}
+
 int BrowserWindow::getCurrentVirtualDesktop() const
 {
     if (QGuiApplication::platformName() != QL1S("xcb"))
+        return 0;
+
+    xcb_connection_t *connection = getXcbConnection();
+    if (connection == 0)
         return 0;
 
     xcb_intern_atom_cookie_t intern_atom;
@@ -1574,16 +1599,16 @@ int BrowserWindow::getCurrentVirtualDesktop() const
     xcb_get_property_reply_t *reply = 0;
     uint32_t value;
 
-    intern_atom = xcb_intern_atom(QX11Info::connection(), false, qstrlen("_NET_WM_DESKTOP"), "_NET_WM_DESKTOP");
-    atom_reply = xcb_intern_atom_reply(QX11Info::connection(), intern_atom, 0);
+    intern_atom = xcb_intern_atom(connection, false, qstrlen("_NET_WM_DESKTOP"), "_NET_WM_DESKTOP");
+    atom_reply = xcb_intern_atom_reply(connection, intern_atom, 0);
 
     if (!atom_reply)
         goto error;
 
     atom = atom_reply->atom;
 
-    cookie = xcb_get_property(QX11Info::connection(), false, winId(), atom, XCB_ATOM_CARDINAL, 0, 1);
-    reply = xcb_get_property_reply(QX11Info::connection(), cookie, 0);
+    cookie = xcb_get_property(connection, false, winId(), atom, XCB_ATOM_CARDINAL, 0, 1);
+    reply = xcb_get_property_reply(connection, cookie, 0);
 
     if (!reply || reply->type != XCB_ATOM_CARDINAL || reply->value_len != 1 || reply->format != sizeof(uint32_t) * 8)
         goto error;
@@ -1609,19 +1634,23 @@ void BrowserWindow::moveToVirtualDesktop(int desktopId)
     if (desktopId < 0 || isVisible() || m_windowType == Qz::BW_FirstAppWindow)
         return;
 
+    xcb_connection_t *connection = getXcbConnection();
+    if (connection == 0)
+        return;
+
     xcb_intern_atom_cookie_t intern_atom;
     xcb_intern_atom_reply_t *atom_reply = 0;
     xcb_atom_t atom;
 
-    intern_atom = xcb_intern_atom(QX11Info::connection(), false, qstrlen("_NET_WM_DESKTOP"), "_NET_WM_DESKTOP");
-    atom_reply = xcb_intern_atom_reply(QX11Info::connection(), intern_atom, 0);
+    intern_atom = xcb_intern_atom(connection, false, qstrlen("_NET_WM_DESKTOP"), "_NET_WM_DESKTOP");
+    atom_reply = xcb_intern_atom_reply(connection, intern_atom, 0);
 
     if (!atom_reply)
         goto error;
 
     atom = atom_reply->atom;
 
-    xcb_change_property(QX11Info::connection(), XCB_PROP_MODE_REPLACE, winId(), atom,
+    xcb_change_property(connection, XCB_PROP_MODE_REPLACE, winId(), atom,
                         XCB_ATOM_CARDINAL, 32, 1, (const void*) &desktopId);
 
 error:

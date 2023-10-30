@@ -34,13 +34,19 @@
 #include "tabcontextmenu.h"
 #include "tabbar.h"
 
+#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
 #include <QDesktopWidget>
+#endif
 #include <QDialogButtonBox>
 #include <QStackedWidget>
 #include <QDialog>
 #include <QTimer>
 #include <QLabel>
 #include <QMimeData>
+
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
+#include <QRegExp>
+#endif
 
 
 TLDExtractor* TabManagerWidget::s_tldExtractor = 0;
@@ -122,7 +128,11 @@ QString TabManagerWidget::domainFromUrl(const QUrl &url, bool useHostName)
         return urlString.append(appendString);
     }
 
+#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
     if (useHostName || host.contains(QRegExp(R"(^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$)"))) {
+#else
+    if (useHostName || QRegExp(R"(^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$)").indexIn(host) >= 0) {
+#endif
         if (host.startsWith("www.", Qt::CaseInsensitive)) {
             host.remove(0, 4);
         }
@@ -561,7 +571,12 @@ void TabManagerWidget::detachSelectedTabs(const QMultiHash<BrowserWindow*, WebTa
     }
 
     BrowserWindow* newWindow = mApp->createWindow(Qz::BW_OtherRestoredWindow);
-    newWindow->move(mApp->desktop()->availableGeometry(this).topLeft() + QPoint(30, 30));
+#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
+    const QRect &availableGeometryForScreen = mApp->desktop()->availableGeometry(this);
+#else
+    const QRect &availableGeometryForScreen = screen()->availableGeometry();
+#endif
+    newWindow->move(availableGeometryForScreen.topLeft() + QPoint(30, 30));
 
     detachTabsTo(newWindow, tabsHash);
 }
@@ -751,7 +766,7 @@ TabItem::TabItem(QTreeWidget* treeWidget, bool supportDrag, bool isTab, QTreeWid
     , m_webTab(0)
     , m_isTab(isTab)
 {
-    Qt::ItemFlags flgs = flags() | (parent ? Qt::ItemIsUserCheckable : Qt::ItemIsUserCheckable | Qt::ItemIsTristate);
+    Qt::ItemFlags flgs = flags() | (parent ? Qt::ItemIsUserCheckable : Qt::ItemIsUserCheckable | Qt::ItemIsAutoTristate);
 
     if (supportDrag) {
         if (isTab) {
@@ -880,7 +895,11 @@ QStringList TabTreeWidget::mimeTypes() const
     return types;
 }
 
+#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
 QMimeData *TabTreeWidget::mimeData(const QList<QTreeWidgetItem*> items) const
+#else
+QMimeData *TabTreeWidget::mimeData(const QList<QTreeWidgetItem*> &items) const
+#endif
 {
     auto* mimeData = new QMimeData();
     QByteArray encodedData;

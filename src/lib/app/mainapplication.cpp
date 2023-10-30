@@ -62,7 +62,9 @@
 #include <QDir>
 #include <QStandardPaths>
 #include <QWebEngineProfile>
+#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
 #include <QWebEngineDownloadItem>
+#endif
 #include <QWebEngineScriptCollection>
 #include <QRegularExpression>
 #include <QtWebEngineWidgetsVersion>
@@ -296,7 +298,11 @@ MainApplication::MainApplication(int &argc, char** argv)
     NetworkManager::registerSchemes();
     registerAllowedSchemes();
 
+#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
     m_webProfile = isPrivate() ? new QWebEngineProfile() : QWebEngineProfile::defaultProfile();
+#else
+    m_webProfile = isPrivate() ? new QWebEngineProfile() : new QWebEngineProfile(QSL("Default"));
+#endif
     connect(m_webProfile, &QWebEngineProfile::downloadRequested, this, &MainApplication::downloadRequested);
 
     m_webProfile->setNotificationPresenter([&] (std::unique_ptr<QWebEngineNotification> notification) {
@@ -387,6 +393,10 @@ MainApplication::~MainApplication()
 {
     m_isClosing = true;
 
+    QDesktopServices::unsetUrlHandler(QSL("http"));
+    QDesktopServices::unsetUrlHandler(QSL("https"));
+    QDesktopServices::unsetUrlHandler(QSL("ftp"));
+
     IconProvider::instance()->saveIconsToDatabase();
 
     // Wait for all QtConcurrent jobs to finish
@@ -397,6 +407,12 @@ MainApplication::~MainApplication()
     m_bookmarks = nullptr;
     delete m_cookieJar;
     m_cookieJar = nullptr;
+
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
+    // On Qt 6, deleting the web profile is necessary in order to make sure cache, cookies, etc. are flushed to disk.
+    delete m_webProfile;
+    m_webProfile = nullptr;
+#endif
 
     Settings::syncSettings();
 }
@@ -930,7 +946,11 @@ void MainApplication::runDeferredPostLaunchActions()
     checkOptimizeDatabase();
 }
 
+#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
 void MainApplication::downloadRequested(QWebEngineDownloadItem *download)
+#else
+void MainApplication::downloadRequested(QWebEngineDownloadRequest *download)
+#endif
 {
     downloadManager()->download(download);
 }
@@ -996,7 +1016,11 @@ void MainApplication::loadSettings()
     webSettings->setFontSize(QWebEngineSettings::MinimumLogicalFontSize, settings.value(QSL("MinimumLogicalFontSize"), 5).toInt());
     settings.endGroup();
 
+#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
     QWebEngineProfile* profile = QWebEngineProfile::defaultProfile();
+#else
+    QWebEngineProfile* profile = m_webProfile;
+#endif
     profile->setPersistentCookiesPolicy(QWebEngineProfile::AllowPersistentCookies);
     profile->setPersistentStoragePath(DataPaths::currentProfilePath());
 
@@ -1187,10 +1211,16 @@ void MainApplication::setUserStyleSheet(const QString &filePath)
 
     const QString name = QStringLiteral("_falkon_userstylesheet");
 
+#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
     QWebEngineScript oldScript = m_webProfile->scripts()->findScript(name);
     if (!oldScript.isNull()) {
         m_webProfile->scripts()->remove(oldScript);
     }
+#else
+    for (const QWebEngineScript &oldScript : m_webProfile->scripts()->find(name)) {
+        m_webProfile->scripts()->remove(oldScript);
+    }
+#endif
 
     if (userCss.isEmpty())
         return;

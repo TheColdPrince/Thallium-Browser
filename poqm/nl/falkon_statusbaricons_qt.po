@@ -2,14 +2,21 @@
 # This file is distributed under the same license as the falkon package.
 # Heimen Stoffels <vistausss@gmail.com>, 2017
 #
+# SPDX-FileCopyrightText: 2023 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
+"PO-Revision-Date: 2023-09-30 11:21+0200\n"
+"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"Language-Team: \n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: nl_NL\n"
 "X-Qt-Contexts: true\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #: sbi_imagesicon.cpp:34
 msgctxt "SBI_ImagesIcon|"
@@ -72,27 +79,27 @@ msgctxt "SBI_JavaScriptIcon|"
 msgid "Manage JavaScript settings"
 msgstr "JavaScript-instellingen beheren"
 
-#: sbi_networkicon.cpp:65
+#: sbi_networkicon.cpp:73
 msgctxt "SBI_NetworkIcon|"
 msgid "Proxy Configuration"
 msgstr "Proxy-configuratie"
 
-#: sbi_networkicon.cpp:67
+#: sbi_networkicon.cpp:75
 msgctxt "SBI_NetworkIcon|"
 msgid "Select proxy"
 msgstr "Selecteer proxy"
 
-#: sbi_networkicon.cpp:81
+#: sbi_networkicon.cpp:89
 msgctxt "SBI_NetworkIcon|"
 msgid "Empty"
 msgstr "Leeg"
 
-#: sbi_networkicon.cpp:85
+#: sbi_networkicon.cpp:93
 msgctxt "SBI_NetworkIcon|"
 msgid "Manage proxies"
 msgstr "Proxies beheren"
 
-#: sbi_networkicon.cpp:98
+#: sbi_networkicon.cpp:106
 #, qt-format
 msgctxt "SBI_NetworkIcon|"
 msgid ""
@@ -102,27 +109,27 @@ msgstr ""
 "Weergeeft de netwerkstatus en beheert proxies<br/><br/><b>Netwerk:</b><br/>"
 "%1<br/><br/><b>Proxy:</b><br/>%2"
 
-#: sbi_networkicon.cpp:101
+#: sbi_networkicon.cpp:110 sbi_networkicon.cpp:118
 msgctxt "SBI_NetworkIcon|"
 msgid "Connected"
 msgstr "Verbonden"
 
-#: sbi_networkicon.cpp:104
+#: sbi_networkicon.cpp:113
 msgctxt "SBI_NetworkIcon|"
 msgid "Offline"
 msgstr "Niet verbonden"
 
-#: sbi_networkicon.cpp:109
+#: sbi_networkicon.cpp:123
 msgctxt "SBI_NetworkIcon|"
 msgid "System proxy"
 msgstr "Systeemproxy"
 
-#: sbi_networkicon.cpp:113
+#: sbi_networkicon.cpp:127
 msgctxt "SBI_NetworkIcon|"
 msgid "No proxy"
 msgstr "Geen proxy"
 
-#: sbi_networkicon.cpp:117
+#: sbi_networkicon.cpp:131
 msgctxt "SBI_NetworkIcon|"
 msgid "User defined"
 msgstr "Door gebruiker opgegeven"
@@ -212,7 +219,7 @@ msgstr "S&ysteem-proxyconfiguratie"
 #: sbi_proxywidget.ui:118
 msgctxt "SBI_ProxyWidget|"
 msgid "&Manual configuration"
-msgstr "&Handmatige instellingen"
+msgstr "&Handmatige configuratie"
 
 #: sbi_settingsdialog.ui:14
 msgctxt "SBI_SettingsDialog|"
