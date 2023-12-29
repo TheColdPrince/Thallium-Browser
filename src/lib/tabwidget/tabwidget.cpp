@@ -58,7 +58,7 @@ void AddTabButton::wheelEvent(QWheelEvent* event)
 
 void AddTabButton::mouseReleaseEvent(QMouseEvent* event)
 {
-    if (event->button() == Qt::MiddleButton && rect().contains(event->pos())) {
+    if (event->button() == Qt::MiddleButton && rect().contains(event->position().toPoint())) {
         m_tabWidget->addTabFromClipboard();
     }
 
@@ -68,7 +68,7 @@ void AddTabButton::mouseReleaseEvent(QMouseEvent* event)
 void MenuTabs::mouseReleaseEvent(QMouseEvent* event)
 {
     if (event->button() == Qt::MiddleButton) {
-        QAction* action = actionAt(event->pos());
+        QAction* action = actionAt(event->position().toPoint());
         if (action && action->isEnabled()) {
             auto* tab = qobject_cast<WebTab*>(qvariant_cast<QWidget*>(action->data()));
             if (tab) {
@@ -157,15 +157,15 @@ BrowserWindow *TabWidget::browserWindow() const
 void TabWidget::loadSettings()
 {
     Settings settings;
-    settings.beginGroup("Browser-Tabs-Settings");
-    m_dontCloseWithOneTab = settings.value("dontCloseWithOneTab", false).toBool();
-    m_showClosedTabsButton = settings.value("showClosedTabsButton", false).toBool();
-    m_newTabAfterActive = settings.value("newTabAfterActive", true).toBool();
-    m_newEmptyTabAfterActive = settings.value("newEmptyTabAfterActive", false).toBool();
+    settings.beginGroup(QSL("Browser-Tabs-Settings"));
+    m_dontCloseWithOneTab = settings.value(QSL("dontCloseWithOneTab"), false).toBool();
+    m_showClosedTabsButton = settings.value(QSL("showClosedTabsButton"), false).toBool();
+    m_newTabAfterActive = settings.value(QSL("newTabAfterActive"), true).toBool();
+    m_newEmptyTabAfterActive = settings.value(QSL("newEmptyTabAfterActive"), false).toBool();
     settings.endGroup();
 
-    settings.beginGroup("Web-URL-Settings");
-    m_urlOnNewTab = settings.value("newTabUrl", "falkon:speeddial").toUrl();
+    settings.beginGroup(QSL("Web-URL-Settings"));
+    m_urlOnNewTab = settings.value(QSL("newTabUrl"), QSL("falkon:speeddial")).toUrl();
     settings.endGroup();
 
     m_tabBar->loadSettings();
@@ -864,7 +864,7 @@ bool TabWidget::restoreState(const QVector<WebTab::SavedTab> &tabs, int currentT
         }
     }
 
-    for (const auto &p : qAsConst(childTabs)) {
+    for (const auto &p : std::as_const(childTabs)) {
         const auto indices = p.second;
         for (int index : indices) {
             WebTab *t = weTab(index);
@@ -882,6 +882,7 @@ bool TabWidget::restoreState(const QVector<WebTab::SavedTab> &tabs, int currentT
     }
 
     setCurrentIndex(currentTab);
+    currentTabChanged(currentTab);
     QTimer::singleShot(0, m_tabBar, SLOT(ensureVisible(int,int)));
 
     weTab()->tabActivated();

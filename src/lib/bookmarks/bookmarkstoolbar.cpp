@@ -36,7 +36,7 @@ BookmarksToolbar::BookmarksToolbar(BrowserWindow* window, QWidget* parent)
     : QWidget(parent)
     , m_window(window)
     , m_bookmarks(mApp->bookmarks())
-    , m_clickedBookmark(0)
+    , m_clickedBookmark(nullptr)
     , m_dropRow(-1)
 {
     setObjectName("bookmarksbar");
@@ -44,10 +44,10 @@ BookmarksToolbar::BookmarksToolbar(BrowserWindow* window, QWidget* parent)
     setContextMenuPolicy(Qt::CustomContextMenu);
 
     m_layout = new QHBoxLayout(this);
-    auto contentsMargin = style()->pixelMetric(QStyle::PM_ToolBarItemMargin, 0, this)
-                        + style()->pixelMetric(QStyle::PM_ToolBarFrameWidth, 0, this);
+    auto contentsMargin = style()->pixelMetric(QStyle::PM_ToolBarItemMargin, nullptr, this)
+                        + style()->pixelMetric(QStyle::PM_ToolBarFrameWidth, nullptr, this);
     m_layout->setContentsMargins(contentsMargin, contentsMargin, contentsMargin, contentsMargin);
-    m_layout->setSpacing(style()->pixelMetric(QStyle::PM_ToolBarItemSpacing, 0, this));
+    m_layout->setSpacing(style()->pixelMetric(QStyle::PM_ToolBarItemSpacing, nullptr, this));
     setLayout(m_layout);
 
     m_updateTimer = new QTimer(this);
@@ -68,16 +68,16 @@ BookmarksToolbar::BookmarksToolbar(BrowserWindow* window, QWidget* parent)
 void BookmarksToolbar::contextMenuRequested(const QPoint &pos)
 {
     BookmarksToolbarButton* button = buttonAt(pos);
-    m_clickedBookmark = button ? button->bookmark() : 0;
+    m_clickedBookmark = button ? button->bookmark() : nullptr;
 
     QMenu menu;
     QAction* actNewTab = menu.addAction(IconProvider::newTabIcon(), tr("Open in new tab"));
     QAction* actNewWindow = menu.addAction(IconProvider::newWindowIcon(), tr("Open in new window"));
     QAction* actNewPrivateWindow = menu.addAction(IconProvider::privateBrowsingIcon(), tr("Open in new private window"));
     menu.addSeparator();
-    QAction* actNewFolder = menu.addAction(QIcon::fromTheme("folder-new"), tr("New Folder"));
+    QAction* actNewFolder = menu.addAction(QIcon::fromTheme(QSL("folder-new")), tr("New Folder"));
     QAction* actEdit = menu.addAction(tr("Edit"));
-    QAction* actDelete = menu.addAction(QIcon::fromTheme("edit-delete"), tr("Delete"));
+    QAction* actDelete = menu.addAction(QIcon::fromTheme(QSL("edit-delete")), tr("Delete"));
     menu.addSeparator();
     m_actShowOnlyIcons = menu.addAction(tr("Show Only Icons"));
     m_actShowOnlyIcons->setCheckable(true);
@@ -276,7 +276,7 @@ void BookmarksToolbar::dropEvent(QDropEvent* e)
         }
     } else {
         const QUrl url = mime->urls().at(0);
-        const QString title = mime->hasText() ? mime->text() : url.toEncoded(QUrl::RemoveScheme);
+        const QString title = mime->hasText() ? mime->text() : QString::fromUtf8(url.toEncoded(QUrl::RemoveScheme));
 
         bookmark = new BookmarkItem(BookmarkItem::Url);
         bookmark->setTitle(title);
@@ -304,9 +304,9 @@ void BookmarksToolbar::dragEnterEvent(QDragEnterEvent* e)
 
 void BookmarksToolbar::dragMoveEvent(QDragMoveEvent *e)
 {
-    int eventX = e->pos().x();
-    BookmarksToolbarButton* button = buttonAt(e->pos());
-    m_dropPos = e->pos();
+    int eventX = e->position().toPoint().x();
+    BookmarksToolbarButton* button = buttonAt(e->position().toPoint());
+    m_dropPos = e->position().toPoint();
     m_dropRow = m_layout->indexOf(button);
     if (button) {
         bool res = eventX - button->x() < button->x() + button->width() -eventX;

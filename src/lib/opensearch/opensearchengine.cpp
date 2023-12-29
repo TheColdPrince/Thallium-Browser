@@ -103,9 +103,9 @@ OpenSearchEngine::OpenSearchEngine(QObject* parent)
     : QObject(parent)
     , m_searchMethod(QLatin1String("get"))
     , m_suggestionsMethod(QLatin1String("get"))
-    , m_networkAccessManager(0)
-    , m_suggestionsReply(0)
-    , m_delegate(0)
+    , m_networkAccessManager(nullptr)
+    , m_suggestionsReply(nullptr)
+    , m_delegate(nullptr)
 {
     m_requestMethods.insert(QLatin1String("get"), QNetworkAccessManager::GetOperation);
     m_requestMethods.insert(QLatin1String("post"), QNetworkAccessManager::PostOperation);
@@ -245,7 +245,7 @@ QByteArray OpenSearchEngine::getPostData(const QString &searchTerm) const
         return {};
     }
 
-    QUrl retVal = QUrl("http://foo.bar");
+    QUrl retVal = QUrl(QSL("http://foo.bar"));
 
     QUrlQuery query(retVal);
     Parameters::const_iterator end = m_searchParameters.constEnd();
@@ -530,7 +530,7 @@ void OpenSearchEngine::setSuggestionsUrl(const QString &string)
 
 QString OpenSearchEngine::getSuggestionsUrl()
 {
-    return suggestionsUrl("searchstring").toString().replace(QLatin1String("searchstring"), QLatin1String("%s"));
+    return suggestionsUrl(QSL("searchstring")).toString().replace(QLatin1String("searchstring"), QLatin1String("%s"));
 }
 
 QByteArray OpenSearchEngine::getSuggestionsParameters()
@@ -563,7 +563,7 @@ void OpenSearchEngine::requestSuggestions(const QString &searchTerm)
         m_suggestionsReply->disconnect(this);
         m_suggestionsReply->abort();
         m_suggestionsReply->deleteLater();
-        m_suggestionsReply = 0;
+        m_suggestionsReply = nullptr;
     }
 
     Q_ASSERT(m_requestMethods.contains(m_suggestionsMethod));
@@ -627,13 +627,13 @@ void OpenSearchEngine::suggestionsObtained()
 
     m_suggestionsReply->close();
     m_suggestionsReply->deleteLater();
-    m_suggestionsReply = 0;
+    m_suggestionsReply = nullptr;
 
     QJsonParseError err;
     QJsonDocument json = QJsonDocument::fromJson(response, &err);
     const QVariant res = json.toVariant();
 
-    if (err.error != QJsonParseError::NoError || res.type() != QVariant::List)
+    if (err.error != QJsonParseError::NoError || res.typeId() != QMetaType::QVariantList)
         return;
 
     const QVariantList list = res.toList();

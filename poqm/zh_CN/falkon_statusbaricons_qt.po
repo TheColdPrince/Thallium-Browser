@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
-"PO-Revision-Date: 2023-10-21 13:54\n"
+"PO-Revision-Date: 2023-12-23 08:00\n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -12,8 +12,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf5-trunk/messages/falkon/falkon_statusbaricons_qt.pot\n"
-"X-Crowdin-File-ID: 7092\n"
+"X-Crowdin-File: /kf6-trunk/messages/falkon/falkon_statusbaricons_qt.pot\n"
+"X-Crowdin-File-ID: 48524\n"
 
 #: sbi_imagesicon.cpp:34
 msgctxt "SBI_ImagesIcon|"
@@ -75,27 +75,27 @@ msgctxt "SBI_JavaScriptIcon|"
 msgid "Manage JavaScript settings"
 msgstr "管理 JavaScript 设置"
 
-#: sbi_networkicon.cpp:73
+#: sbi_networkicon.cpp:62
 msgctxt "SBI_NetworkIcon|"
 msgid "Proxy Configuration"
 msgstr "代理服务器配置"
 
-#: sbi_networkicon.cpp:75
+#: sbi_networkicon.cpp:64
 msgctxt "SBI_NetworkIcon|"
 msgid "Select proxy"
 msgstr "选择代理服务器"
 
-#: sbi_networkicon.cpp:89
+#: sbi_networkicon.cpp:78
 msgctxt "SBI_NetworkIcon|"
 msgid "Empty"
 msgstr "空"
 
-#: sbi_networkicon.cpp:93
+#: sbi_networkicon.cpp:82
 msgctxt "SBI_NetworkIcon|"
 msgid "Manage proxies"
 msgstr "管理代理服务器"
 
-#: sbi_networkicon.cpp:106
+#: sbi_networkicon.cpp:95
 #, qt-format
 msgctxt "SBI_NetworkIcon|"
 msgid ""
@@ -105,27 +105,22 @@ msgstr ""
 "显示网络状态并管理代理服务器<br/><br/><b>网络：</b><br/>%1<br/><br/><b>代理服"
 "务器：</b><br/>%2"
 
-#: sbi_networkicon.cpp:110 sbi_networkicon.cpp:118
+#: sbi_networkicon.cpp:99
 msgctxt "SBI_NetworkIcon|"
 msgid "Connected"
 msgstr "已连接"
 
-#: sbi_networkicon.cpp:113
-msgctxt "SBI_NetworkIcon|"
-msgid "Offline"
-msgstr "离线"
-
-#: sbi_networkicon.cpp:123
+#: sbi_networkicon.cpp:103
 msgctxt "SBI_NetworkIcon|"
 msgid "System proxy"
 msgstr "系统代理服务器"
 
-#: sbi_networkicon.cpp:127
+#: sbi_networkicon.cpp:107
 msgctxt "SBI_NetworkIcon|"
 msgid "No proxy"
 msgstr "无代理服务器"
 
-#: sbi_networkicon.cpp:131
+#: sbi_networkicon.cpp:111
 msgctxt "SBI_NetworkIcon|"
 msgid "User defined"
 msgstr "用户自定义"

@@ -36,8 +36,8 @@ QString TabManagerPlugin::s_settingsPath;
 
 TabManagerPlugin::TabManagerPlugin()
     : QObject()
-    , m_controller(0)
-    , m_tabManagerWidget(0)
+    , m_controller(nullptr)
+    , m_tabManagerWidget(nullptr)
     , m_viewType(Undefined)
     , m_initState(false)
     , m_asTabBarReplacement(false)
@@ -81,7 +81,7 @@ void TabManagerPlugin::unload()
 
 bool TabManagerPlugin::testPlugin()
 {
-    return (Qz::VERSION == QLatin1String(FALKON_VERSION));
+    return (QString::fromLatin1(Qz::VERSION) == QLatin1String(FALKON_VERSION));
 }
 
 void TabManagerPlugin::showSettings(QWidget* parent)
@@ -103,11 +103,11 @@ void TabManagerPlugin::populateExtensionsMenu(QMenu* menu)
 void TabManagerPlugin::insertManagerWidget()
 {
     if (viewType() == ShowAsSideBar) {
-        SideBarManager::addSidebar("TabManager", m_controller);
+        SideBarManager::addSidebar(QStringLiteral("TabManager"), m_controller);
     }
     else if (viewType() == ShowAsWindow) {
         if (!m_tabManagerWidget) {
-            m_tabManagerWidget = m_controller->createTabManagerWidget(mApp->getWindow(), 0, true);
+            m_tabManagerWidget = m_controller->createTabManagerWidget(mApp->getWindow(), nullptr, true);
             m_tabManagerWidget->setWindowFlags(Qt::Window);
         }
     }
@@ -161,7 +161,7 @@ void TabManagerPlugin::removeManagerWidget()
 
         m_tabManagerWidget->close();
         delete m_tabManagerWidget;
-        m_tabManagerWidget = 0;
+        m_tabManagerWidget = nullptr;
     }
 }
 
@@ -180,7 +180,7 @@ void TabManagerPlugin::setViewType(ViewType type)
 
         if (!m_initState) {
             if (m_viewType == ShowAsSideBar) {
-                mApp->getWindow()->sideBarManager()->showSideBar("TabManager");
+                mApp->getWindow()->sideBarManager()->showSideBar(QStringLiteral("TabManager"));
             }
             else if (m_viewType == ShowAsWindow) {
                 // add statusbar icon

@@ -23,36 +23,25 @@
 #include "browserwindow.h"
 
 #include <QMenu>
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-#include <QNetworkConfigurationManager>
-#endif
 
 SBI_NetworkIcon::SBI_NetworkIcon(BrowserWindow* window)
     : SBI_Icon(window)
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-    , m_networkConfiguration(new QNetworkConfigurationManager(this))
-#endif
 {
     setObjectName(QSL("sbi_networkicon"));
     setCursor(Qt::PointingHandCursor);
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-    onlineStateChanged(m_networkConfiguration->isOnline());
-
-    connect(m_networkConfiguration, &QNetworkConfigurationManager::onlineStateChanged, this, &SBI_NetworkIcon::onlineStateChanged);
-#else
+    /* TODO rework connection detection */
     onlineStateChanged(true);
-#endif
     connect(this, &ClickableLabel::clicked, this, &SBI_NetworkIcon::showMenu);
 }
 
 void SBI_NetworkIcon::onlineStateChanged(bool online)
 {
     if (online) {
-        setPixmap(QIcon(":sbi/data/network-online.png").pixmap(16));
+        setPixmap(QIcon(QSL(":sbi/data/network-online.png")).pixmap(16));
     }
     else {
-        setPixmap(QIcon(":sbi/data/network-offline.png").pixmap(16));
+        setPixmap(QIcon(QSL(":sbi/data/network-offline.png")).pixmap(16));
     }
 
     updateToolTip();
@@ -70,7 +59,7 @@ void SBI_NetworkIcon::showMenu(const QPoint &pos)
     boldFont.setBold(true);
 
     QMenu menu;
-    menu.addAction(QIcon::fromTheme("preferences-system-network", QIcon(":sbi/data/preferences-network.png")), tr("Proxy Configuration"))->setFont(boldFont);
+    menu.addAction(QIcon::fromTheme(QSL("preferences-system-network"), QIcon(QSL(":sbi/data/preferences-network.png"))), tr("Proxy Configuration"))->setFont(boldFont);
 
     QMenu* proxyMenu = menu.addMenu(tr("Select proxy"));
 
@@ -105,18 +94,9 @@ void SBI_NetworkIcon::updateToolTip()
 {
     QString tooltip = tr("Shows network status and manages proxy<br/><br/><b>Network:</b><br/>%1<br/><br/><b>Proxy:</b><br/>%2");
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-    if (m_networkConfiguration->isOnline()) {
-        tooltip = tooltip.arg(tr("Connected"));
-    }
-    else {
-        tooltip = tooltip.arg(tr("Offline"));
-    }
-#else
     // TODO QT6 - in Qt6 we're always reporting as online, should we just remove this functionality instead?
     // Or is there a way to detect network status in Qt6?
     tooltip = tooltip.arg(tr("Connected"));
-#endif
 
     switch (QNetworkProxy::applicationProxy().type()) {
     case QNetworkProxy::DefaultProxy:
@@ -133,17 +113,13 @@ void SBI_NetworkIcon::updateToolTip()
     }
 
     if (SBINetManager->currentProxy()) {
-        tooltip.append(QString(" (%1)").arg(SBINetManager->currentProxyName()));
+        tooltip.append(QSL(" (%1)").arg(SBINetManager->currentProxyName()));
     }
 
     setToolTip(tooltip);
 }
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-void SBI_NetworkIcon::enterEvent(QEvent* event)
-#else
 void SBI_NetworkIcon::enterEvent(QEnterEvent* event)
-#endif
 {
     updateToolTip();
 

@@ -72,8 +72,8 @@ static const bool kEnableJsNonBlockDialogs = qEnvironmentVariableIsSet("FALKON_E
 
 WebPage::WebPage(QObject* parent)
     : QWebEnginePage(mApp->webProfile(), parent)
-    , m_fileWatcher(0)
-    , m_runningLoop(0)
+    , m_fileWatcher(nullptr)
+    , m_runningLoop(nullptr)
     , m_loadProgress(100)
     , m_blockAlerts(false)
     , m_secureStatus(false)
@@ -89,9 +89,7 @@ WebPage::WebPage(QObject* parent)
     connect(this, &QWebEnginePage::windowCloseRequested, this, &WebPage::windowCloseRequested);
     connect(this, &QWebEnginePage::fullScreenRequested, this, &WebPage::fullScreenRequested);
     connect(this, &QWebEnginePage::renderProcessTerminated, this, &WebPage::renderProcessTerminated);
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
     connect(this, &QWebEnginePage::certificateError, this, &WebPage::onCertificateError);
-#endif
 
     connect(this, &QWebEnginePage::authenticationRequired, this, [this](const QUrl &url, QAuthenticator *auth) {
         mApp->networkManager()->authentication(url, auth, view());
@@ -134,17 +132,13 @@ WebPage::~WebPage()
 
     if (m_runningLoop) {
         m_runningLoop->exit(1);
-        m_runningLoop = 0;
+        m_runningLoop = nullptr;
     }
 }
 
 WebView *WebPage::view() const
 {
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-    return static_cast<WebView*>(QWebEnginePage::view());
-#else
     return static_cast<WebView*>(QWebEngineView::forPage(this));
-#endif
 }
 
 bool WebPage::execPrintPage(QPrinter *printer, int timeout)
@@ -153,14 +147,6 @@ bool WebPage::execPrintPage(QPrinter *printer, int timeout)
     bool result = false;
     QTimer::singleShot(timeout, loop.data(), &QEventLoop::quit);
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-    print(printer, [loop, &result](bool res) {
-        if (loop && loop->isRunning()) {
-            result = res;
-            loop->quit();
-        }
-    });
-#else
     connect(view(), &QWebEngineView::printFinished, this, [loop, &result](bool res) {
         if (loop && loop->isRunning()) {
             result = res;
@@ -168,7 +154,6 @@ bool WebPage::execPrintPage(QPrinter *printer, int timeout)
         }
     });
     view()->print(printer);
-#endif
 
     loop->exec();
     delete loop;
@@ -343,7 +328,7 @@ void WebPage::handleUnknownProtocol(const QUrl &url)
     CheckBoxDialog dialog(QMessageBox::Yes | QMessageBox::No, view());
     dialog.setDefaultButton(QMessageBox::Yes);
 
-    const QString wrappedUrl = QzTools::alignTextToWidth(url.toString(), "<br/>", dialog.fontMetrics(), 450);
+    const QString wrappedUrl = QzTools::alignTextToWidth(url.toString(), QSL("<br/>"), dialog.fontMetrics(), 450);
     const QString text = tr("Falkon cannot handle <b>%1:</b> links. The requested link "
                             "is <ul><li>%2</li></ul>Do you want Falkon to try "
                             "open this link in system application?").arg(protocol, wrappedUrl);
@@ -428,7 +413,7 @@ void WebPage::renderProcessTerminated(QWebEnginePage::RenderProcessTerminationSt
         return;
 
     QTimer::singleShot(0, this, [this]() {
-        QString page = QzTools::readAllFileContents(":html/tabcrash.html");
+        QString page = QzTools::readAllFileContents(QSL(":html/tabcrash.html"));
         page.replace(QL1S("%IMAGE%"), QzTools::pixmapToDataUrl(IconProvider::standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45)).toString());
         page.replace(QL1S("%TITLE%"), tr("Failed loading page"));
         page.replace(QL1S("%HEADING%"), tr("Failed loading page"));
@@ -436,7 +421,7 @@ void WebPage::renderProcessTerminated(QWebEnginePage::RenderProcessTerminationSt
         page.replace(QL1S("%LI-2%"), tr("Try reloading the page or closing some tabs to make more memory available."));
         page.replace(QL1S("%RELOAD-PAGE%"), tr("Reload page"));
         page = QzTools::applyDirectionToPage(page);
-        setHtml(page.toUtf8(), url());
+        setHtml(page, url());
     });
 }
 
@@ -454,11 +439,6 @@ bool WebPage::acceptNavigationRequest(const QUrl &url, QWebEnginePage::Navigatio
             QUrlQuery query(url);
             mApp->searchEnginesManager()->addEngine(QUrl(query.queryItemValue(QSL("url"))));
             return false;
-#if QTWEBENGINEWIDGETS_VERSION < QT_VERSION_CHECK(5, 12, 0)
-        } else if (url.path() == QL1S("PrintPage")) {
-            Q_EMIT printRequested();
-            return false;
-#endif
         }
     }
 
@@ -480,12 +460,6 @@ bool WebPage::acceptNavigationRequest(const QUrl &url, QWebEnginePage::Navigatio
     return result;
 }
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-bool WebPage::certificateError(const QWebEngineCertificateError &error)
-{
-    return mApp->networkManager()->certificateError(error, view());
-}
-#else
 void WebPage::onCertificateError(QWebEngineCertificateError error)
 {
     auto mutableError = const_cast<QWebEngineCertificateError&>(error);
@@ -494,7 +468,6 @@ void WebPage::onCertificateError(QWebEngineCertificateError error)
     else
         mutableError.rejectCertificate();
 }
-#endif
 
 QStringList WebPage::chooseFiles(QWebEnginePage::FileSelectionMode mode, const QStringList &oldFiles, const QStringList &acceptedMimeTypes)
 {
@@ -507,11 +480,11 @@ QStringList WebPage::chooseFiles(QWebEnginePage::FileSelectionMode mode, const Q
 
     switch (mode) {
     case FileSelectOpen:
-        files = QStringList(QzTools::getOpenFileName("WebPage-ChooseFile", view(), tr("Choose file..."), suggestedFileName));
+        files = QStringList(QzTools::getOpenFileName(QSL("WebPage-ChooseFile"), view(), tr("Choose file..."), suggestedFileName));
         break;
 
     case FileSelectOpenMultiple:
-        files = QzTools::getOpenFileNames("WebPage-ChooseFile", view(), tr("Choose files..."), suggestedFileName);
+        files = QzTools::getOpenFileNames(QSL("WebPage-ChooseFile"), view(), tr("Choose files..."), suggestedFileName);
         break;
 
     default:
@@ -582,7 +555,7 @@ bool WebPage::javaScriptPrompt(const QUrl &securityOrigin, const QString &msg, c
     if (eLoop.exec() == 1) {
         return result;
     }
-    m_runningLoop = 0;
+    m_runningLoop = nullptr;
 
     QString x = ui->lineEdit->text();
     bool _result = ui->buttonBox->buttonRole(clicked) == QDialogButtonBox::AcceptRole;
@@ -628,7 +601,7 @@ bool WebPage::javaScriptConfirm(const QUrl &securityOrigin, const QString &msg)
     if (eLoop.exec() == 1) {
         return false;
     }
-    m_runningLoop = 0;
+    m_runningLoop = nullptr;
 
     bool result = ui->buttonBox->buttonRole(clicked) == QDialogButtonBox::AcceptRole;
 
@@ -649,7 +622,7 @@ void WebPage::javaScriptAlert(const QUrl &securityOrigin, const QString &msg)
     if (!kEnableJsNonBlockDialogs) {
         QString title = tr("JavaScript alert");
         if (!url().host().isEmpty()) {
-            title.append(QString(" - %1").arg(url().host()));
+            title.append(QSL(" - %1").arg(url().host()));
         }
 
         CheckBoxDialog dialog(QMessageBox::Ok, view());
@@ -683,7 +656,7 @@ void WebPage::javaScriptAlert(const QUrl &securityOrigin, const QString &msg)
     if (eLoop.exec() == 1) {
         return;
     }
-    m_runningLoop = 0;
+    m_runningLoop = nullptr;
 
     m_blockAlerts = ui->preventAlerts->isChecked();
 

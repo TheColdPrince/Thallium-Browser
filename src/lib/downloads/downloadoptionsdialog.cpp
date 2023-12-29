@@ -21,13 +21,9 @@
 
 #include <QClipboard>
 #include <QMimeDatabase>
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-#include <QWebEngineDownloadItem>
-#else
 #include <QWebEngineDownloadRequest>
-#endif
 
-DownloadOptionsDialog::DownloadOptionsDialog(const QString &fileName, Q_WEB_ENGINE_DOWNLOAD_ITEM_CLASS *downloadItem, QWidget *parent)
+DownloadOptionsDialog::DownloadOptionsDialog(const QString &fileName, QWebEngineDownloadRequest *downloadItem, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::DownloadOptionsDialog)
     , m_downloadItem(downloadItem)
@@ -35,7 +31,7 @@ DownloadOptionsDialog::DownloadOptionsDialog(const QString &fileName, Q_WEB_ENGI
 {
     ui->setupUi(this);
 
-    ui->fileName->setText("<b>" + fileName + "</b>");
+    ui->fileName->setText(QSL("<b>") + fileName + QSL("</b>"));
     ui->fromServer->setText(m_downloadItem->url().host());
 
     const QIcon fileIcon = IconProvider::instance()->standardIcon(QStyle::SP_FileIcon);

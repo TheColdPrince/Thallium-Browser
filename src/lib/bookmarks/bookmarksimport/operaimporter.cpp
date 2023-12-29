@@ -25,11 +25,7 @@
 OperaImporter::OperaImporter(QObject* parent)
     : BookmarksImporter(parent)
 {
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-        m_stream.setCodec("UTF-8");
-#else
-        m_stream.setEncoding(QStringConverter::Utf8);
-#endif
+    m_stream.setEncoding(QStringConverter::Utf8);
 }
 
 QString OperaImporter::description() const
@@ -85,7 +81,7 @@ BookmarkItem* OperaImporter::importBookmarks()
     QList<BookmarkItem*> folders;
     folders.append(root);
 
-    BookmarkItem* item = 0;
+    BookmarkItem* item = nullptr;
 
 #define PARENT folders.isEmpty() ? root : folders.last()
 

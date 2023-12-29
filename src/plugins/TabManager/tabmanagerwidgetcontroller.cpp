@@ -25,11 +25,7 @@
 #include "statusbar.h"
 #include "navigationbar.h"
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-#include <QDesktopWidget>
-#else
 #include <QScreen>
-#endif
 #include <QAction>
 #include <QStyle>
 
@@ -58,7 +54,7 @@ public:
 
 TabManagerWidgetController::TabManagerWidgetController(QObject* parent)
     : SideBarInterface(parent)
-    , m_defaultTabManager(0)
+    , m_defaultTabManager(nullptr)
     , m_groupType(TabManagerWidget::GroupByWindow)
 {
 }
@@ -75,9 +71,9 @@ QAction* TabManagerWidgetController::createMenuAction()
 {
     auto* act = new QAction(tr("Tab Manager"), this);
     act->setCheckable(true);
-    act->setIcon(QIcon(":tabmanager/data/tabmanager.png"));
-    act->setShortcut(QKeySequence("Ctrl+Shift+M"));
-    act->setData("TabManager");
+    act->setIcon(QIcon(QSL(":tabmanager/data/tabmanager.png")));
+    act->setShortcut(QKeySequence(QSL("Ctrl+Shift+M")));
+    act->setData(QSL("TabManager"));
 
     return act;
 }
@@ -90,7 +86,7 @@ QWidget* TabManagerWidgetController::createSideBarWidget(BrowserWindow* mainWind
 AbstractButtonInterface* TabManagerWidgetController::createStatusBarIcon(BrowserWindow* mainWindow)
 {
     if (!defaultTabManager()) {
-        return 0;
+        return nullptr;
     }
 
     if (m_statusBarIcons.contains(mainWindow)) {
@@ -98,7 +94,7 @@ AbstractButtonInterface* TabManagerWidgetController::createStatusBarIcon(Browser
     }
 
     auto* icon = new TabManagerButton(this);
-    icon->setIcon(QPixmap(":tabmanager/data/tabmanager.png"));
+    icon->setIcon(QPixmap(QSL(":tabmanager/data/tabmanager.png")));
     icon->setTitle(tr("Tab Manager"));
     icon->setToolTip(tr("Show Tab Manager"));
     connect(icon, &AbstractButtonInterface::clicked, this, [=](AbstractButtonInterface::ClickController *c) {
@@ -156,7 +152,7 @@ TabManagerWidget* TabManagerWidgetController::createTabManagerWidget(BrowserWind
         connect(tabManagerWidget, SIGNAL(showSideBySide()), this, SLOT(showSideBySide()));
     }
     else {
-        m_defaultTabManager = 0;
+        m_defaultTabManager = nullptr;
     }
 
     connect(tabManagerWidget, SIGNAL(groupTypeChanged(TabManagerWidget::GroupType)), this, SLOT(setGroupType(TabManagerWidget::GroupType)));
@@ -217,11 +213,7 @@ void TabManagerWidgetController::showSideBySide()
         return;
     }
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-    const QRect &availableGeometry = mApp->desktop()->availableGeometry(defaultTabManager());
-#else
     const QRect &availableGeometry = defaultTabManager()->screen()->availableGeometry();
-#endif
     static int frameWidth = (defaultTabManager()->frameGeometry().width() - defaultTabManager()->geometry().width()) / 2;
     static int titleBarHeight = defaultTabManager()->style()->pixelMetric(QStyle::PM_TitleBarHeight);
 

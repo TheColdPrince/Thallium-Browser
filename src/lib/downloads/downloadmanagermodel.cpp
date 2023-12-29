@@ -33,11 +33,7 @@ QVariant DownloadManagerModel::data(const QModelIndex &index, int role) const
 {
     if (role == Qt::DisplayRole) {
         const DownloadItem *item = m_downloads.at(index.row());
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-        return item;
-#else
         return QVariant::fromValue(item);
-#endif
     }
     return QVariant();
 }
@@ -46,14 +42,14 @@ void DownloadManagerModel::addDownload(DownloadItem *item)
 {
     m_downloads.append(item);
     connect(item, &DownloadItem::deleteItem, this, &DownloadManagerModel::removeDownload);
-    emit downloadAdded(item);
+    Q_EMIT downloadAdded(item);
 }
 
 void DownloadManagerModel::removeDownload(DownloadItem *item)
 {
     if (item && !item->isDownloading()) {
         delete item;
-        emit downloadRemoved(item);
+        Q_EMIT downloadRemoved(item);
     }
 }
 

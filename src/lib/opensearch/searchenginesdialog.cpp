@@ -108,7 +108,7 @@ void SearchEnginesDialog::editEngine()
 
     dialog.setName(engine.name);
     dialog.setUrl(engine.url);
-    dialog.setPostData(engine.postData);
+    dialog.setPostData(QString::fromUtf8(engine.postData));
     dialog.setShortcut(engine.shortcut);
     dialog.setIcon(engine.icon);
 
@@ -173,11 +173,7 @@ SearchEngine SearchEnginesDialog::getEngine(QTreeWidgetItem* item)
 void SearchEnginesDialog::setEngine(QTreeWidgetItem* item, const SearchEngine &engine)
 {
     QVariant v;
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-    v.setValue<SearchEngine>(engine);
-#else
     v.setValue(engine);
-#endif
     item->setData(0, EngineRole, v);
     item->setText(0, engine.name);
 }

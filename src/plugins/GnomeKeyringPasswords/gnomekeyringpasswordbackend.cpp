@@ -24,6 +24,17 @@ extern "C" {
 #include "gnome-keyring.h"
 }
 
+// TODO QT6 - should we just start storing timestamps as 64-bit instead?
+static uint Q_DATETIME_TOTIME_T(const QDateTime &dateTime)
+{
+    if (!dateTime.isValid())
+        return uint(-1);
+    qint64 retval = dateTime.toMSecsSinceEpoch() / 1000;
+    if (quint64(retval) >= Q_UINT64_C(0xFFFFFFFF))
+        return uint(-1);
+    return uint(retval);
+}
+
 static PasswordEntry createEntry(GnomeKeyringFound* item)
 {
     PasswordEntry entry;
@@ -117,7 +128,7 @@ QVector<PasswordEntry> GnomeKeyringPasswordBackend::getEntries(const QUrl &url)
 
     QVector<PasswordEntry> list;
 
-    foreach (const PasswordEntry &entry, m_allEntries) {
+    for (const PasswordEntry &entry : std::as_const(m_allEntries)) {
         if (entry.host == host) {
             list.append(entry);
         }
@@ -141,7 +152,7 @@ void GnomeKeyringPasswordBackend::addEntry(const PasswordEntry &entry)
     initialize();
 
     PasswordEntry stored = entry;
-    stored.updated = QDateTime::currentDateTime().toTime_t();
+    stored.updated = Q_DATETIME_TOTIME_T(QDateTime::currentDateTime());
 
     storeEntry(stored);
 
@@ -201,7 +212,7 @@ void GnomeKeyringPasswordBackend::updateLastUsed(PasswordEntry &entry)
 {
     initialize();
 
-    entry.updated = QDateTime::currentDateTime().toTime_t();
+    entry.updated = Q_DATETIME_TOTIME_T(QDateTime::currentDateTime());
 
     GnomeKeyringAttributeList* attributes = createAttributes(entry);
 
@@ -245,7 +256,7 @@ void GnomeKeyringPasswordBackend::removeAll()
 {
     initialize();
 
-    foreach (const PasswordEntry &entry, m_allEntries) {
+    for (const PasswordEntry &entry : std::as_const(m_allEntries)) {
         removeEntry(entry);
     }
 

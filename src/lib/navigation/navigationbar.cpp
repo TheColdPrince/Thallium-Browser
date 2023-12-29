@@ -66,10 +66,10 @@ NavigationBar::NavigationBar(BrowserWindow* window)
     setObjectName(QSL("navigationbar"));
 
     m_layout = new QHBoxLayout(this);
-    auto contentsMargin = style()->pixelMetric(QStyle::PM_ToolBarItemMargin, 0, this)
-                        + style()->pixelMetric(QStyle::PM_ToolBarFrameWidth, 0, this);
+    auto contentsMargin = style()->pixelMetric(QStyle::PM_ToolBarItemMargin, nullptr, this)
+                        + style()->pixelMetric(QStyle::PM_ToolBarFrameWidth, nullptr, this);
     m_layout->setContentsMargins(contentsMargin, contentsMargin, contentsMargin, contentsMargin);
-    m_layout->setSpacing(style()->pixelMetric(QStyle::PM_ToolBarItemSpacing, 0, this));
+    m_layout->setSpacing(style()->pixelMetric(QStyle::PM_ToolBarItemSpacing, nullptr, this));
     setLayout(m_layout);
 
     m_buttonBack = new ToolButton(this);
@@ -221,7 +221,7 @@ void NavigationBar::setSplitterSizes(int locationBar, int websearchBar)
 
 void NavigationBar::setCurrentView(TabbedWebView *view)
 {
-    for (const WidgetData &data : qAsConst(m_widgets)) {
+    for (const WidgetData &data : std::as_const(m_widgets)) {
         if (data.button) {
             data.button->setWebView(view);
         }
@@ -437,7 +437,7 @@ void NavigationBar::aboutToShowToolsMenu()
     m_window->createSidebarsMenu(m_menuTools->addMenu(tr("Sidebar")));
     m_menuTools->addSeparator();
 
-    for (const WidgetData &data : qAsConst(m_widgets)) {
+    for (const WidgetData &data : std::as_const(m_widgets)) {
         AbstractButtonInterface *button = data.button;
         if (button && (!button->isVisible() || !m_layoutIds.contains(data.id))) {
             QString title = button->title();
@@ -570,7 +570,7 @@ void NavigationBar::reloadLayout()
     }
 
     // Add widgets to layout
-    for (const QString &id : qAsConst(m_layoutIds)) {
+    for (const QString &id : std::as_const(m_layoutIds)) {
         const WidgetData data = m_widgets.value(id);
         if (data.widget) {
             m_layout->addWidget(data.widget);

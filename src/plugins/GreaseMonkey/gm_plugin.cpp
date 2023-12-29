@@ -29,7 +29,7 @@
 
 GM_Plugin::GM_Plugin()
     : QObject()
-    , m_manager(0)
+    , m_manager(nullptr)
 {
 }
 
@@ -58,7 +58,7 @@ void GM_Plugin::unload()
 bool GM_Plugin::testPlugin()
 {
     // Require the version that the plugin was built with
-    return (Qz::VERSION == QLatin1String(FALKON_VERSION));
+    return (QString::fromLatin1(Qz::VERSION) == QLatin1String(FALKON_VERSION));
 }
 
 void GM_Plugin::showSettings(QWidget* parent)

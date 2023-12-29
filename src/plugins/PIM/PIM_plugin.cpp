@@ -27,7 +27,7 @@
 
 PIM_Plugin::PIM_Plugin()
     : QObject()
-    , m_handler(0)
+    , m_handler(nullptr)
 {
 }
 
@@ -51,7 +51,7 @@ void PIM_Plugin::unload()
 bool PIM_Plugin::testPlugin()
 {
     // Require the version that the plugin was built with
-    return (Qz::VERSION == QLatin1String(FALKON_VERSION));
+    return (QString::fromLatin1(Qz::VERSION) == QLatin1String(FALKON_VERSION));
 }
 
 void PIM_Plugin::showSettings(QWidget* parent)

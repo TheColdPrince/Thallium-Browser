@@ -150,8 +150,8 @@ void WebSearchBar::openSearchEnginesDialog()
 void WebSearchBar::enableSearchSuggestions(bool enable)
 {
     Settings settings;
-    settings.beginGroup("SearchEngines");
-    settings.setValue("showSuggestions", enable);
+    settings.beginGroup(QSL("SearchEngines"));
+    settings.setValue(QSL("showSuggestions"), enable);
     settings.endGroup();
 
     qzSettings->showWSBSearchSuggestions = enable;
@@ -178,11 +178,7 @@ void WebSearchBar::setupEngines()
         item.icon = en.icon;
         item.text = en.name;
         QVariant v;
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-        v.setValue<SearchEngine>(en);
-#else
         v.setValue(en);
-#endif
         item.userData = v;
 
         m_boxSearchType->addItem(item);
@@ -217,8 +213,8 @@ void WebSearchBar::searchChanged(const ButtonWithMenu::Item &item)
 void WebSearchBar::instantSearchChanged(bool enable)
 {
     Settings settings;
-    settings.beginGroup("SearchEngines");
-    settings.setValue("SearchOnEngineChange", enable);
+    settings.beginGroup(QSL("SearchEngines"));
+    settings.setValue(QSL("SearchOnEngineChange"), enable);
     settings.endGroup();
     qzSettings->searchOnEngineChange = enable;
 }

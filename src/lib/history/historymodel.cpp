@@ -29,16 +29,16 @@ static QString dateTimeToString(const QDateTime &dateTime)
 {
     const QDateTime current = QDateTime::currentDateTime();
     if (current.date() == dateTime.date()) {
-        return dateTime.time().toString("h:mm");
+        return dateTime.time().toString(QSL("h:mm"));
     }
 
-    return dateTime.toString("d.M.yyyy h:mm");
+    return dateTime.toString(QSL("d.M.yyyy h:mm"));
 }
 
 HistoryModel::HistoryModel(History* history)
     : QAbstractItemModel(history)
-    , m_rootItem(new HistoryItem(0))
-    , m_todayItem(0)
+    , m_rootItem(new HistoryItem(nullptr))
+    , m_todayItem(nullptr)
     , m_history(history)
 {
     init();
@@ -87,7 +87,7 @@ QVariant HistoryModel::data(const QModelIndex &index, int role) const
         case Qt::EditRole:
             return index.column() == 0 ? item->title : QVariant();
         case Qt::DecorationRole:
-            return index.column() == 0 ? QIcon::fromTheme(QSL("view-calendar"), QIcon(":/icons/menu/history_entry.svg")) : QVariant();
+            return index.column() == 0 ? QIcon::fromTheme(QSL("view-calendar"), QIcon(QSL(":/icons/menu/history_entry.svg"))) : QVariant();
         }
 
         return {};
@@ -114,7 +114,7 @@ QVariant HistoryModel::data(const QModelIndex &index, int role) const
         return -1;
     case Qt::ToolTipRole:
         if (index.column() == 0) {
-            return QString("%1\n%2").arg(entry.title, entry.urlString);
+            return QSL("%1\n%2").arg(entry.title, entry.urlString);
         }
         // fallthrough
     case Qt::DisplayRole:
@@ -254,7 +254,7 @@ void HistoryModel::removeTopLevelIndexes(const QList<QPersistentModelIndex> &ind
         endRemoveRows();
 
         if (item == m_todayItem) {
-            m_todayItem = 0;
+            m_todayItem = nullptr;
         }
     }
 }
@@ -264,8 +264,8 @@ void HistoryModel::resetHistory()
     beginResetModel();
 
     delete m_rootItem;
-    m_todayItem = 0;
-    m_rootItem = new HistoryItem(0);
+    m_todayItem = nullptr;
+    m_rootItem = new HistoryItem(nullptr);
 
     init();
 
@@ -295,7 +295,7 @@ void HistoryModel::fetchMore(const QModelIndex &parent)
     }
 
     QSqlQuery query(SqlDatabase::instance()->database());
-    query.prepare("SELECT id, count, title, url, date FROM history WHERE date BETWEEN ? AND ? ORDER BY date DESC");
+    query.prepare(QSL("SELECT id, count, title, url, date FROM history WHERE date BETWEEN ? AND ? ORDER BY date DESC"));
     query.addBindValue(parentItem->endTimestamp());
     query.addBindValue(parentItem->startTimestamp());
     query.exec();
@@ -309,7 +309,7 @@ void HistoryModel::fetchMore(const QModelIndex &parent)
         entry.title = query.value(2).toString();
         entry.url = query.value(3).toUrl();
         entry.date = QDateTime::fromMSecsSinceEpoch(query.value(4).toLongLong());
-        entry.urlString = entry.url.toEncoded();
+        entry.urlString = QString::fromUtf8(entry.url.toEncoded());
 
         if (!idList.contains(entry.id)) {
             list.append(entry);
@@ -322,7 +322,7 @@ void HistoryModel::fetchMore(const QModelIndex &parent)
 
     beginInsertRows(parent, 0, list.size() - 1);
 
-    for (const HistoryEntry &entry : qAsConst(list)) {
+    for (const HistoryEntry &entry : std::as_const(list)) {
         auto* newItem = new HistoryItem(parentItem);
         newItem->historyEntry = entry;
     }
@@ -335,7 +335,7 @@ void HistoryModel::historyEntryAdded(const HistoryEntry &entry)
     if (!m_todayItem) {
         beginInsertRows(QModelIndex(), 0, 0);
 
-        m_todayItem = new HistoryItem(0);
+        m_todayItem = new HistoryItem(nullptr);
         m_todayItem->setStartTimestamp(-1);
         m_todayItem->setEndTimestamp(QDateTime(QDate::currentDate(), QTime(), QTimeZone::systemTimeZone()).toMSecsSinceEpoch());
         m_todayItem->title = tr("Today");
@@ -401,7 +401,7 @@ void HistoryModel::historyEntryEdited(const HistoryEntry &before, const HistoryE
 
 HistoryItem* HistoryModel::findHistoryItem(const HistoryEntry &entry)
 {
-    HistoryItem* parentItem = 0;
+    HistoryItem* parentItem = nullptr;
     qint64 timestamp = entry.date.toMSecsSinceEpoch();
 
     for (int i = 0; i < m_rootItem->childCount(); ++i) {
@@ -414,7 +414,7 @@ HistoryItem* HistoryModel::findHistoryItem(const HistoryEntry &entry)
     }
 
     if (!parentItem) {
-        return 0;
+        return nullptr;
     }
 
     for (int i = 0; i < parentItem->childCount(); ++i) {
@@ -424,7 +424,7 @@ HistoryItem* HistoryModel::findHistoryItem(const HistoryEntry &entry)
         }
     }
 
-    return 0;
+    return nullptr;
 }
 
 void HistoryModel::checkEmptyParentItem(HistoryItem* item)
@@ -437,7 +437,7 @@ void HistoryModel::checkEmptyParentItem(HistoryItem* item)
         endRemoveRows();
 
         if (item == m_todayItem) {
-            m_todayItem = 0;
+            m_todayItem = nullptr;
         }
     }
 }
@@ -445,7 +445,7 @@ void HistoryModel::checkEmptyParentItem(HistoryItem* item)
 void HistoryModel::init()
 {
     QSqlQuery query(SqlDatabase::instance()->database());
-    query.exec("SELECT MIN(date) FROM history");
+    query.exec(QSL("SELECT MIN(date) FROM history"));
     if (!query.next()) {
         return;
     }
@@ -487,11 +487,11 @@ void HistoryModel::init()
 
             timestamp = QDateTime(startDate, QTime(23, 59, 59), QTimeZone::systemTimeZone()).toMSecsSinceEpoch();
             endTimestamp = QDateTime(endDate, QTime(), QTimeZone::systemTimeZone()).toMSecsSinceEpoch();
-            itemName = QString("%1 %2").arg(History::titleCaseLocalizedMonth(timestampDate.month()), QString::number(timestampDate.year()));
+            itemName = QSL("%1 %2").arg(History::titleCaseLocalizedMonth(timestampDate.month()), QString::number(timestampDate.year()));
         }
 
         QSqlQuery query(SqlDatabase::instance()->database());
-        query.prepare("SELECT id FROM history WHERE date BETWEEN ? AND ? LIMIT 1");
+        query.prepare(QSL("SELECT id FROM history WHERE date BETWEEN ? AND ? LIMIT 1"));
         query.addBindValue(endTimestamp);
         query.addBindValue(timestamp);
         query.exec();

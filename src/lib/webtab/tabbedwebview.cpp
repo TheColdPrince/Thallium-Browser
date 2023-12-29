@@ -37,7 +37,7 @@
 
 TabbedWebView::TabbedWebView(WebTab* webTab)
     : WebView(webTab)
-    , m_window(0)
+    , m_window(nullptr)
     , m_webTab(webTab)
     , m_menu(new Menu(this))
 {
@@ -212,7 +212,7 @@ void TabbedWebView::_mouseMoveEvent(QMouseEvent *event)
         if (m_window->fullScreenNavigationVisible()) {
             m_window->hideNavigationWithFullScreen();
         }
-        else if (event->y() < 5) {
+        else if (event->position().toPoint().y() < 5) {
             m_window->showNavigationWithFullScreen();
         }
     }

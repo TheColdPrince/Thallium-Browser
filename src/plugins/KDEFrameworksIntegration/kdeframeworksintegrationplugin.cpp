@@ -128,7 +128,7 @@ void KDEFrameworksIntegrationPlugin::unload()
     delete m_backend;
     delete m_sharePageMenu;
 
-    for (KIOSchemeHandler *handler : qAsConst(m_kioSchemeHandlers)) {
+    for (KIOSchemeHandler *handler : std::as_const(m_kioSchemeHandlers)) {
         mApp->webProfile()->removeUrlSchemeHandler(handler);
         WebPage::removeSupportedScheme(handler->protocol());
         delete handler;
@@ -152,5 +152,5 @@ void KDEFrameworksIntegrationPlugin::populateWebViewMenu(QMenu *menu, WebView *v
 bool KDEFrameworksIntegrationPlugin::testPlugin()
 {
     // Require the version that the plugin was built with
-    return (Qz::VERSION == QLatin1String(FALKON_VERSION));
+    return (QString::fromLatin1(Qz::VERSION) == QLatin1String(FALKON_VERSION));
 }

@@ -45,8 +45,8 @@ public:
 
 ComboTabBar::ComboTabBar(QWidget* parent)
     : QWidget(parent)
-    , m_mainTabBar(0)
-    , m_pinnedTabBar(0)
+    , m_mainTabBar(nullptr)
+    , m_pinnedTabBar(nullptr)
     , m_mainBarOverFlowed(false)
     , m_lastAppliedOverflow(false)
     , m_usesScrollButtons(false)
@@ -755,7 +755,7 @@ QTabBar::ButtonPosition ComboTabBar::iconButtonPosition() const
 
 QTabBar::ButtonPosition ComboTabBar::closeButtonPosition() const
 {
-    return (QTabBar::ButtonPosition)style()->styleHint(QStyle::SH_TabBar_CloseButtonPosition, 0, m_mainTabBar);
+    return (QTabBar::ButtonPosition)style()->styleHint(QStyle::SH_TabBar_CloseButtonPosition, nullptr, m_mainTabBar);
 }
 
 QSize ComboTabBar::iconButtonSize() const
@@ -768,8 +768,8 @@ QSize ComboTabBar::iconButtonSize() const
 
 QSize ComboTabBar::closeButtonSize() const
 {
-    int width = style()->pixelMetric(QStyle::PM_TabCloseIndicatorWidth, 0, this);
-    int height = style()->pixelMetric(QStyle::PM_TabCloseIndicatorHeight, 0, this);
+    int width = style()->pixelMetric(QStyle::PM_TabCloseIndicatorWidth, nullptr, this);
+    int height = style()->pixelMetric(QStyle::PM_TabCloseIndicatorHeight, nullptr, this);
     return QSize(width, height);
 }
 
@@ -1000,7 +1000,7 @@ void ComboTabBar::setMinimumWidths()
 TabBarHelper::TabBarHelper(bool isPinnedTabBar, ComboTabBar* comboTabBar)
     : QTabBar(comboTabBar)
     , m_comboTabBar(comboTabBar)
-    , m_scrollArea(0)
+    , m_scrollArea(nullptr)
     , m_pressedIndex(-1)
     , m_dragInProgress(false)
     , m_activeTabBar(false)
@@ -1359,9 +1359,6 @@ void TabBarHelper::paintEvent(QPaintEvent *)
             grabImage.setDevicePixelRatio(devicePixelRatioF());
             grabImage.fill(Qt::transparent);
             QStylePainter p(&grabImage, this);
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-            p.initFrom(this);
-#endif
             if (tabDragOffset != 0) {
                 tab.position = QStyleOptionTab::OnlyOneTab;
             }
@@ -1390,9 +1387,9 @@ void TabBarHelper::mousePressEvent(QMouseEvent* event)
 {
     event->ignore();
     if (event->buttons() == Qt::LeftButton) {
-        m_pressedIndex = tabAt(event->pos());
+        m_pressedIndex = tabAt(event->position().toPoint());
         if (m_pressedIndex != -1) {
-            m_dragStartPosition = event->pos();
+            m_dragStartPosition = event->position().toPoint();
             // virtualize selecting tab by click
             if (m_pressedIndex == currentIndex() && !m_activeTabBar) {
                 Q_EMIT currentChanged(currentIndex());
@@ -1406,7 +1403,7 @@ void TabBarHelper::mousePressEvent(QMouseEvent* event)
 void TabBarHelper::mouseMoveEvent(QMouseEvent *event)
 {
     if (!m_dragInProgress && m_pressedIndex != -1) {
-        if ((event->pos() - m_dragStartPosition).manhattanLength() > QApplication::startDragDistance()) {
+        if ((event->position().toPoint() - m_dragStartPosition).manhattanLength() > QApplication::startDragDistance()) {
             m_dragInProgress = true;
         }
     }
@@ -1435,7 +1432,7 @@ void TabBarHelper::mouseMoveEvent(QMouseEvent *event)
             return;
         }
         QRect r = tabRect(m_pressedIndex);
-        r.moveLeft(r.x() + (event->pos().x() - m_dragStartPosition.x()));
+        r.moveLeft(r.x() + (event->position().toPoint().x() - m_dragStartPosition.x()));
         bool sendEvent = false;
         int diff = r.topRight().x() - tabRect(count() - 1).topRight().x();
         if (diff > 0) {
@@ -1447,9 +1444,9 @@ void TabBarHelper::mouseMoveEvent(QMouseEvent *event)
             }
         }
         if (sendEvent) {
-            QPoint pos = event->pos();
+            QPoint pos = event->position().toPoint();
             pos.setX(pos.x() - diff);
-            QMouseEvent ev(event->type(), pos, event->button(), event->buttons(), event->modifiers());
+            QMouseEvent ev(event->type(), pos, event->globalPosition(), event->button(), event->buttons(), event->modifiers());
             QTabBar::mouseMoveEvent(&ev);
         }
     }
@@ -1814,11 +1811,7 @@ QSize CloseButton::sizeHint() const
     return QSize(width, height);
 }
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-void CloseButton::enterEvent(QEvent* event)
-#else
 void CloseButton::enterEvent(QEnterEvent* event)
-#endif
 {
     if (isEnabled()) {
         update();
@@ -1858,7 +1851,7 @@ void CloseButton::paintEvent(QPaintEvent*)
 
     if (auto* tb = qobject_cast<TabBarHelper*>(parent())) {
         int index = tb->currentIndex();
-        auto closeSide = (QTabBar::ButtonPosition)style()->styleHint(QStyle::SH_TabBar_CloseButtonPosition, 0, tb);
+        auto closeSide = (QTabBar::ButtonPosition)style()->styleHint(QStyle::SH_TabBar_CloseButtonPosition, nullptr, tb);
         if (tb->tabButton(index, closeSide) == this && tb->isActiveTabBar()) {
             opt.state |= QStyle::State_Selected;
         }

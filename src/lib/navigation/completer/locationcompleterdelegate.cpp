@@ -219,7 +219,7 @@ QSize LocationCompleterDelegate::sizeHint(const QStyleOptionViewItem &option, co
 
         const QWidget* w = opt.widget;
         const QStyle* style = w ? w->style() : QApplication::style();
-        const int padding = style->pixelMetric(QStyle::PM_FocusFrameHMargin, 0) + 1;
+        const int padding = style->pixelMetric(QStyle::PM_FocusFrameHMargin, nullptr) + 1;
 
         m_padding = padding > 3 ? padding : 3;
         m_rowHeight = 4 * m_padding + qMax(16, opt.fontMetrics.height());
@@ -280,7 +280,7 @@ int LocationCompleterDelegate::viewItemDrawText(QPainter *p, const QStyleOptionV
         // Look for longer parts first
         std::sort(searchStrings.begin(), searchStrings.end(), sizeBiggerThan);
 
-        for (const QString &string : qAsConst(searchStrings)) {
+        for (const QString &string : std::as_const(searchStrings)) {
             int delimiter = text.indexOf(string, 0, Qt::CaseInsensitive);
 
             while (delimiter != -1) {
@@ -324,11 +324,7 @@ int LocationCompleterDelegate::viewItemDrawText(QPainter *p, const QStyleOptionV
                 highlightParts << highlightedPart;
             }
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-            textLayout.setFormats(QVector<QTextLayout::FormatRange>::fromList(highlightParts));
-#else
             textLayout.setFormats(highlightParts);
-#endif
         }
     }
 

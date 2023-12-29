@@ -22,12 +22,9 @@
 #include <QFileInfo>
 #include <QMessageBox>
 #include <QUrl>
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
 #include <QRegExp>
-#endif
 
-TLDExtractor* TLDExtractor::s_instance = 0;
+TLDExtractor* TLDExtractor::s_instance = nullptr;
 
 TLDExtractor::TLDExtractor(QObject* parent)
     : QObject(parent)
@@ -42,7 +39,7 @@ QStringList TLDExtractor::defaultDataSearchPaths()
 
 TLDExtractor* TLDExtractor::instance()
 {
-    if(s_instance == 0)
+    if(s_instance == nullptr)
     {
         s_instance = new TLDExtractor(qApp);
     }
@@ -52,7 +49,7 @@ TLDExtractor* TLDExtractor::instance()
 
 TLDExtractor::~TLDExtractor()
 {
-    s_instance = 0;
+    s_instance = nullptr;
 }
 
 bool TLDExtractor::isDataLoaded()
@@ -87,7 +84,7 @@ QString TLDExtractor::TLD(const QString &host)
     bool isExceptionTLD = false;
     bool isWildcardTLD = false;
 
-    foreach(QString rule, tldRules) {
+    for (QString rule : std::as_const(tldRules)) {
         const int labelCount = rule.count(QLatin1Char('.')) + 1;
 
         if (rule.startsWith(QLatin1Char('!'))) {
@@ -179,7 +176,7 @@ QString TLDExtractor::registrableDomainHelper(const QString &domainPart, const Q
         return {};
     }
     else {
-        return QString("%1.%2").arg(domainPart, tldPart);
+        return QStringLiteral("%1.%2").arg(domainPart, tldPart);
     }
 }
 
@@ -249,7 +246,7 @@ void TLDExtractor::loadData()
     QString dataFileName;
     bool parsedDataFileExist = false;
 
-    foreach(const QString &path, m_dataSearchPaths) {
+    for (const QString &path : std::as_const(m_dataSearchPaths)) {
         dataFileName = QFileInfo(path + QLatin1String("/effective_tld_names.dat")).absoluteFilePath();
 
         if (QFileInfo(dataFileName).exists()) {
@@ -261,10 +258,10 @@ void TLDExtractor::loadData()
 
     if (!parsedDataFileExist) {
         const QString tldDataFileDownloadLink = QLatin1String("http://mxr.mozilla.org/mozilla-central/source/netwerk/dns/effective_tld_names.dat?raw=1");
-        QMessageBox::information(0, tr("File not found!"),
+        QMessageBox::information(nullptr, tr("File not found!"),
                                  tr("File \'effective_tld_names.dat\' was not found!\n"
                                     "You can download it from \'<a href=\"%1\"><b>here</b></a>\' to one of the following paths:\n%2")
-                                 .arg(tldDataFileDownloadLink, m_dataSearchPaths.join("\n")));
+                                 .arg(tldDataFileDownloadLink, m_dataSearchPaths.join(QStringLiteral("\n"))));
 
         return;
     }
@@ -352,7 +349,7 @@ bool TLDExtractor::test()
     QString testDataFileName;
     bool testDataFileExist = false;
 
-    foreach(const QString &path, m_dataSearchPaths) {
+    for (const QString &path : std::as_const(m_dataSearchPaths)) {
         testDataFileName = QFileInfo(path + QLatin1String("/test_psl.txt")).absoluteFilePath();
 
         if (QFileInfo(testDataFileName).exists()) {
@@ -364,10 +361,10 @@ bool TLDExtractor::test()
     if (!testDataFileExist) {
         const QString testFileDownloadLink = QLatin1String("http://mxr.mozilla.org/mozilla-central/source/netwerk/test/unit/data/test_psl.txt?raw=1");
 
-        QMessageBox::information(0, tr("File not found!"),
+        QMessageBox::information(nullptr, tr("File not found!"),
                                  tr("File \'test_psl.txt\' was not found!\n"
                                     "You can download it from \'<a href=\"%1\"><b>here</b></a>\' to one of the following paths:\n%2")
-                                 .arg(testFileDownloadLink, m_dataSearchPaths.join("\n")));
+                                 .arg(testFileDownloadLink, m_dataSearchPaths.join(QStringLiteral("\n"))));
 
         return false;
     }
@@ -378,7 +375,7 @@ bool TLDExtractor::test()
         return false;
     }
 
-    QRegExp testRegExp("checkPublicSuffix\\(('([^']+)'|null), ('([^']+)'|null)\\);");
+    QRegExp testRegExp(QStringLiteral("checkPublicSuffix\\(('([^']+)'|null), ('([^']+)'|null)\\);"));
     bool allTestSuccess = true;
 
     while (!file.atEnd()) {
@@ -388,11 +385,7 @@ bool TLDExtractor::test()
             continue;
         }
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-        line.indexOf(testRegExp);
-#else
         testRegExp.indexIn(line);
-#endif
 
         const QString hostName = testRegExp.cap(2);
         const QString registrableName = testRegExp.cap(4);

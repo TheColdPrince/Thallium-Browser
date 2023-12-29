@@ -103,7 +103,7 @@ QString GM_Manager::requireScripts(const QStringList &urlList) const
     }
 
     QSettings settings(m_settingsPath + QL1S("/greasemonkey/requires/requires.ini"), QSettings::IniFormat);
-    settings.beginGroup("Files");
+    settings.beginGroup(QSL("Files"));
 
     QString script;
 
@@ -136,9 +136,9 @@ QString GM_Manager::valuesScript() const
 void GM_Manager::unloadPlugin()
 {
     // Save settings
-    QSettings settings(m_settingsPath + "/extensions.ini", QSettings::IniFormat);
-    settings.beginGroup("GreaseMonkey");
-    settings.setValue("disabledScripts", m_disabledScripts);
+    QSettings settings(m_settingsPath + QSL("/extensions.ini"), QSettings::IniFormat);
+    settings.beginGroup(QSL("GreaseMonkey"));
+    settings.setValue(QSL("disabledScripts"), m_disabledScripts);
     settings.endGroup();
 
     delete m_settings.data();
@@ -158,7 +158,7 @@ QList<GM_Script*> GM_Manager::allScripts() const
 
 bool GM_Manager::containsScript(const QString &fullName) const
 {
-    for (GM_Script* script : qAsConst(m_scripts)) {
+    for (GM_Script* script : std::as_const(m_scripts)) {
         if (fullName == script->fullName()) {
             return true;
         }
@@ -182,13 +182,9 @@ void GM_Manager::disableScript(GM_Script* script)
     m_disabledScripts.append(script->fullName());
 
     QWebEngineScriptCollection *collection = mApp->webProfile()->scripts();
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-    collection->remove(collection->findScript(script->fullName()));
-#else
     for (const auto &script : collection->find(script->fullName())) {
         collection->remove(script);
     }
-#endif
 }
 
 bool GM_Manager::addScript(GM_Script* script)
@@ -216,13 +212,9 @@ bool GM_Manager::removeScript(GM_Script* script, bool removeFile)
     m_scripts.removeOne(script);
 
     QWebEngineScriptCollection *collection = mApp->webProfile()->scripts();
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-    collection->remove(collection->findScript(script->fullName()));
-#else
     for (const auto &script : collection->find(script->fullName())) {
         collection->remove(script);
     }
-#endif
 
     m_disabledScripts.removeOne(script->fullName());
 
@@ -237,7 +229,7 @@ bool GM_Manager::removeScript(GM_Script* script, bool removeFile)
 
 void GM_Manager::showNotification(const QString &message, const QString &title)
 {
-    QIcon icon(":gm/data/icon.svg");
+    QIcon icon(QSL(":gm/data/icon.svg"));
 
     mApp->desktopNotifications()->showNotification(icon.pixmap(48), title.isEmpty() ? tr("GreaseMonkey") : title, message);
 }
@@ -249,18 +241,18 @@ void GM_Manager::load()
         gmDir.mkdir(m_settingsPath + QL1S("/greasemonkey"));
     }
 
-    if (!gmDir.exists("requires")) {
-        gmDir.mkdir("requires");
+    if (!gmDir.exists(QSL("requires"))) {
+        gmDir.mkdir(QSL("requires"));
     }
 
-    m_bootstrapScript = QzTools::readAllFileContents(":gm/data/bootstrap.min.js");
-    m_valuesScript = QzTools::readAllFileContents(":gm/data/values.min.js");
+    m_bootstrapScript = QzTools::readAllFileContents(QSL(":gm/data/bootstrap.min.js"));
+    m_valuesScript = QzTools::readAllFileContents(QSL(":gm/data/values.min.js"));
 
     QSettings settings(m_settingsPath + QL1S("/extensions.ini"), QSettings::IniFormat);
-    settings.beginGroup("GreaseMonkey");
-    m_disabledScripts = settings.value("disabledScripts", QStringList()).toStringList();
+    settings.beginGroup(QSL("GreaseMonkey"));
+    m_disabledScripts = settings.value(QSL("disabledScripts"), QStringList()).toStringList();
 
-    const auto fileNames = gmDir.entryList(QStringList("*.js"), QDir::Files);
+    const auto fileNames = gmDir.entryList(QStringList(QSL("*.js")), QDir::Files);
     for (const QString &fileName : fileNames) {
         const QString absolutePath = gmDir.absoluteFilePath(fileName);
         auto* script = new GM_Script(this, absolutePath);
@@ -291,13 +283,9 @@ void GM_Manager::scriptChanged()
         return;
 
     QWebEngineScriptCollection *collection = mApp->webProfile()->scripts();
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-    collection->remove(collection->findScript(script->fullName()));
-#else
     for (const auto &script : collection->find(script->fullName())) {
         collection->remove(script);
     }
-#endif
     collection->insert(script->webScript());
 }
 

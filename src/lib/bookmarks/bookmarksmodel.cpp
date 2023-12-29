@@ -118,7 +118,7 @@ QVariant BookmarksModel::data(const QModelIndex &index, int role) const
         return itm->isSidebarExpanded();
     case Qt::ToolTipRole:
         if (index.column() == 0 && itm->isUrl()) {
-            return QString("%1\n%2").arg(itm->title(), QString::fromUtf8(itm->url().toEncoded()));
+            return QSL("%1\n%2").arg(itm->title(), QString::fromUtf8(itm->url().toEncoded()));
         }
         // fallthrough
     case Qt::DisplayRole:
@@ -126,7 +126,7 @@ QVariant BookmarksModel::data(const QModelIndex &index, int role) const
         case 0:
             return itm->title();
         case 1:
-            return itm->url().toEncoded();
+            return QString::fromUtf8(itm->url().toEncoded());
         default:
             return {};
         }
@@ -252,7 +252,7 @@ bool BookmarksModel::dropMimeData(const QMimeData* data, Qt::DropAction action, 
 
     row = qMax(row, 0);
 
-    for (BookmarkItem* itm : qAsConst(items)) {
+    for (BookmarkItem* itm : std::as_const(items)) {
         // If we are moving an item through the folder and item is above the row to insert,
         // we must decrease row by one (by the dropped folder)
         if (itm->parent() == parentItm && itm->parent()->children().indexOf(itm) < row) {

@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
 "X-Language: fa_IR\n"
 "X-Qt-Contexts: true\n"
 
@@ -85,7 +85,7 @@ msgctxt "GM_Manager|"
 msgid "'%1' is already installed"
 msgstr ""
 
-#: gm_manager.cpp:242
+#: gm_manager.cpp:234
 msgctxt "GM_Manager|"
 msgid "GreaseMonkey"
 msgstr "GreaseMonkey"

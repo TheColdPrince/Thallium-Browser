@@ -50,9 +50,9 @@ private Q_SLOTS:
 
     void menuAboutToShow();
     void menuMiddleClicked(Menu* menu);
-    void bookmarkActivated(BookmarkItem* item = 0);
-    void bookmarkCtrlActivated(BookmarkItem* item = 0);
-    void bookmarkShiftActivated(BookmarkItem* item = 0);
+    void bookmarkActivated(BookmarkItem* item = nullptr);
+    void bookmarkCtrlActivated(BookmarkItem* item = nullptr);
+    void bookmarkShiftActivated(BookmarkItem* item = nullptr);
 
     void openFolder(BookmarkItem* item);
     void openBookmark(BookmarkItem* item);
@@ -63,11 +63,7 @@ private:
     void init();
     QString createTooltip() const;
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-    void enterEvent(QEvent *event) override;
-#else
     void enterEvent(QEnterEvent *event) override;
-#endif
     void leaveEvent(QEvent* event) override;
     void mousePressEvent(QMouseEvent* event) override;
     void mouseReleaseEvent(QMouseEvent* event) override;

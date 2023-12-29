@@ -127,7 +127,9 @@ void StyleHelper::setBaseColor(const QColor &newcolor)
 
     if (color.isValid() && color != m_baseColor) {
         m_baseColor = color;
-        foreach (QWidget* w, QApplication::topLevelWidgets()) {
+
+        auto const l_topLevelWidgets = QApplication::topLevelWidgets();
+        for (QWidget* w : l_topLevelWidgets) {
             w->update();
         }
     }
@@ -160,11 +162,7 @@ void StyleHelper::verticalGradient(QPainter* painter, const QRect &spanRect, con
                      clipRect.height(), keyColor.rgb());
 
         QPixmap pixmap;
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-        if (!QPixmapCache::find(key, pixmap)) {
-#else
         if (!QPixmapCache::find(key, &pixmap)) {
-#endif
             pixmap = QPixmap(clipRect.size());
             QPainter p(&pixmap);
             QRect rect(0, 0, clipRect.width(), clipRect.height());
@@ -187,11 +185,7 @@ void StyleHelper::drawIconWithShadow(const QIcon &icon, const QRect &rect,
     QPixmap cache;
     QString pixmapName = QSL("icon %0 %1 %2").arg(icon.cacheKey()).arg(iconMode).arg(rect.height());
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-    if (!QPixmapCache::find(pixmapName, cache)) {
-#else
     if (!QPixmapCache::find(pixmapName, &cache)) {
-#endif
         QPixmap px = icon.pixmap(rect.size(), iconMode);
         px.setDevicePixelRatio(qApp->devicePixelRatio());
         cache = QPixmap(px.size() + QSize(radius * 2, radius * 2));

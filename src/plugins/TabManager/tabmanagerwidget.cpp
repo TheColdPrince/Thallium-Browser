@@ -34,34 +34,28 @@
 #include "tabcontextmenu.h"
 #include "tabbar.h"
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-#include <QDesktopWidget>
-#endif
 #include <QDialogButtonBox>
 #include <QStackedWidget>
 #include <QDialog>
 #include <QTimer>
 #include <QLabel>
 #include <QMimeData>
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
 #include <QRegExp>
-#endif
 
 
-TLDExtractor* TabManagerWidget::s_tldExtractor = 0;
+TLDExtractor* TabManagerWidget::s_tldExtractor = nullptr;
 
 TabManagerWidget::TabManagerWidget(BrowserWindow* mainClass, QWidget* parent, bool defaultWidget)
     : QWidget(parent)
     , ui(new Ui::TabManagerWidget)
     , m_window(mainClass)
-    , m_webPage(0)
+    , m_webPage(nullptr)
     , m_isRefreshing(false)
     , m_refreshBlocked(false)
     , m_waitForRefresh(false)
     , m_isDefaultWidget(defaultWidget)
 {
-    if(s_tldExtractor == 0)
+    if(s_tldExtractor == nullptr)
     {
         s_tldExtractor = TLDExtractor::instance();
         s_tldExtractor->setDataSearchPaths(QStringList() << TabManagerPlugin::settingsPath());
@@ -113,13 +107,13 @@ QString TabManagerWidget::domainFromUrl(const QUrl &url, bool useHostName)
     QString appendString = QL1S(":");
     QString urlString = url.toString();
 
-    if (url.scheme() == "file") {
+    if (url.scheme() == QSL("file")) {
         return tr("Local File System:");
     }
-    else if (url.scheme() == "falkon" || urlString.isEmpty()) {
+    else if (url.scheme() == QSL("falkon") || urlString.isEmpty()) {
         return tr("Falkon:");
     }
-    else if (url.scheme() == "ftp") {
+    else if (url.scheme() == QSL("ftp")) {
         appendString.prepend(tr(" [FTP]"));
     }
 
@@ -128,12 +122,8 @@ QString TabManagerWidget::domainFromUrl(const QUrl &url, bool useHostName)
         return urlString.append(appendString);
     }
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-    if (useHostName || host.contains(QRegExp(R"(^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$)"))) {
-#else
-    if (useHostName || QRegExp(R"(^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$)").indexIn(host) >= 0) {
-#endif
-        if (host.startsWith("www.", Qt::CaseInsensitive)) {
+    if (useHostName || QRegExp(QSL(R"(^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$)")).indexIn(host) >= 0) {
+        if (host.startsWith(QSL("www."), Qt::CaseInsensitive)) {
             host.remove(0, 4);
         }
 
@@ -332,15 +322,15 @@ void TabManagerWidget::customContextMenuRequested(const QPoint &pos)
     menu->addMenu(&groupTypeSubmenu);
 
     if (m_isDefaultWidget) {
-        menu->addAction(QIcon(":/tabmanager/data/side-by-side.png"), tr("&Show side by side"), this, &TabManagerWidget::showSideBySide)->setObjectName("sideBySide");
+        menu->addAction(QIcon(QSL(":/tabmanager/data/side-by-side.png")), tr("&Show side by side"), this, &TabManagerWidget::showSideBySide)->setObjectName("sideBySide");
     }
 
     menu->addSeparator();
 
     if (isTabSelected()) {
-        menu->addAction(QIcon(":/tabmanager/data/tab-detach.png"), tr("&Detach checked tabs"), this, &TabManagerWidget::processActions)->setObjectName("detachSelection");
-        menu->addAction(QIcon(":/tabmanager/data/tab-bookmark.png"), tr("Book&mark checked tabs"), this, &TabManagerWidget::processActions)->setObjectName("bookmarkSelection");
-        menu->addAction(QIcon(":/tabmanager/data/tab-close.png"), tr("&Close checked tabs"), this, &TabManagerWidget::processActions)->setObjectName("closeSelection");
+        menu->addAction(QIcon(QSL(":/tabmanager/data/tab-detach.png")), tr("&Detach checked tabs"), this, &TabManagerWidget::processActions)->setObjectName("detachSelection");
+        menu->addAction(QIcon(QSL(":/tabmanager/data/tab-bookmark.png")), tr("Book&mark checked tabs"), this, &TabManagerWidget::processActions)->setObjectName("bookmarkSelection");
+        menu->addAction(QIcon(QSL(":/tabmanager/data/tab-close.png")), tr("&Close checked tabs"), this, &TabManagerWidget::processActions)->setObjectName("closeSelection");
         menu->addAction(tr("&Unload checked tabs"), this, &TabManagerWidget::processActions)->setObjectName("unloadSelection");
     }
 
@@ -366,7 +356,7 @@ void TabManagerWidget::filterChanged(const QString &filter, bool force)
             return;
         }
 
-        const QRegularExpression filterRegExp(filter.simplified().replace(QChar(' '), QLatin1String(".*"))
+        const QRegularExpression filterRegExp(filter.simplified().replace(QL1C(' '), QLatin1String(".*"))
                                               .append(QLatin1String(".*")).prepend(QLatin1String(".*")),
                                               QRegularExpression::CaseInsensitiveOption);
 
@@ -403,7 +393,7 @@ void TabManagerWidget::filterBarClosed()
 {
     ui->filterBar->clear();
     ui->filterBar->hide();
-    ui->treeWidget->setFocusProxy(0);
+    ui->treeWidget->setFocusProxy(nullptr);
     ui->treeWidget->setFocus();
 }
 
@@ -493,16 +483,16 @@ void TabManagerWidget::processActions()
     }
 
     if (!selectedTabs.isEmpty()) {
-        if (command == "closeSelection") {
+        if (command == QSL("closeSelection")) {
             closeSelectedTabs(selectedTabs);
         }
-        else if (command == "detachSelection") {
+        else if (command == QSL("detachSelection")) {
             detachSelectedTabs(selectedTabs);
         }
-        else if (command == "bookmarkSelection") {
+        else if (command == QSL("bookmarkSelection")) {
             bookmarkSelectedTabs(selectedTabs);
         }
-        else if (command == "unloadSelection") {
+        else if (command == QSL("unloadSelection")) {
             unloadSelectedTabs(selectedTabs);
         }
     }
@@ -554,7 +544,7 @@ static void detachTabsTo(BrowserWindow* targetWindow, const QMultiHash<BrowserWi
 
             if (mainWindow && mainWindow->tabCount() == 0) {
                 mainWindow->close();
-                mainWindow = 0;
+                mainWindow = nullptr;
             }
 
             targetWindow->tabWidget()->addView(webTab, Qz::NT_NotSelectedTab);
@@ -571,11 +561,7 @@ void TabManagerWidget::detachSelectedTabs(const QMultiHash<BrowserWindow*, WebTa
     }
 
     BrowserWindow* newWindow = mApp->createWindow(Qz::BW_OtherRestoredWindow);
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-    const QRect &availableGeometryForScreen = mApp->desktop()->availableGeometry(this);
-#else
     const QRect &availableGeometryForScreen = screen()->availableGeometry();
-#endif
     newWindow->move(availableGeometryForScreen.topLeft() + QPoint(30, 30));
 
     detachTabsTo(newWindow, tabsHash);
@@ -660,13 +646,13 @@ QTreeWidgetItem* TabManagerWidget::groupByDomainName(bool useHostName)
         for (int tab = 0; tab < tabs.count(); ++tab) {
             WebTab* webTab = tabs.at(tab);
             if (webTab->webView() && m_webPage == webTab->webView()->page()) {
-                m_webPage = 0;
+                m_webPage = nullptr;
                 continue;
             }
             QString domain = domainFromUrl(webTab->url(), useHostName);
 
             if (!tabsGroupedByDomain.contains(domain)) {
-                auto* groupItem = new TabItem(ui->treeWidget, false, false, 0, false);
+                auto* groupItem = new TabItem(ui->treeWidget, false, false, nullptr, false);
                 groupItem->setTitle(domain);
                 groupItem->setIsActiveOrCaption(true);
 
@@ -726,7 +712,7 @@ QTreeWidgetItem* TabManagerWidget::groupByWindow()
         for (int tab = 0; tab < tabs.count(); ++tab) {
             WebTab* webTab = tabs.at(tab);
             if (webTab->webView() && m_webPage == webTab->webView()->page()) {
-                m_webPage = 0;
+                m_webPage = nullptr;
                 continue;
             }
             auto* tabItem = new TabItem(ui->treeWidget, true, true, winItem);
@@ -760,10 +746,10 @@ BrowserWindow* TabManagerWidget::getWindow()
 
 TabItem::TabItem(QTreeWidget* treeWidget, bool supportDrag, bool isTab, QTreeWidgetItem* parent, bool addToTree)
     : QObject()
-    , QTreeWidgetItem(addToTree ? (parent ? parent : treeWidget->invisibleRootItem()) : 0, 1)
+    , QTreeWidgetItem(addToTree ? (parent ? parent : treeWidget->invisibleRootItem()) : nullptr, 1)
     , m_treeWidget(treeWidget)
-    , m_window(0)
-    , m_webTab(0)
+    , m_window(nullptr)
+    , m_webTab(nullptr)
     , m_isTab(isTab)
 {
     Qt::ItemFlags flgs = flags() | (parent ? Qt::ItemIsUserCheckable : Qt::ItemIsUserCheckable | Qt::ItemIsAutoTristate);
@@ -838,7 +824,7 @@ void TabItem::updateIcon()
             }
         }
         else {
-            setIcon(0, QIcon(":tabmanager/data/tab-pinned.png"));
+            setIcon(0, QIcon(QSL(":tabmanager/data/tab-pinned.png")));
         }
 
         if (m_webTab->isRestored())
@@ -847,7 +833,7 @@ void TabItem::updateIcon()
             setIsSavedTab(true);
     }
     else {
-        setIcon(0, QIcon(":tabmanager/data/tab-loading.png"));
+        setIcon(0, QIcon(QSL(":tabmanager/data/tab-loading.png")));
         setIsActiveOrCaption(m_webTab->isCurrentTab());
     }
 }
@@ -895,11 +881,7 @@ QStringList TabTreeWidget::mimeTypes() const
     return types;
 }
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-QMimeData *TabTreeWidget::mimeData(const QList<QTreeWidgetItem*> items) const
-#else
 QMimeData *TabTreeWidget::mimeData(const QList<QTreeWidgetItem*> &items) const
-#endif
 {
     auto* mimeData = new QMimeData();
     QByteArray encodedData;
@@ -909,7 +891,7 @@ QMimeData *TabTreeWidget::mimeData(const QList<QTreeWidgetItem*> &items) const
     if (items.size() > 0) {
         auto* tabItem = static_cast<TabItem*>(items.at(0));
         if (!tabItem || !tabItem->isTab())
-            return 0;
+            return nullptr;
 
         stream << (quintptr) tabItem->window() << (quintptr) tabItem->webTab();
 
@@ -918,7 +900,7 @@ QMimeData *TabTreeWidget::mimeData(const QList<QTreeWidgetItem*> &items) const
         return mimeData;
     }
 
-    return 0;
+    return nullptr;
 }
 
 bool TabTreeWidget::dropMimeData(QTreeWidgetItem *parent, int index, const QMimeData *data, Qt::DropAction action)

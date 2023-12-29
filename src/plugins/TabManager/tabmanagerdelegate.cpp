@@ -69,8 +69,8 @@ void TabManagerDelegate::paint(QPainter* painter, const QStyleOptionViewItem &op
     if (index.column() == 1) {
         if (opt.state & QStyle::State_MouseOver) {
             static const int buttonSize = 16;
-            static const  QPixmap closeTabButton(":tabmanager/data/closetab.png");
-            static const  QPixmap addTabButton(":tabmanager/data/addtab.png");
+            static const  QPixmap closeTabButton(QStringLiteral(":tabmanager/data/closetab.png"));
+            static const  QPixmap addTabButton(QStringLiteral(":tabmanager/data/addtab.png"));
 
             const QRect rect(opt.rect.right() - buttonSize, (opt.rect.height() - buttonSize) / 2 + opt.rect.y(), buttonSize, buttonSize);
             painter->drawPixmap(style->visualRect(direction, opt.rect, rect), (index.parent().isValid() ? closeTabButton : addTabButton));
@@ -169,7 +169,7 @@ void TabManagerDelegate::viewItemDrawText(QPainter *p, const QStyleOptionViewIte
     const QWidget* widget = option->widget;
     const bool isRtlLayout = widget ? widget->isRightToLeft() : QApplication::isRightToLeft();
     const QStyle* proxyStyle = widget ? widget->style()->proxy() : QApplication::style()->proxy();
-    const int textMargin = proxyStyle->pixelMetric(QStyle::PM_FocusFrameHMargin, 0, widget) + 1;
+    const int textMargin = proxyStyle->pixelMetric(QStyle::PM_FocusFrameHMargin, nullptr, widget) + 1;
 
     QRect textRect = rect.adjusted(textMargin, 0, -textMargin, 0); // remove width padding
     const QFontMetrics fontMetrics(p->font());
@@ -189,7 +189,7 @@ void TabManagerDelegate::viewItemDrawText(QPainter *p, const QStyleOptionViewIte
         // Look for longer parts first
         std::sort(searchStrings.begin(), searchStrings.end(), sizeBiggerThan);
 
-        for (const QString &string : qAsConst(searchStrings)) {
+        for (const QString &string : std::as_const(searchStrings)) {
             int delimiter = text.indexOf(string, 0, Qt::CaseInsensitive);
 
             while (delimiter != -1) {
@@ -244,11 +244,7 @@ void TabManagerDelegate::viewItemDrawText(QPainter *p, const QStyleOptionViewIte
                 highlightParts << highlightedPart;
             }
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-            textLayout.setAdditionalFormats(highlightParts);
-#else
             textLayout.setFormats(highlightParts);
-#endif
         }
     }
 

@@ -35,8 +35,8 @@ SearchToolBar::SearchToolBar(WebView* view, QWidget* parent)
     ui->setupUi(this);
 
     ui->closeButton->setIcon(IconProvider::instance()->standardIcon(QStyle::SP_DialogCloseButton));
-    ui->next->setShortcut(QKeySequence("Ctrl+G"));
-    ui->previous->setShortcut(QKeySequence("Ctrl+Shift+G"));
+    ui->next->setShortcut(QKeySequence(QSL("Ctrl+G")));
+    ui->previous->setShortcut(QKeySequence(QSL("Ctrl+Shift+G")));
 
     ui->resultsInfo->hide();
     connect(view->page(), &QWebEnginePage::findTextFinished, this, &SearchToolBar::showSearchResults);
@@ -47,10 +47,10 @@ SearchToolBar::SearchToolBar(WebView* view, QWidget* parent)
     connect(ui->previous, &QAbstractButton::clicked, this, &SearchToolBar::findPrevious);
     connect(ui->caseSensitive, &QAbstractButton::clicked, this, &SearchToolBar::caseSensitivityChanged);
 
-    auto* findNextAction = new QShortcut(QKeySequence("F3"), this);
+    auto* findNextAction = new QShortcut(QKeySequence(QSL("F3")), this);
     connect(findNextAction, &QShortcut::activated, this, &SearchToolBar::findNext);
 
-    auto* findPreviousAction = new QShortcut(QKeySequence("Shift+F3"), this);
+    auto* findPreviousAction = new QShortcut(QKeySequence(QSL("Shift+F3")), this);
     connect(findPreviousAction, &QShortcut::activated, this, &SearchToolBar::findPrevious);
 
     parent->installEventFilter(this);
@@ -121,12 +121,8 @@ void SearchToolBar::searchText(const QString &text)
 {
     m_searchRequests++;
     QPointer<SearchToolBar> guard = this;
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-    m_view->findText(text, m_findFlags, [=](bool found) {
-#else
     m_view->findText(text, m_findFlags, [=](QWebEngineFindTextResult result) {
         bool found = result.numberOfMatches() > 0;
-#endif
         if (!guard) {
             return;
         }

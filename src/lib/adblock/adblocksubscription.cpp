@@ -103,11 +103,7 @@ void AdBlockSubscription::loadSubscription(const QStringList &disabledRules)
     }
 
     QTextStream textStream(&file);
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-        textStream.setCodec("UTF-8");
-#else
-        textStream.setEncoding(QStringConverter::Utf8);
-#endif
+    textStream.setEncoding(QStringConverter::Utf8);
     // Header is on 3rd line
     textStream.readLine(1024);
     textStream.readLine(1024);
@@ -171,7 +167,7 @@ void AdBlockSubscription::subscriptionDownloaded()
     }
 
     m_reply->deleteLater();
-    m_reply = 0;
+    m_reply = nullptr;
 
     if (error) {
         Q_EMIT subscriptionError(tr("Cannot load subscription!"));
@@ -310,11 +306,7 @@ void AdBlockCustomList::loadSubscription(const QStringList &disabledRules)
 
     if (file.open(QFile::WriteOnly | QFile::Append)) {
         QTextStream stream(&file);
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-        stream.setCodec("UTF-8");
-#else
         stream.setEncoding(QStringConverter::Utf8);
-#endif
 
         if (!rules.contains(ddg1 + QL1S("\n")))
             stream << ddg1 << Qt::endl;
@@ -337,16 +329,12 @@ void AdBlockCustomList::saveSubscription()
     }
 
     QTextStream textStream(&file);
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-    textStream.setCodec("UTF-8");
-#else
     textStream.setEncoding(QStringConverter::Utf8);
-#endif
     textStream << "Title: " << title() << Qt::endl;
     textStream << "Url: " << url().toString() << Qt::endl;
     textStream << "[Adblock Plus 1.1.1]" << Qt::endl;
 
-    for (const AdBlockRule* rule : qAsConst(m_rules)) {
+    for (const AdBlockRule* rule : std::as_const(m_rules)) {
         textStream << rule->filter() << Qt::endl;
     }
 
@@ -365,7 +353,7 @@ bool AdBlockCustomList::canBeRemoved() const
 
 bool AdBlockCustomList::containsFilter(const QString &filter) const
 {
-    for (const AdBlockRule* rule : qAsConst(m_rules)) {
+    for (const AdBlockRule* rule : std::as_const(m_rules)) {
         if (rule->filter() == filter) {
             return true;
         }
@@ -424,7 +412,7 @@ bool AdBlockCustomList::removeRule(int offset)
 const AdBlockRule* AdBlockCustomList::replaceRule(AdBlockRule* rule, int offset)
 {
     if (!QzTools::containsIndex(m_rules, offset)) {
-        return 0;
+        return nullptr;
     }
 
     AdBlockRule* oldRule = m_rules.at(offset);

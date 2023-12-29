@@ -184,7 +184,7 @@ void TabTreeView::rowsInserted(const QModelIndex &parent, int start, int end)
             stack.append(idx);
             idx = idx.parent();
         } while (idx.isValid());
-        for (const QModelIndex &index : qAsConst(stack)) {
+        for (const QModelIndex &index : std::as_const(stack)) {
             expand(index);
         }
         if (index.data(TabModel::CurrentTabRole).toBool()) {
@@ -294,7 +294,7 @@ bool TabTreeView::viewportEvent(QEvent *event)
     case QEvent::HoverMove: {
         auto *he = static_cast<QHoverEvent*>(event);
         updateIndex(m_hoveredIndex);
-        m_hoveredIndex = indexAt(he->pos());
+        m_hoveredIndex = indexAt(he->position().toPoint());
         updateIndex(m_hoveredIndex);
         break;
     }
@@ -415,7 +415,7 @@ void TabTreeView::closeTree(const QModelIndex &root)
             tabs.append(tab);
         }
     });
-    for (WebTab *tab : qAsConst(tabs)) {
+    for (WebTab *tab : std::as_const(tabs)) {
         tab->closeTab();
     }
 }

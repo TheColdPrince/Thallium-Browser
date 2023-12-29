@@ -107,19 +107,19 @@ void SideBarManager::createMenu(QMenu* menu)
 
     QAction* act = menu->addAction(SideBar::tr("Bookmarks"), this, &SideBarManager::slotShowSideBar);
     act->setCheckable(true);
-    act->setShortcut(QKeySequence("Ctrl+Shift+B"));
-    act->setData("Bookmarks");
+    act->setShortcut(QKeySequence(QSL("Ctrl+Shift+B")));
+    act->setData(QSL("Bookmarks"));
     act->setChecked(m_activeBar == QL1S("Bookmarks"));
     group->addAction(act);
 
     act = menu->addAction(SideBar::tr("History"), this, &SideBarManager::slotShowSideBar);
     act->setCheckable(true);
-    act->setShortcut(QKeySequence("Ctrl+H"));
-    act->setData("History");
+    act->setShortcut(QKeySequence(QSL("Ctrl+H")));
+    act->setData(QSL("History"));
     act->setChecked(m_activeBar == QL1S("History"));
     group->addAction(act);
 
-    for (const QPointer<SideBarInterface> &sidebar : qAsConst(s_sidebars)) {
+    for (const QPointer<SideBarInterface> &sidebar : std::as_const(s_sidebars)) {
         if (sidebar) {
             QAction* act = sidebar.data()->createMenuAction();
             act->setData(s_sidebars.key(sidebar));

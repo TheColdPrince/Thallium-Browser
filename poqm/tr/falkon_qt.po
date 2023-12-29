@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-09-05 00:16+0000\n"
-"PO-Revision-Date: 2023-08-15 02:51+0300\n"
+"PO-Revision-Date: 2023-12-09 22:14+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.11.70\n"
+"X-Generator: Lokalize 24.01.80\n"
 
 #: lib/3rdparty/lineedit.cpp:102
 msgctxt "LineEdit|"
@@ -196,22 +196,22 @@ msgctxt "AdBlockManager|"
 msgid "AdBlock Subscription"
 msgstr "AdBlock Aboneliği"
 
-#: lib/adblock/adblockmanager.cpp:321
+#: lib/adblock/adblockmanager.cpp:317
 msgctxt "AdBlockManager|"
 msgid "EasyList"
 msgstr "EasyList"
 
-#: lib/adblock/adblockmanager.cpp:326
+#: lib/adblock/adblockmanager.cpp:322
 msgctxt "AdBlockManager|"
 msgid "NoCoin List"
 msgstr "NoCoin Listesi"
 
-#: lib/adblock/adblocksubscription.cpp:177
+#: lib/adblock/adblocksubscription.cpp:173
 msgctxt "AdBlockSubscription|"
 msgid "Cannot load subscription!"
 msgstr "Abonelik yüklenemiyor!"
 
-#: lib/adblock/adblocksubscription.cpp:290
+#: lib/adblock/adblocksubscription.cpp:286
 msgctxt "AdBlockCustomList|"
 msgid "Custom Rules"
 msgstr "Özel Kurallar"
@@ -257,80 +257,80 @@ msgstr "Engelli içerik"
 #, qt-format
 msgctxt "AdBlockUrlInterceptor|"
 msgid "Blocked by <i>%1 (%2)</i>"
-msgstr "Göre engelli <i>%1 (%2)</i>"
+msgstr "<i>%1 (%2)</i> tarafından engelli"
 
-#: lib/app/browserwindow.cpp:209 lib/app/browserwindow.cpp:988
+#: lib/app/browserwindow.cpp:203 lib/app/browserwindow.cpp:978
 msgctxt "BrowserWindow|"
 msgid "Falkon"
 msgstr "Falkon"
 
-#: lib/app/browserwindow.cpp:399
+#: lib/app/browserwindow.cpp:393
 msgctxt "BrowserWindow|"
 msgid "IP Address of current page"
 msgstr "Etkin sayfanın IP adresi"
 
-#: lib/app/browserwindow.cpp:743
+#: lib/app/browserwindow.cpp:733
 msgctxt "BrowserWindow|"
 msgid " (Private Browsing)"
 msgstr " (Gizli Tarama)"
 
-#: lib/app/browserwindow.cpp:990
+#: lib/app/browserwindow.cpp:980
 #, qt-format
 msgctxt "BrowserWindow|"
 msgid "%1 - Falkon"
 msgstr "%1 - Falkon"
 
-#: lib/app/browserwindow.cpp:1056
+#: lib/app/browserwindow.cpp:1046
 msgctxt "BrowserWindow|"
 msgid "&Menu Bar"
 msgstr "&Menü Çubuğu"
 
-#: lib/app/browserwindow.cpp:1061
+#: lib/app/browserwindow.cpp:1051
 msgctxt "BrowserWindow|"
 msgid "&Navigation Toolbar"
 msgstr "Do&laşım Çubuğu"
 
-#: lib/app/browserwindow.cpp:1065
+#: lib/app/browserwindow.cpp:1055
 msgctxt "BrowserWindow|"
 msgid "&Bookmarks Toolbar"
 msgstr "Yer İmleri Çu&buğu"
 
-#: lib/app/browserwindow.cpp:1071
+#: lib/app/browserwindow.cpp:1061
 msgctxt "BrowserWindow|"
 msgid "&Tabs on Top"
 msgstr "&Sekmeler Üstte"
 
-#: lib/app/browserwindow.cpp:1126
+#: lib/app/browserwindow.cpp:1116
 msgctxt "BrowserWindow|"
 msgid "Other"
 msgstr "Diğer"
 
-#: lib/app/browserwindow.cpp:1168
+#: lib/app/browserwindow.cpp:1158
 msgctxt "BrowserWindow|"
 msgid "HTML files"
 msgstr "HTML dosyaları"
 
-#: lib/app/browserwindow.cpp:1168
+#: lib/app/browserwindow.cpp:1158
 msgctxt "BrowserWindow|"
 msgid "Image files"
 msgstr "Görsel dosyaları"
 
-#: lib/app/browserwindow.cpp:1168
+#: lib/app/browserwindow.cpp:1158
 msgctxt "BrowserWindow|"
 msgid "Text files"
 msgstr "Metin dosyaları"
 
-#: lib/app/browserwindow.cpp:1168
+#: lib/app/browserwindow.cpp:1158
 msgctxt "BrowserWindow|"
 msgid "All files"
 msgstr "Tüm dosyalar"
 
-#: lib/app/browserwindow.cpp:1170
+#: lib/app/browserwindow.cpp:1160
 msgctxt "BrowserWindow|"
 msgid "Open file..."
 msgstr "Dosya aç..."
 
-#: lib/app/browserwindow.cpp:1507
+#: lib/app/browserwindow.cpp:1497
 #, qt-format
 msgctxt "BrowserWindow|"
 msgid ""
@@ -341,22 +341,22 @@ msgid_plural ""
 "Are you sure you want to close this window?"
 msgstr[0] ""
 "Hâlâ %n açık sekme var ve oturumunuz depolanmayacak.\n"
-"Bu pencereyi kapatmak istediğinize emin misiniz?"
+"Bu pencereyi kapatmak istediğinizden emin misiniz?"
 msgstr[1] ""
 "Hâlâ %n açık sekme var ve oturumunuz depolanmayacak.\n"
-"Bu pencereyi kapatmak istediğinize emin misiniz?"
+"Bu pencereyi kapatmak istediğinizden emin misiniz?"
 
-#: lib/app/browserwindow.cpp:1508
+#: lib/app/browserwindow.cpp:1498
 msgctxt "BrowserWindow|"
 msgid "Don't ask again"
 msgstr "Yeniden sorma"
 
-#: lib/app/browserwindow.cpp:1509
+#: lib/app/browserwindow.cpp:1499
 msgctxt "BrowserWindow|"
 msgid "There are still open tabs"
 msgstr "Açık sekmeler var"
 
-#: lib/app/mainapplication.cpp:1111
+#: lib/app/mainapplication.cpp:1093
 msgctxt "MainApplication|"
 msgid ""
 "Falkon is not currently your default browser. Would you like to make it your "
@@ -365,32 +365,32 @@ msgstr ""
 "Falkon öntanımlı web tarayıcınız değil. Öntanımlı web tarayıcınız yapmak "
 "ister misiniz?"
 
-#: lib/app/mainapplication.cpp:1112
+#: lib/app/mainapplication.cpp:1094
 msgctxt "MainApplication|"
 msgid "Always perform this check when starting Falkon."
 msgstr "Falkon başlarken bu denetimi her zaman gerçekleştir."
 
-#: lib/app/mainapplication.cpp:1114
+#: lib/app/mainapplication.cpp:1096
 msgctxt "MainApplication|"
 msgid "Default Browser"
 msgstr "Öntanımlı Web Tarayıcısı"
 
-#: lib/app/mainapplication.cpp:1254
+#: lib/app/mainapplication.cpp:1228
 msgctxt "MainApplication|"
 msgid "Open new tab"
 msgstr "Yeni sekme aç"
 
-#: lib/app/mainapplication.cpp:1255
+#: lib/app/mainapplication.cpp:1229
 msgctxt "MainApplication|"
 msgid "Open new window"
 msgstr "Yeni pencere aç"
 
-#: lib/app/mainapplication.cpp:1256
+#: lib/app/mainapplication.cpp:1230
 msgctxt "MainApplication|"
 msgid "Open new private window"
 msgstr "Yeni bir gizli sekme aç"
 
-#: lib/app/mainapplication.cpp:1271
+#: lib/app/mainapplication.cpp:1245
 msgctxt "MainApplication|"
 msgid ""
 "Falkon is a new and very fast Qt web browser. Falkon is licensed under GPL "
@@ -401,247 +401,247 @@ msgstr ""
 "sonraki bir sürüm altında lisanslanmıştır. Falkon, QtWebEngine ve Qt "
 "Framework tabanlıdır."
 
-#: lib/app/mainmenu.cpp:84 lib/app/mainmenu.cpp:497
+#: lib/app/mainmenu.cpp:84 lib/app/mainmenu.cpp:501
 msgctxt "MainMenu|"
 msgid "Sessions"
 msgstr "Oturumlar"
 
-#: lib/app/mainmenu.cpp:467
+#: lib/app/mainmenu.cpp:471
 msgctxt "MainMenu|"
 msgid "&About Falkon"
 msgstr "Falkon &Hakkında"
 
-#: lib/app/mainmenu.cpp:472
+#: lib/app/mainmenu.cpp:476
 msgctxt "MainMenu|"
 msgid "Pr&eferences"
 msgstr "T&ercihler"
 
-#: lib/app/mainmenu.cpp:478
+#: lib/app/mainmenu.cpp:482
 msgctxt "MainMenu|"
 msgid "Quit"
 msgstr "Çık"
 
-#: lib/app/mainmenu.cpp:485
+#: lib/app/mainmenu.cpp:489
 msgctxt "MainMenu|"
 msgid "&File"
 msgstr "Dos&ya"
 
-#: lib/app/mainmenu.cpp:488
+#: lib/app/mainmenu.cpp:492
 msgctxt "MainMenu|"
 msgid "New Tab"
 msgstr "Yeni Sekme"
 
-#: lib/app/mainmenu.cpp:489
+#: lib/app/mainmenu.cpp:493
 msgctxt "MainMenu|"
 msgid "&New Window"
 msgstr "Yeni Pe&ncere"
 
-#: lib/app/mainmenu.cpp:490
+#: lib/app/mainmenu.cpp:494
 msgctxt "MainMenu|"
 msgid "New &Private Window"
 msgstr "Yeni Gi&zli Pencere"
 
-#: lib/app/mainmenu.cpp:491
+#: lib/app/mainmenu.cpp:495
 msgctxt "MainMenu|"
 msgid "Open Location"
 msgstr "Konum Aç"
 
-#: lib/app/mainmenu.cpp:492
+#: lib/app/mainmenu.cpp:496
 msgctxt "MainMenu|"
 msgid "Open &File..."
 msgstr "Dosya &Aç..."
 
-#: lib/app/mainmenu.cpp:493
+#: lib/app/mainmenu.cpp:497
 msgctxt "MainMenu|"
 msgid "Close Window"
 msgstr "Pencereyi Kapat"
 
-#: lib/app/mainmenu.cpp:500
+#: lib/app/mainmenu.cpp:504
 msgctxt "MainMenu|"
 msgid "Session Manager"
 msgstr "Oturum Yöneticisi"
 
-#: lib/app/mainmenu.cpp:507
+#: lib/app/mainmenu.cpp:511
 msgctxt "MainMenu|"
 msgid "&Save Page As..."
 msgstr "&Sayfayı Farklı Kaydet..."
 
-#: lib/app/mainmenu.cpp:508
+#: lib/app/mainmenu.cpp:512
 msgctxt "MainMenu|"
 msgid "Send Link..."
 msgstr "Bağlantı Gönder..."
 
-#: lib/app/mainmenu.cpp:509
+#: lib/app/mainmenu.cpp:513
 msgctxt "MainMenu|"
 msgid "&Print..."
 msgstr "&Yazdır..."
 
-#: lib/app/mainmenu.cpp:514
+#: lib/app/mainmenu.cpp:518
 msgctxt "MainMenu|"
 msgid "&Edit"
 msgstr "Dü&zen"
 
-#: lib/app/mainmenu.cpp:517
+#: lib/app/mainmenu.cpp:521
 msgctxt "MainMenu|"
 msgid "&Undo"
 msgstr "Geri A&l"
 
-#: lib/app/mainmenu.cpp:519
+#: lib/app/mainmenu.cpp:523
 msgctxt "MainMenu|"
 msgid "&Redo"
 msgstr "Yin&ele"
 
-#: lib/app/mainmenu.cpp:522
+#: lib/app/mainmenu.cpp:526
 msgctxt "MainMenu|"
 msgid "&Cut"
 msgstr "&Kes"
 
-#: lib/app/mainmenu.cpp:524
+#: lib/app/mainmenu.cpp:528
 msgctxt "MainMenu|"
 msgid "C&opy"
 msgstr "Ko&pyala"
 
-#: lib/app/mainmenu.cpp:526
+#: lib/app/mainmenu.cpp:530
 msgctxt "MainMenu|"
 msgid "&Paste"
 msgstr "&Yapıştır"
 
-#: lib/app/mainmenu.cpp:529
+#: lib/app/mainmenu.cpp:533
 msgctxt "MainMenu|"
 msgid "Select &All"
 msgstr "&Tümünü Seç"
 
-#: lib/app/mainmenu.cpp:531
+#: lib/app/mainmenu.cpp:535
 msgctxt "MainMenu|"
 msgid "&Find"
 msgstr "&Bul"
 
-#: lib/app/mainmenu.cpp:536
+#: lib/app/mainmenu.cpp:540
 msgctxt "MainMenu|"
 msgid "&View"
 msgstr "&Görünüm"
 
-#: lib/app/mainmenu.cpp:539
+#: lib/app/mainmenu.cpp:543
 msgctxt "MainMenu|"
 msgid "Toolbars"
 msgstr "Araç Çubukları"
 
-#: lib/app/mainmenu.cpp:541
+#: lib/app/mainmenu.cpp:545
 msgctxt "MainMenu|"
 msgid "Sidebar"
 msgstr "Kenar Çubuğu"
 
-#: lib/app/mainmenu.cpp:543
+#: lib/app/mainmenu.cpp:547
 msgctxt "MainMenu|"
 msgid "Character &Encoding"
 msgstr "Karakter Kodlama&sı"
 
-#: lib/app/mainmenu.cpp:552
+#: lib/app/mainmenu.cpp:556
 msgctxt "MainMenu|"
 msgid "Sta&tus Bar"
 msgstr "Durum Çub&uğu"
 
-#: lib/app/mainmenu.cpp:554
+#: lib/app/mainmenu.cpp:558
 msgctxt "MainMenu|"
 msgid "&Stop"
 msgstr "&Durdur"
 
-#: lib/app/mainmenu.cpp:555
+#: lib/app/mainmenu.cpp:559
 msgctxt "MainMenu|"
 msgid "&Reload"
 msgstr "Yeniden Yük&le"
 
-#: lib/app/mainmenu.cpp:557
+#: lib/app/mainmenu.cpp:561
 msgctxt "MainMenu|"
 msgid "Zoom &In"
 msgstr "&Yakınlaştır"
 
-#: lib/app/mainmenu.cpp:558
+#: lib/app/mainmenu.cpp:562
 msgctxt "MainMenu|"
 msgid "Zoom &Out"
 msgstr "U&zaklaştır"
 
-#: lib/app/mainmenu.cpp:559
+#: lib/app/mainmenu.cpp:563
 msgctxt "MainMenu|"
 msgid "Reset"
 msgstr "Sıfırla"
 
-#: lib/app/mainmenu.cpp:563
+#: lib/app/mainmenu.cpp:567
 msgctxt "MainMenu|"
 msgid "&Page Source"
 msgstr "Say&fa Kaynağı"
 
-#: lib/app/mainmenu.cpp:565
+#: lib/app/mainmenu.cpp:569
 msgctxt "MainMenu|"
 msgid "&FullScreen"
 msgstr "Ta&m Ekran"
 
-#: lib/app/mainmenu.cpp:568
+#: lib/app/mainmenu.cpp:572
 msgctxt "MainMenu|"
 msgid "&Tools"
 msgstr "&Araçlar"
 
-#: lib/app/mainmenu.cpp:571
+#: lib/app/mainmenu.cpp:575
 msgctxt "MainMenu|"
 msgid "&Web Search"
 msgstr "&Web Araması"
 
-#: lib/app/mainmenu.cpp:572
+#: lib/app/mainmenu.cpp:576
 msgctxt "MainMenu|"
 msgid "Site &Info"
 msgstr "Site Bilgi&si"
 
-#: lib/app/mainmenu.cpp:575
+#: lib/app/mainmenu.cpp:579
 msgctxt "MainMenu|"
 msgid "&Download Manager"
-msgstr "İndirme Y&öneticisi"
+msgstr "İndirme &Yöneticisi"
 
-#: lib/app/mainmenu.cpp:576
+#: lib/app/mainmenu.cpp:580
 msgctxt "MainMenu|"
 msgid "&Cookies Manager"
 msgstr "&Çerez Yöneticisi"
 
-#: lib/app/mainmenu.cpp:577
+#: lib/app/mainmenu.cpp:581
 msgctxt "MainMenu|"
 msgid "Web In&spector"
 msgstr "We&b Denetçisi"
 
-#: lib/app/mainmenu.cpp:578
+#: lib/app/mainmenu.cpp:582
 msgctxt "MainMenu|"
 msgid "Clear Recent &History"
 msgstr "Yakın G&eçmişi Temizle"
 
-#: lib/app/mainmenu.cpp:583
+#: lib/app/mainmenu.cpp:587
 msgctxt "MainMenu|"
 msgid "&Extensions"
 msgstr "&Genişletmeler"
 
-#: lib/app/mainmenu.cpp:589
+#: lib/app/mainmenu.cpp:593
 msgctxt "MainMenu|"
 msgid "&Help"
 msgstr "&Yardım"
 
-#: lib/app/mainmenu.cpp:592
+#: lib/app/mainmenu.cpp:596
 msgctxt "MainMenu|"
 msgid "About &Qt"
 msgstr "&Qt Hakkında"
 
-#: lib/app/mainmenu.cpp:597
+#: lib/app/mainmenu.cpp:601
 msgctxt "MainMenu|"
 msgid "Information about application"
 msgstr "Uygulama Bilgisi"
 
-#: lib/app/mainmenu.cpp:598
+#: lib/app/mainmenu.cpp:602
 msgctxt "MainMenu|"
 msgid "Configuration Information"
 msgstr "Yapılandırma Bilgisi"
 
-#: lib/app/mainmenu.cpp:599
+#: lib/app/mainmenu.cpp:603
 msgctxt "MainMenu|"
 msgid "Report &Issue"
 msgstr "Hata &Bildir"
 
-#: lib/app/mainmenu.cpp:612
+#: lib/app/mainmenu.cpp:616
 msgctxt "MainMenu|"
 msgid "Restore &Closed Tab"
 msgstr "Kapatılmış Sekmeyi Yeniden A&ç"
@@ -703,7 +703,7 @@ msgstr "Şöyle oturum aç:"
 #: lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp:257
 msgctxt "AutoFill|"
 msgid "Database (encrypted)"
-msgstr "Veritabanı (şifrelenmiş)"
+msgstr "Veritabanı (şifreli)"
 
 #: lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp:546
 #: lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp:551
@@ -740,7 +740,8 @@ msgstr ""
 #: lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp:600
 msgctxt "MasterPasswordDialog|"
 msgid "Are you sure you want to clear master password and decrypt data?"
-msgstr "Ana parolayı kaldırıp veri şifresini çözmek istediğinize emin misiniz?"
+msgstr ""
+"Ana parolayı kaldırıp veri şifresini çözmek istediğinizden emin misiniz?"
 
 #: lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp:643
 msgctxt "MasterPasswordDialog|"
@@ -808,17 +809,17 @@ msgstr ""
 #: lib/autofill/passwordbackends/masterpassworddialog.ui:76
 msgctxt "MasterPasswordDialog|"
 msgid "Current Password:"
-msgstr "Geçerli Parola:"
+msgstr "Geçerli parola:"
 
 #: lib/autofill/passwordbackends/masterpassworddialog.ui:83
 msgctxt "MasterPasswordDialog|"
 msgid "New Password:"
-msgstr "Yeni Parola:"
+msgstr "Yeni parola:"
 
 #: lib/autofill/passwordbackends/masterpassworddialog.ui:90
 msgctxt "MasterPasswordDialog|"
 msgid "Confirm Password:"
-msgstr "Parolayı Onayla:"
+msgstr "Parolayı onayla:"
 
 #: lib/autofill/passwordbackends/masterpassworddialog.ui:120
 msgctxt "MasterPasswordDialog|"
@@ -826,32 +827,32 @@ msgid ""
 "<b>Note:</b> The Master Password is not resettable. Do not forget it, please."
 msgstr "<b>Not:</b> Ana parola sıfırlanabilir değil. Ana parolayı unutmayın."
 
-#: lib/bookmarks/bookmarks.cpp:207
+#: lib/bookmarks/bookmarks.cpp:208
 msgctxt "Bookmarks|"
 msgid "Bookmarks Toolbar"
 msgstr "Yer İmleri Araç Çubuğu"
 
-#: lib/bookmarks/bookmarks.cpp:208
+#: lib/bookmarks/bookmarks.cpp:209
 msgctxt "Bookmarks|"
 msgid "Bookmarks located in Bookmarks Toolbar"
 msgstr "Yer imleri araç çubuğuna kaydedildi"
 
-#: lib/bookmarks/bookmarks.cpp:211
+#: lib/bookmarks/bookmarks.cpp:212
 msgctxt "Bookmarks|"
 msgid "Bookmarks Menu"
 msgstr "Yer İmleri Menüsü"
 
-#: lib/bookmarks/bookmarks.cpp:212
+#: lib/bookmarks/bookmarks.cpp:213
 msgctxt "Bookmarks|"
 msgid "Bookmarks located in Bookmarks Menu"
 msgstr "Yer imleri menüye kaydedildi"
 
-#: lib/bookmarks/bookmarks.cpp:215
+#: lib/bookmarks/bookmarks.cpp:216
 msgctxt "Bookmarks|"
 msgid "Unsorted Bookmarks"
 msgstr "Sıralanmamış Yer İmleri"
 
-#: lib/bookmarks/bookmarks.cpp:216
+#: lib/bookmarks/bookmarks.cpp:217
 msgctxt "Bookmarks|"
 msgid "All other bookmarks"
 msgstr "Diğer tüm yer imleri"
@@ -884,12 +885,12 @@ msgstr "Seç..."
 #: lib/bookmarks/bookmarksexport/bookmarksexportdialog.ui:73
 msgctxt "BookmarksExportDialog|"
 msgid "Output File:"
-msgstr "Kaydedilecek Dosya:"
+msgstr "Çıktı dosyası:"
 
 #: lib/bookmarks/bookmarksexport/bookmarksexportdialog.ui:89
 msgctxt "BookmarksExportDialog|"
 msgid "Format:"
-msgstr "Biçim: "
+msgstr "Biçim:"
 
 #: lib/bookmarks/bookmarksexport/htmlexporter.cpp:31
 msgctxt "BookmarksExporter|"
@@ -984,7 +985,7 @@ msgctxt "BookmarksImportDialog|"
 msgid "< Back"
 msgstr "< Geri"
 
-#: lib/bookmarks/bookmarksimport/chromeimporter.cpp:32
+#: lib/bookmarks/bookmarksimport/chromeimporter.cpp:33
 msgctxt "BookmarksImporter|"
 msgid ""
 "Google Chrome stores its bookmarks in <b>Bookmarks</b> text file. This file "
@@ -993,23 +994,23 @@ msgstr ""
 "Google Chrome yer imlerini <b>Yer İmleri</b> metin dosyasına kaydeder. Bu "
 "dosya genelde şurada bulunur"
 
-#: lib/bookmarks/bookmarksimport/chromeimporter.cpp:49
+#: lib/bookmarks/bookmarksimport/chromeimporter.cpp:50
 #: lib/bookmarks/bookmarksimport/firefoximporter.cpp:57
 #: lib/bookmarks/bookmarksimport/htmlimporter.cpp:44
 #: lib/bookmarks/bookmarksimport/ieimporter.cpp:44
-#: lib/bookmarks/bookmarksimport/operaimporter.cpp:52
+#: lib/bookmarks/bookmarksimport/operaimporter.cpp:48
 msgctxt "BookmarksImporter|"
 msgid "Choose file..."
 msgstr "Dosya seç..."
 
-#: lib/bookmarks/bookmarksimport/chromeimporter.cpp:58
+#: lib/bookmarks/bookmarksimport/chromeimporter.cpp:59
 #: lib/bookmarks/bookmarksimport/htmlimporter.cpp:53
-#: lib/bookmarks/bookmarksimport/operaimporter.cpp:61
+#: lib/bookmarks/bookmarksimport/operaimporter.cpp:57
 msgctxt "BookmarksImporter|"
 msgid "Unable to open file."
 msgstr "Dosya açılamadı."
 
-#: lib/bookmarks/bookmarksimport/chromeimporter.cpp:75
+#: lib/bookmarks/bookmarksimport/chromeimporter.cpp:76
 msgctxt "BookmarksImporter|"
 msgid "Cannot parse JSON file!"
 msgstr "JSON dosyası ayrıştırılamıyor!"
@@ -1059,9 +1060,9 @@ msgstr ""
 #: lib/bookmarks/bookmarksimport/ieimporter.cpp:52
 msgctxt "BookmarksImporter|"
 msgid "Directory does not exist."
-msgstr "Dizin mevcut değil."
+msgstr "Dizin yok."
 
-#: lib/bookmarks/bookmarksimport/operaimporter.cpp:37
+#: lib/bookmarks/bookmarksimport/operaimporter.cpp:33
 msgctxt "BookmarksImporter|"
 msgid ""
 "Opera stores its bookmarks in <b>bookmarks.adr</b> text file. This file is "
@@ -1070,12 +1071,12 @@ msgstr ""
 "Opera yer imlerini genelde <b>bookmarks.adr</b> metin dosyasında saklar. Bu "
 "dosya genelde şurada bulunur"
 
-#: lib/bookmarks/bookmarksimport/operaimporter.cpp:68
+#: lib/bookmarks/bookmarksimport/operaimporter.cpp:64
 msgctxt "BookmarksImporter|"
 msgid "File is not valid Opera bookmarks file!"
 msgstr "Bu dosya Opera yer imleri dosyası değil!"
 
-#: lib/bookmarks/bookmarksimport/operaimporter.cpp:73
+#: lib/bookmarks/bookmarksimport/operaimporter.cpp:69
 msgctxt "BookmarksImporter|"
 msgid "Only UTF-8 encoded Opera bookmarks file is supported!"
 msgstr "Yalnızca UTF-8 ile kodlanmış Opera yer imleri dosyası desteklenir!"
@@ -1083,17 +1084,17 @@ msgstr "Yalnızca UTF-8 ile kodlanmış Opera yer imleri dosyası desteklenir!"
 #: lib/bookmarks/bookmarksmanager.cpp:105
 msgctxt "BookmarksManager|"
 msgid "Open in new tab"
-msgstr "Yeni sekmede aç"
+msgstr "Yeni Sekmede Aç"
 
 #: lib/bookmarks/bookmarksmanager.cpp:106
 msgctxt "BookmarksManager|"
 msgid "Open in new window"
-msgstr "Yeni pencerede aç"
+msgstr "Yeni Pencerede Aç"
 
 #: lib/bookmarks/bookmarksmanager.cpp:107
 msgctxt "BookmarksManager|"
 msgid "Open in new private window"
-msgstr "Yeni gizli pencerede aç"
+msgstr "Yeni Gizli Pencerede Aç"
 
 #: lib/bookmarks/bookmarksmanager.cpp:110
 #: lib/bookmarks/bookmarksmanager.cpp:177
@@ -1110,7 +1111,7 @@ msgstr "Yeni Klasör"
 #: lib/bookmarks/bookmarksmanager.cpp:112
 msgctxt "BookmarksManager|"
 msgid "New Separator"
-msgstr "Yeni Ayraç"
+msgstr "Yeni Ayırıcı"
 
 #: lib/bookmarks/bookmarksmanager.cpp:114
 msgctxt "BookmarksManager|"
@@ -1135,7 +1136,7 @@ msgstr "Adres:"
 #: lib/bookmarks/bookmarksmanager.ui:52
 msgctxt "BookmarksManager|"
 msgid "Keyword:"
-msgstr "Anahtar Sözcük:"
+msgstr "Anahtar sözcük:"
 
 #: lib/bookmarks/bookmarksmanager.ui:62
 msgctxt "BookmarksManager|"
@@ -1175,17 +1176,17 @@ msgstr "Adres"
 #: lib/bookmarks/bookmarkstoolbar.cpp:74
 msgctxt "BookmarksToolbar|"
 msgid "Open in new tab"
-msgstr "Yeni sekmede aç"
+msgstr "Yeni Sekmede Aç"
 
 #: lib/bookmarks/bookmarkstoolbar.cpp:75
 msgctxt "BookmarksToolbar|"
 msgid "Open in new window"
-msgstr "Yeni pencerede aç"
+msgstr "Yeni Pencerede Aç"
 
 #: lib/bookmarks/bookmarkstoolbar.cpp:76
 msgctxt "BookmarksToolbar|"
 msgid "Open in new private window"
-msgstr "Yeni gizli pencerede aç"
+msgstr "Yeni Gizli Pencerede Aç"
 
 #: lib/bookmarks/bookmarkstoolbar.cpp:78 lib/bookmarks/bookmarkstoolbar.cpp:186
 msgctxt "BookmarksToolbar|"
@@ -1215,7 +1216,7 @@ msgstr "Yalnızca Metni Göster"
 #: lib/bookmarks/bookmarkstoolbar.cpp:186
 msgctxt "BookmarksToolbar|"
 msgid "Enter Folder Name:"
-msgstr "Klasör Adı Girin:"
+msgstr "Klasör adı girin:"
 
 #: lib/bookmarks/bookmarkstools.cpp:76
 #, qt-format
@@ -1231,12 +1232,12 @@ msgstr "Bu yer iminin adını ve yerini seçin."
 #: lib/bookmarks/bookmarkstools.cpp:157
 msgctxt "Bookmarks|"
 msgid "Add New Bookmark"
-msgstr "Yeni bir yer imi ekle"
+msgstr "Yeni Yer İmi Ekle"
 
 #: lib/bookmarks/bookmarkstools.cpp:197
 msgctxt "Bookmarks|"
 msgid "Choose folder for bookmarks:"
-msgstr "Yer imleri için klasör seçin: "
+msgstr "Yer imleri için klasör seçin:"
 
 #: lib/bookmarks/bookmarkstools.cpp:198
 msgctxt "Bookmarks|"
@@ -1256,7 +1257,7 @@ msgstr "Adres:"
 #: lib/bookmarks/bookmarkstools.cpp:244
 msgctxt "Bookmarks|"
 msgid "Keyword:"
-msgstr "Anahtar Sözcük:"
+msgstr "Anahtar sözcük:"
 
 #: lib/bookmarks/bookmarkstools.cpp:247
 msgctxt "Bookmarks|"
@@ -1278,7 +1279,7 @@ msgstr "Onay"
 msgctxt "Bookmarks|"
 msgid "Are you sure you want to open all bookmarks from '%1' folder in tabs?"
 msgstr ""
-"'%1' klasöründeki tüm yer imlerini sekmelerde açmak istediğinize emin "
+"'%1' klasöründeki tüm yer imlerini sekmelerde açmak istediğinizden emin "
 "misiniz?"
 
 #: lib/bookmarks/bookmarkstools.cpp:440
@@ -1309,7 +1310,7 @@ msgstr "Yer İmlerinden Kaldır"
 #: lib/bookmarks/bookmarkswidget.ui:20
 msgctxt "BookmarksWidget|"
 msgid "Add to Bookmarks"
-msgstr "Yer İmlerine eEkle"
+msgstr "Yer İmlerine Ekle"
 
 #: lib/cookies/cookiemanager.cpp:78
 msgctxt "CookieManager|"
@@ -1324,7 +1325,7 @@ msgstr "Onay"
 #: lib/cookies/cookiemanager.cpp:106
 msgctxt "CookieManager|"
 msgid "Are you sure you want to delete all cookies on your computer?"
-msgstr "Bilgisayarınızadaki tüm çerezleri silmek istediğinize emin misiniz?"
+msgstr "Bilgisayarınızadaki tüm çerezleri silmek istediğinizden emin misiniz?"
 
 #: lib/cookies/cookiemanager.cpp:151 lib/cookies/cookiemanager.cpp:152
 #: lib/cookies/cookiemanager.cpp:153 lib/cookies/cookiemanager.cpp:154
@@ -1425,7 +1426,7 @@ msgstr "Bul: "
 #: lib/cookies/cookiemanager.ui:52
 msgctxt "CookieManager|"
 msgid "These cookies are stored on your computer:"
-msgstr "Bu çerezler bilgisayarınızda depolandı:"
+msgstr "Şu çerezler bilgisayarınızda depolandı:"
 
 #: lib/cookies/cookiemanager.ui:66
 msgctxt "CookieManager|"
@@ -1460,7 +1461,7 @@ msgstr "Güvenli:"
 #: lib/cookies/cookiemanager.ui:147
 msgctxt "CookieManager|"
 msgid "Expiration:"
-msgstr "Dolma Süresi:"
+msgstr "Dolma süresi:"
 
 #: lib/cookies/cookiemanager.ui:238
 msgctxt "CookieManager|"
@@ -1536,40 +1537,40 @@ msgctxt "CookieManager|"
 msgid "Delete cookies on close"
 msgstr "Kapatılırken çerezleri sil"
 
-#: lib/downloads/downloaditem.cpp:77
+#: lib/downloads/downloaditem.cpp:73
 msgctxt "DownloadItem|"
 msgid "Remaining time unavailable"
 msgstr "Kalan süre belli değil"
 
-#: lib/downloads/downloaditem.cpp:138
+#: lib/downloads/downloaditem.cpp:129
 #, qt-format
 msgctxt "DownloadItem|"
 msgid "Done - %1 (%2)"
-msgstr "Tamamlandı - %1 (%2)"
+msgstr "Tamamlandı — %1 (%2)"
 
-#: lib/downloads/downloaditem.cpp:142
+#: lib/downloads/downloaditem.cpp:133
 #, qt-format
 msgctxt "DownloadItem|"
 msgid "Error - %1"
-msgstr "Hata - %1"
+msgstr "Hata — %1"
 
-#: lib/downloads/downloaditem.cpp:146 lib/downloads/downloaditem.cpp:293
+#: lib/downloads/downloaditem.cpp:137 lib/downloads/downloaditem.cpp:279
 #, qt-format
 msgctxt "DownloadItem|"
 msgid "Cancelled - %1"
-msgstr "İptal edildi - %1"
+msgstr "İptal edildi — %1"
 
-#: lib/downloads/downloaditem.cpp:202 lib/downloads/downloaditem.cpp:337
+#: lib/downloads/downloaditem.cpp:188 lib/downloads/downloaditem.cpp:323
 msgctxt "DownloadItem|"
 msgid "Cancelled"
-msgstr "İptal Edildi"
+msgstr "İptal edildi"
 
-#: lib/downloads/downloaditem.cpp:208
+#: lib/downloads/downloaditem.cpp:194
 msgctxt "DownloadItem|"
 msgid "few seconds"
 msgstr "birkaç saniye"
 
-#: lib/downloads/downloaditem.cpp:213
+#: lib/downloads/downloaditem.cpp:199
 #, qt-format
 msgctxt "DownloadItem|"
 msgid "%n seconds"
@@ -1577,7 +1578,7 @@ msgid_plural "%n seconds"
 msgstr[0] "%n saniye"
 msgstr[1] "%n saniye"
 
-#: lib/downloads/downloaditem.cpp:218
+#: lib/downloads/downloaditem.cpp:204
 #, qt-format
 msgctxt "DownloadItem|"
 msgid "%n minutes"
@@ -1585,7 +1586,7 @@ msgid_plural "%n minutes"
 msgstr[0] "%n dakika"
 msgstr[1] "%n dakika"
 
-#: lib/downloads/downloaditem.cpp:223
+#: lib/downloads/downloaditem.cpp:209
 #, qt-format
 msgctxt "DownloadItem|"
 msgid "%n hours"
@@ -1593,95 +1594,95 @@ msgid_plural "%n hours"
 msgstr[0] "%n saat"
 msgstr[1] "%n saat"
 
-#: lib/downloads/downloaditem.cpp:230
+#: lib/downloads/downloaditem.cpp:216
 msgctxt "DownloadItem|"
 msgid "Unknown speed"
 msgstr "Bilinmeyen hız"
 
-#: lib/downloads/downloaditem.cpp:235
+#: lib/downloads/downloaditem.cpp:221
 msgctxt "DownloadItem|"
 msgid "kB/s"
 msgstr "kB/sn"
 
-#: lib/downloads/downloaditem.cpp:240
+#: lib/downloads/downloaditem.cpp:226
 msgctxt "DownloadItem|"
 msgid "MB/s"
 msgstr "MB/sn"
 
-#: lib/downloads/downloaditem.cpp:244
+#: lib/downloads/downloaditem.cpp:230
 msgctxt "DownloadItem|"
 msgid "GB/s"
 msgstr "GB/sn"
 
-#: lib/downloads/downloaditem.cpp:272
+#: lib/downloads/downloaditem.cpp:258
 msgctxt "DownloadItem|"
 msgid "Unknown size"
 msgstr "Bilinmeyen boyut"
 
-#: lib/downloads/downloaditem.cpp:273
+#: lib/downloads/downloaditem.cpp:259
 #, qt-format
 msgctxt "DownloadItem|"
 msgid "%2 - unknown size (%3)"
-msgstr "%2 - bilinmeyen boyut (%3)"
+msgstr "%2 — bilinmeyen boyut (%3)"
 
-#: lib/downloads/downloaditem.cpp:276
+#: lib/downloads/downloaditem.cpp:262
 #, qt-format
 msgctxt "DownloadItem|"
 msgid "Remaining %1 - %2 of %3 (%4)"
-msgstr "Kalan süre %1 - %2/%3 (%4)"
+msgstr "Kalan süre: %1 — %2/%3 (%4)"
 
-#: lib/downloads/downloaditem.cpp:308
+#: lib/downloads/downloaditem.cpp:294
 #, qt-format
 msgctxt "DownloadItem|"
 msgid "Paused - %1"
-msgstr "Duraklatıldı - %1"
+msgstr "Duraklatıldı — %1"
 
-#: lib/downloads/downloaditem.cpp:321
+#: lib/downloads/downloaditem.cpp:307
 msgctxt "DownloadItem|"
 msgid "Open File"
 msgstr "Dosyayı Aç"
 
-#: lib/downloads/downloaditem.cpp:323
+#: lib/downloads/downloaditem.cpp:309
 msgctxt "DownloadItem|"
 msgid "Open Folder"
 msgstr "Klasörü Aç"
 
-#: lib/downloads/downloaditem.cpp:325
+#: lib/downloads/downloaditem.cpp:311
 msgctxt "DownloadItem|"
 msgid "Copy Download Link"
 msgstr "İndirme Bağlantısını Kopyala"
 
-#: lib/downloads/downloaditem.cpp:327
+#: lib/downloads/downloaditem.cpp:313
 msgctxt "DownloadItem|"
 msgid "Cancel downloading"
-msgstr "İndirmeyi iptal et"
+msgstr "İndirmeyi İptal Et"
 
-#: lib/downloads/downloaditem.cpp:330
+#: lib/downloads/downloaditem.cpp:316
 msgctxt "DownloadItem|"
 msgid "Resume downloading"
-msgstr "İndirmeyi sürdür"
+msgstr "İndirmeyi Sürdür"
 
-#: lib/downloads/downloaditem.cpp:332
+#: lib/downloads/downloaditem.cpp:318
 msgctxt "DownloadItem|"
 msgid "Pause downloading"
-msgstr "İndirmeyi duraklat"
+msgstr "İndirmeyi Duraklat"
 
-#: lib/downloads/downloaditem.cpp:335
+#: lib/downloads/downloaditem.cpp:321
 msgctxt "DownloadItem|"
 msgid "Remove From List"
 msgstr "Listeden Kaldır"
 
-#: lib/downloads/downloaditem.cpp:337
+#: lib/downloads/downloaditem.cpp:323
 msgctxt "DownloadItem|"
 msgid "Error"
 msgstr "Hata"
 
-#: lib/downloads/downloaditem.cpp:363
+#: lib/downloads/downloaditem.cpp:349
 msgctxt "DownloadItem|"
 msgid "Not found"
 msgstr "Bulunamadı"
 
-#: lib/downloads/downloaditem.cpp:363
+#: lib/downloads/downloaditem.cpp:349
 #, qt-format
 msgctxt "DownloadItem|"
 msgid ""
@@ -1693,70 +1694,70 @@ msgstr ""
 " %1 \n"
 " dosyası bulunamadı!"
 
-#: lib/downloads/downloadmanager.cpp:200 lib/downloads/downloadmanager.cpp:440
+#: lib/downloads/downloadmanager.cpp:192 lib/downloads/downloadmanager.cpp:424
 #: lib/downloads/downloadmanager.ui:20
 msgctxt "DownloadManager|"
 msgid "Download Manager"
 msgstr "İndirme Yöneticisi"
 
-#: lib/downloads/downloadmanager.cpp:238
+#: lib/downloads/downloadmanager.cpp:230
 #, qt-format
 msgctxt "DownloadManager|"
 msgid "%1% of %2 files (%3) %4 remaining"
-msgstr "%​%1/%​%2 dosya (%3) %4 kalan"
+msgstr "%​%1/%2 dosya (%3), %4 kaldı"
 
-#: lib/downloads/downloadmanager.cpp:242
+#: lib/downloads/downloadmanager.cpp:234
 #, qt-format
 msgctxt "DownloadManager|"
 msgid "%1% - Download Manager"
-msgstr "%​%1 -İndirme Yöneticisi"
+msgstr "%​%1 — İndirme Yöneticisi"
 
-#: lib/downloads/downloadmanager.cpp:316
+#: lib/downloads/downloadmanager.cpp:304
 msgctxt "DownloadManager|"
 msgid "Save file as..."
 msgstr "Dosyayı Farklı Kaydet..."
 
-#: lib/downloads/downloadmanager.cpp:326
+#: lib/downloads/downloadmanager.cpp:314
 msgctxt "DownloadManager|"
 msgid "MIME HTML Archive (*.mhtml)"
 msgstr "MIME HTML Arşivi (*.mhtml)"
 
-#: lib/downloads/downloadmanager.cpp:327
+#: lib/downloads/downloadmanager.cpp:315
 msgctxt "DownloadManager|"
 msgid "HTML Page, single (*.html)"
 msgstr "HTML Sayfası, tek (*.html)"
 
-#: lib/downloads/downloadmanager.cpp:328
+#: lib/downloads/downloadmanager.cpp:316
 msgctxt "DownloadManager|"
 msgid "HTML Page, complete (*.html)"
 msgstr "HTML Sayfası, tamamı (*.html)"
 
-#: lib/downloads/downloadmanager.cpp:332
+#: lib/downloads/downloadmanager.cpp:320
 msgctxt "DownloadManager|"
 msgid "Save page as..."
 msgstr "Sayfayı Farklı Kaydet..."
 
-#: lib/downloads/downloadmanager.cpp:433
+#: lib/downloads/downloadmanager.cpp:417
 msgctxt "DownloadManager|"
 msgid "Falkon: Download Finished"
 msgstr "Falkon: İndirme Tamamlandı"
 
-#: lib/downloads/downloadmanager.cpp:433
+#: lib/downloads/downloadmanager.cpp:417
 msgctxt "DownloadManager|"
 msgid "All files have been successfully downloaded."
 msgstr "Tüm dosyalar başarıyla indirildi."
 
-#: lib/downloads/downloadmanager.cpp:480
+#: lib/downloads/downloadmanager.cpp:464
 msgctxt "DownloadManager|"
 msgid "Warning"
 msgstr "Uyarı"
 
-#: lib/downloads/downloadmanager.cpp:481
+#: lib/downloads/downloadmanager.cpp:465
 msgctxt "DownloadManager|"
 msgid ""
 "Are you sure you want to quit? All uncompleted downloads will be cancelled!"
 msgstr ""
-"Çıkmak istediğinize emin misiniz? Tüm tamamlanmayan indirmeler iptal "
+"Çıkmak istediğinizden emin misiniz? Tüm tamamlanmayan indirmeler iptal "
 "edilecek!"
 
 #: lib/downloads/downloadmanager.ui:69
@@ -1764,13 +1765,13 @@ msgctxt "DownloadManager|"
 msgid "Clear"
 msgstr "Temizle"
 
-#: lib/downloads/downloadoptionsdialog.cpp:53
+#: lib/downloads/downloadoptionsdialog.cpp:49
 #, qt-format
 msgctxt "DownloadOptionsDialog|"
 msgid "Opening %1"
-msgstr "Açılıyor %1"
+msgstr "Aç: %1"
 
-#: lib/downloads/downloadoptionsdialog.cpp:116
+#: lib/downloads/downloadoptionsdialog.cpp:112
 msgctxt "DownloadOptionsDialog|"
 msgid "Download link copied."
 msgstr "İndirme bağlantısı kopyalandı."
@@ -1778,7 +1779,7 @@ msgstr "İndirme bağlantısı kopyalandı."
 #: lib/downloads/downloadoptionsdialog.ui:25
 msgctxt "DownloadOptionsDialog|"
 msgid "What should Falkon do with this file?"
-msgstr "Falkon bu dosyayla ne yapsın?"
+msgstr "Falkon bu dosyayla ne yapmalı?"
 
 #: lib/downloads/downloadoptionsdialog.ui:47
 msgctxt "DownloadOptionsDialog|"
@@ -1825,67 +1826,67 @@ msgctxt "DownloadsButton|"
 msgid "Open Download Manager"
 msgstr "İndirme Yöneticisini Aç"
 
-#: lib/history/history.cpp:82
+#: lib/history/history.cpp:83
 msgctxt "History|"
 msgid "Empty Page"
 msgstr "Boş Sayfa"
 
-#: lib/history/history.cpp:272
+#: lib/history/history.cpp:273
 msgctxt "History|"
 msgid "January"
 msgstr "Ocak"
 
-#: lib/history/history.cpp:274
+#: lib/history/history.cpp:275
 msgctxt "History|"
 msgid "February"
 msgstr "Şubat"
 
-#: lib/history/history.cpp:276
+#: lib/history/history.cpp:277
 msgctxt "History|"
 msgid "March"
 msgstr "Mart"
 
-#: lib/history/history.cpp:278
+#: lib/history/history.cpp:279
 msgctxt "History|"
 msgid "April"
 msgstr "Nisan"
 
-#: lib/history/history.cpp:280
+#: lib/history/history.cpp:281
 msgctxt "History|"
 msgid "May"
 msgstr "Mayıs"
 
-#: lib/history/history.cpp:282
+#: lib/history/history.cpp:283
 msgctxt "History|"
 msgid "June"
 msgstr "Haziran"
 
-#: lib/history/history.cpp:284
+#: lib/history/history.cpp:285
 msgctxt "History|"
 msgid "July"
 msgstr "Temmuz"
 
-#: lib/history/history.cpp:286
+#: lib/history/history.cpp:287
 msgctxt "History|"
 msgid "August"
 msgstr "Ağustos"
 
-#: lib/history/history.cpp:288
+#: lib/history/history.cpp:289
 msgctxt "History|"
 msgid "September"
 msgstr "Eylül"
 
-#: lib/history/history.cpp:290
+#: lib/history/history.cpp:291
 msgctxt "History|"
 msgid "October"
 msgstr "Ekim"
 
-#: lib/history/history.cpp:292
+#: lib/history/history.cpp:293
 msgctxt "History|"
 msgid "November"
 msgstr "Kasım"
 
-#: lib/history/history.cpp:294
+#: lib/history/history.cpp:295
 msgctxt "History|"
 msgid "December"
 msgstr "Aralık"
@@ -1903,22 +1904,22 @@ msgstr "Tüm geçmişi silmek istediğinizden emin misiniz?"
 #: lib/history/historymanager.cpp:145
 msgctxt "HistoryManager|"
 msgid "Open in new tab"
-msgstr "Yeni sekmede aç"
+msgstr "Yeni Sekmede Aç"
 
 #: lib/history/historymanager.cpp:146
 msgctxt "HistoryManager|"
 msgid "Open in new window"
-msgstr "Yeni pencerede aç"
+msgstr "Yeni Pencerede Aç"
 
 #: lib/history/historymanager.cpp:147
 msgctxt "HistoryManager|"
 msgid "Open in new private window"
-msgstr "Yeni gizli pencerede aç"
+msgstr "Yeni Gizli Pencerede Aç"
 
 #: lib/history/historymanager.cpp:150
 msgctxt "HistoryManager|"
 msgid "Copy url"
-msgstr "Url yi kopyala"
+msgstr "URL'yi kopyala"
 
 #: lib/history/historymanager.cpp:151
 msgctxt "HistoryManager|"
@@ -2186,7 +2187,7 @@ msgstr "Arama kutusunu göster"
 #: lib/navigation/navigationbarconfigdialog.ui:82
 msgctxt "NavigationBarConfigDialog|"
 msgid "Available items:"
-msgstr "Mevcut ögeler:"
+msgstr "Kullanılabilir ögeler:"
 
 #: lib/navigation/navigationbarconfigdialog.ui:89
 msgctxt "NavigationBarConfigDialog|"
@@ -2224,12 +2225,12 @@ msgctxt "WebSearchBar|"
 msgid "Manage Search Engines"
 msgstr "Arama Motorlarını Yönet"
 
-#: lib/navigation/websearchbar.cpp:261
+#: lib/navigation/websearchbar.cpp:257
 msgctxt "WebSearchBar|"
 msgid "Show suggestions"
 msgstr "Önerileri Göster"
 
-#: lib/navigation/websearchbar.cpp:266
+#: lib/navigation/websearchbar.cpp:262
 msgctxt "WebSearchBar|"
 msgid "Search when engine changed"
 msgstr "Arama motoru değiştiğinde ara"
@@ -2245,44 +2246,44 @@ msgctxt "ZoomLabel|"
 msgid "%1%"
 msgstr "%​%1"
 
-#: lib/network/networkmanager.cpp:102
+#: lib/network/networkmanager.cpp:91
 msgctxt "NetworkManager|"
 msgid "SSL Certificate Error!"
 msgstr "SSSL Sertifika Hatası!"
 
-#: lib/network/networkmanager.cpp:103
+#: lib/network/networkmanager.cpp:92
 msgctxt "NetworkManager|"
 msgid ""
 "The page you are trying to access has the following errors in the SSL "
 "certificate:"
 msgstr "Girmek istediğiniz sayfa SSL sertifika aşağıdaki hatalarını içeriyor:"
 
-#: lib/network/networkmanager.cpp:104
+#: lib/network/networkmanager.cpp:93
 msgctxt "NetworkManager|"
 msgid "Would you like to make an exception for this certificate?"
 msgstr "Bu sertifikayı geçersiz yapmak istediğinizden emin misiniz?"
 
-#: lib/network/networkmanager.cpp:139
+#: lib/network/networkmanager.cpp:124
 msgctxt "NetworkManager|"
 msgid "Authorization required"
 msgstr "Yetkilendirme gerekli"
 
-#: lib/network/networkmanager.cpp:146 lib/network/networkmanager.cpp:232
+#: lib/network/networkmanager.cpp:131 lib/network/networkmanager.cpp:217
 msgctxt "NetworkManager|"
 msgid "Username: "
 msgstr "Kullanıcı adı: "
 
-#: lib/network/networkmanager.cpp:147 lib/network/networkmanager.cpp:233
+#: lib/network/networkmanager.cpp:132 lib/network/networkmanager.cpp:218
 msgctxt "NetworkManager|"
 msgid "Password: "
 msgstr "Parola: "
 
-#: lib/network/networkmanager.cpp:153
+#: lib/network/networkmanager.cpp:138
 msgctxt "NetworkManager|"
 msgid "Save username and password for this site"
 msgstr "Bu site için kullanıcı adı ve parolayı kaydet"
 
-#: lib/network/networkmanager.cpp:161
+#: lib/network/networkmanager.cpp:146
 #, qt-format
 msgctxt "NetworkManager|"
 msgid ""
@@ -2290,254 +2291,254 @@ msgid ""
 msgstr ""
 "%1 için bir kullanıcı adı ve parola gerekmekte. Sitenin verdiği bilgi: \"%2\""
 
-#: lib/network/networkmanager.cpp:225
+#: lib/network/networkmanager.cpp:210
 msgctxt "NetworkManager|"
 msgid "Proxy authorization required"
 msgstr "Vekil sunucu yetkilendirmesi gerekli"
 
-#: lib/network/networkmanager.cpp:245
+#: lib/network/networkmanager.cpp:230
 #, qt-format
 msgctxt "NetworkManager|"
 msgid "A username and password are being requested by proxy %1. "
 msgstr "%1 vekil sunucusu için bir kullanıcı adı ve parola gerekmekte."
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:156
+#: lib/network/schemehandlers/falkonschemehandler.cpp:157
 msgctxt "FalkonSchemeReply|"
 msgid "Start Page"
 msgstr "Başlangıç Sayfası"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:157
+#: lib/network/schemehandlers/falkonschemehandler.cpp:158
 msgctxt "FalkonSchemeReply|"
 msgid "Search on Web"
 msgstr "Web'de Ara"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:158
+#: lib/network/schemehandlers/falkonschemehandler.cpp:159
 msgctxt "FalkonSchemeReply|"
 msgid "Search results provided by DuckDuckGo"
 msgstr "DuckDuckGo tarafından sağlanan arama sonuçları"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:160
-#: lib/network/schemehandlers/falkonschemehandler.cpp:177
+#: lib/network/schemehandlers/falkonschemehandler.cpp:161
 #: lib/network/schemehandlers/falkonschemehandler.cpp:178
+#: lib/network/schemehandlers/falkonschemehandler.cpp:179
 msgctxt "FalkonSchemeReply|"
 msgid "About Falkon"
 msgstr "Falkon Hakkında"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:161
+#: lib/network/schemehandlers/falkonschemehandler.cpp:162
 msgctxt "FalkonSchemeReply|"
 msgid "<h1>Private Browsing</h1>"
 msgstr "<h1>Gizli Tarama</h1>"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:179
-#: lib/network/schemehandlers/falkonschemehandler.cpp:288
+#: lib/network/schemehandlers/falkonschemehandler.cpp:180
+#: lib/network/schemehandlers/falkonschemehandler.cpp:289
 msgctxt "FalkonSchemeReply|"
 msgid "Information about version"
 msgstr "Sürüm bilgisi"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:180
+#: lib/network/schemehandlers/falkonschemehandler.cpp:181
 msgctxt "FalkonSchemeReply|"
 msgid "Copyright"
 msgstr "Telif hakkı"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:183
-#: lib/network/schemehandlers/falkonschemehandler.cpp:298
+#: lib/network/schemehandlers/falkonschemehandler.cpp:184
+#: lib/network/schemehandlers/falkonschemehandler.cpp:299
 msgctxt "FalkonSchemeReply|"
 msgid "Version"
 msgstr "Sürüm"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:190
+#: lib/network/schemehandlers/falkonschemehandler.cpp:191
 msgctxt "FalkonSchemeReply|"
 msgid "Main developer"
 msgstr "Ana Geliştirici"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:211
+#: lib/network/schemehandlers/falkonschemehandler.cpp:212
 msgctxt "FalkonSchemeReply|"
 msgid "Speed Dial"
 msgstr "Hızlı Erişim"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:212
+#: lib/network/schemehandlers/falkonschemehandler.cpp:213
 msgctxt "FalkonSchemeReply|"
 msgid "Add New Page"
 msgstr "Yeni Sayfa Ekle"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:213
+#: lib/network/schemehandlers/falkonschemehandler.cpp:214
 msgctxt "FalkonSchemeReply|"
 msgid "Edit"
 msgstr "Düzenle"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:214
+#: lib/network/schemehandlers/falkonschemehandler.cpp:215
 msgctxt "FalkonSchemeReply|"
 msgid "Remove"
 msgstr "Kaldır"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:215
+#: lib/network/schemehandlers/falkonschemehandler.cpp:216
 msgctxt "FalkonSchemeReply|"
 msgid "Reload"
 msgstr "Yenile"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:216
-msgctxt "FalkonSchemeReply|"
-msgid "Are you sure you want to remove this speed dial?"
-msgstr "Bu hızlı erişim ögesini kaldırmak istediğinize emin misiniz?"
-
 #: lib/network/schemehandlers/falkonschemehandler.cpp:217
 msgctxt "FalkonSchemeReply|"
-msgid "Are you sure you want to reload all speed dials?"
-msgstr "Tüm hızlı aramaları yeniden yüklemek istediğinize emin misiniz?"
+msgid "Are you sure you want to remove this speed dial?"
+msgstr "Bu hızlı erişim ögesini kaldırmak istediğinizden emin misiniz?"
 
 #: lib/network/schemehandlers/falkonschemehandler.cpp:218
+msgctxt "FalkonSchemeReply|"
+msgid "Are you sure you want to reload all speed dials?"
+msgstr "Tüm hızlı erişimleri yeniden yüklemek istediğinizden emin misiniz?"
+
+#: lib/network/schemehandlers/falkonschemehandler.cpp:219
 msgctxt "FalkonSchemeReply|"
 msgid "Load title from page"
 msgstr "Sayfadan başlığı yükle"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:219
+#: lib/network/schemehandlers/falkonschemehandler.cpp:220
 msgctxt "FalkonSchemeReply|"
 msgid "SpeedDial requires enabled JavaScript."
 msgstr "Hızlı Erişim için JavaScript'in etkinleştirilmesi gerekli."
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:220
+#: lib/network/schemehandlers/falkonschemehandler.cpp:221
 msgctxt "FalkonSchemeReply|"
 msgid "Url"
-msgstr "Url"
+msgstr "URL"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:221
+#: lib/network/schemehandlers/falkonschemehandler.cpp:222
 msgctxt "FalkonSchemeReply|"
 msgid "Title"
 msgstr "Başlık"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:222
+#: lib/network/schemehandlers/falkonschemehandler.cpp:223
 msgctxt "FalkonSchemeReply|"
 msgid "Apply"
 msgstr "Uygula"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:223
+#: lib/network/schemehandlers/falkonschemehandler.cpp:224
 msgctxt "FalkonSchemeReply|"
 msgid "Cancel"
 msgstr "İptal"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:224
+#: lib/network/schemehandlers/falkonschemehandler.cpp:225
 msgctxt "FalkonSchemeReply|"
 msgid "New Page"
 msgstr "Yeni Sayfa"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:225
+#: lib/network/schemehandlers/falkonschemehandler.cpp:226
 msgctxt "FalkonSchemeReply|"
 msgid "Speed Dial settings"
 msgstr "Hızlı Erişim ayarları"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:226
+#: lib/network/schemehandlers/falkonschemehandler.cpp:227
 msgctxt "FalkonSchemeReply|"
 msgid "Placement: "
 msgstr "Yerleştirme: "
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:227
+#: lib/network/schemehandlers/falkonschemehandler.cpp:228
 msgctxt "FalkonSchemeReply|"
 msgid "Auto"
-msgstr "Otomatik"
+msgstr "Kendiliğinden"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:228
+#: lib/network/schemehandlers/falkonschemehandler.cpp:229
 msgctxt "FalkonSchemeReply|"
 msgid "Cover"
 msgstr "Kapla"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:229
+#: lib/network/schemehandlers/falkonschemehandler.cpp:230
 msgctxt "FalkonSchemeReply|"
 msgid "Fit"
 msgstr "Sığdır"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:230
+#: lib/network/schemehandlers/falkonschemehandler.cpp:231
 msgctxt "FalkonSchemeReply|"
 msgid "Fit Width"
 msgstr "Genişliğe Sığdır"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:231
+#: lib/network/schemehandlers/falkonschemehandler.cpp:232
 msgctxt "FalkonSchemeReply|"
 msgid "Fit Height"
 msgstr "Yüksekliğe Sığdır"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:232
+#: lib/network/schemehandlers/falkonschemehandler.cpp:233
 msgctxt "FalkonSchemeReply|"
 msgid "Use custom wallpaper"
 msgstr "Özel duvar kağıdı kullan"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:233
+#: lib/network/schemehandlers/falkonschemehandler.cpp:234
 msgctxt "FalkonSchemeReply|"
 msgid "Click to select image"
 msgstr "Görsel seçmek için tıkla"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:234
+#: lib/network/schemehandlers/falkonschemehandler.cpp:235
 msgctxt "FalkonSchemeReply|"
 msgid "Maximum pages in a row:"
 msgstr "Bir satırdaki en fazla sayfa:"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:235
+#: lib/network/schemehandlers/falkonschemehandler.cpp:236
 msgctxt "FalkonSchemeReply|"
 msgid "Change size of pages:"
 msgstr "Sayfaların boyutunu değiştir:"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:236
+#: lib/network/schemehandlers/falkonschemehandler.cpp:237
 msgctxt "FalkonSchemeReply|"
 msgid "Center speed dials"
 msgstr "Hızlı erişimleri ortala"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:261
+#: lib/network/schemehandlers/falkonschemehandler.cpp:262
 msgctxt "FalkonSchemeReply|"
 msgid "Restore Session"
 msgstr "Oturumu Geri Yükle"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:262
+#: lib/network/schemehandlers/falkonschemehandler.cpp:263
 msgctxt "FalkonSchemeReply|"
 msgid "Oops, Falkon crashed."
 msgstr "Özür dilerim, Falkon çöktü."
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:263
+#: lib/network/schemehandlers/falkonschemehandler.cpp:264
 msgctxt "FalkonSchemeReply|"
 msgid "We apologize for this. Would you like to restore the last saved state?"
 msgstr ""
 "Bunun için özür dileriz. Son kaydedilen durumuna geri yüklemek ister misiniz?"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:264
+#: lib/network/schemehandlers/falkonschemehandler.cpp:265
 msgctxt "FalkonSchemeReply|"
 msgid "Try removing one or more tabs that you think cause troubles"
 msgstr "Sorunu gidermek için bir veya daha fazla sekmeyi kapatmayı deneyin"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:265
+#: lib/network/schemehandlers/falkonschemehandler.cpp:266
 msgctxt "FalkonSchemeReply|"
 msgid "Or you can start completely new session"
 msgstr "Veya tamamen yeni bir oturum açabilirsiniz"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:266
+#: lib/network/schemehandlers/falkonschemehandler.cpp:267
 msgctxt "FalkonSchemeReply|"
 msgid "Window"
 msgstr "Pencere"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:267
+#: lib/network/schemehandlers/falkonschemehandler.cpp:268
 msgctxt "FalkonSchemeReply|"
 msgid "Windows and Tabs"
 msgstr "Pencereler ve Sekmeler"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:268
+#: lib/network/schemehandlers/falkonschemehandler.cpp:269
 msgctxt "FalkonSchemeReply|"
 msgid "Start New Session"
 msgstr "Yeni Oturum Başlat"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:269
+#: lib/network/schemehandlers/falkonschemehandler.cpp:270
 msgctxt "FalkonSchemeReply|"
 msgid "Restore"
 msgstr "Geri Yükle"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:270
+#: lib/network/schemehandlers/falkonschemehandler.cpp:271
 msgctxt "FalkonSchemeReply|"
 msgid "Requires enabled JavaScript."
 msgstr "Etkinleştirilmiş JavaScript gerekli."
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:286
 #: lib/network/schemehandlers/falkonschemehandler.cpp:287
+#: lib/network/schemehandlers/falkonschemehandler.cpp:288
 msgctxt "FalkonSchemeReply|"
 msgid "Configuration Information"
 msgstr "Yapılandırma Bilgisi"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:289
+#: lib/network/schemehandlers/falkonschemehandler.cpp:290
 msgctxt "FalkonSchemeReply|"
 msgid ""
 "This page contains information about Falkon's current configuration - "
@@ -2547,132 +2548,132 @@ msgstr ""
 "Bu sayfa, Falkon'un geçerli yapılandırması hakkında bilgi içerir; hata "
 "tanılama ile ilgilidir. Hata raporu iletirken lütfen bu bilgiyi de içerin."
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:290
+#: lib/network/schemehandlers/falkonschemehandler.cpp:291
 msgctxt "FalkonSchemeReply|"
 msgid "Browser Identification"
 msgstr "Tarayıcı Kimliği"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:291
+#: lib/network/schemehandlers/falkonschemehandler.cpp:292
 msgctxt "FalkonSchemeReply|"
 msgid "Paths"
 msgstr "Yollar"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:292
+#: lib/network/schemehandlers/falkonschemehandler.cpp:293
 msgctxt "FalkonSchemeReply|"
 msgid "Build Configuration"
 msgstr "Yapı Yapılandırması"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:293
+#: lib/network/schemehandlers/falkonschemehandler.cpp:294
 msgctxt "FalkonSchemeReply|"
 msgid "Preferences"
 msgstr "Tercihler"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:294
+#: lib/network/schemehandlers/falkonschemehandler.cpp:295
 msgctxt "FalkonSchemeReply|"
 msgid "Option"
 msgstr "Seçenek"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:295
+#: lib/network/schemehandlers/falkonschemehandler.cpp:296
 msgctxt "FalkonSchemeReply|"
 msgid "Value"
 msgstr "Değer"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:296
-#: lib/network/schemehandlers/falkonschemehandler.cpp:332
+#: lib/network/schemehandlers/falkonschemehandler.cpp:297
+#: lib/network/schemehandlers/falkonschemehandler.cpp:333
 msgctxt "FalkonSchemeReply|"
 msgid "Extensions"
 msgstr "Genişletmeler"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:297
+#: lib/network/schemehandlers/falkonschemehandler.cpp:298
 msgctxt "FalkonSchemeReply|"
 msgid "Name"
 msgstr "Ad"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:299
+#: lib/network/schemehandlers/falkonschemehandler.cpp:300
 msgctxt "FalkonSchemeReply|"
 msgid "Author"
 msgstr "Yazar"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:300
+#: lib/network/schemehandlers/falkonschemehandler.cpp:301
 msgctxt "FalkonSchemeReply|"
 msgid "Description"
 msgstr "Açıklama"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:315
+#: lib/network/schemehandlers/falkonschemehandler.cpp:316
 msgctxt "FalkonSchemeReply|"
 msgid "Application version"
 msgstr "Uygulama sürümü"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:322
+#: lib/network/schemehandlers/falkonschemehandler.cpp:323
 msgctxt "FalkonSchemeReply|"
 msgid "Qt version"
 msgstr "Qt sürümü"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:323
+#: lib/network/schemehandlers/falkonschemehandler.cpp:324
 msgctxt "FalkonSchemeReply|"
 msgid "QtWebEngine version"
 msgstr "QtWebEngine sürümü"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:324
+#: lib/network/schemehandlers/falkonschemehandler.cpp:325
 msgctxt "FalkonSchemeReply|"
 msgid "Platform"
 msgstr "Platform"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:327
+#: lib/network/schemehandlers/falkonschemehandler.cpp:328
 msgctxt "FalkonSchemeReply|"
 msgid "Profile"
 msgstr "Profil"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:328
+#: lib/network/schemehandlers/falkonschemehandler.cpp:329
 msgctxt "FalkonSchemeReply|"
 msgid "Settings"
 msgstr "Ayarlar"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:329
+#: lib/network/schemehandlers/falkonschemehandler.cpp:330
 msgctxt "FalkonSchemeReply|"
 msgid "Saved session"
 msgstr "Kayıtlı oturum"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:330
+#: lib/network/schemehandlers/falkonschemehandler.cpp:331
 msgctxt "FalkonSchemeReply|"
 msgid "Data"
 msgstr "Veri"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:331
+#: lib/network/schemehandlers/falkonschemehandler.cpp:332
 msgctxt "FalkonSchemeReply|"
 msgid "Themes"
 msgstr "Temalar"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:335
-#: lib/network/schemehandlers/falkonschemehandler.cpp:342
-#: lib/network/schemehandlers/falkonschemehandler.cpp:348
+#: lib/network/schemehandlers/falkonschemehandler.cpp:336
+#: lib/network/schemehandlers/falkonschemehandler.cpp:343
+#: lib/network/schemehandlers/falkonschemehandler.cpp:349
 msgctxt "FalkonSchemeReply|"
 msgid "<b>Enabled</b>"
 msgstr "<b>Etkin</b>"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:337
-#: lib/network/schemehandlers/falkonschemehandler.cpp:344
-#: lib/network/schemehandlers/falkonschemehandler.cpp:348
+#: lib/network/schemehandlers/falkonschemehandler.cpp:338
+#: lib/network/schemehandlers/falkonschemehandler.cpp:345
+#: lib/network/schemehandlers/falkonschemehandler.cpp:349
 msgctxt "FalkonSchemeReply|"
 msgid "Disabled"
 msgstr "Devre dışı"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:351
+#: lib/network/schemehandlers/falkonschemehandler.cpp:352
 msgctxt "FalkonSchemeReply|"
 msgid "Debug build"
 msgstr "Hata ayıklama yapısı"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:353
+#: lib/network/schemehandlers/falkonschemehandler.cpp:354
 msgctxt "FalkonSchemeReply|"
 msgid "Windows 7 API"
 msgstr "Windows 7 API"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:355
+#: lib/network/schemehandlers/falkonschemehandler.cpp:356
 msgctxt "FalkonSchemeReply|"
 msgid "Portable build"
 msgstr "Taşınabilir yapılandırma"
 
-#: lib/network/schemehandlers/falkonschemehandler.cpp:373
+#: lib/network/schemehandlers/falkonschemehandler.cpp:374
 msgctxt "FalkonSchemeReply|"
 msgid "No available extensions."
 msgstr "Kullanılabilir genişletme yok."
@@ -2705,7 +2706,7 @@ msgstr "Ad:"
 #: lib/opensearch/editsearchengine.ui:30
 msgctxt "EditSearchEngine|"
 msgid "Url:"
-msgstr "Url:"
+msgstr "URL:"
 
 #: lib/opensearch/editsearchengine.ui:44
 msgctxt "EditSearchEngine|"
@@ -2730,7 +2731,7 @@ msgstr "<b>Not: </b>URL ve postdata içinde %s, aranan diziyi simgeler"
 #: lib/opensearch/editsearchengine.ui:123
 msgctxt "EditSearchEngine|"
 msgid "Post Data:"
-msgstr "Post Data:"
+msgstr "Post verisi:"
 
 #: lib/opensearch/opensearchreader.cpp:105
 msgctxt "QObject|"
@@ -2738,7 +2739,7 @@ msgid "The file is not an OpenSearch 1.1 file."
 msgstr "Bu dosya bir OpenSearch 1.1 dosyası değil."
 
 #: lib/opensearch/searchenginesdialog.cpp:52
-#: lib/opensearch/searchenginesmanager.cpp:315
+#: lib/opensearch/searchenginesmanager.cpp:314
 msgctxt "SearchEnginesDialog|"
 msgid "Add Search Engine"
 msgstr "Arama Motoru Ekle"
@@ -2813,28 +2814,28 @@ msgctxt "SearchEnginesDialog|"
 msgid "Defaults"
 msgstr "Öntanımlılar"
 
-#: lib/opensearch/searchenginesmanager.cpp:401
+#: lib/opensearch/searchenginesmanager.cpp:400
 msgctxt "SearchEnginesManager|"
 msgid "Search Engine Added"
 msgstr "Arama Motoru Eklendi"
 
-#: lib/opensearch/searchenginesmanager.cpp:401
+#: lib/opensearch/searchenginesmanager.cpp:400
 #, qt-format
 msgctxt "SearchEnginesManager|"
 msgid "Search Engine \"%1\" has been successfully added."
 msgstr "%1 arama motoru başarıyla eklendi."
 
-#: lib/opensearch/searchenginesmanager.cpp:408
+#: lib/opensearch/searchenginesmanager.cpp:407
 msgctxt "SearchEnginesManager|"
 msgid "Search Engine is not valid!"
 msgstr "Arama motoru geçerli değil!"
 
-#: lib/opensearch/searchenginesmanager.cpp:409
+#: lib/opensearch/searchenginesmanager.cpp:408
 msgctxt "SearchEnginesManager|"
 msgid "Error"
 msgstr "Hata"
 
-#: lib/opensearch/searchenginesmanager.cpp:409
+#: lib/opensearch/searchenginesmanager.cpp:408
 #, qt-format
 msgctxt "SearchEnginesManager|"
 msgid "Error while adding Search Engine <br><b>Error Message: </b> %1"
@@ -3159,7 +3160,7 @@ msgstr "Şifreleme:"
 #: lib/other/siteinfo.ui:132
 msgctxt "SiteInfo|"
 msgid "Meta tags of site:"
-msgstr "Siteye ait üstveri etiketleri:"
+msgstr "Siteye ait üst veri etiketleri:"
 
 #: lib/other/siteinfo.ui:149
 msgctxt "SiteInfo|"
@@ -3264,7 +3265,7 @@ msgctxt "Updater|"
 msgid "New version of Falkon is ready to download."
 msgstr "Falkon'un yeni sürümü indirilmeye hazır."
 
-#: lib/other/updater.cpp:160
+#: lib/other/updater.cpp:163
 msgctxt "Updater|"
 msgid "Update"
 msgstr "Güncelle"
@@ -3407,95 +3408,95 @@ msgid "Search"
 msgstr "Ara"
 
 #: lib/preferences/autofillmanager.cpp:82
-#: lib/preferences/autofillmanager.cpp:175
-#: lib/preferences/autofillmanager.cpp:183
+#: lib/preferences/autofillmanager.cpp:171
+#: lib/preferences/autofillmanager.cpp:179
 #: lib/preferences/autofillmanager.ui:140
 msgctxt "AutoFillManager|"
 msgid "Show Passwords"
 msgstr "Parolaları Göster"
 
-#: lib/preferences/autofillmanager.cpp:134
+#: lib/preferences/autofillmanager.cpp:130
 msgctxt "AutoFillManager|"
 msgid "Change backend..."
 msgstr "Arka ucu değiştir..."
 
-#: lib/preferences/autofillmanager.cpp:134
+#: lib/preferences/autofillmanager.cpp:130
 msgctxt "AutoFillManager|"
 msgid "Change backend:"
 msgstr "Arka ucu değiştir:"
 
-#: lib/preferences/autofillmanager.cpp:183
+#: lib/preferences/autofillmanager.cpp:179
 msgctxt "AutoFillManager|"
 msgid "Are you sure that you want to show all passwords?"
-msgstr "Bütün parolaları görmek istediğinize emin misiniz?"
+msgstr "Tüm parolaları görmek istediğinizden emin misiniz?"
 
-#: lib/preferences/autofillmanager.cpp:198
+#: lib/preferences/autofillmanager.cpp:194
 msgctxt "AutoFillManager|"
 msgid "Hide Passwords"
 msgstr "Parolaları Gizle"
 
-#: lib/preferences/autofillmanager.cpp:236
+#: lib/preferences/autofillmanager.cpp:232
 msgctxt "AutoFillManager|"
 msgid "Confirmation"
 msgstr "Onay"
 
-#: lib/preferences/autofillmanager.cpp:237
+#: lib/preferences/autofillmanager.cpp:233
 msgctxt "AutoFillManager|"
 msgid "Are you sure you want to delete all passwords on your computer?"
-msgstr "Bu bilgisayardaki bütün parolaları silmek istediğinize emin misiniz?"
+msgstr "Bu bilgisayardaki tüm parolaları silmek istediğinizden emin misiniz?"
 
-#: lib/preferences/autofillmanager.cpp:256
+#: lib/preferences/autofillmanager.cpp:252
 msgctxt "AutoFillManager|"
 msgid "Edit password"
 msgstr "Parolayı düzenle"
 
-#: lib/preferences/autofillmanager.cpp:256
+#: lib/preferences/autofillmanager.cpp:252
 msgctxt "AutoFillManager|"
 msgid "Change password:"
 msgstr "Parolayı değiştir:"
 
-#: lib/preferences/autofillmanager.cpp:310
-#: lib/preferences/autofillmanager.cpp:321
+#: lib/preferences/autofillmanager.cpp:302
+#: lib/preferences/autofillmanager.cpp:313
 msgctxt "AutoFillManager|"
 msgid "Choose file..."
 msgstr "Dosyayı seç..."
 
-#: lib/preferences/autofillmanager.cpp:335
+#: lib/preferences/autofillmanager.cpp:327
 msgctxt "AutoFillManager|"
 msgid "Cannot read file!"
 msgstr "Dosya okunamadı!"
 
-#: lib/preferences/autofillmanager.cpp:344
+#: lib/preferences/autofillmanager.cpp:336
 msgctxt "AutoFillManager|"
 msgid "Successfully imported"
 msgstr "İçe aktarma başarıyla gerçekleştirildi"
 
-#: lib/preferences/autofillmanager.cpp:344
+#: lib/preferences/autofillmanager.cpp:336
 msgctxt "AutoFillManager|"
 msgid "Error while importing!"
 msgstr "İçe aktarma sırasında hata oluştu!"
 
-#: lib/preferences/autofillmanager.cpp:355
+#: lib/preferences/autofillmanager.cpp:347
 msgctxt "AutoFillManager|"
 msgid "Cannot write to file!"
 msgstr "Dosyaya yazılamadı!"
 
-#: lib/preferences/autofillmanager.cpp:364
+#: lib/preferences/autofillmanager.cpp:356
 msgctxt "AutoFillManager|"
 msgid "Successfully exported"
 msgstr "Dışa aktarma başarıyla gerçekleştirildi"
 
-#: lib/preferences/autofillmanager.cpp:381
+#: lib/preferences/autofillmanager.cpp:373
 msgctxt "AutoFillManager|"
 msgid "Copy Username"
 msgstr "Kullanıcı Adını Kopyala"
 
-#: lib/preferences/autofillmanager.cpp:382
+#: lib/preferences/autofillmanager.cpp:374
 msgctxt "AutoFillManager|"
 msgid "Copy Password"
 msgstr "Parolayı Kopyala"
 
-#: lib/preferences/autofillmanager.cpp:384
+#: lib/preferences/autofillmanager.cpp:376
 msgctxt "AutoFillManager|"
 msgid "Edit Password"
 msgstr "Parolayı Düzenle"
@@ -3611,7 +3612,7 @@ msgstr "JavaScript Ayarları"
 #: lib/preferences/jsoptions.ui:20
 msgctxt "JsOptions|"
 msgid "Allow JavaScript to:"
-msgstr "JavaScripte şu öge için izin ver:"
+msgstr "JavaScript'e şu öge için izin ver:"
 
 #: lib/preferences/jsoptions.ui:29
 msgctxt "JsOptions|"
@@ -3675,105 +3676,105 @@ msgstr "Onay"
 #, qt-format
 msgctxt "PluginsManager|"
 msgid "Are you sure you want to remove '%1'?"
-msgstr "'%1' ögesini kaldırmak istediğinize emin misiniz?"
+msgstr "'%1' ögesini kaldırmak istediğinizden emin misiniz?"
 
-#: lib/preferences/preferences.cpp:155 lib/preferences/preferences.cpp:620
+#: lib/preferences/preferences.cpp:152 lib/preferences/preferences.cpp:613
 msgctxt "Preferences|"
 msgid "Default"
 msgstr "Öntanımlı"
 
-#: lib/preferences/preferences.cpp:159
+#: lib/preferences/preferences.cpp:156
 msgctxt "Preferences|"
 msgid "Set as default"
 msgstr "Öntanımlı olarak ayarla"
 
-#: lib/preferences/preferences.cpp:304
+#: lib/preferences/preferences.cpp:301
 #, qt-format
 msgctxt "Preferences|"
 msgid "%1%"
 msgstr "%​%1"
 
-#: lib/preferences/preferences.cpp:563
+#: lib/preferences/preferences.cpp:556
 msgctxt "Preferences|"
 msgid "Choose executable location..."
 msgstr "Yürütülebilir konumunu seçin..."
 
-#: lib/preferences/preferences.cpp:606
+#: lib/preferences/preferences.cpp:599
 msgctxt "Preferences|"
 msgid "OSD Notification"
 msgstr "OSD Bildirimi"
 
-#: lib/preferences/preferences.cpp:607
+#: lib/preferences/preferences.cpp:600
 msgctxt "Preferences|"
 msgid "Drag it on the screen to place it where you want."
 msgstr "Ekranda istediğiniz yere sürükleyin."
 
-#: lib/preferences/preferences.cpp:656
+#: lib/preferences/preferences.cpp:649
 msgctxt "Preferences|"
 msgid "Choose download location..."
 msgstr "İndirme konumunu seçin..."
 
-#: lib/preferences/preferences.cpp:670
+#: lib/preferences/preferences.cpp:663
 msgctxt "Preferences|"
 msgid "Choose stylesheet location..."
 msgstr "Biçem sayfası konumunu seçin..."
 
-#: lib/preferences/preferences.cpp:681
+#: lib/preferences/preferences.cpp:674
 msgctxt "Preferences|"
 msgid "Deleted"
 msgstr "Silindi"
 
-#: lib/preferences/preferences.cpp:789
+#: lib/preferences/preferences.cpp:782
 msgctxt "Preferences|"
 msgid "Choose cache path..."
 msgstr "Önbellek yolunu seçin..."
 
-#: lib/preferences/preferences.cpp:820
+#: lib/preferences/preferences.cpp:813
 msgctxt "Preferences|"
 msgid "New Profile"
 msgstr "Yeni Profil"
 
-#: lib/preferences/preferences.cpp:820
+#: lib/preferences/preferences.cpp:813
 msgctxt "Preferences|"
 msgid "Enter the new profile's name:"
-msgstr "Yeni profil adını girin:"
+msgstr "Yeni profil adını gir:"
 
-#: lib/preferences/preferences.cpp:830 lib/preferences/preferences.cpp:835
+#: lib/preferences/preferences.cpp:823 lib/preferences/preferences.cpp:828
 msgctxt "Preferences|"
 msgid "Error!"
 msgstr "Hata!"
 
-#: lib/preferences/preferences.cpp:830
+#: lib/preferences/preferences.cpp:823
 msgctxt "Preferences|"
 msgid "This profile already exists!"
-msgstr "Bu profil zaten mevcut!"
+msgstr "Bu profil halihazırda var!"
 
-#: lib/preferences/preferences.cpp:835
+#: lib/preferences/preferences.cpp:828
 msgctxt "Preferences|"
 msgid "Cannot create profile directory!"
 msgstr "Profil klasörü oluşturulamadı!"
 
-#: lib/preferences/preferences.cpp:846
+#: lib/preferences/preferences.cpp:839
 msgctxt "Preferences|"
 msgid "Confirmation"
 msgstr "Onay"
 
-#: lib/preferences/preferences.cpp:847
+#: lib/preferences/preferences.cpp:840
 #, qt-format
 msgctxt "Preferences|"
 msgid ""
 "Are you sure you want to permanently delete \"%1\" profile? This action "
 "cannot be undone!"
 msgstr ""
-"%1 adlı profili kalıcı olarak silmek istediğinize emin misiniz? Bu işlem "
+"%1 adlı profili kalıcı olarak silmek istediğinizden emin misiniz? Bu işlem "
 "geri alınamaz!"
 
-#: lib/preferences/preferences.cpp:862 lib/preferences/preferences.ui:227
+#: lib/preferences/preferences.cpp:855 lib/preferences/preferences.ui:227
 msgctxt "Preferences|"
 msgid "Note: You cannot delete active profile."
 msgstr "Not: Geçerli profili silemezsiniz."
 
-#: lib/preferences/preferences.cpp:1121
+#: lib/preferences/preferences.cpp:1114
 msgctxt "Preferences|"
 msgid "Select Color"
 msgstr "Renk Seç"
@@ -3866,12 +3867,12 @@ msgstr "Sil"
 #: lib/preferences/preferences.ui:285
 msgctxt "Preferences|"
 msgid "<b>Launching</b>"
-msgstr "<b>Başlatma</b>"
+msgstr "<b>Başlangıç</b>"
 
 #: lib/preferences/preferences.ui:295
 msgctxt "Preferences|"
 msgid "After launch: "
-msgstr "Başlatıldıktan sonra: "
+msgstr "Başlangıç sonrası: "
 
 #: lib/preferences/preferences.ui:303
 msgctxt "Preferences|"
@@ -3896,7 +3897,7 @@ msgstr "Oturumu kurtar"
 #: lib/preferences/preferences.ui:323
 msgctxt "Preferences|"
 msgid "Select session"
-msgstr "Oturumu seçin"
+msgstr "Oturum seç"
 
 #: lib/preferences/preferences.ui:331
 msgctxt "Preferences|"
@@ -3971,7 +3972,7 @@ msgstr "Başlangıçta durum çubuğunu göster"
 #: lib/preferences/preferences.ui:517
 msgctxt "Preferences|"
 msgid "Show Bookmarks ToolBar on start"
-msgstr "Başlangıçta yer imleri çubuğunu göster"
+msgstr "Başlangıçta yer imleri araç çubuğunu göster"
 
 #: lib/preferences/preferences.ui:524
 msgctxt "Preferences|"
@@ -3981,7 +3982,7 @@ msgstr "Başlangıçta dolaşım araç çubuğunu göster"
 #: lib/preferences/preferences.ui:531
 msgctxt "Preferences|"
 msgid "Enable instant Bookmarks ToolBar"
-msgstr "Anında Yer İmi araç çubuğunu etkinleştir"
+msgstr "Anında yer imleri araç çubuğunu etkinleştir"
 
 #: lib/preferences/preferences.ui:553
 msgctxt "Preferences|"
@@ -4026,7 +4027,7 @@ msgstr "Sekmeleri her zaman fare tekerleği ile değiştir"
 #: lib/preferences/preferences.ui:649
 msgctxt "Preferences|"
 msgid "Automatically switch to newly opened tab"
-msgstr "En son açılan sekmeye otomatik olarak git"
+msgstr "En son açılan sekmeye kendiliğinden git"
 
 #: lib/preferences/preferences.ui:656
 msgctxt "Preferences|"
@@ -4051,7 +4052,7 @@ msgstr "Etkin olmayan sekmelerde kapat düğmesini göster:"
 #: lib/preferences/preferences.ui:687
 msgctxt "Preferences|"
 msgid "Automatic"
-msgstr "Otomatik"
+msgstr "Kendiliğinden"
 
 #: lib/preferences/preferences.ui:692
 msgctxt "Preferences|"
@@ -4109,7 +4110,7 @@ msgstr ""
 #: lib/preferences/preferences.ui:810
 msgctxt "Preferences|"
 msgid "Propose to switch tab if completed url is already loaded"
-msgstr "Tamamlanmış Url zaten yüklü olduğunda sekmeleri değiştirmeyi öner"
+msgstr "Tamamlanmış URL halihazırda yüklüyse sekmeyi değiştirmeyi öner"
 
 #: lib/preferences/preferences.ui:817
 msgctxt "Preferences|"
@@ -4134,7 +4135,7 @@ msgstr "Adres çubuğunda tek tıklandığında tüm yazıyı seç"
 #: lib/preferences/preferences.ui:845
 msgctxt "Preferences|"
 msgid "Enable automatic searching from the address bar"
-msgstr "Adres çubuğundan otomatik aramayı etkinleştir"
+msgstr "Adres çubuğundan kendiliğinden aramayı etkinleştir"
 
 #: lib/preferences/preferences.ui:852
 msgctxt "Preferences|"
@@ -4248,7 +4249,7 @@ msgstr "Yerel sarma çubuklarını kullan"
 #: lib/preferences/preferences.ui:1088
 msgctxt "Preferences|"
 msgid "Disable automatic playing of videos"
-msgstr "Videoların otomatik oynatımını devre dışı bırak"
+msgstr "Videoların kendiliğinden oynatımını devre dışı bırak"
 
 #: lib/preferences/preferences.ui:1095
 msgctxt "Preferences|"
@@ -4313,7 +4314,7 @@ msgstr "MB"
 #: lib/preferences/preferences.ui:1264
 msgctxt "Preferences|"
 msgid "Store cache in:"
-msgstr "Önbelleği depola :"
+msgstr "Önbelleği şurada depola:"
 
 #: lib/preferences/preferences.ui:1292
 msgctxt "Preferences|"
@@ -4428,22 +4429,22 @@ msgstr "<b>Yazıtipi Boyutları</b>"
 #: lib/preferences/preferences.ui:1655
 msgctxt "Preferences|"
 msgid "Fixed Font Size"
-msgstr "Eş Aralıklı Yazıtipi Boyutu"
+msgstr "Eş aralıklı yazıtipi boyutu"
 
 #: lib/preferences/preferences.ui:1662
 msgctxt "Preferences|"
 msgid "Default Font Size"
-msgstr "Öntanımlı Yazıtipi Boyutu"
+msgstr "Öntanımlı yazıtipi boyutu"
 
 #: lib/preferences/preferences.ui:1689
 msgctxt "Preferences|"
 msgid "Minimum Font Size"
-msgstr "En Küçük Yazıtipi Boyutu"
+msgstr "En küçük yazıtipi boyutu"
 
 #: lib/preferences/preferences.ui:1696
 msgctxt "Preferences|"
 msgid "Minimum Logical Font Size"
-msgstr "En Küçük Tutarlı Yazıtipi Boyutu"
+msgstr "En küçük tutarlı yazıtipi boyutu"
 
 #: lib/preferences/preferences.ui:1729
 msgctxt "Preferences|"
@@ -4466,7 +4467,7 @@ msgid ""
 "Existing shortcuts:<br/><b>1</b> - previous tab<br/><b>2</b> - next tab<br/"
 "><b>/</b> - search on page"
 msgstr ""
-"Mevcut kısayollar:<br/><b>1</b> - önceki sekme<br/><b>2</b> - sonraki "
+"Var olan kısayollar:<br/><b>1</b> - önceki sekme<br/><b>2</b> - sonraki "
 "sekme<br/><b>/</b> - sayfada ara"
 
 #: lib/preferences/preferences.ui:1753
@@ -4511,7 +4512,7 @@ msgstr "<b>İndirme Seçenekleri</b>"
 #: lib/preferences/preferences.ui:1858
 msgctxt "Preferences|"
 msgid "Close download manager when downloading finishes"
-msgstr "İndirmeler bitince İndirme Yöneticisini kapat"
+msgstr "İndirmeler bitince indirme yöneticisini kapat"
 
 #: lib/preferences/preferences.ui:1865
 msgctxt "Preferences|"
@@ -4541,12 +4542,12 @@ msgstr "Emin değilseniz boş bırakın"
 #: lib/preferences/preferences.ui:1919
 msgctxt "Preferences|"
 msgid "<b>%d</b> will be replaced with URL to be downloaded"
-msgstr "<b>%d</b> ögesi indirilebilir URL ile değiştirilecektir"
+msgstr "<b>%d</b>, indirilebilir URL ile değiştirilir"
 
 #: lib/preferences/preferences.ui:1945
 msgctxt "Preferences|"
 msgid "<b>AutoFill options</b>"
-msgstr "<b>Otomatik doldurma ayarları</b>"
+msgstr "<b>Kendiliğinden doldurma ayarları</b>"
 
 #: lib/preferences/preferences.ui:1952
 msgctxt "Preferences|"
@@ -4556,7 +4557,7 @@ msgstr "Sitelerdeki parolaları kaydetmeye izin ver"
 #: lib/preferences/preferences.ui:2003
 msgctxt "Preferences|"
 msgid "Automatically complete passwords on sites"
-msgstr "Sitelerde otomatik olarak şifreleri tamamlama"
+msgstr "Sitelerde parolaları kendiliğinden tamamlama"
 
 #: lib/preferences/preferences.ui:2014
 msgctxt "Preferences|"
@@ -4644,13 +4645,13 @@ msgid ""
 "<b>Note: </b>You can change position of OSD Notification by dragging it on "
 "the screen."
 msgstr ""
-"<b>Not: </b>Ekran üzeri bildirim kutusunu ekranda sürükleyerek konumunu "
+"<b>Not:</b> Ekran üzeri görüntü bildirimini sürükleyerek konumunu "
 "değiştirebilirsiniz."
 
 #: lib/preferences/preferences.ui:2290
 msgctxt "Preferences|"
 msgid "Use OSD Notifications"
-msgstr "Ekran üzeri bildirimleri kullan"
+msgstr "Bildirimleri Ekran Üzeri Görüntü olarak göster"
 
 #: lib/preferences/preferences.ui:2297
 msgctxt "Preferences|"
@@ -4674,7 +4675,7 @@ msgstr "<b>Yazım Denetimi Seçenekleri</b>"
 #: lib/preferences/preferences.ui:2411
 msgctxt "Preferences|"
 msgid "Enable Spell Check"
-msgstr "Yazım Denetimini Etkinleştir"
+msgstr "Yazım denetimini etkinleştir"
 
 #: lib/preferences/preferences.ui:2418
 msgctxt "Preferences|"
@@ -4739,7 +4740,7 @@ msgstr "Kullanıcı Aracısı Yöneticisi"
 #: lib/preferences/preferences.ui:2721
 msgctxt "Preferences|"
 msgid "Style Sheet automatically loaded with all websites: "
-msgstr "Tüm web siteleriyle otomatik olarak yüklenen biçem sayfası: "
+msgstr "Tüm web siteleriyle kendiliğinden yüklenen biçem sayfası: "
 
 #: lib/preferences/preferences.ui:2758
 msgctxt "Preferences|"
@@ -4820,7 +4821,7 @@ msgstr "Onay"
 #, qt-format
 msgctxt "ThemeManager|"
 msgid "Are you sure you want to remove '%1'?"
-msgstr "'%1' ögesini kaldırmak istediğinize emin misiniz?"
+msgstr "'%1' ögesini kaldırmak istediğinizden emin misiniz?"
 
 #: lib/preferences/thememanager.ui:51
 msgctxt "ThemeManager|"
@@ -4872,7 +4873,7 @@ msgstr "Site alan adı: "
 #: lib/preferences/useragentdialog.cpp:217
 msgctxt "UserAgentDialog|"
 msgid "User Agent: "
-msgstr "Kullanıcı Aracısı: "
+msgstr "Kullanıcı aracısı: "
 
 #: lib/preferences/useragentdialog.ui:14
 msgctxt "UserAgentDialog|"
@@ -4951,7 +4952,7 @@ msgstr "Hata!"
 #, qt-format
 msgctxt "SessionManager|"
 msgid "The session file \"%1\" exists. Please enter another name."
-msgstr "Oturum dosyası \"%1\" mevcut. Lütfen başka bir ad girin."
+msgstr "Oturum dosyası \"%1\" var. Lütfen başka bir ad girin."
 
 #: lib/session/sessionmanager.cpp:144
 msgctxt "SessionManager|"
@@ -4987,7 +4988,7 @@ msgstr "Yedeklemeyi Geri Yükle"
 #: lib/session/sessionmanager.cpp:181
 msgctxt "SessionManager|"
 msgid "Are you sure you want to replace current session?"
-msgstr "Geçerli oturumu değiştirmek istediğinize emin misiniz?"
+msgstr "Geçerli oturumu değiştirmek istediğinizden emin misiniz?"
 
 #: lib/session/sessionmanager.cpp:200
 msgctxt "SessionManager|"
@@ -4998,7 +4999,7 @@ msgstr "Oturumu Sil"
 #, qt-format
 msgctxt "SessionManager|"
 msgid "Are you sure you want to delete session '%1'?"
-msgstr "'%1' oturumunu silmek istediğinize emin misiniz?"
+msgstr "'%1' oturumunu silmek istediğinizden emin misiniz?"
 
 #: lib/session/sessionmanager.cpp:210
 msgctxt "SessionManager|"
@@ -5014,7 +5015,7 @@ msgstr "Yeni oturum oluşturmak için lütfen bir ad girin:"
 #, qt-format
 msgctxt "SessionManager|"
 msgid "New Session (%1)"
-msgstr "New Session (%1)"
+msgstr "Yeni Oturum (%1)"
 
 #: lib/session/sessionmanager.cpp:244
 msgctxt "SessionManager|"
@@ -5065,7 +5066,7 @@ msgstr "Oturum"
 #: lib/session/sessionmanagerdialog.ui:29
 msgctxt "SessionManagerDialog|"
 msgid "Last Modified"
-msgstr "Son düzenleme"
+msgstr "Son Değişiklik"
 
 #: lib/session/sessionmanagerdialog.ui:39
 msgctxt "SessionManagerDialog|"
@@ -5095,17 +5096,17 @@ msgstr "Şuna Değiştir"
 #: lib/sidebar/bookmarkssidebar.cpp:103
 msgctxt "BookmarksSidebar|"
 msgid "Open in new tab"
-msgstr "Yeni sekmede aç"
+msgstr "Yeni Sekmede Aç"
 
 #: lib/sidebar/bookmarkssidebar.cpp:104
 msgctxt "BookmarksSidebar|"
 msgid "Open in new window"
-msgstr "Yeni pencerede aç"
+msgstr "Yeni Pencerede Aç"
 
 #: lib/sidebar/bookmarkssidebar.cpp:105
 msgctxt "BookmarksSidebar|"
 msgid "Open in new private window"
-msgstr "Yeni gizli pencerede aç"
+msgstr "Yeni Gizli Pencerede Aç"
 
 #: lib/sidebar/bookmarkssidebar.cpp:108
 msgctxt "BookmarksSidebar|"
@@ -5120,17 +5121,17 @@ msgstr "Ara..."
 #: lib/sidebar/historysidebar.cpp:85
 msgctxt "HistorySideBar|"
 msgid "Open in new tab"
-msgstr "Yeni sekmede aç"
+msgstr "Yeni Sekmede Aç"
 
 #: lib/sidebar/historysidebar.cpp:86
 msgctxt "HistorySideBar|"
 msgid "Open in new window"
-msgstr "Yeni pencerede aç"
+msgstr "Yeni Pencerede Aç"
 
 #: lib/sidebar/historysidebar.cpp:87
 msgctxt "HistorySideBar|"
 msgid "Open in new private window"
-msgstr "Yeni gizli pencerede aç"
+msgstr "Yeni Gizli Pencerede Aç"
 
 #: lib/sidebar/historysidebar.cpp:90
 msgctxt "HistorySideBar|"
@@ -5171,27 +5172,27 @@ msgstr "Sekmeleri Kapat"
 #: lib/tabwidget/tabcontextmenu.cpp:80
 msgctxt "TabContextMenu|"
 msgid "Do you really want to close other tabs?"
-msgstr "Diğer sekmeleri kapatmak istediğinize emin misiniz?"
+msgstr "Diğer sekmeleri kapatmak istediğinizden emin misiniz?"
 
 #: lib/tabwidget/tabcontextmenu.cpp:88
 msgctxt "TabContextMenu|"
 msgid "Do you really want to close all tabs to the right?"
-msgstr "Sağa tüm sekmeleri kapatmak istediğinize emin misiniz?"
+msgstr "Sağdaki tüm sekmeleri kapatmak istediğinizden emin misiniz?"
 
 #: lib/tabwidget/tabcontextmenu.cpp:89
 msgctxt "TabContextMenu|"
 msgid "Do you really want to close all tabs to the bottom?"
-msgstr "Tüm sekmeleri alta kapatmak istediğinize emin misiniz?"
+msgstr "Alttaki tüm sekmeleri kapatmak istediğinizden emin misiniz?"
 
 #: lib/tabwidget/tabcontextmenu.cpp:99
 msgctxt "TabContextMenu|"
 msgid "Do you really want to close all tabs to the left?"
-msgstr "Sola tüm sekmeleri kapatmak istediğinize emin misiniz?"
+msgstr "Soldaki tüm sekmeleri kapatmak istediğinizden emin misiniz?"
 
 #: lib/tabwidget/tabcontextmenu.cpp:100
 msgctxt "TabContextMenu|"
 msgid "Do you really want to close all tabs to the top?"
-msgstr "Üste tüm sekmeleri kapatmak istediğinize emin misiniz?"
+msgstr "Üstteki tüm sekmeleri kapatmak istediğinizden emin misiniz?"
 
 #: lib/tabwidget/tabcontextmenu.cpp:117
 msgctxt "TabContextMenu|"
@@ -5365,7 +5366,7 @@ msgstr "<b>Şuraya Verilmiş</b>"
 #: lib/tools/certificateinfowidget.ui:24 lib/tools/certificateinfowidget.ui:99
 msgctxt "CertificateInfoWidget|"
 msgid "Common Name (CN):"
-msgstr "Ortak Ad (CN):"
+msgstr "Ortak ad (CN):"
 
 #: lib/tools/certificateinfowidget.ui:41 lib/tools/certificateinfowidget.ui:116
 msgctxt "CertificateInfoWidget|"
@@ -5375,12 +5376,12 @@ msgstr "Organizasyon (O):"
 #: lib/tools/certificateinfowidget.ui:58 lib/tools/certificateinfowidget.ui:133
 msgctxt "CertificateInfoWidget|"
 msgid "Organizational Unit (OU):"
-msgstr "Kurumsal Birim (OU):"
+msgstr "Kurumsal birim (OU):"
 
 #: lib/tools/certificateinfowidget.ui:75
 msgctxt "CertificateInfoWidget|"
 msgid "Serial Number:"
-msgstr "Seri Numarası:"
+msgstr "Seri numarası:"
 
 #: lib/tools/certificateinfowidget.ui:92
 msgctxt "CertificateInfoWidget|"
@@ -5470,12 +5471,12 @@ msgstr "İmleci Gizle"
 #: lib/tools/html5permissions/html5permissionsdialog.ui:117
 msgctxt "HTML5PermissionsDialog|"
 msgid "Display Capture"
-msgstr "Ekran Yakala"
+msgstr "Görüntü Yakala"
 
 #: lib/tools/html5permissions/html5permissionsdialog.ui:122
 msgctxt "HTML5PermissionsDialog|"
 msgid "Display and Audio Capture"
-msgstr "Ekran ve Ses Yakala"
+msgstr "Görüntü ve Ses Yakala"
 
 #: lib/tools/html5permissions/html5permissionsnotification.cpp:42
 msgctxt "HTML5PermissionsNotification|"
@@ -5548,42 +5549,42 @@ msgctxt "HTML5PermissionsNotification|"
 msgid "Deny"
 msgstr "Reddet"
 
-#: lib/tools/qztools.cpp:389
+#: lib/tools/qztools.cpp:378
 msgctxt "QObject|"
 msgid "Unknown size"
 msgstr "Bilinmeyen boyut"
 
-#: lib/tools/qztools.cpp:394
+#: lib/tools/qztools.cpp:383
 msgctxt "QObject|"
 msgid "KB"
 msgstr "KB"
 
-#: lib/tools/qztools.cpp:399
+#: lib/tools/qztools.cpp:388
 msgctxt "QObject|"
 msgid "MB"
 msgstr "MB"
 
-#: lib/tools/qztools.cpp:403
+#: lib/tools/qztools.cpp:392
 msgctxt "QObject|"
 msgid "GB"
 msgstr "GB"
 
-#: lib/tools/qztools.cpp:862
+#: lib/tools/qztools.cpp:851
 msgctxt "QObject|"
 msgid "Executable: "
 msgstr "Yürütülebilir:"
 
-#: lib/tools/qztools.cpp:863
+#: lib/tools/qztools.cpp:852
 msgctxt "QObject|"
 msgid "Arguments: "
 msgstr "Argümanlar: "
 
-#: lib/tools/qztools.cpp:865
+#: lib/tools/qztools.cpp:854
 msgctxt "QObject|"
 msgid "Cannot start external program"
 msgstr "Dış program çalıştırılamadı"
 
-#: lib/tools/qztools.cpp:866
+#: lib/tools/qztools.cpp:855
 #, qt-format
 msgctxt "QObject|"
 msgid "Cannot start external program! %1"
@@ -5594,7 +5595,7 @@ msgctxt "jsAlert|"
 msgid "Prevent this page from creating additional dialogs"
 msgstr "Bu sayfanın ek iletişim kutuları oluşturmasını engelle"
 
-#: lib/webengine/webpage.cpp:347
+#: lib/webengine/webpage.cpp:332
 #, qt-format
 msgctxt "WebPage|"
 msgid ""
@@ -5604,27 +5605,27 @@ msgstr ""
 "Falkon, <b>%1:</b> bağlantılarını açamaz. İstenilen bağlantı şu: <ul><li>%2</"
 "li></ul>Bu bağlantıyı bir sistem uygulamasıyla açmak ister misiniz?"
 
-#: lib/webengine/webpage.cpp:352
+#: lib/webengine/webpage.cpp:337
 msgctxt "WebPage|"
 msgid "Remember my choice for this protocol"
 msgstr "Bu protokol için seçimimi anımsa"
 
-#: lib/webengine/webpage.cpp:353
+#: lib/webengine/webpage.cpp:338
 msgctxt "WebPage|"
 msgid "External Protocol Request"
 msgstr "Dış Protokol Başvurusu"
 
-#: lib/webengine/webpage.cpp:433 lib/webengine/webpage.cpp:434
+#: lib/webengine/webpage.cpp:418 lib/webengine/webpage.cpp:419
 msgctxt "WebPage|"
 msgid "Failed loading page"
 msgstr "Sayfa yüklenirken hata oluştu"
 
-#: lib/webengine/webpage.cpp:435
+#: lib/webengine/webpage.cpp:420
 msgctxt "WebPage|"
 msgid "Something went wrong while loading this page."
 msgstr "Bu sayfayı yükleme sırasında bir şeyler ters gitti."
 
-#: lib/webengine/webpage.cpp:436
+#: lib/webengine/webpage.cpp:421
 msgctxt "WebPage|"
 msgid ""
 "Try reloading the page or closing some tabs to make more memory available."
@@ -5632,269 +5633,269 @@ msgstr ""
 "Daha fazla belleği kullanıma açmak için sayfayı yeniden yüklemeyi veya "
 "birkaç sekmeyi kapatmayı deneyin."
 
-#: lib/webengine/webpage.cpp:437
+#: lib/webengine/webpage.cpp:422
 msgctxt "WebPage|"
 msgid "Reload page"
 msgstr "Sayfayı Yeniden Yükle"
 
-#: lib/webengine/webpage.cpp:510
+#: lib/webengine/webpage.cpp:483
 msgctxt "WebPage|"
 msgid "Choose file..."
 msgstr "Dosya seç..."
 
-#: lib/webengine/webpage.cpp:514
+#: lib/webengine/webpage.cpp:487
 msgctxt "WebPage|"
 msgid "Choose files..."
 msgstr "Dosya seç..."
 
-#: lib/webengine/webpage.cpp:650
+#: lib/webengine/webpage.cpp:623
 msgctxt "WebPage|"
 msgid "JavaScript alert"
 msgstr "JavaScript uyarısı"
 
-#: lib/webengine/webpage.cpp:659
+#: lib/webengine/webpage.cpp:632
 msgctxt "WebPage|"
 msgid "Prevent this page from creating additional dialogs"
 msgstr "Bu sayfanın ek iletişim kutuları oluşturmasını engelle"
 
-#: lib/webengine/webview.cpp:130
+#: lib/webengine/webview.cpp:126
 msgctxt "WebView|"
 msgid "Empty Page"
 msgstr "Boş Sayfa"
 
-#: lib/webengine/webview.cpp:397
+#: lib/webengine/webview.cpp:390
 #, qt-format
 msgctxt "WebView|"
 msgid "Falkon %1 (%2)"
 msgstr "Falkon - %1 (%2)"
 
-#: lib/webengine/webview.cpp:711
+#: lib/webengine/webview.cpp:699
 msgctxt "WebView|"
 msgid "No suggestions"
 msgstr "Öneri yok"
 
-#: lib/webengine/webview.cpp:762
+#: lib/webengine/webview.cpp:750
 msgctxt "WebView|"
 msgid "&Back"
 msgstr "&Geri"
 
-#: lib/webengine/webview.cpp:766
+#: lib/webengine/webview.cpp:754
 msgctxt "WebView|"
 msgid "&Forward"
 msgstr "İ&leri"
 
-#: lib/webengine/webview.cpp:773
+#: lib/webengine/webview.cpp:761
 msgctxt "WebView|"
 msgid "&Add New Page"
 msgstr "Yeni Sayf&a Ekle"
 
-#: lib/webengine/webview.cpp:774
+#: lib/webengine/webview.cpp:762
 msgctxt "WebView|"
 msgid "&Configure Speed Dial"
 msgstr "&Hızlı Erişimi Yapılandır"
 
-#: lib/webengine/webview.cpp:776
+#: lib/webengine/webview.cpp:764
 msgctxt "WebView|"
 msgid "Reload All Dials"
 msgstr "Aramaları Yeniden Yükle"
 
-#: lib/webengine/webview.cpp:795
+#: lib/webengine/webview.cpp:783
 msgctxt "WebView|"
 msgid "Book&mark page"
 msgstr "Sayfayı Yer İmlerine Ekl&e"
 
-#: lib/webengine/webview.cpp:796
+#: lib/webengine/webview.cpp:784
 msgctxt "WebView|"
 msgid "&Save page as..."
 msgstr "&Sayfayı Farklı Kaydet..."
 
-#: lib/webengine/webview.cpp:797
+#: lib/webengine/webview.cpp:785
 msgctxt "WebView|"
 msgid "&Copy page link"
 msgstr "Sayfa Bağlantısını Ko&pyala"
 
-#: lib/webengine/webview.cpp:798
+#: lib/webengine/webview.cpp:786
 msgctxt "WebView|"
 msgid "Send page link..."
 msgstr "Sayfa Bağlantısını Gönder..."
 
-#: lib/webengine/webview.cpp:800
+#: lib/webengine/webview.cpp:788
 msgctxt "WebView|"
 msgid "Select &all"
 msgstr "&Tümünü Seç"
 
-#: lib/webengine/webview.cpp:806
+#: lib/webengine/webview.cpp:794
 msgctxt "WebView|"
 msgid "Show so&urce code"
 msgstr "Sayfanın kaynak kod&unu göster"
 
-#: lib/webengine/webview.cpp:810
+#: lib/webengine/webview.cpp:798
 msgctxt "WebView|"
 msgid "Show info ab&out site"
 msgstr "Sayfa hakkında bil&gileri göster"
 
-#: lib/webengine/webview.cpp:816
+#: lib/webengine/webview.cpp:804
 msgctxt "WebView|"
 msgid "Open link in new &tab"
 msgstr "Bağlantıyı Yeni &Sekmede Aç"
 
-#: lib/webengine/webview.cpp:821
+#: lib/webengine/webview.cpp:809
 msgctxt "WebView|"
 msgid "Open link in new &window"
 msgstr "Bağlantıyı Yeni &Pencerede Aç"
 
-#: lib/webengine/webview.cpp:822
+#: lib/webengine/webview.cpp:810
 msgctxt "WebView|"
 msgid "Open link in &private window"
 msgstr "Bağlantıyı &Gizli Tarama Penceresinde Aç"
 
-#: lib/webengine/webview.cpp:827
+#: lib/webengine/webview.cpp:815
 msgctxt "WebView|"
 msgid "B&ookmark link"
 msgstr "Bağlantıyı &Yer İmlerine Ekle"
 
-#: lib/webengine/webview.cpp:829
+#: lib/webengine/webview.cpp:817
 msgctxt "WebView|"
 msgid "&Save link as..."
 msgstr "Bağlantıyı &Farklı Kaydet..."
 
-#: lib/webengine/webview.cpp:830
+#: lib/webengine/webview.cpp:818
 msgctxt "WebView|"
 msgid "Send link..."
 msgstr "Bağlantıyı Gönder..."
 
-#: lib/webengine/webview.cpp:831
+#: lib/webengine/webview.cpp:819
 msgctxt "WebView|"
 msgid "&Copy link address"
 msgstr "Bağlantı adresini ko&pyala"
 
-#: lib/webengine/webview.cpp:844
+#: lib/webengine/webview.cpp:832
 msgctxt "WebView|"
 msgid "Show i&mage"
 msgstr "&Görsel göster"
 
-#: lib/webengine/webview.cpp:850
+#: lib/webengine/webview.cpp:838
 msgctxt "WebView|"
 msgid "Copy image"
 msgstr "Görseli Kopyala"
 
-#: lib/webengine/webview.cpp:851
+#: lib/webengine/webview.cpp:839
 msgctxt "WebView|"
 msgid "Copy image ad&dress"
 msgstr "Görsel A&dresini Kopyala"
 
-#: lib/webengine/webview.cpp:853
+#: lib/webengine/webview.cpp:841
 msgctxt "WebView|"
 msgid "&Save image as..."
 msgstr "&Görseli Farklı Kaydet..."
 
-#: lib/webengine/webview.cpp:854
+#: lib/webengine/webview.cpp:842
 msgctxt "WebView|"
 msgid "Send image..."
 msgstr "Görseli Gönder..."
 
-#: lib/webengine/webview.cpp:873
+#: lib/webengine/webview.cpp:861
 msgctxt "WebView|"
 msgid "Send text..."
 msgstr "Metni gönder..."
 
-#: lib/webengine/webview.cpp:885
+#: lib/webengine/webview.cpp:873
 msgctxt "WebView|"
 msgid "Go to &web address"
 msgstr "&Web adresine git"
 
-#: lib/webengine/webview.cpp:899
+#: lib/webengine/webview.cpp:887
 #, qt-format
 msgctxt "WebView|"
 msgid "Search \"%1 ..\" with %2"
 msgstr "\"%1 ..\" ögesini %2 ile ara"
 
-#: lib/webengine/webview.cpp:905
+#: lib/webengine/webview.cpp:893
 msgctxt "WebView|"
 msgid "Search with..."
 msgstr "Şununla ara..."
 
-#: lib/webengine/webview.cpp:927
+#: lib/webengine/webview.cpp:915
 msgctxt "WebView|"
 msgid "&Play"
 msgstr "O&ynat"
 
-#: lib/webengine/webview.cpp:927
+#: lib/webengine/webview.cpp:915
 msgctxt "WebView|"
 msgid "&Pause"
 msgstr "D&uraklat"
 
-#: lib/webengine/webview.cpp:928
+#: lib/webengine/webview.cpp:916
 msgctxt "WebView|"
 msgid "Un&mute"
 msgstr "Ses&li"
 
-#: lib/webengine/webview.cpp:928
+#: lib/webengine/webview.cpp:916
 msgctxt "WebView|"
 msgid "&Mute"
 msgstr "&Sessiz"
 
-#: lib/webengine/webview.cpp:930
+#: lib/webengine/webview.cpp:918
 msgctxt "WebView|"
 msgid "&Copy Media Address"
 msgstr "Ortam Adresini Ko&pyala"
 
-#: lib/webengine/webview.cpp:931
+#: lib/webengine/webview.cpp:919
 msgctxt "WebView|"
 msgid "&Send Media Address"
 msgstr "Ortam Adre&sini Gönder"
 
-#: lib/webengine/webview.cpp:932
+#: lib/webengine/webview.cpp:920
 msgctxt "WebView|"
 msgid "Save Media To &Disk"
 msgstr "Ortamı &Diske Kaydet"
 
-#: lib/webengine/webview.cpp:951
+#: lib/webengine/webview.cpp:939
 msgctxt "WebView|"
 msgid "Create Search Engine"
 msgstr "Arama Motoru Oluştur"
 
-#: lib/webengine/webview.cpp:992
+#: lib/webengine/webview.cpp:980
 msgctxt "WebView|"
 msgid "&Undo"
 msgstr "Geri &Al"
 
-#: lib/webengine/webview.cpp:998
+#: lib/webengine/webview.cpp:986
 msgctxt "WebView|"
 msgid "&Redo"
 msgstr "Y&inele"
 
-#: lib/webengine/webview.cpp:1004
+#: lib/webengine/webview.cpp:992
 msgctxt "WebView|"
 msgid "&Cut"
 msgstr "&Kes"
 
-#: lib/webengine/webview.cpp:1010
+#: lib/webengine/webview.cpp:998
 msgctxt "WebView|"
 msgid "&Copy"
 msgstr "Ko&pyala"
 
-#: lib/webengine/webview.cpp:1016
+#: lib/webengine/webview.cpp:1004
 msgctxt "WebView|"
 msgid "&Paste"
 msgstr "&Yapıştır"
 
-#: lib/webengine/webview.cpp:1022
+#: lib/webengine/webview.cpp:1010
 msgctxt "WebView|"
 msgid "Select All"
 msgstr "Tümünü Seç"
 
-#: lib/webengine/webview.cpp:1028
+#: lib/webengine/webview.cpp:1016
 msgctxt "WebView|"
 msgid "&Reload"
 msgstr "Yenide&n Yükle"
 
-#: lib/webengine/webview.cpp:1032
+#: lib/webengine/webview.cpp:1020
 msgctxt "WebView|"
 msgid "S&top"
 msgstr "&Durdur"
 
-#: lib/webtab/searchtoolbar.cpp:155
+#: lib/webtab/searchtoolbar.cpp:151
 #, qt-format
 msgctxt "SearchToolBar|"
 msgid "%1 of %2"

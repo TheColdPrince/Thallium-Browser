@@ -38,7 +38,7 @@
 BookmarksToolbarButton::BookmarksToolbarButton(BookmarkItem* bookmark, QWidget* parent)
     : QPushButton(parent)
     , m_bookmark(bookmark)
-    , m_window(0)
+    , m_window(nullptr)
     , m_showOnlyIcon(false)
 {
     init();
@@ -240,13 +240,13 @@ QString BookmarksToolbarButton::createTooltip() const
 {
     if (!m_bookmark->description().isEmpty()) {
         if (!m_bookmark->urlString().isEmpty()) {
-            return QString("%1\n%2").arg(m_bookmark->description(), m_bookmark->urlString());
+            return QSL("%1\n%2").arg(m_bookmark->description(), m_bookmark->urlString());
         }
         return m_bookmark->description();
     }
 
     if (!m_bookmark->title().isEmpty() && !m_bookmark->url().isEmpty()) {
-        return QString("%1\n%2").arg(m_bookmark->title(), m_bookmark->urlString());
+        return QSL("%1\n%2").arg(m_bookmark->title(), m_bookmark->urlString());
     }
 
     if (!m_bookmark->title().isEmpty()) {
@@ -256,11 +256,7 @@ QString BookmarksToolbarButton::createTooltip() const
     return m_bookmark->urlString();
 }
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-void BookmarksToolbarButton::enterEvent(QEvent* event)
-#else
 void BookmarksToolbarButton::enterEvent(QEnterEvent* event)
-#endif
 {
     QPushButton::enterEvent(event);
 
@@ -283,14 +279,14 @@ void BookmarksToolbarButton::mousePressEvent(QMouseEvent* event)
         }
     }
 
-    m_dragStartPosition = event->pos();
+    m_dragStartPosition = event->position().toPoint();
 
     QPushButton::mousePressEvent(event);
 }
 
 void BookmarksToolbarButton::mouseReleaseEvent(QMouseEvent* event)
 {
-    if (m_bookmark && rect().contains(event->pos())) {
+    if (m_bookmark && rect().contains(event->position().toPoint())) {
         Qt::MouseButton button = event->button();
         Qt::KeyboardModifiers modifiers = event->modifiers();
 
@@ -315,7 +311,7 @@ void BookmarksToolbarButton::mouseReleaseEvent(QMouseEvent* event)
 
 void BookmarksToolbarButton::mouseMoveEvent(QMouseEvent *event)
 {
-    if ((event->pos() - m_dragStartPosition).manhattanLength() < QApplication::startDragDistance()) {
+    if ((event->position().toPoint() - m_dragStartPosition).manhattanLength() < QApplication::startDragDistance()) {
         QPushButton::mouseMoveEvent(event);
         return;
     }
@@ -438,7 +434,7 @@ void BookmarksToolbarButton::dropEvent(QDropEvent *event)
         }
     } else {
         const QUrl url = mime->urls().at(0);
-        const QString title = mime->hasText() ? mime->text() : url.toEncoded(QUrl::RemoveScheme);
+        const QString title = mime->hasText() ? mime->text() : QString::fromUtf8(url.toEncoded(QUrl::RemoveScheme));
 
         bookmark = new BookmarkItem(BookmarkItem::Url);
         bookmark->setTitle(title);

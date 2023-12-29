@@ -72,9 +72,6 @@
 #include <QWebEngineHistory>
 #include <QWebEngineSettings>
 #include <QMessageBox>
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-#include <QDesktopWidget>
-#endif
 #include <QToolTip>
 #include <QScrollArea>
 #include <QCollator>
@@ -82,9 +79,6 @@
 #include <QActionGroup>
 
 #ifdef QZ_WS_X11
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-#include <QX11Info>
-#endif
 #include <xcb/xcb.h>
 #include <xcb/xcb_atom.h>
 #endif
@@ -127,7 +121,7 @@ BrowserWindow::SavedWindow::SavedWindow(BrowserWindow *window)
 
 bool BrowserWindow::SavedWindow::isValid() const
 {
-    for (const WebTab::SavedTab &tab : qAsConst(tabs)) {
+    for (const WebTab::SavedTab &tab : std::as_const(tabs)) {
         if (!tab.isValid()) {
             return false;
         }
@@ -151,7 +145,7 @@ QDataStream &operator<<(QDataStream &stream, const BrowserWindow::SavedWindow &w
     stream << window.windowGeometry;
     stream << window.virtualDesktop;
     stream << window.currentTab;
-    stream << window.tabs.count();
+    stream << static_cast<int>(window.tabs.count());
 
     for (int i = 0; i < window.tabs.count(); ++i) {
         stream << window.tabs.at(i);
@@ -233,7 +227,7 @@ BrowserWindow::~BrowserWindow()
 {
     mApp->plugins()->emitMainWindowDeleted(this);
 
-    for (const QPointer<QWidget> &pointer : qAsConst(m_deleteOnCloseWidgets)) {
+    for (const QPointer<QWidget> &pointer : std::as_const(m_deleteOnCloseWidgets)) {
         if (pointer) {
             pointer->deleteLater();
         }
@@ -405,11 +399,7 @@ void BrowserWindow::setupUi()
     m_statusBar->addButton(downloadsButton);
     m_navigationToolbar->addToolButton(downloadsButton);
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-    QDesktopWidget* desktop = mApp->desktop();
-#else
     auto desktop = QGuiApplication::primaryScreen();
-#endif
     int windowWidth = desktop->availableGeometry().width() / 1.3;
     int windowHeight = desktop->availableGeometry().height() / 1.3;
 
@@ -535,7 +525,7 @@ void BrowserWindow::createEncodingSubMenu(const QString &name, QStringList &code
 
     auto *group = new QActionGroup(subMenu);
 
-    for (const QString &codecName : qAsConst(codecNames)) {
+    for (const QString &codecName : std::as_const(codecNames)) {
         QAction *act = createEncodingAction(codecName, activeCodecName, subMenu);
         group->addAction(act);
         subMenu->addAction(act);
@@ -1573,14 +1563,10 @@ void BrowserWindow::closeTab()
 #ifdef QZ_WS_X11
 static xcb_connection_t *getXcbConnection()
 {
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-    return QX11Info::connection();
-#else
     const QNativeInterface::QX11Application *x11App = qApp->nativeInterface<QNativeInterface::QX11Application>();
     if (x11App == nullptr)
-        return 0;
+        return nullptr;
     return x11App->connection();
-#endif
 }
 
 int BrowserWindow::getCurrentVirtualDesktop() const
@@ -1589,18 +1575,18 @@ int BrowserWindow::getCurrentVirtualDesktop() const
         return 0;
 
     xcb_connection_t *connection = getXcbConnection();
-    if (connection == 0)
+    if (connection == nullptr)
         return 0;
 
     xcb_intern_atom_cookie_t intern_atom;
-    xcb_intern_atom_reply_t *atom_reply = 0;
+    xcb_intern_atom_reply_t *atom_reply = nullptr;
     xcb_atom_t atom;
     xcb_get_property_cookie_t cookie;
-    xcb_get_property_reply_t *reply = 0;
+    xcb_get_property_reply_t *reply = nullptr;
     uint32_t value;
 
     intern_atom = xcb_intern_atom(connection, false, qstrlen("_NET_WM_DESKTOP"), "_NET_WM_DESKTOP");
-    atom_reply = xcb_intern_atom_reply(connection, intern_atom, 0);
+    atom_reply = xcb_intern_atom_reply(connection, intern_atom, nullptr);
 
     if (!atom_reply)
         goto error;
@@ -1608,7 +1594,7 @@ int BrowserWindow::getCurrentVirtualDesktop() const
     atom = atom_reply->atom;
 
     cookie = xcb_get_property(connection, false, winId(), atom, XCB_ATOM_CARDINAL, 0, 1);
-    reply = xcb_get_property_reply(connection, cookie, 0);
+    reply = xcb_get_property_reply(connection, cookie, nullptr);
 
     if (!reply || reply->type != XCB_ATOM_CARDINAL || reply->value_len != 1 || reply->format != sizeof(uint32_t) * 8)
         goto error;
@@ -1635,15 +1621,15 @@ void BrowserWindow::moveToVirtualDesktop(int desktopId)
         return;
 
     xcb_connection_t *connection = getXcbConnection();
-    if (connection == 0)
+    if (connection == nullptr)
         return;
 
     xcb_intern_atom_cookie_t intern_atom;
-    xcb_intern_atom_reply_t *atom_reply = 0;
+    xcb_intern_atom_reply_t *atom_reply = nullptr;
     xcb_atom_t atom;
 
     intern_atom = xcb_intern_atom(connection, false, qstrlen("_NET_WM_DESKTOP"), "_NET_WM_DESKTOP");
-    atom_reply = xcb_intern_atom_reply(connection, intern_atom, 0);
+    atom_reply = xcb_intern_atom_reply(connection, intern_atom, nullptr);
 
     if (!atom_reply)
         goto error;

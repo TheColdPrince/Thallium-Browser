@@ -28,7 +28,7 @@
 
 TabIcon::TabIcon(QWidget* parent)
     : QWidget(parent)
-    , m_tab(0)
+    , m_tab(nullptr)
     , m_currentFrame(0)
     , m_animationRunning(false)
     , m_audioIconDisplayed(false)
@@ -251,7 +251,7 @@ void TabIcon::paintEvent(QPaintEvent* event)
 void TabIcon::mousePressEvent(QMouseEvent *event)
 {
     // If audio icon is clicked - we don't propagate mouse press to the tab
-    if (m_audioIconDisplayed && event->button() == Qt::LeftButton && m_audioIconRect.contains(event->pos())) {
+    if (m_audioIconDisplayed && event->button() == Qt::LeftButton && m_audioIconRect.contains(event->position().toPoint())) {
         m_tab->toggleMuted();
         return;
     }

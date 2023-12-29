@@ -94,7 +94,7 @@ TabBar::TabBar(BrowserWindow* window, TabWidget* tabWidget)
     , m_activeTabWidth(0)
     , m_forceHidden(false)
 {
-    setObjectName("tabbar");
+    setObjectName(QSL("tabbar"));
     setElideMode(Qt::ElideRight);
     setFocusPolicy(Qt::NoFocus);
     setTabsClosable(false);
@@ -126,10 +126,10 @@ TabBar::TabBar(BrowserWindow* window, TabWidget* tabWidget)
 void TabBar::loadSettings()
 {
     Settings settings;
-    settings.beginGroup("Browser-Tabs-Settings");
-    m_hideTabBarWithOneTab = settings.value("hideTabsWithOneTab", false).toBool();
-    bool activateLastTab = settings.value("ActivateLastTabWhenClosingActual", false).toBool();
-    m_showCloseOnInactive = settings.value("showCloseOnInactiveTabs", 0).toInt(0);
+    settings.beginGroup(QSL("Browser-Tabs-Settings"));
+    m_hideTabBarWithOneTab = settings.value(QSL("hideTabsWithOneTab"), false).toBool();
+    bool activateLastTab = settings.value(QSL("ActivateLastTabWhenClosingActual"), false).toBool();
+    m_showCloseOnInactive = settings.value(QSL("showCloseOnInactiveTabs"), 0).toInt(nullptr);
     settings.endGroup();
 
     setSelectionBehaviorOnRemove(activateLastTab ? QTabBar::SelectPreviousTab : QTabBar::SelectRightTab);
@@ -367,7 +367,7 @@ void TabBar::hideCloseButton(int index)
         return;
     }
 
-    setTabButton(index, closeButtonPosition(), 0);
+    setTabButton(index, closeButtonPosition(), nullptr);
     button->deleteLater();
 }
 
@@ -500,7 +500,7 @@ void TabBar::mouseDoubleClickEvent(QMouseEvent* event)
         return;
     }
 
-    if (event->buttons() == Qt::LeftButton && emptyArea(event->pos())) {
+    if (event->buttons() == Qt::LeftButton && emptyArea(event->position().toPoint())) {
         m_tabWidget->addView(QUrl(), Qz::NT_SelectedTabAtTheEnd, true);
         return;
     }
@@ -516,8 +516,8 @@ void TabBar::mousePressEvent(QMouseEvent* event)
         return;
     }
 
-    if (event->buttons() == Qt::LeftButton && !emptyArea(event->pos())) {
-        m_dragStartPosition = event->pos();
+    if (event->buttons() == Qt::LeftButton && !emptyArea(event->position().toPoint())) {
+        m_dragStartPosition = event->position().toPoint();
     } else {
         m_dragStartPosition = QPoint();
     }
@@ -537,7 +537,7 @@ void TabBar::mouseMoveEvent(QMouseEvent* event)
 
     if (!m_dragStartPosition.isNull()) {
         int offset = 0;
-        const int eventY = event->pos().y();
+        const int eventY = event->position().toPoint().y();
         if (eventY < 0) {
             offset = qAbs(eventY);
         } else if (eventY > height()) {
@@ -547,7 +547,7 @@ void TabBar::mouseMoveEvent(QMouseEvent* event)
             const QPoint global = mapToGlobal(m_dragStartPosition);
             QWidget *w = QApplication::widgetAt(global);
             if (w) {
-                QMouseEvent mouse(QEvent::MouseButtonRelease, w->mapFromGlobal(global), Qt::LeftButton, Qt::LeftButton, event->modifiers());
+                QMouseEvent mouse(QEvent::MouseButtonRelease, event->position(), w->mapFromGlobal(global), Qt::LeftButton, Qt::LeftButton, event->modifiers());
                 QApplication::sendEvent(w, &mouse);
             }
             auto *drag = new QDrag(this);
@@ -573,18 +573,18 @@ void TabBar::mouseReleaseEvent(QMouseEvent* event)
         return;
     }
 
-    if (!rect().contains(event->pos())) {
+    if (!rect().contains(event->position().toPoint())) {
         ComboTabBar::mouseReleaseEvent(event);
         return;
     }
 
     if (event->button() == Qt::MiddleButton) {
-        if (emptyArea(event->pos())) {
+        if (emptyArea(event->position().toPoint())) {
             m_tabWidget->addView(QUrl(), Qz::NT_SelectedTabAtTheEnd, true);
             return;
         }
 
-        int id = tabAt(event->pos());
+        int id = tabAt(event->position().toPoint());
         if (id != -1) {
             m_tabWidget->requestCloseTab(id);
             return;
@@ -641,7 +641,7 @@ void TabBar::dragEnterEvent(QDragEnterEvent* event)
 
 void TabBar::dragMoveEvent(QDragMoveEvent *event)
 {
-    const int index = tabAt(event->pos());
+    const int index = tabAt(event->position().toPoint());
     const QMimeData* mime = event->mimeData();
 
     if (index == -1) {
@@ -649,7 +649,7 @@ void TabBar::dragMoveEvent(QDragMoveEvent *event)
         return;
     }
 
-    switch (tabDropAction(event->pos(), tabRect(index), !mime->hasFormat(MIMETYPE))) {
+    switch (tabDropAction(event->position().toPoint(), tabRect(index), !mime->hasFormat(MIMETYPE))) {
     case PrependTab:
         showDropIndicator(index, BeforeTab);
         break;
@@ -684,7 +684,7 @@ void TabBar::dropEvent(QDropEvent* event)
 
     auto *sourceTabBar = qobject_cast<TabBar*>(event->source());
 
-    int index = tabAt(event->pos());
+    int index = tabAt(event->position().toPoint());
     if (index == -1) {
         if (mime->hasUrls()) {
             const auto urls = mime->urls();
@@ -704,7 +704,7 @@ void TabBar::dropEvent(QDropEvent* event)
     } else {
         LoadRequest req;
         WebTab* tab = m_tabWidget->webTab(index);
-        TabDropAction action = tabDropAction(event->pos(), tabRect(index), !mime->hasFormat(MIMETYPE));
+        TabDropAction action = tabDropAction(event->position().toPoint(), tabRect(index), !mime->hasFormat(MIMETYPE));
         if (mime->hasUrls()) {
             req = mime->urls().at(0);
         } else if (mime->hasText()) {

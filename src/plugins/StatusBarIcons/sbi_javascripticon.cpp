@@ -33,7 +33,7 @@ SBI_JavaScriptIcon::SBI_JavaScriptIcon(BrowserWindow* window)
     setCursor(Qt::PointingHandCursor);
     setToolTip(tr("Modify JavaScript settings per-site and globally"));
 
-    m_icon = QIcon::fromTheme("application-x-javascript", QIcon(":sbi/data/javascript.png"));
+    m_icon = QIcon::fromTheme(QSL("application-x-javascript"), QIcon(QSL(":sbi/data/javascript.png")));
     setPixmap(m_icon.pixmap(16));
 
     connect(m_window->tabWidget(), SIGNAL(currentChanged(int)), this, SLOT(updateIcon()));
@@ -71,7 +71,7 @@ void SBI_JavaScriptIcon::showMenu(const QPoint &point)
 void SBI_JavaScriptIcon::updateIcon()
 {
     if (testCurrentPageWebAttribute(QWebEngineSettings::JavascriptEnabled)) {
-        setGraphicsEffect(0);
+        setGraphicsEffect(nullptr);
     }
     else {
         auto* effect = new QGraphicsColorizeEffect(this);

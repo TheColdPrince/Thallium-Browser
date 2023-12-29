@@ -28,7 +28,7 @@
 
 
 HTML5PermissionsNotification::HTML5PermissionsNotification(const QUrl &origin, QWebEnginePage* page, const QWebEnginePage::Feature &feature)
-    : AnimatedWidget(AnimatedWidget::Down, 300, 0)
+    : AnimatedWidget(AnimatedWidget::Down, 300, nullptr)
     , ui(new Ui::HTML5PermissionsNotification)
     , m_origin(origin)
     , m_page(page)
@@ -39,7 +39,7 @@ HTML5PermissionsNotification::HTML5PermissionsNotification(const QUrl &origin, Q
 
     ui->close->setIcon(IconProvider::standardIcon(QStyle::SP_DialogCloseButton));
 
-    const QString site = m_origin.host().isEmpty() ? tr("this site") : QString("<b>%1</b>").arg(m_origin.host());
+    const QString site = m_origin.host().isEmpty() ? tr("this site") : QSL("<b>%1</b>").arg(m_origin.host());
 
     switch (feature) {
     case QWebEnginePage::Notifications:
@@ -101,11 +101,7 @@ void HTML5PermissionsNotification::grantPermissions()
     QTimer::singleShot(0, this, [this]() {
         // We need to have cursor inside view to correctly grab mouse
         if (m_feature == QWebEnginePage::MouseLock) {
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-            QWidget *view = m_page->view();
-#else
             QWidget *view = QWebEngineView::forPage(m_page);
-#endif
             QCursor::setPos(view->mapToGlobal(view->rect().center()));
         }
 

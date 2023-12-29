@@ -32,11 +32,7 @@
 #include <QWidget>
 #include <QApplication>
 #include <QSslCertificate>
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-#include <QDesktopWidget>
-#else
 #include <QScreen>
-#endif
 #include <QUrl>
 #include <QIcon>
 #include <QFileIconProvider>
@@ -49,9 +45,6 @@
 #include <QtGuiVersion>
 
 #ifdef QZ_WS_X11
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-#include <QX11Info>
-#endif
 #include <xcb/xcb.h>
 #endif
 
@@ -88,7 +81,7 @@ QPixmap QzTools::pixmapFromByteArray(const QByteArray &data)
 
 QUrl QzTools::pixmapToDataUrl(const QPixmap &pix)
 {
-    const QString data(pixmapToByteArray(pix));
+    const QString data(QString::fromLatin1(pixmapToByteArray(pix)));
     return data.isEmpty() ? QUrl() : QUrl(QSL("data:image/png;base64,") + data);
 }
 
@@ -121,11 +114,7 @@ QByteArray QzTools::readAllFileByteContents(const QString &filename)
 
 void QzTools::centerWidgetOnScreen(QWidget* w)
 {
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-    QRect screen = QApplication::desktop()->screenGeometry(w);
-#else
     QRect screen = w->screen()->geometry();
-#endif
     const QRect size = w->geometry();
     w->move((screen.width() - size.width()) / 2, (screen.height() - size.height()) / 2);
 }
@@ -336,8 +325,8 @@ QString QzTools::filterCharsFromFilename(const QString &name)
 QString QzTools::lastPathForFileDialog(const QString &dialogName, const QString &fallbackPath)
 {
     Settings settings;
-    settings.beginGroup("LastFileDialogsPaths");
-    QString path = settings.value("FileDialogs/" + dialogName).toString();
+    settings.beginGroup(QSL("LastFileDialogsPaths"));
+    QString path = settings.value(QSL("FileDialogs/") + dialogName).toString();
     settings.endGroup();
 
     return path.isEmpty() ? fallbackPath : path;
@@ -350,7 +339,7 @@ void QzTools::saveLastPathForFileDialog(const QString &dialogName, const QString
     }
 
     Settings settings;
-    settings.beginGroup("LastFileDialogsPaths");
+    settings.beginGroup(QSL("LastFileDialogsPaths"));
     settings.setValue(dialogName, path);
     settings.endGroup();
 }
@@ -405,7 +394,7 @@ QString QzTools::fileSizeToString(qint64 size)
 
 QPixmap QzTools::createPixmapForSite(const QIcon &icon, const QString &title, const QString &url)
 {
-    const QFontMetrics fontMetrics = QApplication::fontMetrics();
+    const QFontMetricsF fontMetrics(QApplication::font());
     const int padding = 4;
     const int maxWidth = fontMetrics.horizontalAdvance(title.length() > url.length() ? title : url) + 3 * padding + 16;
     const int width = qMin(maxWidth, 150);
@@ -509,7 +498,7 @@ QIcon QzTools::iconFromFileName(const QString &fileName)
     }
 
     QFileIconProvider iconProvider;
-    QTemporaryFile tempFile(DataPaths::path(DataPaths::Temp) + "/XXXXXX." + tempInfo.suffix());
+    QTemporaryFile tempFile(DataPaths::path(DataPaths::Temp) + QSL("/XXXXXX.") + tempInfo.suffix());
     tempFile.open();
     tempInfo.setFile(tempFile.fileName());
 
@@ -521,7 +510,7 @@ QIcon QzTools::iconFromFileName(const QString &fileName)
 
 QString QzTools::resolveFromPath(const QString &name)
 {
-    const QString path = qgetenv("PATH").trimmed();
+    const QString path = QString::fromUtf8(qgetenv("PATH").trimmed());
 
     if (path.isEmpty()) {
         return {};
@@ -631,7 +620,7 @@ bool QzTools::containsSpace(const QString &str)
 QString QzTools::getExistingDirectory(const QString &name, QWidget* parent, const QString &caption, const QString &dir, QFileDialog::Options options)
 {
     Settings settings;
-    settings.beginGroup("FileDialogPaths");
+    settings.beginGroup(QSL("FileDialogPaths"));
 
     QString lastDir = settings.value(name, dir).toString();
 
@@ -667,7 +656,7 @@ static QString getFilename(const QString &path)
 QString QzTools::getOpenFileName(const QString &name, QWidget* parent, const QString &caption, const QString &dir, const QString &filter, QString* selectedFilter, QFileDialog::Options options)
 {
     Settings settings;
-    settings.beginGroup("FileDialogPaths");
+    settings.beginGroup(QSL("FileDialogPaths"));
 
     QString lastDir = settings.value(name, QString()).toString();
     QString fileName = getFilename(dir);
@@ -692,7 +681,7 @@ QString QzTools::getOpenFileName(const QString &name, QWidget* parent, const QSt
 QStringList QzTools::getOpenFileNames(const QString &name, QWidget* parent, const QString &caption, const QString &dir, const QString &filter, QString* selectedFilter, QFileDialog::Options options)
 {
     Settings settings;
-    settings.beginGroup("FileDialogPaths");
+    settings.beginGroup(QSL("FileDialogPaths"));
 
     QString lastDir = settings.value(name, QString()).toString();
     QString fileName = getFilename(dir);
@@ -717,7 +706,7 @@ QStringList QzTools::getOpenFileNames(const QString &name, QWidget* parent, cons
 QString QzTools::getSaveFileName(const QString &name, QWidget* parent, const QString &caption, const QString &dir, const QString &filter, QString* selectedFilter, QFileDialog::Options options)
 {
     Settings settings;
-    settings.beginGroup("FileDialogPaths");
+    settings.beginGroup(QSL("FileDialogPaths"));
 
     QString lastDir = settings.value(name, QString()).toString();
     QString fileName = getFilename(dir);
@@ -781,10 +770,10 @@ QStringList QzTools::splitCommandArguments(const QString &command)
         return {};
     }
 
-    QChar SPACE(' ');
-    QChar EQUAL('=');
-    QChar BSLASH('\\');
-    QChar QUOTE('"');
+    QChar SPACE(QL1C(' '));
+    QChar EQUAL(QL1C('='));
+    QChar BSLASH(QL1C('\\'));
+    QChar QUOTE(QL1C('"'));
     QStringList r;
 
     int equalPos = -1; // Position of = in opt="value"
@@ -858,11 +847,11 @@ bool QzTools::startExternalProcess(const QString &executable, const QString &arg
     bool success = QProcess::startDetached(executable, arguments);
 
     if (!success) {
-        QString info = "<ul><li><b>%1</b>%2</li><li><b>%3</b>%4</li></ul>";
+        QString info = QSL("<ul><li><b>%1</b>%2</li><li><b>%3</b>%4</li></ul>");
         info = info.arg(QObject::tr("Executable: "), executable,
                         QObject::tr("Arguments: "), arguments.join(QLatin1Char(' ')));
 
-        QMessageBox::critical(0, QObject::tr("Cannot start external program"),
+        QMessageBox::critical(nullptr, QObject::tr("Cannot start external program"),
                               QObject::tr("Cannot start external program! %1").arg(info));
     }
 
@@ -872,14 +861,10 @@ bool QzTools::startExternalProcess(const QString &executable, const QString &arg
 #ifdef QZ_WS_X11
 static xcb_connection_t *getXcbConnection()
 {
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-    return QX11Info::connection();
-#else
     const QNativeInterface::QX11Application *x11App = qApp->nativeInterface<QNativeInterface::QX11Application>();
     if (x11App == nullptr)
-        return 0;
+        return nullptr;
     return x11App->connection();
-#endif
 }
 #endif
 
@@ -890,7 +875,7 @@ void QzTools::setWmClass(const QString &name, const QWidget* widget)
         return;
 
     xcb_connection_t *connection = getXcbConnection();
-    if (connection == 0)
+    if (connection == nullptr)
         return;
 
     const QByteArray nameData = name.toUtf8();
@@ -916,99 +901,99 @@ void QzTools::setWmClass(const QString &name, const QWidget* widget)
 QString QzTools::operatingSystem()
 {
 #ifdef Q_OS_MACOS
-    QString str = "Mac OS X";
+    QString str = QSL("Mac OS X");
 
     SInt32 majorVersion;
     SInt32 minorVersion;
 
     if (Gestalt(gestaltSystemVersionMajor, &majorVersion) == noErr && Gestalt(gestaltSystemVersionMinor, &minorVersion) == noErr) {
-        str.append(QString(" %1.%2").arg(majorVersion).arg(minorVersion));
+        str.append(QSL(" %1.%2").arg(majorVersion).arg(minorVersion));
     }
 
     return str;
 #endif
 #ifdef Q_OS_LINUX
-    return "Linux";
+    return QSL("Linux");
 #endif
 #ifdef Q_OS_BSD4
-    return "BSD 4.4";
+    return QSL("BSD 4.4");
 #endif
 #ifdef Q_OS_BSDI
-    return "BSD/OS";
+    return QSL("BSD/OS");
 #endif
 #ifdef Q_OS_FREEBSD
-    return "FreeBSD";
+    return QSL("FreeBSD");
 #endif
 #ifdef Q_OS_HPUX
-    return "HP-UX";
+    return QSL("HP-UX");
 #endif
 #ifdef Q_OS_HURD
-    return "GNU Hurd";
+    return QSL("GNU Hurd");
 #endif
 #ifdef Q_OS_LYNX
-    return "LynxOS";
+    return QSL("LynxOS");
 #endif
 #ifdef Q_OS_NETBSD
-    return "NetBSD";
+    return QSL("NetBSD");
 #endif
 #ifdef Q_OS_OS2
-    return "OS/2";
+    return QSL("OS/2");
 #endif
 #ifdef Q_OS_OPENBSD
-    return "OpenBSD";
+    return QSL("OpenBSD");
 #endif
 #ifdef Q_OS_OSF
-    return "HP Tru64 UNIX";
+    return QSL("HP Tru64 UNIX");
 #endif
 #ifdef Q_OS_SOLARIS
-    return "Sun Solaris";
+    return QSL("Sun Solaris");
 #endif
 #ifdef Q_OS_UNIXWARE
-    return "UnixWare 7 / Open UNIX 8";
+    return QSL("UnixWare 7 / Open UNIX 8");
 #endif
 #ifdef Q_OS_UNIX
-    return "Unix";
+    return QSL("Unix");
 #endif
 #ifdef Q_OS_HAIKU
-    return "Haiku";
+    return QSL("Haiku");
 #endif
 #ifdef Q_OS_WIN32
-    QString str = "Windows";
+    QString str = QSL("Windows");
 
     switch (QSysInfo::windowsVersion()) {
     case QSysInfo::WV_NT:
-        str.append(" NT");
+        str.append(QSL(" NT"));
         break;
 
     case QSysInfo::WV_2000:
-        str.append(" 2000");
+        str.append(QSL(" 2000"));
         break;
 
     case QSysInfo::WV_XP:
-        str.append(" XP");
+        str.append(QSL(" XP"));
         break;
     case QSysInfo::WV_2003:
-        str.append(" XP Pro x64");
+        str.append(QSL(" XP Pro x64"));
         break;
 
     case QSysInfo::WV_VISTA:
-        str.append(" Vista");
+        str.append(QSL(" Vista"));
         break;
 
     case QSysInfo::WV_WINDOWS7:
-        str.append(" 7");
+        str.append(QSL(" 7"));
         break;
 
     case QSysInfo::WV_WINDOWS8:
-        str.append(" 8");
+        str.append(QSL(" 8"));
         break;
 
     case QSysInfo::WV_WINDOWS8_1:
-        str.append(" 8.1");
+        str.append(QSL(" 8.1"));
         break;
 
     case QSysInfo::WV_WINDOWS10:
-        str.append(" 10");
+        str.append(QSL(" 10"));
         break;
 
     default:

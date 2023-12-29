@@ -70,19 +70,10 @@ NetworkManager::NetworkManager(QObject *parent)
     });
 }
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-bool NetworkManager::certificateError(const QWebEngineCertificateError &error, QWidget *parent)
-#else
 bool NetworkManager::certificateError(QWebEngineCertificateError &error, QWidget *parent)
-#endif
 {
     const QString &host = error.url().host();
-
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-    const auto errorType = error.error();
-#else
     const auto errorType = error.type();
-#endif
 
     if (m_rejectedSslErrors.contains(host) && m_rejectedSslErrors.value(host) == errorType) {
         return false;
@@ -93,21 +84,15 @@ bool NetworkManager::certificateError(QWebEngineCertificateError &error, QWidget
         return true;
     }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
     // Defer loading the URL until the user prompt has completed.
     if (error.isOverridable())
         error.defer();
-#endif
 
     QString title = tr("SSL Certificate Error!");
     QString text1 = tr("The page you are trying to access has the following errors in the SSL certificate:");
     QString text2 = tr("Would you like to make an exception for this certificate?");
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-    const auto errorDescription = error.errorDescription();
-#else
     const auto errorDescription = error.description();
-#endif
     QString message = QSL("<b>%1</b><p>%2</p><ul><li>%3</li></ul><p>%4</p>").arg(title, text1, errorDescription, text2);
 
     SslErrorDialog dialog(parent);
@@ -283,18 +268,18 @@ void NetworkManager::unregisterExtensionSchemeHandler(ExtensionSchemeHandler *ha
 void NetworkManager::loadSettings()
 {
     Settings settings;
-    settings.beginGroup("Language");
-    QStringList langs = settings.value("acceptLanguage", AcceptLanguage::defaultLanguage()).toStringList();
+    settings.beginGroup(QSL("Language"));
+    QStringList langs = settings.value(QSL("acceptLanguage"), AcceptLanguage::defaultLanguage()).toStringList();
     settings.endGroup();
-    mApp->webProfile()->setHttpAcceptLanguage(AcceptLanguage::generateHeader(langs));
+    mApp->webProfile()->setHttpAcceptLanguage(QString::fromLatin1(AcceptLanguage::generateHeader(langs)));
 
     QNetworkProxy proxy;
-    settings.beginGroup("Web-Proxy");
-    const int proxyType = settings.value("ProxyType", 2).toInt();
-    proxy.setHostName(settings.value("HostName", QString()).toString());
-    proxy.setPort(settings.value("Port", 8080).toInt());
-    proxy.setUser(settings.value("Username", QString()).toString());
-    proxy.setPassword(settings.value("Password", QString()).toString());
+    settings.beginGroup(QSL("Web-Proxy"));
+    const int proxyType = settings.value(QSL("ProxyType"), 2).toInt();
+    proxy.setHostName(settings.value(QSL("HostName"), QString()).toString());
+    proxy.setPort(settings.value(QSL("Port"), 8080).toInt());
+    proxy.setUser(settings.value(QSL("Username"), QString()).toString());
+    proxy.setPassword(settings.value(QSL("Password"), QString()).toString());
     settings.endGroup();
 
     if (proxyType == 0) {
@@ -315,16 +300,16 @@ void NetworkManager::loadSettings()
 
     m_urlInterceptor->loadSettings();
 
-    settings.beginGroup("Web-Browser-Settings");
-    m_ignoredSslHosts = settings.value("IgnoredSslHosts", QStringList()).toStringList();
+    settings.beginGroup(QSL("Web-Browser-Settings"));
+    m_ignoredSslHosts = settings.value(QSL("IgnoredSslHosts"), QStringList()).toStringList();
     settings.endGroup();
 }
 
 void NetworkManager::saveIgnoredSslHosts()
 {
     Settings settings;
-    settings.beginGroup("Web-Browser-Settings");
-    settings.setValue("IgnoredSslHosts", m_ignoredSslHosts);
+    settings.beginGroup(QSL("Web-Browser-Settings"));
+    settings.setValue(QSL("IgnoredSslHosts"), m_ignoredSslHosts);
     settings.endGroup();
 }
 
@@ -350,11 +335,7 @@ void NetworkManager::registerSchemes()
 QNetworkReply *NetworkManager::createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice *outgoingData)
 {
     QNetworkRequest req = request;
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-    // These have either been removed or changed to the default in Qt 6.
-    req.setAttribute(QNetworkRequest::SpdyAllowedAttribute, true);
-    req.setAttribute(QNetworkRequest::FollowRedirectsAttribute, true);
-#endif
+    /* TODO Use HTTP2 */
 
     return QNetworkAccessManager::createRequest(op, req, outgoingData);
 }

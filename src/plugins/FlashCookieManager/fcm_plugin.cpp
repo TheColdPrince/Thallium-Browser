@@ -113,7 +113,7 @@ void FCM_Plugin::unload()
 
 bool FCM_Plugin::testPlugin()
 {
-    return (Qz::VERSION == QLatin1String(FALKON_VERSION));
+    return (QString::fromLatin1(Qz::VERSION) == QLatin1String(FALKON_VERSION));
 }
 
 void FCM_Plugin::showSettings(QWidget* parent)
@@ -126,7 +126,7 @@ void FCM_Plugin::showSettings(QWidget* parent)
 
 void FCM_Plugin::populateExtensionsMenu(QMenu* menu)
 {
-    auto* showFCM = new QAction(QIcon(":/flashcookiemanager/data/flash-cookie-manager.png"), tr("Flash Cookie Manager"), menu);
+    auto* showFCM = new QAction(QIcon(QSL(":/flashcookiemanager/data/flash-cookie-manager.png")), tr("Flash Cookie Manager"), menu);
     connect(showFCM, &QAction::triggered, this, &FCM_Plugin::showFlashCookieManager);
     menu->addAction(showFCM);
 }
@@ -171,7 +171,7 @@ bool FCM_Plugin::isWhitelisted(const FlashCookie &flashCookie)
 
 void FCM_Plugin::removeAllButWhitelisted()
 {
-    for (const FlashCookie &flashCookie : qAsConst(m_flashCookies)) {
+    for (const FlashCookie &flashCookie : std::as_const(m_flashCookies)) {
         if (isWhitelisted(flashCookie)) {
             continue;
         }
@@ -257,7 +257,7 @@ void FCM_Plugin::autoRefresh()
     loadFlashCookies();
     QStringList newCookieList;
 
-    for (const FlashCookie &flashCookie : qAsConst(m_flashCookies)) {
+    for (const FlashCookie &flashCookie : std::as_const(m_flashCookies)) {
         if (isBlacklisted(flashCookie)) {
             removeCookie(flashCookie);
             continue;
@@ -268,7 +268,7 @@ void FCM_Plugin::autoRefresh()
         }
 
         bool newCookie = true;
-        for (const FlashCookie &oldFlashCookie : qAsConst(oldflashCookies)) {
+        for (const FlashCookie &oldFlashCookie : std::as_const(oldflashCookies)) {
             if (QString(oldFlashCookie.path + oldFlashCookie.name) ==
                     QString(flashCookie.path + flashCookie.name)) {
                 newCookie = false;
@@ -322,7 +322,7 @@ void FCM_Plugin::mainWindowDeleted(BrowserWindow *window)
     }
 
     if (m_fcmDialog && m_fcmDialog->parent() == window) {
-        m_fcmDialog->setParent(0);
+        m_fcmDialog->setParent(nullptr);
     }
 
     window->statusBar()->removeButton(m_statusBarIcons.value(window));
@@ -378,7 +378,7 @@ void FCM_Plugin::loadFlashCookies(QString path)
     entryList.removeAll(QL1S("."));
     entryList.removeAll(QL1S(".."));
 
-    for (QString entry : qAsConst(entryList)) {
+    for (QString entry : std::as_const(entryList)) {
         if (path.endsWith(QL1S("#SharedObjects")) && entry == QL1S("#AppContainer")) {
             // specific to IE and Windows
             continue;
@@ -410,7 +410,7 @@ void FCM_Plugin::insertFlashCookie(const QString &path)
         }
     }
 
-    QString fileStr = QString(file);
+    QString fileStr = QString(QString::fromUtf8(file));
     fileStr = fileStr.split(QL1C('.'), Qt::SkipEmptyParts).join(QL1S("\n"));
 
     QFileInfo solFileInfo(solFile);

@@ -62,9 +62,6 @@
 #include <QDir>
 #include <QStandardPaths>
 #include <QWebEngineProfile>
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-#include <QWebEngineDownloadItem>
-#endif
 #include <QWebEngineScriptCollection>
 #include <QRegularExpression>
 #include <QtWebEngineWidgetsVersion>
@@ -115,7 +112,6 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_registerQAppAssociation(0)
 #endif
 {
-    setAttribute(Qt::AA_UseHighDpiPixmaps);
     setAttribute(Qt::AA_DontCreateNativeWidgetSiblings);
 
     setApplicationName(QStringLiteral("falkon"));
@@ -124,7 +120,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     setDesktopFileName(QSL("org.kde.falkon"));
 
 #ifdef GIT_REVISION
-    setApplicationVersion(QSL("%1 (%2)").arg(Qz::VERSION, GIT_REVISION));
+    setApplicationVersion(QSL("%1 (%2)").arg(QString::fromLatin1(Qz::VERSION), GIT_REVISION));
 #else
     setApplicationVersion(QString::fromLatin1(Qz::VERSION));
 #endif
@@ -199,15 +195,15 @@ MainApplication::MainApplication(int &argc, char** argv)
                 break;
             case Qz::CL_OpenUrlInCurrentTab:
                 startUrl = QUrl::fromUserInput(pair.text);
-                messages.append("ACTION:OpenUrlInCurrentTab" + pair.text);
+                messages.append(QSL("ACTION:OpenUrlInCurrentTab") + pair.text);
                 break;
             case Qz::CL_OpenUrlInNewWindow:
                 startUrl = QUrl::fromUserInput(pair.text);
-                messages.append("ACTION:OpenUrlInNewWindow" + pair.text);
+                messages.append(QSL("ACTION:OpenUrlInNewWindow") + pair.text);
                 break;
             case Qz::CL_OpenUrl:
                 startUrl = QUrl::fromUserInput(pair.text);
-                messages.append("URL:" + pair.text);
+                messages.append(QSL("URL:") + pair.text);
                 break;
             case Qz::CL_ExitAction:
                 m_isClosing = true;
@@ -265,7 +261,7 @@ MainApplication::MainApplication(int &argc, char** argv)
 
     if (isRunning()) {
         m_isClosing = true;
-        for (const QString &message : qAsConst(messages)) {
+        for (const QString &message : std::as_const(messages)) {
             sendMessage(message);
         }
         return;
@@ -298,11 +294,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     NetworkManager::registerSchemes();
     registerAllowedSchemes();
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-    m_webProfile = isPrivate() ? new QWebEngineProfile() : QWebEngineProfile::defaultProfile();
-#else
     m_webProfile = isPrivate() ? new QWebEngineProfile() : new QWebEngineProfile(QSL("Default"));
-#endif
     connect(m_webProfile, &QWebEngineProfile::downloadRequested, this, &MainApplication::downloadRequested);
 
     m_webProfile->setNotificationPresenter([&] (std::unique_ptr<QWebEngineNotification> notification) {
@@ -408,11 +400,9 @@ MainApplication::~MainApplication()
     delete m_cookieJar;
     m_cookieJar = nullptr;
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
     // On Qt 6, deleting the web profile is necessary in order to make sure cache, cookies, etc. are flushed to disk.
     delete m_webProfile;
     m_webProfile = nullptr;
-#endif
 
     Settings::syncSettings();
 }
@@ -457,7 +447,7 @@ BrowserWindow* MainApplication::getWindow() const
         return m_lastActiveWindow.data();
     }
 
-    return m_windows.isEmpty() ? 0 : m_windows.at(0);
+    return m_windows.isEmpty() ? nullptr : m_windows.at(0);
 }
 
 BrowserWindow* MainApplication::createWindow(Qz::BrowserWindowType type, const QUrl &startUrl)
@@ -525,7 +515,7 @@ void MainApplication::destroyRestoreManager()
     }
 
     delete m_restoreManager;
-    m_restoreManager = 0;
+    m_restoreManager = nullptr;
 }
 
 void MainApplication::reloadSettings()
@@ -712,7 +702,7 @@ void MainApplication::startPrivateBrowsing(const QUrl &startUrl)
     args.append(QSL("--profile=") + ProfileManager::currentProfile());
 
     if (!url.isEmpty()) {
-        args << url.toEncoded();
+        args << QString::fromUtf8(url.toEncoded());
     }
 
     if (!QProcess::startDetached(applicationFilePath(), args)) {
@@ -744,7 +734,7 @@ void MainApplication::quitApplication()
         return;
     }
 
-    for (BrowserWindow *window : qAsConst(m_windows)) {
+    for (BrowserWindow *window : std::as_const(m_windows)) {
         Q_EMIT window->aboutToClose();
     }
 
@@ -754,7 +744,7 @@ void MainApplication::quitApplication()
 
     m_isClosing = true;
 
-    for (BrowserWindow *window : qAsConst(m_windows)) {
+    for (BrowserWindow *window : std::as_const(m_windows)) {
         window->close();
     }
 
@@ -794,7 +784,7 @@ QByteArray MainApplication::saveState() const
 {
     RestoreData restoreData;
     restoreData.windows.reserve(m_windows.count());
-    for (BrowserWindow *window : qAsConst(m_windows)) {
+    for (BrowserWindow *window : std::as_const(m_windows)) {
         restoreData.windows.append(BrowserWindow::SavedWindow(window));
     }
 
@@ -946,11 +936,7 @@ void MainApplication::runDeferredPostLaunchActions()
     checkOptimizeDatabase();
 }
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-void MainApplication::downloadRequested(QWebEngineDownloadItem *download)
-#else
 void MainApplication::downloadRequested(QWebEngineDownloadRequest *download)
-#endif
 {
     downloadManager()->download(download);
 }
@@ -1016,11 +1002,7 @@ void MainApplication::loadSettings()
     webSettings->setFontSize(QWebEngineSettings::MinimumLogicalFontSize, settings.value(QSL("MinimumLogicalFontSize"), 5).toInt());
     settings.endGroup();
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-    QWebEngineProfile* profile = QWebEngineProfile::defaultProfile();
-#else
     QWebEngineProfile* profile = m_webProfile;
-#endif
     profile->setPersistentCookiesPolicy(QWebEngineProfile::AllowPersistentCookies);
     profile->setPersistentStoragePath(DataPaths::currentProfilePath());
 
@@ -1042,7 +1024,7 @@ void MainApplication::loadSettings()
     settings.endGroup();
 
     if (isPrivate()) {
-        webSettings->setAttribute(QWebEngineSettings::LocalStorageEnabled, false);
+        profile->setPersistentStoragePath(DataPaths::path(DataPaths::Temp) + QLatin1String("/private-storage"));
         history()->setSaving(false);
     }
 
@@ -1144,7 +1126,7 @@ void MainApplication::checkOptimizeDatabase()
 
 void MainApplication::registerAllowedSchemes()
 {
-    for (const QString &schemeName : qAsConst(qzSettings->allowedSchemes)) {
+    for (const QString &schemeName : std::as_const(qzSettings->allowedSchemes)) {
         if (qzSettings->blockedSchemes.contains(schemeName)) {
             continue;
         }
@@ -1210,17 +1192,9 @@ void MainApplication::setUserStyleSheet(const QString &filePath)
     userCss += QzTools::readAllFileContents(filePath).remove(QLatin1Char('\n'));
 
     const QString name = QStringLiteral("_falkon_userstylesheet");
-
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-    QWebEngineScript oldScript = m_webProfile->scripts()->findScript(name);
-    if (!oldScript.isNull()) {
-        m_webProfile->scripts()->remove(oldScript);
-    }
-#else
     for (const QWebEngineScript &oldScript : m_webProfile->scripts()->find(name)) {
         m_webProfile->scripts()->remove(oldScript);
     }
-#endif
 
     if (userCss.isEmpty())
         return;
@@ -1245,7 +1219,7 @@ void MainApplication::createJumpList()
     frequent->setVisible(true);
     const QVector<HistoryEntry> mostList = m_history->mostVisited(7);
     for (const HistoryEntry &entry : mostList) {
-        frequent->addLink(IconProvider::iconForUrl(entry.url), entry.title, applicationFilePath(), QStringList{entry.url.toEncoded()});
+        frequent->addLink(IconProvider::iconForUrl(entry.url), entry.title, applicationFilePath(), QStringList{(QString::fromUtf8entry.url.toEncoded())});
     }
 
     // Tasks
@@ -1269,14 +1243,14 @@ RegisterQAppAssociation* MainApplication::associationManager()
 {
     if (!m_registerQAppAssociation) {
         QString desc = tr("Falkon is a new and very fast Qt web browser. Falkon is licensed under GPL version 3 or (at your option) any later version. It is based on QtWebEngine and Qt Framework.");
-        QString fileIconPath = QApplication::applicationFilePath() + ",1";
-        QString appIconPath = QApplication::applicationFilePath() + ",0";
-        m_registerQAppAssociation = new RegisterQAppAssociation("Falkon", QApplication::applicationFilePath(), appIconPath, desc, this);
-        m_registerQAppAssociation->addCapability(".html", "FalkonHTML", "Falkon HTML Document", fileIconPath, RegisterQAppAssociation::FileAssociation);
-        m_registerQAppAssociation->addCapability(".htm", "FalkonHTML", "Falkon HTML Document", fileIconPath, RegisterQAppAssociation::FileAssociation);
-        m_registerQAppAssociation->addCapability("http", "FalkonURL", "Falkon URL", appIconPath, RegisterQAppAssociation::UrlAssociation);
-        m_registerQAppAssociation->addCapability("https", "FalkonURL", "Falkon URL", appIconPath, RegisterQAppAssociation::UrlAssociation);
-        m_registerQAppAssociation->addCapability("ftp", "FalkonURL", "Falkon URL", appIconPath, RegisterQAppAssociation::UrlAssociation);
+        QString fileIconPath = QApplication::applicationFilePath() + QSL(",1");
+        QString appIconPath = QApplication::applicationFilePath() + QSL(",0");
+        m_registerQAppAssociation = new RegisterQAppAssociation(QSL("Falkon"), QApplication::applicationFilePath(), appIconPath, desc, this);
+        m_registerQAppAssociation->addCapability(QSL(".html"), QSL("FalkonHTML"), QSL("Falkon HTML Document"), fileIconPath, RegisterQAppAssociation::FileAssociation);
+        m_registerQAppAssociation->addCapability(QSL(".htm"), QSL("FalkonHTML"), QSL("Falkon HTML Document"), fileIconPath, RegisterQAppAssociation::FileAssociation);
+        m_registerQAppAssociation->addCapability(QSL("http"), QSL("FalkonURL"), QSL("Falkon URL"), appIconPath, RegisterQAppAssociation::UrlAssociation);
+        m_registerQAppAssociation->addCapability(QSL("https"), QSL("FalkonURL"), QSL("Falkon URL"), appIconPath, RegisterQAppAssociation::UrlAssociation);
+        m_registerQAppAssociation->addCapability(QSL("ftp"), QSL("FalkonURL"), QSL("Falkon URL"), appIconPath, RegisterQAppAssociation::UrlAssociation);
     }
     return m_registerQAppAssociation;
 }

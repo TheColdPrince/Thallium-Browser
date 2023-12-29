@@ -23,13 +23,14 @@
 #include "mainapplication.h"
 #include "sqldatabase.h"
 #include "webview.h"
+#include "qzsettings.h"
 
 #include <QWebEngineProfile>
 
 History::History(QObject* parent)
     : QObject(parent)
     , m_isSaving(true)
-    , m_model(0)
+    , m_model(nullptr)
 {
     loadSettings();
 }
@@ -46,8 +47,8 @@ HistoryModel* History::model()
 void History::loadSettings()
 {
     Settings settings;
-    settings.beginGroup("Web-Browser-Settings");
-    m_isSaving = settings.value("allowHistory", true).toBool();
+    settings.beginGroup(QSL("Web-Browser-Settings"));
+    m_isSaving = settings.value(QSL("allowHistory"), true).toBool();
     settings.endGroup();
 }
 
@@ -74,7 +75,7 @@ void History::addHistoryEntry(const QUrl &url, QString title)
         QSL("http"), QSL("https"), QSL("ftp"), QSL("file")
     };
 
-    if (!schemes.contains(url.scheme())) {
+    if (!schemes.contains(url.scheme()) && !qzSettings->allowedSchemes.contains(url.scheme())) {
         return;
     }
 
@@ -96,7 +97,7 @@ void History::addHistoryEntry(const QUrl &url, QString title)
                 entry.count = 1;
                 entry.date = QDateTime::currentDateTime();
                 entry.url = url;
-                entry.urlString = url.toEncoded();
+                entry.urlString = QString::fromUtf8(url.toEncoded());
                 entry.title = title;
                 Q_EMIT historyEntryAdded(entry);
             });
@@ -118,7 +119,7 @@ void History::addHistoryEntry(const QUrl &url, QString title)
                 before.count = count;
                 before.date = date;
                 before.url = url;
-                before.urlString = url.toEncoded();
+                before.urlString = QString::fromUtf8(url.toEncoded());
                 before.title = oldTitle;
 
                 HistoryEntry after = before;
@@ -150,7 +151,7 @@ void History::deleteHistoryEntry(const QList<int> &list)
 
     for (int index : list) {
         QSqlQuery query(SqlDatabase::instance()->database());
-        query.prepare("SELECT count, date, url, title FROM history WHERE id=?");
+        query.prepare(QSL("SELECT count, date, url, title FROM history WHERE id=?"));
         query.addBindValue(index);
         query.exec();
 
@@ -163,14 +164,14 @@ void History::deleteHistoryEntry(const QList<int> &list)
         entry.count = query.value(0).toInt();
         entry.date = QDateTime::fromMSecsSinceEpoch(query.value(1).toLongLong());
         entry.url = query.value(2).toUrl();
-        entry.urlString = entry.url.toEncoded();
+        entry.urlString = QString::fromUtf8(entry.url.toEncoded());
         entry.title = query.value(3).toString();
 
-        query.prepare("DELETE FROM history WHERE id=?");
+        query.prepare(QSL("DELETE FROM history WHERE id=?"));
         query.addBindValue(index);
         query.exec();
 
-        query.prepare("DELETE FROM icons WHERE url=?");
+        query.prepare(QSL("DELETE FROM icons WHERE url=?"));
         query.addBindValue(entry.url.toEncoded(QUrl::RemoveFragment));
         query.exec();
 
@@ -195,7 +196,7 @@ void History::deleteHistoryEntry(const QString &url)
 void History::deleteHistoryEntry(const QString &url, const QString &title)
 {
     QSqlQuery query(SqlDatabase::instance()->database());
-    query.prepare("SELECT id FROM history WHERE url=? AND title=?");
+    query.prepare(QSL("SELECT id FROM history WHERE url=? AND title=?"));
     query.bindValue(0, url);
     query.bindValue(1, title);
     query.exec();
@@ -214,7 +215,7 @@ QList<int> History::indexesFromTimeRange(qint64 start, qint64 end)
     }
 
     QSqlQuery query(SqlDatabase::instance()->database());
-    query.prepare("SELECT id FROM history WHERE date BETWEEN ? AND ?");
+    query.prepare(QSL("SELECT id FROM history WHERE date BETWEEN ? AND ?"));
     query.addBindValue(end);
     query.addBindValue(start);
     query.exec();
@@ -230,7 +231,7 @@ QVector<HistoryEntry> History::mostVisited(int count)
 {
     QVector<HistoryEntry> list;
     QSqlQuery query(SqlDatabase::instance()->database());
-    query.prepare(QString("SELECT count, date, id, title, url FROM history ORDER BY count DESC LIMIT %1").arg(count));
+    query.prepare(QSL("SELECT count, date, id, title, url FROM history ORDER BY count DESC LIMIT %1").arg(count));
     query.exec();
     while (query.next()) {
         HistoryEntry entry;
@@ -303,8 +304,8 @@ QList<HistoryEntry> History::searchHistoryEntry(const QString &text)
     QList<HistoryEntry> list;
     QSqlQuery query(SqlDatabase::instance()->database());
     query.prepare(QSL("SELECT count, date, id, title, url FROM history WHERE title LIKE ? OR url LIKE ?"));
-    query.bindValue(0, QString("%%1%").arg(text));
-    query.bindValue(1, QString("%%1%").arg(text));
+    query.bindValue(0, QSL("%%1%").arg(text));
+    query.bindValue(1, QSL("%%1%").arg(text));
     query.exec();
     while (query.next()) {
         HistoryEntry entry;

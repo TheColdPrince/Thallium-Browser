@@ -26,7 +26,7 @@
 BookmarksExportDialog::BookmarksExportDialog(QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::BookmarksExportDialog)
-    , m_currentExporter(0)
+    , m_currentExporter(nullptr)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
@@ -72,7 +72,7 @@ void BookmarksExportDialog::init()
 {
     m_exporters.append(new HtmlExporter(this));
 
-    for (BookmarksExporter* exporter : qAsConst(m_exporters)) {
+    for (BookmarksExporter* exporter : std::as_const(m_exporters)) {
         ui->format->addItem(exporter->name());
     }
 

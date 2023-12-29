@@ -117,23 +117,23 @@ msgctxt "TabManagerWidget|"
 msgid "&Unload checked tabs"
 msgstr ""
 
-#: tabmanagerwidget.cpp:586
+#: tabmanagerwidget.cpp:587
 msgctxt "TabManagerWidget|"
 msgid "Choose folder for bookmarks:"
 msgstr "Odredite fasciklu za obilježivače:"
 
-#: tabmanagerwidget.cpp:587
+#: tabmanagerwidget.cpp:588
 msgctxt "TabManagerWidget|"
 msgid "Bookmark Selected Tabs"
 msgstr "Obilježi izabrane jezičke"
 
-#: tabmanagerwidget.cpp:705
+#: tabmanagerwidget.cpp:706
 #, qt-format
 msgctxt "TabManagerWidget|"
 msgid "Window %1"
 msgstr "Prozor %1"
 
-#: tabmanagerwidget.cpp:706
+#: tabmanagerwidget.cpp:707
 msgctxt "TabManagerWidget|"
 msgid "Double click to switch"
 msgstr "Dvoklik za prebacivanje"
@@ -143,28 +143,28 @@ msgctxt "TabManagerWidget|"
 msgid "Tab Manager"
 msgstr "Menadžer jezičaka"
 
-#: tabmanagerwidgetcontroller.cpp:51
+#: tabmanagerwidgetcontroller.cpp:50
 msgctxt "TabManagerButton|"
 msgid "Tab Manager button"
 msgstr ""
 
-#: tabmanagerwidgetcontroller.cpp:69 tabmanagerwidgetcontroller.cpp:74
-#: tabmanagerwidgetcontroller.cpp:100
+#: tabmanagerwidgetcontroller.cpp:67 tabmanagerwidgetcontroller.cpp:72
+#: tabmanagerwidgetcontroller.cpp:98
 msgctxt "TabManagerWidgetController|"
 msgid "Tab Manager"
 msgstr "Menadžer jezičaka"
 
-#: tabmanagerwidgetcontroller.cpp:101
+#: tabmanagerwidgetcontroller.cpp:99
 msgctxt "TabManagerWidgetController|"
 msgid "Show Tab Manager"
 msgstr "Prikaži menadžera jezičaka"
 
-#: tldextractor/tldextractor.cpp:260 tldextractor/tldextractor.cpp:363
+#: tldextractor/tldextractor.cpp:261 tldextractor/tldextractor.cpp:364
 msgctxt "TLDExtractor|"
 msgid "File not found!"
 msgstr ""
 
-#: tldextractor/tldextractor.cpp:261
+#: tldextractor/tldextractor.cpp:262
 #, qt-format
 msgctxt "TLDExtractor|"
 msgid ""
@@ -174,7 +174,7 @@ msgid ""
 "%2"
 msgstr ""
 
-#: tldextractor/tldextractor.cpp:364
+#: tldextractor/tldextractor.cpp:365
 #, qt-format
 msgctxt "TLDExtractor|"
 msgid ""
