@@ -21,6 +21,7 @@
   <name xml:lang="fi">Falkon</name>
   <name xml:lang="fr">Falkon</name>
   <name xml:lang="gl">Falkon</name>
+  <name xml:lang="hu">Falkon</name>
   <name xml:lang="ia">Falkon:</name>
   <name xml:lang="id">Falkon</name>
   <name xml:lang="is">Falkon</name>
@@ -29,6 +30,7 @@
   <name xml:lang="ko">Falkon</name>
   <name xml:lang="nl">Falkon</name>
   <name xml:lang="nn">Falkon</name>
+  <name xml:lang="pa">ਫਾਲਕਨ</name>
   <name xml:lang="pl">Falkon</name>
   <name xml:lang="pt">Falkon</name>
   <name xml:lang="pt-BR">Falkon</name>
@@ -59,6 +61,7 @@
   <summary xml:lang="fi">Verkkoselain</summary>
   <summary xml:lang="fr">Navigateur Web</summary>
   <summary xml:lang="gl">Navegador web.</summary>
+  <summary xml:lang="hu">Webböngésző</summary>
   <summary xml:lang="ia">Navigator Web</summary>
   <summary xml:lang="id">Penelusur Web</summary>
   <summary xml:lang="is">Vafri</summary>
@@ -67,6 +70,7 @@
   <summary xml:lang="ko">웹 브라우저</summary>
   <summary xml:lang="nl">Webbrowser</summary>
   <summary xml:lang="nn">Nettlesar</summary>
+  <summary xml:lang="pa">ਵੈੱਬ ਬਰਾਊਜ਼ਰ</summary>
   <summary xml:lang="pl">Przeglądarka internetowa</summary>
   <summary xml:lang="pt">Navegador Web</summary>
   <summary xml:lang="pt-BR">Navegador Web</summary>
@@ -100,6 +104,7 @@
     <p xml:lang="fi">Falkon on uusi ja hyvin nopea Qt-verkkoselain. Se pyrkii olemaan kaikilla merkittävillä alustoilla käytettävissä oleva kevyt selain. Hanke käynnistettiin alkuaan opetustarkoituksin, mutta alusta saakka Falkonista on kasvanut monitoimintainen selain.</p>
     <p xml:lang="fr">Falkon est un nouveau navigateur Internet sous Qt, ultra-rapide. Il a pour objectif de devenir un navigateur web léger disponible sur toutes les plate-formes majeures. Ce projet avait à l'origine des fins purement éducatives. Mais après ces débuts, Falkon est devenu un navigateur riche en fonctionnalités.</p>
     <p xml:lang="gl">Falkon é un navegador web novo e moi rápido feito con Qt. Pretende ser un navegador web lixeiro dispoñíbel nas plataformas maioritarias. O proxecto comezou por curiosidade. Pero desde entón, Falkon converteuse nun navegador moi completo.</p>
+    <p xml:lang="hu">A Falkon egy új és nagyon gyors Qt-alapú webböngésző. A célja, hogy minden fő platformon elérhető pehelysúlyú böngészővé váljon. A projekt eredetileg oktatási célból indult, de már az elején egy funkciógazdag böngészővé vált.</p>
     <p xml:lang="ia">Falkon es un nove e multe rapide navigator web Qt. Illoindende esser un navigator web legier disponibile per omne major platteformas. Iste projecto ha essite startate originalmente sol per propositos educational. Ma ab su initio, Falkon ha crescite in un navigator ric de characteristicas.</p>
     <p xml:lang="id">Falkon adalah penelusur web Qt yang baru dan sangat cepat. Ini bertujuan untuk menjadi penelusur web ringan yang tersedia melalui semua platform utama. Proyek ini awalnya hanya dimulai untuk tujuan pendidikan. Tapi sejak awal, Falkon telah tumbuh menjadi penelusur kaya fitur.</p>
     <p xml:lang="is">Falkon er nýr og mjög hraðvirkur Qt-netvafri. Markmiðið er að hann sé léttur vafri fyrir sem flest kerfi. Verkefnið byrjaði sem kennsluverkefni, en frá því hefur Falkon vaxið upp í að vera fullorðinn vafri með úrval eiginleika.</p>
@@ -140,6 +145,7 @@
     <p xml:lang="fi">Falkonissa on kaikki selaimelta odottamasi toiminnallisuus: kirjanmerkit, historia (kumpikin myös sivupalkissa) ja välilehdet. Lisäksi voit hallita RSS-syötteitäsi sisään rakennetulla RSS-lukuohjelmalla, estää mainokset sisään rakennetulla AdBlock-liitännäisellä, estää Flash-sisällön Click2Flashillä sekä muokata paikallista CA-varmennetietokantaa SSL-hallintatyökalulla.</p>
     <p xml:lang="fr">Falkon dispose de toutes les fonctionnalités standard que l'on peut attendre d'un navigateur. Il comporte des signets, un historique (tous deux également disponibles dans la barre latérale) et des onglets. En plus de cela, vous pouvez gérer des flux « RSS » grâce au lecteur « RSS » intégré, bloquer les publicités avec le module externe « AdBlock » intégré, bloquer les contenus « Flash » avec Click2Flash et modifier la base de données de certificats « CA » locaux en utilisant un gestionnaire « SSL ».</p>
     <p xml:lang="gl">Falkon ten todas as funcións estándar que esperaría dun navegador web. Inclúe marcadores, historial (ambos dispoñíbeis en barras laterais) e separadores. Ademais, pode xestionar fontes de novas RSS cun lector de RSS incluído, bloquear anuncios cun complemento de AdBlock de serie, bloquear contido en Flash con Click2Flash e editar a base de datos local de certificados de autoridades certificadoras cun xestor de SSL.</p>
+    <p xml:lang="hu">A Falkon rendelkezik minden standard funkcióval, ami egy webböngészőtől elvárható. Tartalmaz könyvjelzőkezelést, előzményeket (mindkettő elérhető az oldalsávon is) és lapkezelést. Ezeken felül kezelhet RSS-csatornákat a beépített RSS-olvasóval, tilthatja a hirdetéseket a beépített Adblock bővítménnyel, a Flash tartalmat a Clock2Flashsel és szerkesztheti a helyi CA tanúsítvány-adatbázist az SSL-kezelővel.</p>
     <p xml:lang="ia">Falkon ha omne functiones standard que tu expecta ab un navigator web. Illo include marcatores de libro (marcapaginas), chronologia (ambes anque in barra lateral) e schedas. Super illo, tu pote manear syndicatione RSS con un lector de RSS includite, blocar publicitate con le plugin construite internemente AdBlock, blocar contento de Flash con Click2Flash e modificar le base de datos local de Certificato CA con un gerente de SSL.</p>
     <p xml:lang="id">Falkon memiliki semua fungsi standar yang kamu harapkan dari penelusur web. Ini termasuk markah, histori (keduanya juga di bilah sisi) dan tab. Di samping itu, kamu bisa mengelola feed RSS dengan pembaca RSS yang disertakan, mencekal iklan dengan plugin AdBlock bawaan, mencekal konten Flash dengan Click2Flash dan mengedit database CA Certificates lokal dengan pengelola SSL.</p>
     <p xml:lang="is">Falkon er með alla þá stöðluðu eiginleika sem fólk býst við að séu í vöfrum. Þar má telja bókamerki, vinnsluferil (bæði einnig á hliðarspjaldi) og flipa. Auk þess er hægt að sýsla með RSS-streymi með innbyggðum RSS-lesara, útilokun auglýsinga með innbyggðri AdBlock-viðbót, útilokun Flash-efnis með Click2Flash og breytingar á gagnagrunni CA-skilríkja með SSL-umsýslustýringu.</p>
@@ -155,7 +161,7 @@
     <p xml:lang="sk">Falkon má všetky bežné funkcie, ktoré by ste čakali od bežného internetového prehliadača. Obsahuje záložky, históriu (oboje aj v bočnom paneli) a karty. Okrem toho, môžete spravovať RSS prúdy so zabudovaným čítačom, blokovať reklamy s AdBlockom, blokovať Flash s Click2Flash a upravovať lokálnu databázu CA certifikátov so SSL správcom.</p>
     <p xml:lang="sl">Falkon ima vse standardne funkcije, ki jih pričakujete od spletnega brskalnika. Vključuje zaznamke, zgodovino (oboje tudi v stranski vrstici) in zavihki. Zgoraj lahko upravljajte vire RSS z vključenim bralnikom RSS, blokirate oglase z vgrajenim vtičnikom AdBlock, blokirate vsebino Flash s Click2Flash in uredite lokalno podatkovno bazo potrdil z upraviteljem SSL.</p>
     <p xml:lang="sv">Falkon har alla standardfunktioner man kan förvänta sig av en webbläsare. Det omfattar bokmärken, historik (båda också i sidorad) och flikar. Förutom det, kan man hantera RSS-kanaler med en inbyggd RSS-läsare, blockera reklam med ett inbyggt insticksprogram för reklamblockering, blockera Flash-innehåll med Click2Flash och redigera den lokala certifikatdatabasen för certifikatutfärdare med en SSL-hanterare.</p>
-    <p xml:lang="tr">Falkon'da, bir web tarayıcısından beklediğiniz tüm standart işlevler vardır. Yer imleri, geçmiş (kenar çubuğundan kullanılabilir) ve sekmeler içerir. Bunların yanında, RSS beslemelerinizi yönetmek ve okumak için bir RSS okuyucusu, dahili bir reklam engelleme eklentisi, Flash içeriği engellemek için Click2Flash ve yerel CA sertifikalarını yönetmek için bir SSL yöneticisi kullanıma hazırdır.</p>
+    <p xml:lang="tr">Falkon’da, bir web tarayıcısından beklediğiniz tüm standart işlevler vardır. Yer imleri, geçmiş (kenar çubuğundan kullanılabilir) ve sekmeler içerir. Bunların yanında, RSS beslemelerinizi yönetmek ve okumak için bir RSS okuyucusu, dahili bir reklam engelleme eklentisi, Flash içeriği engellemek için Click2Flash ve yerel CA sertifikalarını yönetmek için bir SSL yöneticisi kullanıma hazırdır.</p>
     <p xml:lang="uk">У Falkon ви знайдете усі можливості типової програми для перегляду інтернету. Передбачено можливість користування закладками, журналом перегляду (ці дві можливості реалізовано і на бічній панелі) та вкладками. Крім того ви можете отримувати подачі новин RSS за допомогою вбудованого засобу читання RSS, блокувати рекламні повідомлення за допомогою вбудованого додатка блокування реклами, блокувати включення Flash за допомогою додатка Click2Flash та редагувати локальну базу сертифікатів CA за допомогою засобу керування даними SSL.</p>
     <p xml:lang="x-test">xxFalkon has all standard functions you expect from a web browser. It includes bookmarks, history (both also in sidebar) and tabs. Above that, you can manage RSS feeds with an included RSS reader, block ads with a built-in AdBlock plugin, block Flash content with Click2Flash and edit the local CA Certificates database with an SSL manager.xx</p>
     <p xml:lang="zh-CN">Falkon 包含所有浏览器的高级功能，包括书签、历史、侧边栏和标签页。您可以通过内置的 RSS 阅读器管理 RSS 资源，通过内置的 AdBlock 插件屏蔽广告，通过 Click2Flash 屏蔽 Flash 内容，通过 SSL 管理器编辑本地 CA 认证数据库。</p>
@@ -174,9 +180,9 @@
   </provides>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="24.02.0" date="2024-02-28"/>
+    <release version="23.08.5" date="2024-02-15"/>
     <release version="23.08.4" date="2023-12-07"/>
     <release version="23.08.3" date="2023-11-09"/>
-    <release version="23.08.2" date="2023-10-12"/>
-    <release version="23.08.1" date="2023-09-14"/>
   </releases>
 </component>

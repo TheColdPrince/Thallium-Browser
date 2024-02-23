@@ -1,99 +1,97 @@
+# SPDX-FileCopyrightText: 2024 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
-"Project-Id-Version: kdeorg\n"
-"PO-Revision-Date: 2024-02-05 11:37\n"
-"Language-Team: Chinese Simplified\n"
-"Language: zh_CN\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: 2024-01-25 11:14+0100\n"
+"Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Crowdin-Project: kdeorg\n"
-"X-Crowdin-Project-ID: 269464\n"
-"X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/falkon/falkon_statusbaricons_qt.pot\n"
-"X-Crowdin-File-ID: 48524\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 24.01.90\n"
 
 #: sbi_imagesicon.cpp:34
 msgctxt "SBI_ImagesIcon|"
 msgid "Modify images loading settings per-site and globally"
-msgstr "修改单个站点和全局的图像加载设置"
+msgstr "Képbetöltési beállítások módosítása oldalanként és globálisan"
 
 #: sbi_imagesicon.cpp:58
 msgctxt "SBI_ImagesIcon|"
 msgid "Current Page Settings"
-msgstr "当前页面设置"
+msgstr "Jelenlegi oldal beállításai"
 
 #: sbi_imagesicon.cpp:61
 msgctxt "SBI_ImagesIcon|"
 msgid "Disable loading images (temporarily)"
-msgstr "禁用加载图像 (临时)"
+msgstr "Képbetöltés letiltása (átmenetileg)"
 
 #: sbi_imagesicon.cpp:64
 msgctxt "SBI_ImagesIcon|"
 msgid "Enable loading images (temporarily)"
-msgstr "启用加载图像 (临时)"
+msgstr "Képbetöltés engedélyezése (átmenetileg)"
 
 #: sbi_imagesicon.cpp:68
 msgctxt "SBI_ImagesIcon|"
 msgid "Global Settings"
-msgstr "全局设置"
+msgstr "Globális beállítások"
 
 #: sbi_imagesicon.cpp:70
 msgctxt "SBI_ImagesIcon|"
 msgid "Automatically load images"
-msgstr "自动加载图像"
+msgstr "Automatikus képbetöltés"
 
 #: sbi_javascripticon.cpp:34
 msgctxt "SBI_JavaScriptIcon|"
 msgid "Modify JavaScript settings per-site and globally"
-msgstr "修改单个站点和全局的 JavaScript 设置"
+msgstr "JavaScript beállítások módosítása oldalanként és globálisan"
 
 #: sbi_javascripticon.cpp:51
 msgctxt "SBI_JavaScriptIcon|"
 msgid "Current Page Settings"
-msgstr "当前页面设置"
+msgstr "Jelenlegi oldal beállításai"
 
 #: sbi_javascripticon.cpp:54
 msgctxt "SBI_JavaScriptIcon|"
 msgid "Disable JavaScript (temporarily)"
-msgstr "禁用 JavaScript (临时)"
+msgstr "JavaScript letiltása (átmenetileg)"
 
 #: sbi_javascripticon.cpp:57
 msgctxt "SBI_JavaScriptIcon|"
 msgid "Enable JavaScript (temporarily)"
-msgstr "启用 JavaScript (临时)"
+msgstr "JavaScript engedélyezése (átmenetileg)"
 
 #: sbi_javascripticon.cpp:66
 msgctxt "SBI_JavaScriptIcon|"
 msgid "Global Settings"
-msgstr "全局设置"
+msgstr "Globális beállítások"
 
 #: sbi_javascripticon.cpp:67
 msgctxt "SBI_JavaScriptIcon|"
 msgid "Manage JavaScript settings"
-msgstr "管理 JavaScript 设置"
+msgstr "JavaScript beállítások kezelése"
 
 #: sbi_networkicon.cpp:62
 msgctxt "SBI_NetworkIcon|"
 msgid "Proxy Configuration"
-msgstr "代理服务器配置"
+msgstr "Proxybeállítás"
 
 #: sbi_networkicon.cpp:64
 msgctxt "SBI_NetworkIcon|"
 msgid "Select proxy"
-msgstr "选择代理服务器"
+msgstr "Proxy kiválasztása"
 
 #: sbi_networkicon.cpp:78
 msgctxt "SBI_NetworkIcon|"
 msgid "Empty"
-msgstr "空"
+msgstr "Üres"
 
 #: sbi_networkicon.cpp:82
 msgctxt "SBI_NetworkIcon|"
 msgid "Manage proxies"
-msgstr "管理代理服务器"
+msgstr "Proxyk kezelése"
 
 #: sbi_networkicon.cpp:95
 #, qt-format
@@ -102,78 +100,79 @@ msgid ""
 "Shows network status and manages proxy<br/><br/><b>Network:</b><br/>%1<br/"
 "><br/><b>Proxy:</b><br/>%2"
 msgstr ""
-"显示网络状态并管理代理服务器<br/><br/><b>网络：</b><br/>%1<br/><br/><b>代理服"
-"务器：</b><br/>%2"
+"Hálózati állapot megjelenítése és proxyk kezelése<br/><br/><b>Hálózat:</"
+"b><br/>%1<br/><br/><b>Proxy:</b><br/>%2"
 
 #: sbi_networkicon.cpp:99
 msgctxt "SBI_NetworkIcon|"
 msgid "Connected"
-msgstr "已连接"
+msgstr "Kapcsolódva"
 
 #: sbi_networkicon.cpp:103
 msgctxt "SBI_NetworkIcon|"
 msgid "System proxy"
-msgstr "系统代理服务器"
+msgstr "Rendszerproxy"
 
 #: sbi_networkicon.cpp:107
 msgctxt "SBI_NetworkIcon|"
 msgid "No proxy"
-msgstr "无代理服务器"
+msgstr "Nincs proxy"
 
 #: sbi_networkicon.cpp:111
 msgctxt "SBI_NetworkIcon|"
 msgid "User defined"
-msgstr "用户自定义"
+msgstr "Felhasználó által megadott"
 
 #: sbi_networkicondialog.cpp:57 sbi_networkicondialog.ui:38
 msgctxt "SBI_NetworkIconDialog|"
 msgid "Add proxy"
-msgstr "添加代理服务器"
+msgstr "Proxy hozzáadása"
 
 #: sbi_networkicondialog.cpp:57
 msgctxt "SBI_NetworkIconDialog|"
 msgid "Name of proxy:"
-msgstr "代理服务器名称："
+msgstr "Proxy neve:"
 
 #: sbi_networkicondialog.cpp:70
 msgctxt "SBI_NetworkIconDialog|"
 msgid "Remove current proxy"
-msgstr "移除当前代理服务器"
+msgstr "Jelenlegi proxy eltávolítása"
 
 #: sbi_networkicondialog.cpp:70
 msgctxt "SBI_NetworkIconDialog|"
 msgid "Are you sure you want to remove current proxy?"
-msgstr "确定要移除当前代理服务器吗？"
+msgstr "Biztosan el szeretné távolítani a jelenlegi proxyt?"
 
 #: sbi_networkicondialog.ui:14
 msgctxt "SBI_NetworkIconDialog|"
 msgid "Proxy Manager"
-msgstr "代理服务器管理器"
+msgstr "Proxykezelő"
 
 #: sbi_networkicondialog.ui:28
 msgctxt "SBI_NetworkIconDialog|"
 msgid "Select proxy: "
-msgstr "选择代理服务器："
+msgstr "Proxy kiválasztása: "
 
 #: sbi_networkicondialog.ui:45
 msgctxt "SBI_NetworkIconDialog|"
 msgid "Remove proxy"
-msgstr "移除代理服务器"
+msgstr "Proxy eltávolítása"
 
 #: sbi_networkicondialog.ui:69
 msgctxt "SBI_NetworkIconDialog|"
 msgid "No proxies. You can add proxy by clicking on <b>Add</b> button."
-msgstr "没有代理服务器。点击<b>添加</b>按钮可添加代理服务器。"
+msgstr ""
+"Nincsenek proxyk. A <b>Hozzáadás</b> gombra kattintva adhat hozzá proxyt."
 
 #: sbi_networkicondialog.ui:104
 msgctxt "SBI_NetworkIconDialog|"
 msgid "All changes must be saved with <b>Save</b> button."
-msgstr "所有改动必需在按下<b>保存</b>按钮后才会保存。"
+msgstr "Minden módosítást menteni kell a <b>Mentés</b> gombbal."
 
 #: sbi_proxywidget.ui:14
 msgctxt "SBI_ProxyWidget|"
 msgid "Form"
-msgstr "表格"
+msgstr "Űrlap"
 
 #: sbi_proxywidget.ui:23
 msgctxt "SBI_ProxyWidget|"
@@ -188,65 +187,65 @@ msgstr "SOCKS5"
 #: sbi_proxywidget.ui:39
 msgctxt "SBI_ProxyWidget|"
 msgid "Port:"
-msgstr "端口："
+msgstr "Port:"
 
 #: sbi_proxywidget.ui:76
 msgctxt "SBI_ProxyWidget|"
 msgid "Username:"
-msgstr "用户名："
+msgstr "Felhasználónév:"
 
 #: sbi_proxywidget.ui:86
 msgctxt "SBI_ProxyWidget|"
 msgid "Password:"
-msgstr "密码："
+msgstr "Jelszó:"
 
 #: sbi_proxywidget.ui:111
 msgctxt "SBI_ProxyWidget|"
 msgid "S&ystem proxy configuration"
-msgstr "系统代理服务器配置(&Y)"
+msgstr "&Rendszer proxybeállításai"
 
 #: sbi_proxywidget.ui:118
 msgctxt "SBI_ProxyWidget|"
 msgid "&Manual configuration"
-msgstr "手动配置(&M)"
+msgstr "&Kézi beállítás"
 
 #: sbi_settingsdialog.ui:14
 msgctxt "SBI_SettingsDialog|"
 msgid "StatusBar Icons"
-msgstr "状态栏图标"
+msgstr "Állapotsáv ikonok"
 
 #: sbi_settingsdialog.ui:48
 msgctxt "SBI_SettingsDialog|"
 msgid "<h3>StatusBar Icons</h3>"
-msgstr "<h3>状态栏图标</h3>"
+msgstr "<h3>Állapotsáv ikonok</h3>"
 
 #: sbi_settingsdialog.ui:70
 msgctxt "SBI_SettingsDialog|"
 msgid "These icons will be displayed in statusbar:"
-msgstr "这些图标将被显示在状态栏上："
+msgstr "Ezek az ikonok jelennek meg az állapotsávon:"
 
 #: sbi_settingsdialog.ui:97
 msgctxt "SBI_SettingsDialog|"
 msgid "Images Icon"
-msgstr "图像图标"
+msgstr "Képek ikon"
 
 #: sbi_settingsdialog.ui:104
 msgctxt "SBI_SettingsDialog|"
 msgid "JavaScript Icon"
-msgstr "JavaScript 图标"
+msgstr "JavaScript ikon"
 
 #: sbi_settingsdialog.ui:111
 msgctxt "SBI_SettingsDialog|"
 msgid "Network Icon"
-msgstr "网络图标"
+msgstr "Hálózati ikon"
 
 #: sbi_settingsdialog.ui:118
 msgctxt "SBI_SettingsDialog|"
 msgid "Zoom widget"
-msgstr "缩放部件"
+msgstr "Nagyító elem"
 
 #: sbi_zoomwidget.cpp:48
 #, qt-format
 msgctxt "SBI_ZoomWidget|"
 msgid "Zoom: %1%"
-msgstr "缩放：%1%"
+msgstr "Nagyítás: %1%"
